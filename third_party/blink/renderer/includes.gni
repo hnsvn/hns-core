@@ -1,0 +1,68 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+# common includes which can help minimize patches for
+# src/third_party/blink/renderer/core/BUILD.gn
+
+import("//hns/third_party/blink/renderer/core/hns_page_graph/sources.gni")
+
+hns_blink_renderer_platform_visibility = []
+
+hns_blink_renderer_platform_public_deps = []
+
+hns_blink_renderer_platform_sources = [
+  "//hns/third_party/blink/renderer/platform/hns_audio_farbling_helper.cc",
+  "//hns/third_party/blink/renderer/platform/hns_audio_farbling_helper.h",
+]
+
+hns_blink_renderer_platform_deps = []
+
+hns_blink_renderer_core_visibility =
+    [ "//hns/third_party/blink/renderer/*" ]
+
+hns_blink_renderer_core_public_deps = [
+  "//hns/components/hns_page_graph/common:buildflags",
+  "//hns/third_party/blink/renderer",
+]
+
+hns_blink_renderer_core_sources = [
+  "//hns/third_party/blink/renderer/core/farbling/hns_session_cache.cc",
+  "//hns/third_party/blink/renderer/core/farbling/hns_session_cache.h",
+  "//hns/third_party/blink/renderer/core/resource_pool_limiter/resource_pool_limiter.cc",
+  "//hns/third_party/blink/renderer/core/resource_pool_limiter/resource_pool_limiter.h",
+]
+
+hns_blink_renderer_core_deps = []
+
+hns_blink_renderer_core_public_deps += hns_page_graph_core_public_deps
+hns_blink_renderer_core_sources += hns_page_graph_core_sources
+hns_blink_renderer_core_deps += hns_page_graph_core_deps
+
+# common includes which can help minimize patches for
+# src/third_party/blink/renderer/modules/BUILD.gn
+hns_blink_renderer_modules_visibility =
+    [ "//hns/third_party/blink/renderer/*" ]
+
+hns_blink_sub_modules = [
+  "//hns/third_party/blink/renderer/modules/hns",
+  "//hns/third_party/blink/renderer/modules/global_privacy_control",
+]
+
+# common includes which can help minimize patches for
+# third_party/blink/renderer/bindings/idl_in_modules.gni
+hns_static_idl_files_in_modules = [
+  "//hns/third_party/blink/renderer/modules/hns/hns.idl",
+  "//hns/third_party/blink/renderer/modules/hns/navigator_hns.idl",
+  "//hns/third_party/blink/renderer/modules/hns/worker_navigator_hns.idl",
+  "//hns/third_party/blink/renderer/modules/global_privacy_control/navigator_global_privacy_control.idl",
+  "//hns/third_party/blink/renderer/modules/global_privacy_control/worker_navigator_global_privacy_control.idl",
+]
+
+# common includes which can help minimize patches for
+# third_party/blink/renderer/bindings/generated_in_modules.gni
+hns_generated_interface_sources_in_modules = [
+  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_hns.h",
+  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_hns.cc",
+]

@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/components/content_settings/core/browser",
+  "+hns/components/hns_shields/common",
+  "+hns/components/constants",
+]

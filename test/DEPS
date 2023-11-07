@@ -1,0 +1,10 @@
+include_rules = [
+  "+hns/app",
+  "+hns/browser",
+  "+hns/common",
+  "+chrome/browser",
+  "+chrome/common",
+  "+chrome/test",
+  "+content/public/common",
+  "+content/public/test",
+]

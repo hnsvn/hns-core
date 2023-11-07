@@ -1,0 +1,72 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//build/config/features.gni")
+
+hns_browser_infobar_sources = []
+hns_browser_infobar_deps = []
+
+if (!is_android) {
+  hns_browser_infobar_sources += [
+    "//hns/browser/infobars/hns_confirm_infobar_creator.h",
+    "//hns/browser/infobars/hns_confirm_p3a_infobar_delegate.cc",
+    "//hns/browser/infobars/hns_confirm_p3a_infobar_delegate.h",
+    "//hns/browser/infobars/hns_sync_account_deleted_infobar_delegate.cc",
+    "//hns/browser/infobars/hns_sync_account_deleted_infobar_delegate.h",
+    "//hns/browser/infobars/request_otr_infobar_delegate.cc",
+    "//hns/browser/infobars/request_otr_infobar_delegate.h",
+    "//hns/browser/infobars/sync_cannot_run_infobar_delegate.cc",
+    "//hns/browser/infobars/sync_cannot_run_infobar_delegate.h",
+    "//hns/browser/infobars/sync_v2_migrate_infobar_delegate.cc",
+    "//hns/browser/infobars/sync_v2_migrate_infobar_delegate.h",
+  ]
+
+  hns_browser_infobar_deps += [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/browser/ui/views/infobars:hns_sync_account_deleted_infobar",
+    "//hns/common:common",
+    "//hns/components/hns_sync:features",
+    "//hns/components/hns_sync:prefs",
+    "//hns/components/constants",
+    "//hns/components/p3a",
+    "//chrome/app:chromium_strings",
+    "//components/infobars/content",
+    "//components/infobars/core",
+    "//components/prefs",
+    "//components/strings",
+    "//ui/base",
+    "//ui/views",
+    "//url",
+  ]
+
+  if (enable_ipfs) {
+    hns_browser_infobar_deps += [
+      "//hns/components/ipfs",
+      "//components/user_prefs",
+    ]
+    if (!is_android) {
+      hns_browser_infobar_sources += [
+        "//hns/browser/infobars/hns_ipfs_infobar_delegate.cc",
+        "//hns/browser/infobars/hns_ipfs_infobar_delegate.h",
+      ]
+      hns_browser_infobar_deps += [
+        "//hns/browser/ui/views/infobars:infobars",
+        "//hns/components/infobars/core:core",
+      ]
+    }
+  }
+
+  if (enable_hns_wayback_machine) {
+    hns_browser_infobar_sources += [
+      "//hns/browser/infobars/hns_wayback_machine_delegate_impl.cc",
+      "//hns/browser/infobars/hns_wayback_machine_delegate_impl.h",
+    ]
+
+    hns_browser_infobar_deps += [ "//hns/components/hns_wayback_machine" ]
+  }
+}

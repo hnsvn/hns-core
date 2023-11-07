@@ -1,0 +1,7 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_sync_protocol_sources =
+    [ "//hns/components/sync/protocol/hns_device_info_specifics.proto" ]

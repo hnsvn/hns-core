@@ -1,0 +1,30 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/components/hns_webtorrent/browser/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+hns_browser_autocomplete_sources = [
+  "//hns/browser/autocomplete/hns_autocomplete_scheme_classifier.cc",
+  "//hns/browser/autocomplete/hns_autocomplete_scheme_classifier.h",
+]
+
+hns_browser_autocomplete_deps = [
+  "//base",
+  "//hns/common",
+  "//hns/components/hns_webtorrent/browser/buildflags",
+  "//hns/components/ipfs/buildflags",
+  "//chrome/browser/profiles:profile",
+]
+
+if (enable_extensions && enable_hns_webtorrent) {
+  hns_browser_autocomplete_deps +=
+      [ "//hns/components/hns_webtorrent/browser" ]
+}
+
+if (enable_ipfs) {
+  hns_browser_autocomplete_deps += [ "//hns/components/ipfs" ]
+}

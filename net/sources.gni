@@ -1,0 +1,12 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_net_sources = [
+  "//hns/net/decentralized_dns/constants.h",
+  "//hns/net/http/partitioned_host_state_map.cc",
+  "//hns/net/http/partitioned_host_state_map.h",
+  "//hns/net/proxy_resolution/proxy_config_service_tor.cc",
+  "//hns/net/proxy_resolution/proxy_config_service_tor.h",
+]

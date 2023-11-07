@@ -1,0 +1,18 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+component("renderer") {
+  sources = [
+    "hns_farbling_constants.h",
+    "hns_font_whitelist.cc",
+    "hns_font_whitelist.h",
+  ]
+
+  deps = [ "//hns/components/hns_drm:hns_drm_blink" ]
+
+  defines = [ "BLINK_IMPLEMENTATION=1" ]
+
+  output_name = "hns_blink_renderer_addon"
+}

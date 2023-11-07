@@ -1,0 +1,30 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+source_set("p3a") {
+  sources = [
+    "hns_histograms_controller+private.h",
+    "hns_histograms_controller.h",
+    "hns_histograms_controller.mm",
+    "hns_p3a_utils+private.h",
+    "hns_p3a_utils.h",
+    "hns_p3a_utils.mm",
+  ]
+  deps = [
+    "//base",
+    "//hns/components/p3a",
+    "//components/prefs",
+    "//ios/chrome/browser/shared/model/browser_state",
+    "//ios/chrome/browser/shared/model/url:constants",
+    "//ios/components/webui:url_constants",
+    "//ios/web/public",
+    "//ios/web/public/webui",
+    "//ios/web/web_state",
+    "//ios/web/web_state:web_state_impl_header",
+    "//net",
+    "//ui/base",
+    "//url",
+  ]
+}

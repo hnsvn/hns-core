@@ -1,0 +1,13 @@
+include_rules = [
+  "+content/public/browser",
+  "+services/metrics/public",
+  "+third_party/blink/public/mojom",
+  "+ui/base",
+]
+
+# Existing exceptions
+specific_include_rules = {
+  "perf_predictor_tab_helper.cc": [
+    "+hns/browser/android/hns_shields_content_settings.h",
+  ],
+}

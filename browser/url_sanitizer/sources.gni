@@ -1,0 +1,19 @@
+hns_browser_url_sanitizer_sources = [
+  "//hns/browser/url_sanitizer/url_sanitizer_service_factory.cc",
+  "//hns/browser/url_sanitizer/url_sanitizer_service_factory.h",
+]
+
+hns_browser_url_sanitizer_deps = [
+  "//base",
+  "//hns/components/url_sanitizer/browser",
+  "//components/keyed_service/content",
+]
+
+if (is_android) {
+  hns_browser_url_sanitizer_sources += [ "//hns/browser/url_sanitizer/android/url_sanitizer_service_factory_android.cc" ]
+
+  hns_browser_url_sanitizer_deps += [
+    "//hns/build/android:jni_headers",
+    "//mojo/public/cpp/bindings",
+  ]
+}

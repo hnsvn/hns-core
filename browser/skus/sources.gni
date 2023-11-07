@@ -1,0 +1,19 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_skus_sources = [
+  "//hns/browser/skus/skus_service_factory.cc",
+  "//hns/browser/skus/skus_service_factory.h",
+]
+hns_browser_skus_deps = [
+  "//base",
+  "//hns/browser/profiles:util",
+  "//hns/components/skus/browser",
+  "//hns/components/skus/common",
+  "//hns/components/skus/common:mojom",
+  "//components/keyed_service/content",
+  "//components/pref_registry",
+  "//content/public/browser",
+]

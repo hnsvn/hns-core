@@ -1,0 +1,34 @@
+/* Copyright (c) 2019 The Hns Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+#ifndef HNS_BROWSER_HNS_ADS_NOTIFICATION_HELPER_NOTIFICATION_HELPER_IMPL_H_
+#define HNS_BROWSER_HNS_ADS_NOTIFICATION_HELPER_NOTIFICATION_HELPER_IMPL_H_
+
+namespace hns_ads {
+
+class NotificationHelperImpl {
+ public:
+  NotificationHelperImpl(const NotificationHelperImpl&) = delete;
+  NotificationHelperImpl& operator=(const NotificationHelperImpl&) = delete;
+
+  NotificationHelperImpl(NotificationHelperImpl&&) noexcept = delete;
+  NotificationHelperImpl& operator=(NotificationHelperImpl&&) noexcept = delete;
+
+  virtual ~NotificationHelperImpl();
+
+  virtual bool CanShowNotifications();
+  virtual bool CanShowSystemNotificationsWhileBrowserIsBackgrounded() const;
+
+  virtual bool ShowOnboardingNotification();
+
+ protected:
+  friend class NotificationHelper;
+
+  NotificationHelperImpl();
+};
+
+}  // namespace hns_ads
+
+#endif  // HNS_BROWSER_HNS_ADS_NOTIFICATION_HELPER_NOTIFICATION_HELPER_IMPL_H_

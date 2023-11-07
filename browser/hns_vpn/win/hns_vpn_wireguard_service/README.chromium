@@ -1,0 +1,4 @@
+Name: Hns VPN WireGuard Service
+URL: https://github.com/hnsvn/hns-core/tree/master/components/hns_vpn/browser/connection/wireguard/win/hns_vpn_wireguard_service
+License: MPL-2.0
+License File: /hns/common/licenses/MPL-2.0

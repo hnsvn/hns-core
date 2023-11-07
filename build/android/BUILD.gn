@@ -1,0 +1,246 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/android/hns_xml_preprocessor.gni")
+import("//hns/build/config.gni")
+import("//build/config/android/rules.gni")
+import("//tools/grit/grit_rule.gni")
+
+_apksigner = "$android_sdk_build_tools/apksigner"
+_jarsigner = "//third_party/jdk/current/bin/jarsigner"
+_zipalign = "$android_sdk_build_tools/zipalign"
+
+action("sign_app_convert_aab_to_apk") {
+  script = "//hns/build/android/aab_to_apk.py"
+
+  deps = [ ":sign_app" ]
+
+  target_aab_path = "$root_out_dir/apks/MonochromePublic6432.aab"
+  output_apk_path = "$root_out_dir/apks/Hnsarm64Universal.apk"
+  output_path = "$root_out_dir/apks/"
+  bundletool = "//third_party/android_build_tools/bundletool/bundletool.jar"
+
+  outputs = [ output_apk_path ]
+
+  args = [
+    rebase_path(bundletool, root_out_dir),
+    rebase_path(target_aab_path, root_out_dir),
+    rebase_path(output_apk_path, root_out_dir),
+    rebase_path(output_path, root_out_dir),
+    rebase_path("$hns_android_keystore_path", root_out_dir),
+    "$hns_android_keystore_password",
+    "$hns_android_key_password",
+    "$hns_android_keystore_name",
+    rebase_path(_zipalign, root_out_dir),
+    rebase_path(_apksigner, root_out_dir),
+    rebase_path(_jarsigner, root_out_dir),
+  ]
+}
+
+action("sign_app") {
+  script = "//hns/build/android/sign_apk.py"
+
+  deps = [ "//hns:create_symbols_dist" ]
+
+  if (target_cpu == "arm64" || target_cpu == "x64") {
+    if (target_android_output_format == "aab") {
+      target_sign_app_path = "$root_out_dir/apks/MonochromePublic6432.aab"
+    } else {
+      target_sign_app_path = "$root_out_dir/apks/MonochromePublic.apk"
+    }
+  } else {
+    if (target_android_base == "mono") {
+      if (target_android_output_format == "aab") {
+        target_sign_app_path = "$root_out_dir/apks/MonochromePublic.aab"
+      } else {
+        target_sign_app_path = "$root_out_dir/apks/MonochromePublic.apk"
+      }
+    } else {
+      if (target_android_output_format == "aab") {
+        target_sign_app_path = "$root_out_dir/apks/ChromeModernPublic.aab"
+      } else {
+        target_sign_app_path = "$root_out_dir/apks/ChromePublic.apk"
+      }
+    }
+  }
+
+  outputs = [ "$target_sign_app_path-singed" ]
+  args = [
+    rebase_path(_zipalign, root_out_dir),
+    rebase_path(_apksigner, root_out_dir),
+    rebase_path(_jarsigner, root_out_dir),
+  ]
+  args += [
+    rebase_path(target_sign_app_path, root_out_dir),
+    rebase_path("$hns_android_keystore_path", root_out_dir),
+    "$hns_android_keystore_password",
+    "$hns_android_key_password",
+    "$hns_android_keystore_name",
+  ]
+}
+
+copy("hns") {
+  visibility = [ "*" ]
+  deps = []
+  sources = []
+  if (target_cpu == "arm64" || target_cpu == "x64") {
+    if (target_android_output_format == "aab") {
+      deps += [ "//chrome/android:monochrome_64_32_public_bundle" ]
+      sources += [ "$root_out_dir/apks/MonochromePublic6432.aab" ]
+    } else {
+      # There is no 64-bit apk target for Mono
+      deps += [ "//chrome/android:monochrome_public_apk" ]
+      sources += [ "$root_out_dir/apks/MonochromePublic.apk" ]
+    }
+  } else {
+    if (target_android_base == "mono") {
+      if (target_android_output_format == "aab") {
+        deps += [ "//chrome/android:monochrome_public_bundle" ]
+        sources += [ "$root_out_dir/apks/MonochromePublic.aab" ]
+      } else {
+        deps += [ "//chrome/android:monochrome_public_apk" ]
+        sources += [ "$root_out_dir/apks/MonochromePublic.apk" ]
+      }
+    } else {
+      deps += [ "//chrome/android:chrome_public_apk" ]
+      sources += [ "$root_out_dir/apks/ChromePublic.apk" ]
+    }
+  }
+  outputs = [ hns_android_output ]
+}
+
+java_strings_grd("android_hns_strings_grd") {
+  grd_file = "//hns/browser/ui/android/strings/android_hns_strings.grd"
+  outputs = [
+    "values/android_hns_strings.xml",
+    "values-af/android_hns_strings.xml",
+    "values-am/android_hns_strings.xml",
+    "values-ar/android_hns_strings.xml",
+    "values-as/android_hns_strings.xml",
+    "values-az/android_hns_strings.xml",
+    "values-be/android_hns_strings.xml",
+    "values-bg/android_hns_strings.xml",
+    "values-bn/android_hns_strings.xml",
+    "values-bs/android_hns_strings.xml",
+    "values-ca/android_hns_strings.xml",
+    "values-cs/android_hns_strings.xml",
+    "values-da/android_hns_strings.xml",
+    "values-de/android_hns_strings.xml",
+    "values-el/android_hns_strings.xml",
+    "values-en-rGB/android_hns_strings.xml",
+    "values-es/android_hns_strings.xml",
+    "values-es-rUS/android_hns_strings.xml",
+    "values-et/android_hns_strings.xml",
+    "values-eu/android_hns_strings.xml",
+    "values-fa/android_hns_strings.xml",
+    "values-fi/android_hns_strings.xml",
+    "values-fr/android_hns_strings.xml",
+    "values-fr-rCA/android_hns_strings.xml",
+    "values-gl/android_hns_strings.xml",
+    "values-gu/android_hns_strings.xml",
+    "values-hi/android_hns_strings.xml",
+    "values-hr/android_hns_strings.xml",
+    "values-hu/android_hns_strings.xml",
+    "values-hy/android_hns_strings.xml",
+    "values-in/android_hns_strings.xml",
+    "values-is/android_hns_strings.xml",
+    "values-it/android_hns_strings.xml",
+    "values-iw/android_hns_strings.xml",
+    "values-ja/android_hns_strings.xml",
+    "values-ka/android_hns_strings.xml",
+    "values-kk/android_hns_strings.xml",
+    "values-km/android_hns_strings.xml",
+    "values-kn/android_hns_strings.xml",
+    "values-ko/android_hns_strings.xml",
+    "values-ky/android_hns_strings.xml",
+    "values-lo/android_hns_strings.xml",
+    "values-lt/android_hns_strings.xml",
+    "values-lv/android_hns_strings.xml",
+    "values-mk/android_hns_strings.xml",
+    "values-ml/android_hns_strings.xml",
+    "values-mn/android_hns_strings.xml",
+    "values-mr/android_hns_strings.xml",
+    "values-ms/android_hns_strings.xml",
+    "values-my/android_hns_strings.xml",
+    "values-nb/android_hns_strings.xml",
+    "values-ne/android_hns_strings.xml",
+    "values-nl/android_hns_strings.xml",
+    "values-or/android_hns_strings.xml",
+    "values-pa/android_hns_strings.xml",
+    "values-pl/android_hns_strings.xml",
+    "values-pt-rBR/android_hns_strings.xml",
+    "values-pt-rPT/android_hns_strings.xml",
+    "values-ro/android_hns_strings.xml",
+    "values-ru/android_hns_strings.xml",
+    "values-si/android_hns_strings.xml",
+    "values-sk/android_hns_strings.xml",
+    "values-sl/android_hns_strings.xml",
+    "values-sq/android_hns_strings.xml",
+    "values-sr/android_hns_strings.xml",
+    "values-sv/android_hns_strings.xml",
+    "values-sw/android_hns_strings.xml",
+    "values-ta/android_hns_strings.xml",
+    "values-te/android_hns_strings.xml",
+    "values-th/android_hns_strings.xml",
+    "values-tl/android_hns_strings.xml",
+    "values-tr/android_hns_strings.xml",
+    "values-uk/android_hns_strings.xml",
+    "values-ur/android_hns_strings.xml",
+    "values-uz/android_hns_strings.xml",
+    "values-vi/android_hns_strings.xml",
+    "values-zh-rCN/android_hns_strings.xml",
+    "values-zh-rHK/android_hns_strings.xml",
+    "values-zh-rTW/android_hns_strings.xml",
+    "values-zu/android_hns_strings.xml",
+  ]
+}
+
+hns_xml_preprocessor("hns_java_xml_preprocess_resources") {
+  sources = hns_java_preprocess_xml_sources
+  modules = hns_java_preprocess_module_sources
+}
+
+generate_jni("jni_headers") {
+  sources = [
+    "//hns/android/java/org/chromium/chrome/browser/HnsFeatureUtil.java",
+    "//hns/android/java/org/chromium/chrome/browser/HnsLocalState.java",
+    "//hns/android/java/org/chromium/chrome/browser/HnsRelaunchUtils.java",
+    "//hns/android/java/org/chromium/chrome/browser/HnsRewardsNativeWorker.java",
+    "//hns/android/java/org/chromium/chrome/browser/HnsSyncWorker.java",
+    "//hns/android/java/org/chromium/chrome/browser/app/HnsActivity.java",
+    "//hns/android/java/org/chromium/chrome/browser/bookmarks/HnsBookmarkBridge.java",
+    "//hns/android/java/org/chromium/chrome/browser/hns_news/HnsNewsControllerFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/component_updater/HnsComponentUpdater.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/AssetRatioServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/BlockchainRegistryFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/HnsWalletProviderDelegateImplHelper.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/HnsWalletServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/JsonRpcServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/KeyringServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/SwapServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/TxServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/permission/HnsDappPermissionPromptDialog.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/util/WalletDataFilesInstaller.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/util/WalletDataFilesInstallerUtil.java",
+    "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/util/WalletNativeUtils.java",
+    "//hns/android/java/org/chromium/chrome/browser/informers/HnsSyncAccountDeletedInformer.java",
+    "//hns/android/java/org/chromium/chrome/browser/misc_metrics/PrivacyHubMetricsFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/notifications/HnsNotificationPlatformBridge.java",
+    "//hns/android/java/org/chromium/chrome/browser/notifications/HnsNotificationSettingsBridge.java",
+    "//hns/android/java/org/chromium/chrome/browser/ntp_background_images/NTPBackgroundImagesBridge.java",
+    "//hns/android/java/org/chromium/chrome/browser/playlist/PlaylistServiceFactoryAndroid.java",
+    "//hns/android/java/org/chromium/chrome/browser/preferences/HnsPrefServiceBridge.java",
+    "//hns/android/java/org/chromium/chrome/browser/preferences/website/HnsShieldsContentSettings.java",
+    "//hns/android/java/org/chromium/chrome/browser/settings/developer/HnsQAPreferences.java",
+    "//hns/android/java/org/chromium/chrome/browser/shields/FilterListServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/shields/UrlSanitizerServiceFactory.java",
+    "//hns/android/java/org/chromium/chrome/browser/signin/HnsSigninManager.java",
+    "//hns/android/java/org/chromium/chrome/browser/speedreader/HnsSpeedReaderUtils.java",
+    "//hns/android/java/org/chromium/chrome/browser/sync/HnsSyncDevices.java",
+    "//hns/android/java/org/chromium/chrome/browser/vpn/HnsVpnNativeWorker.java",
+  ]
+
+  public_deps = [ "//hns/android/java/org/chromium/chrome/browser/search_engines:jni_headers" ]
+}

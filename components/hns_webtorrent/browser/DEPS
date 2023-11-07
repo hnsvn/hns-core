@@ -1,0 +1,16 @@
+include_rules = [
+  "+hns/components/constants",
+  "+content/public/browser",
+  "+extensions/browser",
+  "+extensions/common",
+]
+
+# Existing exceptions
+specific_include_rules = {
+  "content_browser_client_helper.h": [
+    "+chrome/browser/external_protocol/external_protocol_handler.h",
+  ],
+  "webtorrent_util.cc": [
+    "+chrome/browser/profiles/profile.h",
+  ],
+}

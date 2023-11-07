@@ -1,0 +1,7 @@
+import("//mojo/public/tools/bindings/mojom.gni")
+
+mojom("interfaces") {
+  sources = [ "hns_federated.mojom" ]
+  webui_module_path = "/hns/components/hns_federated/public/interfaces"
+  public_deps = [ "//mojo/public/mojom/base" ]
+}

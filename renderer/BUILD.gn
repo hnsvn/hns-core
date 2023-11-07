@@ -1,0 +1,37 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+import("//build/config/features.gni")
+
+source_set("renderer") {
+  visibility = [
+    "//hns:child_dependencies",
+    "//hns/renderer/*",
+    "//hns/test:*",
+    "//chrome/renderer/*",
+  ]
+
+  public_deps = [ "//chrome/renderer" ]
+
+  deps = [
+    "//hns/components/hns_search/common",
+    "//hns/components/hns_search/renderer",
+    "//hns/components/hns_shields/common",
+    "//hns/components/hns_wallet/renderer",
+    "//hns/components/cosmetic_filters/renderer",
+    "//hns/renderer/hns_wallet/",
+    "//v8",
+  ]
+
+  if (enable_speedreader) {
+    deps += [ "//hns/components/speedreader/renderer" ]
+  }
+
+  if (enable_hns_vpn && is_android) {
+    deps += [ "//hns/components/hns_vpn/renderer/android" ]
+  }
+}

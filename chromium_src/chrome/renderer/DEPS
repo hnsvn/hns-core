@@ -1,0 +1,9 @@
+include_rules = [
+  "+hns/components/ai_chat/common",
+  "+hns/components/ai_chat/renderer",
+  "+hns/components/hns_shields/common",
+  "+hns/components/content_settings/renderer",
+  "+hns/renderer",
+  "+media/base/key_system_info.h",
+  "+third_party/widevine/cdm/buildflags.h",
+]

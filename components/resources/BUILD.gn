@@ -1,0 +1,178 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/browser/ethereum_remote_client/buildflags/buildflags.gni")
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//hns/resources/hns_grit.gni")
+import("//build/config/locales.gni")
+import("//extensions/buildflags/buildflags.gni")
+import("//tools/grit/repack.gni")
+
+hns_grit("static_resources") {
+  source = "hns_components_resources.grd"
+
+  output_name = "hns_components_resources_new"
+
+  outputs = [
+    "grit/hns_components_resources.h",
+    "hns_components_static.pak",
+  ]
+  deps = [
+    ":strings",
+    "//hns/components/hns_rewards/resources",
+  ]
+
+  if (enable_extensions) {
+    deps += [ "//hns/components/hns_extension/extension/hns_extension" ]
+  }
+
+  if (enable_tor) {
+    deps += [ "//hns/components/tor/resources" ]
+  }
+
+  defines = [
+    "enable_hns_vpn=$enable_hns_vpn",
+    "enable_ipfs=$enable_ipfs",
+    "enable_ipfs_internals_webui=$enable_ipfs_internals_webui",
+    "enable_playlist=$enable_playlist",
+    "enable_playlist_webui=$enable_playlist_webui",
+    "enable_speedreader=$enable_speedreader",
+  ]
+
+  output_dir = "$root_gen_dir/components"
+}
+
+repack("resources") {
+  deps = [ ":static_resources" ]
+  sources = [ "$root_gen_dir/components/hns_components_static.pak" ]
+
+  if (!is_ios) {
+    deps += [
+      "//hns/components/hns_adblock_ui:generated_resources",
+      "//hns/components/hns_adblock_ui/adblock_internals:generated_resources",
+      "//hns/components/cosmetic_filters/resources/data:generated_resources",
+      "//hns/components/skus/browser/resources:generated_resources",
+    ]
+
+    sources += [
+      "$root_gen_dir/hns/components/hns_adblock/adblock_internals/resources/hns_adblock_internals_generated.pak",
+      "$root_gen_dir/hns/components/hns_adblock/resources/hns_adblock_generated.pak",
+      "$root_gen_dir/hns/components/cosmetic_filters/resources/cosmetic_filters_generated.pak",
+      "$root_gen_dir/hns/components/skus/browser/resources/skus_internals_generated.pak",
+    ]
+  }
+
+  if (!is_android && !is_ios) {
+    deps += [
+      "//hns/components/hns_new_tab_ui:generated_resources",
+      "//hns/components/hns_news/browser/resources:generated_resources",
+      "//hns/components/hns_news/browser/resources:generated_resources",
+      "//hns/components/hns_private_new_tab_ui/resources/page:generated_resources",
+      "//hns/components/hns_shields/resources/cookie_list_opt_in:cookie_list_opt_in_generated",
+      "//hns/components/hns_shields/resources/panel:hns_shields_panel_generated",
+      "//hns/components/hns_welcome_ui:generated_resources",
+      "//hns/components/speedreader/resources/panel:generated_resources",
+      "//hns/components/webcompat_reporter/ui:generated_resources",
+    ]
+
+    sources += [
+      "$root_gen_dir/hns/components/hns_new_tab/resources/hns_new_tab_generated.pak",
+      "$root_gen_dir/hns/components/hns_news/browser/resources/hns_news_internals_generated.pak",
+      "$root_gen_dir/hns/components/hns_private_new_tab/resources/page/hns_private_new_tab_generated.pak",
+      "$root_gen_dir/hns/components/hns_shields/resources/cookie_list_opt_in/cookie_list_opt_in_generated.pak",
+      "$root_gen_dir/hns/components/hns_shields/resources/panel/hns_shields_panel_generated.pak",
+      "$root_gen_dir/hns/components/hns_welcome/resources/hns_welcome_generated.pak",
+      "$root_gen_dir/hns/components/speedreader/resources/panel/hns_speedreader_toolbar_generated.pak",
+      "$root_gen_dir/hns/components/webcompat_reporter/resources/webcompat_reporter_generated.pak",
+    ]
+  }
+
+  if (enable_ai_chat) {
+    deps += [ "//hns/components/ai_chat/resources/page:generated_resources" ]
+    sources += [ "$root_gen_dir/hns/components/ai_chat/resources/page/ai_chat_ui_generated.pak" ]
+  }
+
+  if (enable_ipfs_internals_webui) {
+    deps += [ "//hns/components/ipfs_ui:generated_resources" ]
+    sources += [
+      "$root_gen_dir/hns/components/ipfs_ui/resources/ipfs_generated.pak",
+    ]
+  }
+
+  if (!is_ios) {
+    deps += [ "//hns/components/hns_wallet_ui:resources" ]
+    sources += [
+      "$root_gen_dir/hns/components/hns_wallet/resources/hns_wallet.pak",
+    ]
+  }
+
+  deps += [ "//hns/components/hns_wallet/resources:ethereum_provider_generated_resources" ]
+  sources += [ "$root_gen_dir/hns/components/hns_wallet/resources/hns_wallet_script_generated.pak" ]
+
+  if (enable_hns_vpn_panel) {
+    deps += [ "//hns/components/hns_vpn/resources/panel:resources" ]
+    sources += [
+      "$root_gen_dir/hns/components/hns_vpn/hns_vpn_panel_resources.pak",
+    ]
+  }
+
+  if (ethereum_remote_client_enabled) {
+    if (!is_android && !is_ios) {
+      sources += [ "$root_gen_dir/hns/components/ethereum_remote_client_page/resources/ethereum_remote_client_page_generated.pak" ]
+      deps += [ "//hns/browser/ui/webui/ethereum_remote_client:ethereum_remote_client_page_generated" ]
+    }
+  }
+
+  if (enable_playlist_webui) {
+    deps +=
+        [ "//hns/components/playlist/browser/resources:generated_resources" ]
+    sources += [ "$root_gen_dir/hns/components/playlist/browser/resources/playlist_generated.pak" ]
+  }
+
+  if (!is_android && !is_ios) {
+    deps += [
+      "//hns/browser/resources/settings/shortcuts_page:generated_resources",
+    ]
+    sources += [ "$root_gen_dir/hns/browser/resources/settings/shortcuts_page/commands_generated.pak" ]
+  }
+
+  output = "$root_gen_dir/components/hns_components_resources.pak"
+}
+
+hns_grit("strings") {
+  source = "hns_components_strings.grd"
+
+  outputs = [ "grit/hns_components_strings.h" ]
+
+  defines = [
+    "enable_speedreader=$enable_speedreader",
+    "enable_ipfs=$enable_ipfs",
+    "enable_ipfs_internals_webui=$enable_ipfs_internals_webui",
+    "ethereum_remote_client_enabled=$ethereum_remote_client_enabled",
+    "enable_tor=$enable_tor",
+    "enable_hns_vpn=$enable_hns_vpn",
+  ]
+
+  foreach(locale, all_chrome_locales) {
+    outputs += [ "hns_components_strings_$locale.pak" ]
+  }
+
+  output_dir = "$root_gen_dir/components"
+}
+
+action("about_credits") {
+  script = "//hns/script/check_npm_licenses.py"
+
+  inputs = [ "//hns/package.json" ]
+
+  outputs = [ "$root_gen_dir/npm_licenses.checked" ]
+
+  args = [ rebase_path("$root_gen_dir/npm_licenses.checked") ]
+}

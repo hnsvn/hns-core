@@ -1,0 +1,31 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+source_set("hd_key") {
+  sources = [
+    "hd_key.cc",
+    "hd_key.h",
+    "hd_key_base.h",
+    "hd_key_ed25519.cc",
+    "hd_key_ed25519.h",
+  ]
+
+  visibility = [
+    "//hns/components/hns_wallet/browser:hd_keyring",
+    "//hns/components/hns_wallet/browser/test:hns_wallet_unit_tests",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_wallet/common",
+    "//hns/third_party/bitcoin-core",
+    "//hns/third_party/bitcoin-core:secp256k1",
+    "//hns/vendor/bat-native-tweetnacl:tweetnacl",
+    "//crypto",
+    "//third_party/boringssl",
+  ]
+
+  public_deps = [ "//hns/components/hns_wallet/rust:rust_lib" ]
+}

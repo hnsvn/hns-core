@@ -1,0 +1,14 @@
+/* Copyright 2020 The Hns Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef HNS_CHROMIUM_SRC_CHROME_BROWSER_IMPORTER_IN_PROCESS_IMPORTER_BRIDGE_H_
+#define HNS_CHROMIUM_SRC_CHROME_BROWSER_IMPORTER_IN_PROCESS_IMPORTER_BRIDGE_H_
+
+#define HNS_IN_PROCESS_IMPORTER_BRIDGE_H \
+    friend class HnsInProcessImporterBridge;
+#include "src/chrome/browser/importer/in_process_importer_bridge.h"  // IWYU pragma: export
+#undef HNS_IN_PROCESS_IMPORTER_BRIDGE_H
+
+#endif  // HNS_CHROMIUM_SRC_CHROME_BROWSER_IMPORTER_IN_PROCESS_IMPORTER_BRIDGE_H_

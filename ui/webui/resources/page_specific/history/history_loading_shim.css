@@ -1,0 +1,5 @@
+#loading-toolbar,
+html[dark] #loading-toolbar {
+  background: var(--hns-toolbar-gradient);
+  color: transparent;
+}

@@ -1,0 +1,36 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+
+hns_browser_speedreader_sources = []
+hns_browser_speedreader_deps = []
+
+if (enable_speedreader) {
+  hns_browser_speedreader_sources += [
+    "//hns/browser/speedreader/page_distiller.cc",
+    "//hns/browser/speedreader/page_distiller.h",
+    "//hns/browser/speedreader/speedreader_service_factory.cc",
+    "//hns/browser/speedreader/speedreader_service_factory.h",
+    "//hns/browser/speedreader/speedreader_tab_helper.cc",
+    "//hns/browser/speedreader/speedreader_tab_helper.h",
+  ]
+
+  hns_browser_speedreader_deps += [
+    "//base",
+    "//hns/components/speedreader",
+    "//chrome/browser/profiles:profile",
+    "//components/keyed_service/content",
+    "//components/keyed_service/core",
+    "//content/public/browser",
+  ]
+
+  if (is_android) {
+    hns_browser_speedreader_sources +=
+        [ "//hns/browser/android/speedreader/speedreader_utils.cc" ]
+
+    hns_browser_speedreader_deps += [ "//hns/build/android:jni_headers" ]
+  }
+}

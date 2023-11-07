@@ -1,0 +1,21 @@
+import("//hns/components/greaselion/browser/buildflags/buildflags.gni")
+
+hns_browser_greaselion_sources = []
+hns_browser_greaselion_deps = []
+
+if (enable_greaselion) {
+  hns_browser_greaselion_sources += [
+    "//hns/browser/greaselion/greaselion_service_factory.cc",
+    "//hns/browser/greaselion/greaselion_service_factory.h",
+    "//hns/browser/greaselion/greaselion_tab_helper.cc",
+    "//hns/browser/greaselion/greaselion_tab_helper.h",
+  ]
+
+  hns_browser_greaselion_deps += [
+    "//base",
+    "//hns/components/greaselion/browser",
+    "//chrome/common",
+    "//components/keyed_service/content",
+    "//extensions/browser",
+  ]
+}

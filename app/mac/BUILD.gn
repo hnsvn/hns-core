@@ -1,0 +1,31 @@
+import("//hns/build/config.gni")
+import("//chrome/version.gni")
+
+if (should_generate_symbols) {
+  action("generate_breakpad_symbols") {
+    script = "//hns/tools/mac/generate_breakpad_symbols.py"
+
+    symbols_dir = "$hns_dist_dir/$hns_product_name.breakpad.syms"
+    outputs = [ symbols_dir ]
+    breakpad_files_glob =
+        rebase_path(root_out_dir) + "/*-$chrome_version_full.breakpad"
+
+    args = [
+      "--symbols-dir=" + rebase_path(symbols_dir),
+      "--input-breakpad-files-glob=$breakpad_files_glob",
+      "--clear",
+    ]
+
+    deps = [ "//chrome:chrome_dump_syms" ]
+  }
+} else {
+  group("generate_breakpad_symbols") {
+  }
+}
+
+group("dist_resources") {
+}
+
+group("symbol_dist_resources") {
+  public_deps = [ ":generate_breakpad_symbols" ]
+}

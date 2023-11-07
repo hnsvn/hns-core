@@ -1,0 +1,39 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+hns_browser_browsing_data_sources = [
+  "//hns/browser/browsing_data/hns_browsing_data_remover_delegate.cc",
+  "//hns/browser/browsing_data/hns_browsing_data_remover_delegate.h",
+  "//hns/browser/browsing_data/hns_clear_browsing_data.cc",
+  "//hns/browser/browsing_data/hns_clear_browsing_data.h",
+]
+
+hns_browser_browsing_data_deps = [
+  "//base",
+  "//hns/components/ipfs/buildflags",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/browsing_data:constants",
+  "//chrome/browser/profiles:profile",
+  "//chrome/common",
+  "//components/browsing_data/core",
+  "//components/content_settings/core/browser",
+  "//components/content_settings/core/common",
+  "//components/prefs",
+  "//content/public/browser",
+]
+
+if (enable_extensions) {
+  hns_browser_browsing_data_deps += [
+    "//hns/common/extensions/api",
+    "//extensions/browser",
+  ]
+}
+
+if (enable_ipfs) {
+  hns_browser_browsing_data_deps += [ "//hns/components/ipfs" ]
+}

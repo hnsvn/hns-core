@@ -1,0 +1,12 @@
+include_rules = [
+  "+base",
+  "+hns/components/hns_stats/browser",
+  "+hns/components/p3a",
+  "+hns/components/version_info",
+  "+components/keyed_service/core",
+  "+components/metrics",
+  "+components/prefs",
+  "+services/network/public",
+  "+sql",
+  "+url",
+]

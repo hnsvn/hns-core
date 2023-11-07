@@ -1,0 +1,22 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+
+transpile_web_ui("hns_shields_panel_ui") {
+  entry_points = [ [
+        "hns_shields_panel",
+        rebase_path("shields_panel.tsx"),
+      ] ]
+  resource_name = "hns_shields_panel"
+  deps = [ "//hns/components/hns_shields/common:mojom_js" ]
+}
+
+pack_web_resources("hns_shields_panel_generated") {
+  resource_name = "hns_shields_panel"
+  output_dir = "$root_gen_dir/hns/components/hns_shields/resources/panel"
+  deps = [ ":hns_shields_panel_ui" ]
+}

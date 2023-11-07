@@ -1,0 +1,33 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//extensions/buildflags/buildflags.gni")
+
+hns_browser_web_discovery_sources = []
+hns_browser_web_discovery_deps = []
+
+if (enable_extensions) {
+  hns_browser_web_discovery_sources += [
+    "//hns/browser/web_discovery/web_discovery_cta_util.cc",
+    "//hns/browser/web_discovery/web_discovery_cta_util.h",
+    "//hns/browser/web_discovery/web_discovery_infobar_delegate.cc",
+    "//hns/browser/web_discovery/web_discovery_infobar_delegate.h",
+    "//hns/browser/web_discovery/web_discovery_tab_helper.cc",
+    "//hns/browser/web_discovery/web_discovery_tab_helper.h",
+  ]
+
+  hns_browser_web_discovery_deps += [
+    "//hns/common",
+    "//hns/components/constants",
+    "//hns/components/search_engines",
+    "//chrome/browser/profiles",
+    "//chrome/browser/ui",
+    "//components/infobars/content",
+    "//components/infobars/core",
+    "//components/prefs",
+    "//components/search_engines",
+    "//content/public/browser",
+  ]
+}

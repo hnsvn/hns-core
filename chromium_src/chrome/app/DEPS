@@ -1,0 +1,18 @@
+include_rules = [
+  "+hns/app",
+  "+hns/browser",
+  "+hns/common",
+  "+chrome/browser",
+  "+chrome/common",
+]
+
+specific_include_rules = {
+  "chrome_main_delegate.cc": [
+    "+hns/build/android/jni_headers/HnsQAPreferences_jni.h",
+    "+hns/components/hns_sync/buildflags.h",
+    "+hns/components/variations/buildflags.h",
+    "+components/dom_distiller/core/dom_distiller_switches.h",
+    "+components/signin/public/base/account_consistency_method.h",
+    "+components/sync/base/command_line_switches.h",
+  ],
+}

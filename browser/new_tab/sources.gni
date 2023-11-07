@@ -1,0 +1,27 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_new_tab_sources = []
+hns_browser_new_tab_deps = []
+
+if (!is_android) {
+  hns_browser_new_tab_sources += [
+    "//hns/browser/new_tab/new_tab_shows_navigation_throttle.cc",
+    "//hns/browser/new_tab/new_tab_shows_navigation_throttle.h",
+    "//hns/browser/new_tab/new_tab_shows_options.cc",
+    "//hns/browser/new_tab/new_tab_shows_options.h",
+  ]
+
+  hns_browser_new_tab_deps += [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/components/constants",
+    "//chrome/common",
+    "//components/prefs",
+    "//content/public/browser",
+    "//ui/base",
+    "//url",
+  ]
+}

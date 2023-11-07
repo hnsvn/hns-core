@@ -1,0 +1,6 @@
+include_rules = [
+  "+hns/components/constants",
+  "+hns/components/google_sign_in_permission",
+  "+content/public/browser",
+  "+services/preferences",
+]

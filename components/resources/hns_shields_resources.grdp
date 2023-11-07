@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grit-part>
+  <include name="IDR_HNS_SHIELDS_ICON_64" file="../hns_shields/resources/icon.png" type="BINDATA" />
+  <include name="IDR_HNS_SHIELDS_ICON_64_DISABLED" file="../hns_shields/resources/icon-off.png" type="BINDATA" />
+  <include name="IDR_SHIELDS_PANEL_HTML" file="../hns_shields/resources/panel/hns_shields.html" type="BINDATA" />
+  <include name="IDR_COOKIE_LIST_OPT_IN_HTML" file="../hns_shields/resources/cookie_list_opt_in/cookie_list_opt_in.html" type="BINDATA" />
+</grit-part>

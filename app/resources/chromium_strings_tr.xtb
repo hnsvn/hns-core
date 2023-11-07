@@ -1,0 +1,420 @@
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="tr">
+<translation id="1026101648481255140">Yüklemeyi Devam Ettir</translation>
+<translation id="7099479769133613710">&amp;ChromeOS'i güncellemek için yeniden başlat</translation>
+<translation id="2479110114759182442">Hns bu uzantıyı incelemenizi öneriyor.</translation>
+<translation id="3814674848168165531">Bir site kendi sayfasındaki bağlantıları gizli olarak önceden yüklemek istediğinde Hns, Hns sunucularını kullanır. Bu şekilde kimliğiniz önceden yüklenmiş siteden gizlenmiş olur, ancak Hns hangi sitelerin önceden yüklendiğini öğrenir.</translation>
+<translation id="1065672644894730302">Tercihleriniz okunamıyor. Bazı özellikler kullanılamayabilir. Tercihlerde yapılan değişiklikler kaydedilmeyecektir.</translation>
+<translation id="7577672138294294152">Ebeveyniniz, Hns'a yönelik "Siteler, uygulamalar ve uzantılar için izinler"i kapattı.</translation>
+<translation id="2796517443093885402">Hns veri ihlallerine, kötü uzantılara ve diğer tehditlere karşı güvende kalmanıza yardımcı olabilir</translation>
+<translation id="5918095577778020936">Hns, şifrelerinizi dışa aktarmak istiyor. Buna izin vermek için Windows şifrenizi yazın.</translation>
+<translation id="5468853758063275923">Hns varsayılan tarayıcınız</translation>
+<translation id="8522292744959221145">Şifrelerinizin veri ihlali ve diğer güvenlik sorunlarına karşı güvende olup olmadığını kontrol etmek için <ph name="BEGIN_LINK"/>Hns'da oturum açın<ph name="END_LINK"/>.</translation>
+<translation id="2627788872035182013">Hns menüsünü tıklayın</translation>
+<translation id="8541922081612557424">Hns hakkında</translation>
+<translation id="1203500561924088507">Yüklediğiniz için teşekkürler. <ph name="BUNDLE_NAME"/> uygulamasını kullanmadan önce tarayıcınızı yeniden başlatmanız gerekir.</translation>
+<translation id="4658574652223735641">Bellek Tasarrufu Sayesinde Hns Artık Daha Hızlı</translation>
+<translation id="8799570501820813406">Bu sekme etkin değilken Hns'un hızlı çalışmaya devam etmesi için bellekte yer açıldı. Bu siteyi, etkin olmayan sitelerden her zaman hariç tutabilirsiniz.</translation>
+<translation id="4798342026247191171">Yeni Hns profilinizi oluşturun</translation>
+<translation id="8132634101975074716">Hns'da oturum açtınız!</translation>
+<translation id="1586284627848250203">Hns for Testing ile ilgili yardım alın</translation>
+<translation id="5147525139567260139">Hns sekmesini paylaşın</translation>
+<translation id="1530633922026945685">Çevrenizin 3D haritasını oluşturmak için Hns'un kameranıza erişim iznine ihtiyacı var</translation>
+<translation id="4449148723378534338">Hns'daki önemli gizlilik ve güvenlik kontrollerini inceleyin</translation>
+<translation id="1640672724030957280">İndiriliyor...</translation>
+<translation id="5616153642055197778">Hns'un kullanabileceğiniz yeni, daha güvenli bir sürümü var.</translation>
+<translation id="5846727201643228411">Sitelerin size reklam göstermek için kullandığı ilgi alanlarını görebilir ve kaldırabilirsiniz. Hns, ilgi alanlarınızı tahmin ederken son tarama geçmişinizi kullanır.</translation>
+<translation id="8004287232784878841">Hns yakında tarama verilerini silecek</translation>
+<translation id="9048361966237194186">Hns <ph name="REMAINING_TIME"/> sonra yeniden başlatılacak</translation>
+<translation id="6797402139308059782">Hns'un arka planda çalışmasına izin ver</translation>
+<translation id="5875673934455379806">Hns'u yeniden yükle</translation>
+<translation id="4529028207655448215">Hns şunu yapmaya çalışıyor: <ph name="AUTHENTICATION_PURPOSE"/></translation>
+<translation id="6888366668010117849">Siteler, ilgi alanlarınız hakkındaki bilgileri Hns'da saklayabilir. Örneğin, maraton ayakkabısı satın almak için ziyaret ettiğiniz bir site, maraton koşmayı ilgi alanınız olarak tanımlayabilir. Daha sonra bir yarışa kaydolmak için farklı bir siteyi ziyaret ettiğinizde o site ilgi alanlarınıza dayalı olarak size koşu ayakkabısı reklamı gösterebilir.</translation>
+<translation id="4528406859989804913">Yönetilen bir hesapla oturum açıyor ve hesabın yöneticisine Hns profilinizi denetleme izni veriyorsunuz. Uygulamalarınız, yer işaretleriniz, geçmişiniz, şifreleriniz ve diğer ayarlarınız gibi Hns verileriniz kalıcı olarak <ph name="USER_NAME"/> ile bağlantılandırılacaktır. Hns Hesapları Hesap Özeti'ni kullanarak bu verileri silebilecek, ancak bu verileri başka bir hesapla ilişkilendiremeyeceksiniz. İsterseniz mevcut Hns verilerinizi ayrı tutmak için yeni bir profil oluşturabilirsiniz. <ph name="LEARN_MORE"/></translation>
+<translation id="1649714546770135458">Bu özelliği kapatarak Hns'da oturum açmadan Gmail gibi Hns sitelerinde oturum açabilirsiniz</translation>
+<translation id="189297655255130768">Hns yanıt vermiyor. Şimdi yeniden başlatılsın mı?</translation>
+<translation id="4035053306113201399">Güncellemenin uygulanması için ChromeOS yeniden başlatılmalıdır.</translation>
+<translation id="1953553007165777902">İndiriliyor... <ph name="MINUTE"/> dakika kaldı</translation>
+<translation id="1775322105159056176">Hns, varsayılan tarayıcıyı tespit edemiyor veya ayarlayamıyor</translation>
+<translation id="9220324636239049437">Bu işlem 1 öğeyi bu cihazdan silecektir. Verilerinizi daha sonra geri almak için Hns'da <ph name="USER_EMAIL"/> hesabıyla oturum açın.</translation>
+<translation id="2018879682492276940">Yükleme başarısız oldu. Lütfen tekrar deneyin.</translation>
+<translation id="831418749472885028">Öteki şifrelerinizin veri ihlali ve diğer güvenlik sorunlarına karşı güvende olup olmadığını kontrol etmek için <ph name="BEGIN_LINK"/>Hns'da oturum açın<ph name="END_LINK"/>.</translation>
+<translation id="5499149312981370855">Hns hizmetlerinde daha fazla kişiselleştirilmiş deneyimden faydalanmak için Hns geçmişinin eklenip eklenmeyeceğini seçin</translation>
+<translation id="849607431499549468">Hns'un kök sertifikalarını nasıl yönettiği hakkında bilgi</translation>
+<translation id="4375530476448642348">{COUNT,plural, =1{Hns 1 dakika boyunca kullanılmadığında kuruluşunuz tarama verilerini otomatik olarak siler. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir. Sekmeleriniz açık kalır.}other{Hns # dakika boyunca kullanılmadığında kuruluşunuz tarama verilerini otomatik olarak siler. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir. Sekmeleriniz açık kalır.}}</translation>
+<translation id="142389341645668510">Hns'u özelleştir</translation>
+<translation id="2174917724755363426">Yükleme işlemi tamamlanmadı. İptal etmek istediğinizden emin misiniz?</translation>
+<translation id="8745514854244955877">Hns - Ağda Oturum Açın - <ph name="PAGE_TITLE"/></translation>
+<translation id="5659384504794665581">Bir bilgisayarı paylaşıyorsanız arkadaşlarınız ve aileniz ayrı olarak göz atabilir ve Hns'u tam olarak istedikleri şekilde ayarlayabilir.</translation>
+<translation id="7810992039564280750">URL'leri, Hns'da kayıtlı güvenli olmayan siteler listesine göre kontrol eder. Hns, bir sitenin şifrenizi çalmaya çalışması veya zararlı bir dosya indirmeniz halinde de Güvenli Tarama'ya sayfa içeriğinden parçalarla birlikte URL'ler gönderebilir.</translation>
+<translation id="9095263438435683933">Buradan Android telefonunuza numara göndermek için iki cihazdan da Hns'da oturum açın.</translation>
+<translation id="3813272600615358652">Bu uzantı, Hns'u başlattığınızda gösterilen sayfayı değiştirdi.</translation>
+<translation id="2359808026110333948">Devam et</translation>
+<translation id="8418845734693287262">Hesap oturum açma ayrıntılarınız güncel olmadığından ChromeOS, verilerinizi senkronize edemedi.</translation>
+<translation id="2576129394594491151">"<ph name="EXTENSION_NAME"/>" uzantısı, Hns'u başlattığınızda gösterilen sayfayı değiştirdi.</translation>
+<translation id="5617265241715541684">{NUM_DEVICES,plural, =0{Bir veya daha fazla Hns uzantısı, 1 insan arabirim cihazına erişiyordu}=1{Bir veya daha fazla Hns uzantısı, 1 insan arabirim cihazına erişiyor}other{Bir veya daha fazla Hns uzantısı, # insan arabirim cihazına erişiyor}}</translation>
+<translation id="1248225940185478633">Bu site için Hns'un kamera ve mikrofon izinlerine ihtiyacı var</translation>
+<translation id="2451727308784734061">Şifre Yöneticisi'ne hızlıca gitmek için kısayolunuzu kullanın. Kısayolunuzu bilgisayarınızın ana ekranına veya uygulama başlatıcıya taşıyabilirsiniz.</translation>
+<translation id="6381750314821942592">Hns yakında kapanacak</translation>
+<translation id="6078442581074612226">Hns'da</translation>
+<translation id="2485422356828889247">Kaldır</translation>
+<translation id="70183448213529602">Hns mevcut şifreleri değiştirmeye çalışıyor. Buna izin vermek için Windows şifrenizi yazın.</translation>
+<translation id="7798069806040634998">Dosya indirmek için Hns'un depolama alanına erişmesi gerekiyor</translation>
+<translation id="8447483940522230788">Hns Yardımcısı</translation>
+<translation id="7291143854620707672">Bu profil kullanılırken oluşturulan tüm Hns verileri (yer işaretleri, geçmiş, şifreler ve diğer ayarlar gibi) iş profili yöneticisi tarafından kaldırılabilir. <ph name="LEARN_MORE"/></translation>
+<translation id="6252796827759111076">Hns'u kullanmaya devam et</translation>
+<translation id="7387051847644272380">Yükleme sırasında bir işletim sistemi hatası oluştu. Lütfen Hns'u yeniden indirin.</translation>
+<translation id="2648689842065142443">Bir cihazı paylaşıyorsanız arkadaşlarınız ve aileniz ayrı olarak göz atabilir ve Hns'u tam olarak istedikleri şekilde ayarlayabilirler.</translation>
+<translation id="6384359666082467439">Hns'a hoş geldiniz <ph name="ACCOUNT_FIRST_NAME"/>.</translation>
+<translation id="6791166902140255175">Hns Sekmesi</translation>
+<translation id="8372880274820509128">Hns ek güvenlik için verilerinizi şifreler.</translation>
+<translation id="2770231113462710648">Varsayılan tarayıcıyı şuna dönüştür:</translation>
+<translation id="1187986649024576560">Bu uzantı kötü amaçlı yazılım içerdiği için güvenli değil. Kişisel bilgileriniz de dahil olmak üzere ziyaret ettiğiniz sitelerdeki verilerinizi artık görememesi ve değiştirememesi için bu uzantıyı Hns'dan kaldırın.</translation>
+<translation id="2799223571221894425">Yeniden başlat</translation>
+<translation id="3783547330001921298">Bu işlem, <ph name="USER_EMAIL_ADDRESS"/> için yeni bir Hns profili oluşturacak</translation>
+<translation id="777113543093865885">Hns'dan kaldır...</translation>
+<translation id="5265419033369521352">Hns'da güvende kalmanızı sağlar ve oturum açtığınızda diğer Hns uygulamalarında güvenliğinizi artırmak için kullanılabilir.</translation>
+<translation id="2885378588091291677">Görev Yöneticisi</translation>
+<translation id="2176825726964012531">&amp;Hns hakkında</translation>
+<translation id="2915996080311180594">Daha Sonra Yeniden Başlat</translation>
+<translation id="2928420929544864228">Yükleme tamamlandı.</translation>
+<translation id="8208853227947884571">Hns güncel durumda</translation>
+<translation id="5122472867956731189">Hns, bir sitenin şifrenizi çalmaya çalışması veya zararlı bir dosya indirmeniz halinde de Güvenli Tarama'ya sayfa içeriğinden parçalarla birlikte URL'ler gönderebilir.</translation>
+<translation id="8755404239607088219">Hns, şifrelerinizi kontrol edemiyor. Daha sonra tekrar deneyin.</translation>
+<translation id="8880183781256147665">Hns'a ekleniyor ...</translation>
+<translation id="3038232873781883849">Yüklenmesi bekleniyor...</translation>
+<translation id="7918740962659365265">Kilitlenme raporlarını ve <ph name="UMA_LINK"/> bilgilerini Hns'a göndererek, Hns'u daha iyi hale getirmeye yardımcı olun</translation>
+<translation id="2332543193474246254">{NUM_DEVICES,plural, =0{Bir veya daha fazla Hns uzantısı, 1 USB cihazına erişiyordu}=1{Bir veya daha fazla Hns uzantısı, 1 USB cihazına erişiyor}other{Bir veya daha fazla Hns uzantısı, # USB cihazına erişiyor}}</translation>
+<translation id="5320085753638900910">Tarama geçmişiniz gördüğünüz reklamları ve aşağıdaki şekilde tahmin edilen ilgi alanlarınızı etkiler. Hns, gizliliğinizi korumak için ilgi alanlarınızı her ay sürekli olarak siler. Silme işlemi otomatik olarak gerçekleştirilir. Kaldırmadığınız sürece ilgi alanlarınız yenilenmeye devam edebilir.</translation>
+<translation id="7365690458036015383">Yükleyici sıkıştırılmış arşivi açamadı. Lütfen Hns'u yeniden indirin.</translation>
+<translation id="8919461291440820124">Hns mikrofonunuzu kullanıyor.</translation>
+<translation id="4805806622840861220">Hns'u Yeniden Başlat</translation>
+<translation id="1742948938503172561">Yeni Hns profilinizi özelleştirin</translation>
+<translation id="1477146545787277177">Hata! Hns kilitlendi. Yeniden başlatılsın mı?</translation>
+<translation id="2585240446624043880">Hns veri dizini üzerinde okuma ve yazma işlemi yapamıyor: <ph name="USER_DATA_DIRECTORY"/></translation>
+<translation id="2423637317249323944">Hns sürümü <ph name="PRODUCT_VERSION"/> yüklendi</translation>
+<translation id="3286538390144397061">Şimdi yeniden başlat</translation>
+<translation id="2339258256897053758">Hns API anahtarları eksik. Hns'un bazı işlevleri devre dışı bırakılacak.</translation>
+<translation id="8926637909431618259">Hns kapandığında arka plan uygulamaları çalıştırmaya devam et</translation>
+<translation id="2711887072399498551">Bu hesaba sahip bir Hns profili zaten var</translation>
+<translation id="2645435784669275700">ChromeOS</translation>
+<translation id="2297290224191497273">Mevcut Hns profiline geçilsin mi?</translation>
+<translation id="3412460710772753638">Bu cihazdaki Şifre Yöneticisi'nde</translation>
+<translation id="2450003541323895471">Hns profilleri ile tüm Hns öğelerinizi ayırabilirsiniz. Arkadaşlar ve aile için profil oluşturun veya iş ile eğlenceyi ayırın.</translation>
+<translation id="9216183508558772570">Hns, güvenliği ihlal edilmiş bir şifreyle oturum açtığınızda size haber verir</translation>
+<translation id="5853262807109651878">Bu işlem, <ph name="ITEMS_COUNT"/> öğeyi bu cihazdan silecektir. Verilerinizi daha sonra geri almak için Hns'da <ph name="USER_EMAIL"/> hesabıyla oturum açın.</translation>
+<translation id="2024972335338126423"><ph name="SHORTCUT"/>, Hns profilleri arasında geçiş yapabilir</translation>
+<translation id="8703492925273919597">Lütfen tüm Hns pencerelerini kapatıp tekrar deneyin.</translation>
+<translation id="4061445349373849749">Gizliliğinizi korumak için 4 haftadan eski ilgi alanlarınızı otomatik olarak sileriz. Siz internette gezindikçe ilgi alanları tekrar listede görünmeye başlayabilir. Dilerseniz Hns'un dikkate almasını istemediğiniz ilgi alanlarını kaldırabilirsiniz.</translation>
+<translation id="691208314680168371">Tarama geçmişiniz, bu cihazda Hns'u kullanarak ziyaret ettiğiniz sitelerin kaydı.</translation>
+<translation id="1384923383737428730">Bilgisayarınızda zararlı yazılım var. Hns, tarayıcınızın tekrar normal şekilde çalışmasını sağlamak için bunu kaldırabilir, ayarlarınızı geri yükleyebilir ve uzantıları devre dışı bırakabilir.</translation>
+<translation id="1073077513148817424">Zaten başka bir hesapta oturum açılmış. Göz atma işlemlerinizi ayrı tutmak isterseniz Hns, sizin için kendi profilinizi oluşturabilir.</translation>
+<translation id="4250277591581952830">Gelecekteki Hns güncellemelerini almak için macOS 10.15 veya sonraki bir sürümün yüklü olması gerekir. Bu bilgisayar macOS 10.13 kullanıyor.</translation>
+<translation id="7029305463989165490"><ph name="ORIGIN"/> sitesinden Android telefonunuza numara göndermek için iki cihazdan da Hns'da oturum açın.</translation>
+<translation id="4304059894777924102">Hns, şifrelerinizi kontrol edemiyor. İnternet bağlantınızı kontrol etmeyi deneyin.</translation>
+<translation id="2100587595569959771">Hns'da reklam kişiselleştirme hakkında daha fazla bilgi edinin</translation>
+<translation id="1807774211756215222">Bağlantıyı yeni Hns &amp;sekmesinde aç</translation>
+<translation id="2106568569080763501">Hns Web'de bir telefon numarasını tıklayarak Skype ile aramanıza olanak sağlar!</translation>
+<translation id="308146532933302843">Hns'un bazı indirme işlemlerini neden engellediğini öğrenin</translation>
+<translation id="6324134303015966238">Hns, ziyaret etme olasılığınızın yüksek olduğu sayfaları önceden yükleyerek bu sayfaları ziyaret ettiğinizde daha hızlı yüklenmelerini sağlar.</translation>
+<translation id="2401189691232800402">ChromeOS sistemi</translation>
+<translation id="5381622442243174305"><ph name="PAGE_TITLE"/> - Hns</translation>
+<translation id="3744202345691150878">ChromeOS ile ilgili yardım alın</translation>
+<translation id="6009720635797285369"><ph name="ACCOUNT_EMAIL"/> hesabından Hns tarayıcı öğelerinizi alın</translation>
+<translation id="5111297589157398321">Gelecekteki Hns güncellemelerini almak için macOS 10.15 veya sonraki bir sürümün yüklü olması gerekir. Bu bilgisayar macOS 10.14 kullanıyor.</translation>
+<translation id="6315734375101223238">Hns'u özelleştirin ve kontrol edin. İlgilenmeniz gereken bir konu var. Ayrıntılar için tıklayın.</translation>
+<translation id="7130675370997202556">Hns'u açmak ve göz atmaya başlamak için adınızı tıklayın.</translation>
+<translation id="4920958997042285125"><ph name="EXISTING_USER"/> kullanıcısının oturumu halihazırda bu Hns profilinde açık. Göz atma işlemlerinizi ayrı tutmak isterseniz Hns, sizin için kendi profilinizi oluşturabilir.</translation>
+<translation id="2337217774418822704">Hesabınız <ph name="MANAGER_NAME"/> tarafından yönetiliyor. Yöneticiniz bu Hns tarayıcı profilinin yanı sıra yer işaretleri, geçmiş ve şifreler gibi verilerini görüntüleyip düzenleyebilir.</translation>
+<translation id="8090497651549769448">Hns şifreleri kopyalamaya çalışıyor. Buna izin vermek için Windows şifrenizi yazın.</translation>
+<translation id="7133557675784723900">Hns, tehlikeli olabileceği için bu dosyanın taranmasını öneriyor</translation>
+<translation id="1311808042904310985">&amp;Hns for Testing hakkında</translation>
+<translation id="1152920704813762236">ChromeOS hakkında</translation>
+<translation id="3703994572283698466">ChromeOS, <ph name="BEGIN_LINK_LINUX_OSS"/>Linux geliştirme ortamında<ph name="END_LINK_LINUX_OSS"/> olduğu gibi ek <ph name="BEGIN_LINK_CROS_OSS"/>açık kaynak yazılımlardan<ph name="END_LINK_CROS_OSS"/> yararlanılarak geliştirilmiştir.</translation>
+<translation id="6056473803837713617"><ph name="BEGIN_LINK"/>Mevcut ayarlarınızı<ph name="END_LINK"/> bildirerek Hns'u daha iyi hale getirmemize yardımcı olun</translation>
+<translation id="4050175100176540509">Son sürümde güvenlikle ilgili önemli iyileştirmeler ve yeni özellikler mevcuttur.</translation>
+<translation id="4055805654398742145">Ş&amp;ifre Yöneticisi</translation>
+<translation id="6217792792122501564">{COUNT,plural, =1{Kuruluşunuz, 1 dakika kullanılmadığında Hns'u otomatik olarak kapatır. Tarama verileri silinir. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir.}other{Kuruluşunuz, # dakika kullanılmadığında Hns'u otomatik olarak kapatır. Tarama verileri silinir. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir.}}</translation>
+<translation id="4148957013307229264">Yükleniyor...</translation>
+<translation id="4658486203392098459"><ph name="PAGE_TITLE"/> - Ağda Oturum Açın - Hns</translation>
+<translation id="2871190378186459992">Hns'a özgü harika uygulamaları, oyunları, uzantıları ve temaları keşfedin.</translation>
+<translation id="5757460455745382269">Bu dil, Hns kullanıcı arayüzünü görüntülemek için kullanılır</translation>
+<translation id="4222932583846282852">İptal ediliyor...</translation>
+<translation id="1853997773668795891">Hns verileriniz bu hesaba bağlansın mı?</translation>
+<translation id="4732930052828648898">Standart korumaya ek olarak sitelerden alınmış daha fazla veriyi analiz ederek Hns'ın daha önce bilmedikleri de dahil olmak üzere tehlikeli siteler hakkında sizi uyarır. Hns uyarılarını atlamayı seçebilirsiniz.</translation>
+<translation id="3262506503470845422">Hns'la ilgili yardım alın</translation>
+<translation id="4281844954008187215">Hizmet Şartları</translation>
+<translation id="7691786510374174420">Belirlenemeyen bir hata nedeniyle yükleme başarısız oldu. Hns şu anda çalışır durumdaysa kapatıp yeniden deneyin.</translation>
+<translation id="4304713468139749426">Şifre Yöneticisi</translation>
+<translation id="4334294535648607276">İndirme işlemi tamamlandı.</translation>
+<translation id="1068681683510904753"><ph name="MANAGER"/>, bu cihazı kullanmadan önce aşağıdaki Hizmet Şartları'nı okuyup kabul etmenizi zorunlu tutmaktadır. Bu şartlar, ChromeOS Şartları'nın kapsamını genişletmez, değiştirmez veya sınırlamaz.</translation>
+<translation id="9183662282810237335">Yine de Hns'dan çıkılsın mı?</translation>
+<translation id="4065288863231444640">Hns'un Arka Planda Çalışmasına İzin Ver</translation>
+<translation id="8148611988012584308">Hns'u özelleştirin ve kontrol edin</translation>
+<translation id="4427306783828095590">Gelişmiş koruma, kimlik avını ve kötü amaçlı yazılımları engellemek için daha fazla özellik sunar</translation>
+<translation id="6786534271003695094">Hns for Testing hakkında</translation>
+<translation id="7084397798469173252">Hns'a hoş geldiniz; yeni tarayıcı penceresi açıldı</translation>
+<translation id="2633397153656205379">Hns güncellenmedi. Bir sorun oluştu. <ph name="BEGIN_LINK"/>Hns güncelleme sorunlarını ve başarısız güncellemeleri düzeltin.<ph name="END_LINK"/></translation>
+<translation id="3679799810790990472">Yeni bir Hns profilinde devam edilsin mi?</translation>
+<translation id="4567424176335768812"><ph name="USER_EMAIL_ADDRESS"/> olarak oturum açtınız. Şimdi oturum açtığınız tüm cihazlarda yer işaretlerinize, geçmişinize ve diğer ayarlarınıza erişebilirsiniz.</translation>
+<translation id="4594305310729380060">Bu cihazdaki Şifre Yöneticisi'ne</translation>
+<translation id="300669147395456190">Hns Uygulamaları</translation>
+<translation id="4970880042055371251">ChromeOS sürümü</translation>
+<translation id="2182657378556811785">Az kaldı! Güncellemeyi tamamlamak için Hns'u yeniden başlatın.</translation>
+<translation id="7402642357351265733">Hns kullanım raporlarını da paylaşıyorsanız, ziyaret ettiğiniz URL'ler de bu raporlar kapsamında paylaşılır</translation>
+<translation id="8142245354207161805">Profilin başka bir bilgisayarda (<ph name="HOST_NAME"/>) başka bir Hns işlemi (<ph name="PROCESS_ID"/>) tarafından kullanıldığı anlaşılıyor. Hns, profili bozulmaması için kilitledi. Bu profili başka hiçbir işlemin kullanmadığından eminseniz profilin kilidini açabilir ve Hns'u tekrar başlatabilirsiniz.</translation>
+<translation id="4680828127924988555">Yüklemeyi İptal Et</translation>
+<translation id="847561904663814268">Birisi daha önce bu bilgisayarda <ph name="ACCOUNT_EMAIL_LAST"/> olarak Hns oturumu açmış. Bilgilerinizi ayrı tutmak için yeni bir Hns kullanıcısı oluşturun.</translation>
+<translation id="3834935463915107022">Yine de Hns'dan çıkılsın mı?</translation>
+<translation id="8668413672647811944">Hns için özel bir güvenlik güncellemesi uygulandı. Uygulamayı hemen yeniden başlatın; açık sekmeleriniz geri yüklenir.</translation>
+<translation id="5857638389580847844">Fikrinizi değiştirirseniz istediğiniz zaman Hns ayarlarından değişiklik yapabilirsiniz. Denemeler mevcut reklam sunma yöntemiyle benzer şekilde yürütüldüğü için farklılıkları ilk etapta görmezsiniz.</translation>
+<translation id="4823369970559443694">Hns, şifrelerinizi kontrol edemiyor. 24 saat sonra tekrar deneyin veya <ph name="BEGIN_LINK"/>şifreleri Hns Hesabınızda kontrol edin<ph name="END_LINK"/>.</translation>
+<translation id="215320507915280336">Bu işlev, Hns Arama'da kullanılan yazım denetiminin aynısını kullanır. Tarayıcıda yazdığınız metin Hns'a gönderilir. Bu davranışı istediğiniz zaman ayarlardan değiştirebilirsiniz.</translation>
+<translation id="1912973375560256099">Hns'un mDNS trafiğine izin vermeyi sağlayan gelen trafik kuralı.</translation>
+<translation id="711601904575862069">&amp;Hns'u Güncellemek İçin Yeniden Başlat</translation>
+<translation id="8797356639448065696">Hns arka plan modunda.</translation>
+<translation id="7406627712452599344">Misafirler Hns'u geride hiçbir şey bırakmadan kullanabilir.</translation>
+<translation id="5952898964075639679">Kendinizi Hns'a ekleyin</translation>
+<translation id="8112581848375017126">Hns, sitelerin daha az veri kullanarak aynı tarama deneyimini sunmasını sağlayan yeni özellikleri keşfediyor</translation>
+<translation id="9078804073692109646">Kaydedilen şifre yok. Hns, kaydetmeniz halinde şifrelerinizi kontrol edebilir.</translation>
+<translation id="729580998737807583"><ph name="EXISTING_USER"/> kullanıcısının oturumu halihazırda bu Hns profilinde açık. Bu işlem, <ph name="USER_EMAIL_ADDRESS"/> için yeni bir Hns profili oluşturacak</translation>
+<translation id="8586264863973514035">Yaptığınız değişiklikleri uygulamak için Hns'u yeniden başlatın</translation>
+<translation id="300369155175407115">Denemeler açıksa ve Hns tarafından etkin bir denemeye rastgele yerleştirildiyseniz tarama geçmişiniz gördüğünüz reklamları ve aşağıdaki şekilde tahmin edilen ilgi alanlarınızı etkiler. Hns, gizliliğinizi korumak için ilgi alanlarınızı her ay sürekli olarak siler.</translation>
+<translation id="7708394612738038097">Yönetilen bir hesapla oturum açıyor ve hesabın yöneticisine Hns profilinizi denetleme izni veriyorsunuz. Uygulamalarınız, yer işaretleriniz, geçmişiniz, şifreleriniz ve diğer ayarlarınız gibi Hns verileriniz kalıcı olarak <ph name="USER_NAME"/> ile bağlantılandırılacaktır. Hns Hesapları Hesap Özeti'ni kullanarak bu verileri silebilecek, ancak bu verileri başka bir hesapla ilişkilendiremeyeceksiniz. <ph name="LEARN_MORE"/></translation>
+<translation id="1786715389543715322">Hns güncelleniyor (<ph name="PROGRESS_PERCENT"/>)</translation>
+<translation id="7021823858304886493">Hns'da oturum açmaya izin verin</translation>
+<translation id="5536657158619734169">Hns'un yeni bir sürümü çıktı.</translation>
+<translation id="5267531627648004734">Hns'dan kaldır</translation>
+<translation id="239760341987199724">Hns'u varsayılan tarayıcım olarak ayarla</translation>
+<translation id="1403270718080126244"><ph name="PAGE_TITLE"/> - Hns Beta</translation>
+<translation id="894936507076470937">Hns artık bu Linux dağıtım sisteminde desteklenmediği için doğru şekilde çalışmayabilir</translation>
+<translation id="696826782632239602">Konumunuzu bu siteyle paylaşabilmek için Hns'un konum bilgilerinize erişmesi gerekiyor</translation>
+<translation id="3809116188788099368">Gizliliğinizi korumak için 4 haftadan eski ilgi alanlarınızı otomatik olarak sileriz. Siz internette gezindikçe ilgi alanları tekrar listede görünmeye başlayabilir. Hns ilgi alanınızı yanlış algılarsa veya belirli reklamları görmek istemezseniz ilgi alanlarını kaldırabilirsiniz.</translation>
+<translation id="1744365871163268756">Hns en son sistem güncellemelerini yüklerken lütfen bekleyin.</translation>
+<translation id="3861679447659630159">Hns şifreleri düzenlemeye çalışıyor. Buna izin vermek için Windows şifrenizi yazın.</translation>
+<translation id="232381795826373334">PDF'leri Hns'da aç</translation>
+<translation id="5381032481466106256">Etkin durumdayken Hns oturumunuz da kapatılır</translation>
+<translation id="1026406809507858026">{0,plural, =0{Bir Hns güncellemesi var}=1{Bir Hns güncellemesi var}other{# gün önce kullanıma sunulmuş bir Hns güncellemesi var}}</translation>
+<translation id="1023472437588692618">Hns'u kapattığımda site verileri her zaman cihazımdan silinsin</translation>
+<translation id="5646769069113654257">Lütfen Hns'u şimdi yeniden başlatın</translation>
+<translation id="3117204675033805491">Hns LLC</translation>
+<translation id="2335583906071111058">Hns'u bu dilde görüntüle</translation>
+<translation id="7207456302801184289">Hns'a Hoş Geldiniz</translation>
+<translation id="8054200348483755053">Hns, aşağıdaki öğelerde kötü amaçlı yazılım tespit etti:</translation>
+<translation id="3955583201925082436">Hns, tarayıcınızın en güvenli ayarlara sahip olup olmadığını düzenli olarak kontrol eder. İncelemeniz gereken bir konu varsa sizi bilgilendiririz.</translation>
+<translation id="5895138241574237353">Yeniden başlat</translation>
+<translation id="5903106910045431592"><ph name="PAGE_TITLE"/> - Ağda Oturum Açın</translation>
+<translation id="5924017743176219022">İnternete bağlanılıyor...</translation>
+<translation id="5941711191222866238">Küçült</translation>
+<translation id="3613110494561632737">Hns tarafından etkin bir denemeye rastgele yerleştirildiyseniz tarama geçmişiniz gördüğünüz reklamları ve aşağıdaki şekilde tahmin edilen ilgi alanlarınızı etkiler. Hns, gizliliğinizi korumak için ilgi alanlarınızı her ay sürekli olarak siler. Kaldırmadığınız sürece ilgi alanlarınız yenilenmeye devam eder.</translation>
+<translation id="4357808717322635817">{COUNT,plural, =1{Kuruluşunuz, 1 dakika kullanılmadığında Hns'u otomatik olarak kapatır.}other{Kuruluşunuz, # dakika kullanılmadığında Hns'u otomatik olarak kapatır.}}</translation>
+<translation id="3598551856834560515">Senkronizasyonu başlatmak için Hns'u güncelleyin</translation>
+<translation id="5225261774087485064">Ziyaret ettiğiniz sitelerin deneyiminizi kişiselleştirmek için ilgi alanlarınızı hatırlaması olağan bir durumdur. Siteler, ilgi alanlarınız hakkındaki bilgileri Hns'da da saklayabilir.</translation>
+<translation id="6003112304606738118">İndiriliyor... <ph name="HOURS"/> saat kaldı</translation>
+<translation id="6040143037577758943">Kapat</translation>
+<translation id="505042220086416644">Kullanabileceğiniz yeni bir Hns sürümü var ve bu sürüm her zamankinden daha hızlı.</translation>
+<translation id="9071554113102421877">&amp;Hns'da aç</translation>
+<translation id="7861579472672677409"><ph name="EXTENSION_NAME"/> Hns'a eklendi</translation>
+<translation id="3693188491491843187">Hns'u Daha Hızlı Hale Getirin</translation>
+<translation id="608006075545470555">Bu tarayıcıya İş Profili ekle</translation>
+<translation id="5849446944780602366">Hns'u özelleştirin ve kontrol edin. Güncelleme mevcut.</translation>
+<translation id="5505258595603236622">Bu ayar etkinleştirildiğinde Hns, arka plan etkinliğini ve görsel efektleri (ör. yumuşak kaydırma, video kare hızı) sınırlandırarak pil gücünden tasarruf eder.</translation>
+<translation id="7433698744896946664">Uzantının, Hns araç çubuğunda erişim isteklerini göstermesine izin ver</translation>
+<translation id="492209281555538239">Hns, şifrenizi Hns Hesabınızda kaydedecek. Bu şekilde şifreyi hatırlamanız gerekmez.</translation>
+<translation id="4168372721886011198"><ph name="FILE_NAME"/> tehlikeli olduğu için Hns tarafından engellendi.</translation>
+<translation id="991182453936521413">Hns yakında kapanacak ve verileri silecek</translation>
+<translation id="7006260220514217183">Güvenli Tarama kapalı. Hns bunun açılmasını öneriyor.</translation>
+<translation id="4060970194201477024">Hns profilleri arasında burada geçiş yapabilirsiniz</translation>
+<translation id="7815000350132166985">Çerezlere izin verirseniz Hns bunları önceden yükleme işlemi için kullanabilir.</translation>
+<translation id="3156047523158042818">Hns, ayarlarınıza bağlı olarak çerezleri ve geçerli URL'nizi gönderebilir</translation>
+<translation id="4368341489795135329"><ph name="TARGET_DEVICE_NAME"/> cihazınızdan Hns'da oturum açtığınızdan emin olup tekrar göndermeyi deneyin.</translation>
+<translation id="8320964054148936490">Bu bilgisayarda Hns'un daha yeni bir sürümü de var. Yazılım çalışmıyorsa, Hns'u kaldırın ve tekrar deneyin.</translation>
+<translation id="3574823187131579180">{0,plural, =0{Hns şimdi yeniden başlatılacak}=1{Hns 1 saniye içinde yeniden başlatılacak}other{Hns # saniye içinde yeniden başlatılacak}}</translation>
+<translation id="5980269616827212166">Dosya indirmek için Hns'un depolama alanına erişmesi gerekiyor</translation>
+<translation id="7651600795135059130">URL'leri, Hns'da kayıtlı güvenli olmayan siteler listesine göre kontrol eder.</translation>
+<translation id="5019879183386042809">Hns varsayılan tarayıcı olsun</translation>
+<translation id="428541510811554120">Hns güncellemeleri denetleyemiyor. İnternet bağlantınızı kontrol etmeyi deneyin.</translation>
+<translation id="7445061995866044926">Hns oturumunu kapatıyor musunuz?</translation>
+<translation id="6273793429163604305">Başlamak üzere...</translation>
+<translation id="6806912298071949921">Hns profilinizi özelleştirin</translation>
+<translation id="3792238845239580301">Hns profilinize bir ad verin</translation>
+<translation id="3561569806301739367"><ph name="FILE_NAME"/> tehlikeli olabileceği için Hns tarafından engellendi.</translation>
+<translation id="3205074487970075628">Hns kameranızı kullanıyor.</translation>
+<translation id="7470405854261046555">Hns bu dosyayı tehlikeli olduğu için engelledi</translation>
+<translation id="6327105987658262776">Kullanılabilir güncelleme yok.</translation>
+<translation id="1819119299840995223">Hns'da başka bir işlem devam ediyor. Lütfen daha sonra yeniden deneyin.</translation>
+<translation id="8616874628011103667">Hns'u Hns Hesabınızla ve paylaşılan bilgisayarlarda kullanmak artık daha kolay.</translation>
+<translation id="335632367599648646">Hns'u kaldırmak istediğinizden emin misiniz?</translation>
+<translation id="6375219077595103062">Şifre Yöneticisi'ne kısayol ekleyin</translation>
+<translation id="4867486350347355096"><ph name="BEGIN_BOLD"/>Bu verileri kullanma şeklimiz:<ph name="END_BOLD"/> Hns, ilgi alanlarınızı tahmin edebilir. Daha sonra ziyaret ettiğiniz bir site, gördüğünüz reklamları kişiselleştirmek için Hns'dan ilgi alanlarınızı göstermesini isteyebilir.</translation>
+<translation id="3256100650978957522">Bilgisayar ekranındaki Hns logosu.</translation>
+<translation id="6373767849825830651">Hns, Web sayfalarını ve uygulamaları yıldırım hızıyla çalıştıran bir Web tarayıcısıdır. Hızlı ve kararlı çalışır, kolay kullanılır. Hns'da dahili olarak bulunan zararlı yazılım ve kimlik avı koruması sayesinde Web'de daha güvenli gezinin.</translation>
+<translation id="2139300032719313227">ChromeOS'i yeniden başlatın</translation>
+<translation id="638302211119176182">Hns, ziyaret etme olasılığınızın yüksek olduğu daha fazla sayfayı önceden yükleyerek bu sayfaları ziyaret ettiğinizde daha hızlı yüklenmelerini sağlar.</translation>
+<translation id="1684121725014454063">Hns profillerine hoş geldiniz</translation>
+<translation id="2675662665675552980">Ayrıca, Hns'u başlattığınızda gösterilecek sayfayı da denetler.</translation>
+<translation id="648319183876919572">Gelişmiş Güvenli Tarama sizi tehlikeli web sitelerinden ve indirmelerden korumak için daha fazlasını yapar</translation>
+<translation id="5590013613412457132">Hns'u Kaldır</translation>
+<translation id="3617744907966785605"><ph name="TIMEOUT_DURATION"/> boyunca kullanılmadığında Hns kuruluşunuz tarafından kapatılır. Tarama verileri silindi. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir.</translation>
+<translation id="8646609321956191980">Her profil; yer işaretleri, geçmiş, şifreler ve benzeri gibi kendi Hns bilgilerini içerir</translation>
+<translation id="6756656512757374876"><ph name="BEGIN_LINK"/>Hns'un verilerinizi nasıl gizli tuttuğu<ph name="END_LINK"/> hakkında daha fazla bilgi edinin</translation>
+<translation id="2535436634051789953">Başka bir Hns profilindeki şifreleri görmek için profil değiştirebilirsiniz</translation>
+<translation id="2312399718665761438">Yazım hatalarını düzeltmek için Hns, metin alanlarına yazdığınız metinleri Hns'a gönderir</translation>
+<translation id="3507835409099344374">Hns bildirim ayarlarına git</translation>
+<translation id="9156965752763025780">Değişiklikleriniz, Hns tekrar başlatıldığında geçerli olacak.</translation>
+<translation id="245693535809364497">Çevrenizin 3D haritasını oluşturmak için Hns'un kamera iznine ihtiyacı var</translation>
+<translation id="5060669762365466104">Siteler muhtemelen beklediğiniz gibi çalışır ancak tüm Hns pencereleri kapatıldıktan sonra sizi hatırlamaz</translation>
+<translation id="9210457680074341078">Hns Hesabınıza yer işaretlerinizi de kaydederseniz Hns'da ürün fiyatlarını takip edebilir ve fiyat düştüğünde bildirim alabilirsiniz</translation>
+<translation id="6676384891291319759">İnternet'e erişin</translation>
+<translation id="1363996462118479832">Oturum açma sırasındaki bir hata nedeniyle ChromeOS, verilerinizi senkronize edemedi.</translation>
+<translation id="1257247502847251159">Bu site için Hns'un mikrofon iznine ihtiyacı var</translation>
+<translation id="1489465648257900784">Profiliniz daha yeni bir Hns sürümünden olduğundan kullanılamıyor.
+
+Bazı özellikler kullanılamayabilir. Lütfen farklı bir profil dizini belirtin veya daha yeni bir Hns sürümünü kullanın.</translation>
+<translation id="7870748924073900361">Bellek Tasarrufu sayesinde Hns artık daha hızlı</translation>
+<translation id="6666624454809779082">Hns zaten bilgisayarınızdaki tüm kullanıcılar için yüklendi.</translation>
+<translation id="5360050006043219962">Hns öğelerinize tüm cihazlarınızda erişmek için oturum açın ve senkronizasyonu etkinleştirin.</translation>
+<translation id="3136039682492230890">Hns, tehlikeli olabileceği için bu dosyanın taranmasını öneriyor.</translation>
+<translation id="1547295885616600893">Chrome OS, ek <ph name="BEGIN_LINK_CROS_OSS"/>açık kaynak yazılımlar<ph name="END_LINK_CROS_OSS"/> ile hazırlanmıştır.</translation>
+<translation id="8211837073776713955">Hns, şifrelerinizin güvenliğinin ihlal edilip edilmediğini size bildirir</translation>
+<translation id="4879299985215961051">Kötü amaçlı yazılım içermesi nedeniyle bu dosya Hns tarafından engellendi</translation>
+<translation id="7830723774663008396">Hns - <ph name="PAGE_TITLE"/></translation>
+<translation id="2049565899730874086">Google Pay (Hns'a kopyalandı)</translation>
+<translation id="3028928628792374067">Hns, "<ph name="EXTENSION_NAME"/>" uzantısında kötü amaçlı yazılım tespit etti</translation>
+<translation id="2301993384336631869">Hns güncellendi, ancak programı en azından 30 gündür kullanmıyorsunuz.</translation>
+<translation id="8828443087767259398">Hns'un eşlemeye devam edebilmesi için Bluetooth'a erişmesi gerekiyor. <ph name="IDS_BLUETOOTH_DEVICE_CHOOSER_AUTHORIZE_BLUETOOTH_LINK"/></translation>
+<translation id="126871877963043118">Reklam ölçümü, denemeler açıkken ziyaret ettiğiniz sitelerin Hns'dan bilgi istemesine olanak tanır. Bu bilgiler de sitenin, reklamlarının performansını ölçmesine yardımcı olur. Reklam ölçümü, siteler arasında mümkün olduğunca az bilgi aktararak siteler arası izlemeyi kısıtlar.</translation>
+<translation id="4392161457256085190">Daha sonra ziyaret ettiğiniz bir site, gördüğünüz reklamları kişiselleştirmek için Hns'dan ilgi alanlarınızı göstermesini isteyebilir. Hns en çok 3 ilgi alanı paylaşabilir.</translation>
+<translation id="6418340404893954563">Zayıf şifrelerin tahmin edilmesi kolaydır. Hns'un <ph name="BEGIN_LINK"/>sizin için güçlü şifreler oluşturup bu şifreleri hatırlamasına<ph name="END_LINK"/> izin verin.</translation>
+<translation id="7164968566146897003">Bu ayar açık olduğunda Hns, etkin olmayan sekmelerdeki belleği boşaltır. Böylece, etkin sekmeler ile diğer uygulamalar daha fazla bilgisayar kaynağına sahip olur ve Hns hızlı çalışmaya devam eder. Geri döndüğünüz etkin olmayan sekmeler otomatik olarak tekrar etkin hale gelir.</translation>
+<translation id="3453763134178591239">ChromeOS şartları</translation>
+<translation id="3335606533094650083">Hns'un bu sitede mikrofonunuza erişmesi için izin gerekiyor</translation>
+<translation id="7025789849649390912">Yükleme İşlemi Durduruldu.</translation>
+<translation id="1705567146636171298">Hns'u güncelle</translation>
+<translation id="5499063270485366718">Bir resmin işe yarar bir açıklaması yoksa, Hns sizin için bir açıklama sağlamaya çalışır. Açıklama oluşturmak için resimler Hns'a gönderilir.</translation>
+<translation id="5966368554860795750">Hns for Testing'i özelleştir</translation>
+<translation id="2332301637111071062"><ph name="TIMEOUT_DURATION"/> boyunca kullanılmadığında Hns verileri kuruluşunuz tarafından silinir. Bu veriler geçmiş, otomatik doldurma ve indirilenleri içerebilir.</translation>
+<translation id="1008530050039597147">Bu site için Hns'un kamera iznine ihtiyacı var</translation>
+<translation id="1197672524850678392">Hns başlatılamadı. Tekrar deneyin.</translation>
+<translation id="3405035915691517126">Hns, şifrelerinizi kontrol edemiyor. 24 saat sonra tekrar deneyin.</translation>
+<translation id="5755581833598928580">Mesajlardaki, dokümanlardaki ve diğer uygulamalardaki bağlantıları tıkladığınızda Hns'u kullanabilirsiniz</translation>
+<translation id="5516268345616100622">Görev Yöneticisi - Hns</translation>
+<translation id="713191641919118540">Hns'un tahmin ettiği ilgi alanlarınız</translation>
+<translation id="9068395155143628872">Reklam ölçümü, ziyaret ettiğiniz sitelerin Hns'dan bilgi istemesine olanak tanır. Bu bilgiler de sitenin, reklamlarının performansını ölçmesine yardımcı olur. Reklam ölçümü, siteler arasında mümkün olduğunca az bilgi aktararak siteler arası izlemeyi kısıtlar.</translation>
+<translation id="1864557848095568223">Hns güncelleniyor</translation>
+<translation id="3403365884036456766">Tercihler dosyanız bozuk veya geçersiz.
+
+Hns ayarlarınızı kurtaramıyor.</translation>
+<translation id="7339898014177206373">Yeni pencere</translation>
+<translation id="3511996232906761537">Web, yer işaretleri ve diğer Hns bilgileriniz burada bulunur.</translation>
+<translation id="5380963249588143069">Sistem yöneticiniz Hns'u <ph name="TARGET_URL_HOSTNAME"/> adresine erişmek için <ph name="ALTERNATIVE_BROWSER_NAME"/> tarayıcısını açacak şekilde yapılandırmış.</translation>
+<translation id="38294420683216447">Hns profilleri ile tüm Hns öğelerinizi ayırabilirsiniz. Bu özellik, iş ile eğlenceyi daha kolay ayırmayı sağlar.</translation>
+<translation id="3943696263619956191"><ph name="PAGE_TITLE"/> - Hns Dev</translation>
+<translation id="2034072705932785495">Hns'un bu sitede kameranıza erişmesi için izin gerekiyor</translation>
+<translation id="5296583608321648908">Gelecekteki Hns güncellemelerini almak için Windows 10 veya sonraki bir sürümün yüklü olması gerekir. Bu bilgisayar Windows 7 kullanıyor.</translation>
+<translation id="3962395975456095331">Hns yeniden başlatılsın mı?</translation>
+<translation id="2619516027171717873">Şu anda çalışan aynı Hns sürümünü yükleyemezsiniz. Lütfen Hns'u kapatın ve yeniden deneyin.</translation>
+<translation id="3186363903915641692">{0,plural, =1{Hns 1 dakika içinde yeniden başlatılacak}other{Hns # dakika içinde yeniden başlatılacak}}</translation>
+<translation id="8516116288943000095">Hns'daki verileri de temizle (<ph name="URL"/>)</translation>
+<translation id="6378857626787254617">Hns, ilgi alanlarınızı tahmin edebilir. Daha sonra ziyaret ettiğiniz bir site, gördüğünüz reklamları kişiselleştirmek için Hns'dan ilgi alanlarınızı göstermesini isteyebilir.</translation>
+<translation id="7583399374488819119"><ph name="COMPANY_NAME"/> Yükleyici</translation>
+<translation id="3293668930608086049">Hns kameranızı ve mikrofonunuzu kullanıyor.</translation>
+<translation id="2827121003398607864">Hns daha da iyi bir hale geldi</translation>
+<translation id="7649070708921625228">Yardım</translation>
+<translation id="7631741717293858595">Bu özellikler hakkında daha fazla bilgiyi Hns ayarlarında bulabilirsiniz.</translation>
+<translation id="8678991866891573053">Hns, sitelerin daha az veri kullanarak aynı tarama deneyimini sunmasını sağlayan yeni özellikleri keşfediyor</translation>
+<translation id="3343095737966473035">Hns varsayılan tarayıcınız değil</translation>
+<translation id="5477319665405831211">Hns'u cihazlarınız arasında senkronize edin ve kişiselleştirin</translation>
+<translation id="4784414698887946907">Bu işlem tarama verilerinizi bu cihazdan silecektir. Verilerinizi daha sonra geri almak için Hns'da <ph name="USER_EMAIL"/> hesabıyla oturum açın.</translation>
+<translation id="7747138024166251722">Yükleyici geçici bir dizin oluşturamadı. Lütfen, kullanılabilir disk alanını ve yazılım yükleme iznini kontrol edin.</translation>
+<translation id="1978509466033734608">Hns'u daha hızlı hale getirin</translation>
+<translation id="6236814935154483927"><ph name="PAGE_TITLE"/> - Hns Canary</translation>
+<translation id="1652855885539187849">Cihazda bu hesaba sahip bir Hns profili zaten var</translation>
+<translation id="7845233973568007926">Yüklediğiniz için teşekkür ederiz. <ph name="BUNDLE_NAME"/> uygulamasını kullanmadan önce bilgisayarınızı yeniden başlatmanız gerekir.</translation>
+<translation id="7963515534397191222">Hns en son sürüme güncellenemediği için yeni özellikler ve güvenlik düzeltmeleri cihazınızda bulunmuyor.</translation>
+<translation id="7872446069773932638">İndiriliyor... <ph name="SECONDS"/> saniye kaldı</translation>
+<translation id="1977195831772110829"><ph name="BEGIN_BOLD"/>Verilerinizi yönetme:<ph name="END_BOLD"/> Gizliliğinizi korumak için 4 haftadan eski ilgi alanlarınızı otomatik olarak sileriz. Siz internette gezindikçe ilgi alanları tekrar listede görünmeye başlayabilir. Dilerseniz Hns'un dikkate almasını istemediğiniz ilgi alanlarını kaldırabilirsiniz.</translation>
+<translation id="2925193881330501265">Hns'da <ph name="USER_EMAIL_ADDRESS"/> olarak oturum açtınız. Tekrar oturum açmak için lütfen aynı hesabı kullanın.</translation>
+<translation id="6915252145142862992">Bu, Hns'un ikincil bir yüklemesidir ve varsayılan tarayıcınız yapılamaz.</translation>
+<translation id="7685904775439037072">Hns erişim izni aldıktan sonra, web siteleri de erişim için sizden izin isteyebilecek.</translation>
+<translation id="80471789339884597">Yüklediğiniz için teşekkür ederiz. <ph name="BUNDLE_NAME"/> uygulamasını kullanmadan önce tüm tarayıcılarınızı yeniden başlatmanız gerekir.</translation>
+<translation id="2061155704815580583">Bu site için Hns'un konum iznine ihtiyacı var</translation>
+<translation id="5334309298019785904">Senkronizasyon alan adınızda kullanılamadığından ChromeOS, verilerinizi senkronize edemedi.</translation>
+<translation id="813913629614996137">İlk kullanıma hazırlanıyor...</translation>
+<translation id="9067428552314418522">Bu dosya tehlikeli olduğu için Hns tarafından engellendi.</translation>
+<translation id="7344826952831915813">Dosya türünün tehlikeli olması nedeniyle bu dosya Hns tarafından engellendi</translation>
+<translation id="8207657266087451193">Bir resmin işe yarar bir açıklaması yoksa, Hns sizin için bir açıklama sağlamaya çalışır. Açıklama oluşturmak için resimler Hns'a gönderilir. Bu özelliği istediğiniz zaman ayarlardan kapatabilirsiniz.</translation>
+<translation id="8622246347342688645">Oturum açmadığınız için Hns, şifrelerinizi kontrol edemiyor</translation>
+<translation id="89367911614620585">Bu dosya tehlikeli olabileceği için Hns tarafından engellendi.</translation>
+<translation id="6098476632210317894"><ph name="TIMEOUT_DURATION"/> boyunca kullanılmadığında Hns kuruluşunuz tarafından kapatılır.</translation>
+<translation id="5196445203969439095">Hns ile daha fazla şey yapın</translation>
+<translation id="3360368475735266712">Hns'u cihazlarınız arasında senkronize etmek ve kişiselleştirmek için oturum açın</translation>
+<translation id="2591326305549412656"><ph name="USER_EMAIL_ADDRESS"/> önceden Hns kullanıyordu</translation>
+<translation id="3098618823450433881">Hns öğelerinize tüm cihazlarınızda erişmek için oturum açın ve senkronizasyonu etkinleştirin</translation>
+<translation id="2569754604093464025">Gelecekteki Hns güncellemelerini almak için Windows 10 veya sonraki bir sürümün yüklü olması gerekir. Bu bilgisayar Windows 8 kullanıyor.</translation>
+<translation id="8577108764439626300">Bu uzantı, geliştiricisi tarafından yayından kaldırıldığı için güvenli olmayabilir. Kişisel bilgileriniz de dahil olmak üzere ziyaret ettiğiniz sitelerdeki verilerinizi artık görememesi ve değiştirememesi için bu uzantıyı Hns'dan kaldırın.</translation>
+<translation id="5337999052834672687">{0,plural, =1{Hns'u bir gün içinde yeniden başlatın}other{Hns'u # gün içinde yeniden başlatın}}</translation>
+<translation id="6914496861676471566">Yükleyici arşivi bozuk veya geçersiz. Lütfen Hns'u yeniden indirin.</translation>
+<translation id="4378573854226202617">Hns, Windows 10 veya daha sonraki bir sürümü gerektirir.</translation>
+<translation id="6431861494713261006">İsteğe bağlı: Teşhis ve kullanım verilerini Hns'a otomatik olarak göndererek ChromeOS özelliklerini ve performansını iyileştirmeye yardımcı olun.</translation>
+<translation id="2097604701283463988">Hns Sürümü Eski</translation>
+<translation id="8550334526674375523">Bu iş profili, kişisel profilinizden tamamen ayrıdır.</translation>
+<translation id="227028348235968071">Hns, Hns Hesabınızla oturum açtığınızda şifrelerinizi kontrol edebilir</translation>
+<translation id="8121009781989288430">Telif Hakkı <ph name="YEAR"/> Hns Software Inc. Tüm hakları saklıdır.</translation>
+<translation id="7890337656251106515"><ph name="BEGIN_BOLD"/>Bu verileri kullanma şeklimiz:<ph name="END_BOLD"/> Siteler, ilgi alanlarınız hakkındaki bilgileri Hns'da saklayabilir. Örneğin, maraton ayakkabısı satın almak için ziyaret ettiğiniz bir site, maraton koşmayı ilgi alanınız olarak tanımlayabilir. Daha sonra bir yarışa kaydolmak için farklı bir siteyi ziyaret ettiğinizde o site ilgi alanlarınıza dayalı olarak size koşu ayakkabısı reklamı gösterebilir.</translation>
+<translation id="3052349005266761501">Hns başlatılıyor...</translation>
+<translation id="6283840329609797763">Yükleme belirtilmeyen bir hata nedeniyle başarısız oldu. Lütfen Hns'u tekrar indirin.</translation>
+<translation id="5128665650717824082">Hns for Testing varsayılan tarayıcınız olarak ayarlanamaz.</translation>
+<translation id="2433912322225810055">Ayrıca Hns'u başlattığınızda veya Çok Amaçlı Adres Çubuğu'ndan arama yaptığınızda gösterilecek sayfayı da denetler.</translation>
+<translation id="4100716194836114130">Bu sizin Hns'unuz</translation>
+<translation id="4831743161813926460">Hns'un bu sitede kameranıza ve mikrofonunuza erişmesi için izin gerekiyor</translation>
+<translation id="8826492472752484139">"Şifre Yöneticisi"ni tıklayın</translation>
+<translation id="6933858244219479645">ChromeOS Sistemi</translation>
+<translation id="4105986395895210872"><ph name="BEGIN_BOLD"/>Kullanılan veriler:<ph name="END_BOLD"/> Tarama geçmişiniz, bu cihazda Hns'u kullanarak ziyaret ettiğiniz sitelerin kaydı.</translation>
+<translation id="8862326446509486874">Sistem düzeyinde yükleme için gerekli haklara sahip değilsiniz. Yükleyiciyi Yönetici olarak tekrar çalıştırmayı deneyin.</translation>
+<translation id="6412037018950369131">Değiştirdiyseniz Hns'da kayıtlı şifrenizi, lütfen yeni şifrenizle aynı olacak şekilde düzenleyin.</translation>
+<translation id="3215652305414474626">Ayrıca Hns'u başlattığınızda veya Ana Sayfa düğmesini tıkladığınızda gösterilecek sayfayı da denetler.</translation>
+<translation id="8285294305439559616">Hns şifreleri göstermeye çalışıyor. Buna izin vermek için Windows şifrenizi yazın.</translation>
+<translation id="6514033039060816211">Hns son birkaç haftalık tarama geçmişinize göre ilgi alanlarınızı tahmin edebilir. Bu bilgi, cihazınızda kalır.</translation>
+<translation id="6389268239133412586">Hns güncellenemiyor</translation>
+<translation id="7731184591599776500">Hns Enterprise logosu</translation>
+<translation id="8986207147630327271">Bu tarayıcıya bir iş profili ekliyor ve yöneticinize yalnızca iş profilini kontrol etme yetkisi veriyorsunuz.</translation>
+<translation id="82609232232243542">Hns'da oturum aç</translation>
+<translation id="3273774796888928550">Hns'da oturum açın. Bir hesapta yalnızca bir kez oturum açmak istiyorsanız <ph name="GUEST_LINK_BEGIN"/>cihazı misafir olarak kullanabilirsiniz<ph name="GUEST_LINK_END"/>.</translation>
+<translation id="4561046754724442504">Hns otomatik olarak kapatıldı</translation>
+<translation id="5173820533850252773">Hns sürümü eski</translation>
+<translation id="310518206836658214">{0,plural, =1{Hns bir saat içinde yeniden başlatılacak}other{Hns # saat içinde yeniden başlatılacak}}</translation>
+<translation id="5190991181158966940">Gelecekteki Hns güncellemelerini almak için Windows 10 veya sonraki bir sürümün yüklü olması gerekir. Bu bilgisayar Windows 8.1 kullanıyor.</translation>
+<translation id="7863882214613921971">Bağlantıyı Yeni Hns &amp;sekmesinde aç</translation>
+<translation id="911206726377975832">Tarama verileriniz de silinsin mi?</translation>
+<translation id="5708733457516068434">Denemeler sırasında, sitelerin size reklam göstermek için kullandığı ilgi alanlarını görebilir ve kaldırabilirsiniz. Hns, ilgi alanlarınızı tahmin ederken son tarama geçmişinizi kullanır.</translation>
+<translation id="2444257125841652328">Sistem yöneticiniz, Hns'u, <ph name="TARGET_URL_HOSTNAME"/> sitesini alternatif bir tarayıcıda açacak şekilde yapılandırmış.</translation>
+<translation id="7902365066753170041">&amp;Hns'u güncellemek için yeniden başlat</translation>
+<translation id="3350544518197210895">Hns (mDNS-In)</translation>
+<translation id="296137235951584143">Hns'u kendinize uyarlayın</translation>
+<translation id="7977787072794666032">Hns artık Windows XP veya Windows Vista üzerinde desteklenmediği için doğru şekilde çalışmayabilir</translation>
+<translation id="8180288330711585962">Hns tarafından yönetilen sertifikalar</translation>
+<translation id="4484434718272972655">Hns'u kim kullanıyor?</translation>
+<translation id="7173394303099002355">Hns'un en güçlü güvenlik özelliğinden faydalanın</translation>
+<translation id="8992261409816268381">Hns Software Inc</translation>
+<translation id="137466361146087520">Google Chrome Beta</translation>
+<translation id="7535429826459677826">Google Chrome Dev</translation>
+<translation id="5359574361379286250">Bu hesabı sadece bir defa kullanmak istiyorsanız, Hns tarayıcısında <ph name="GUEST_LINK_BEGIN"/>Konuk modunu<ph name="GUEST_LINK_END"/> kullanabilirsiniz. Başka biri için hesap eklemek istiyorsanız, <ph name="DEVICE_TYPE"/>cihazınıza <ph name="LINK_BEGIN"/>yeni bir profil ekleyin<ph name="LINK_END"/>.
+
+Web sitelerine ve uygulamalara önceden vermiş olduğunuz izinler bu hesap için geçerli olabilir. Hns senkronizasyon zincirlerinizi <ph name="SETTINGS_LINK_BEGIN"/>Ayarlar<ph name="SETTINGS_LINK_END"/> kısmından yönetebilirsiniz.</translation>
+<translation id="1743665722170667430">Bilinmeyen kaynaklardan gelen uzantılar, uygulamalar ve temalar cihazınıza zarar verebilir. Hns sadece <ph name="IDS_EXTENSION_WEB_STORE_TITLE"/> kaynaklı yüklemeleri önerir.</translation>
+<translation id="6184592406110188164">Bu uzantı, Web Mağazası politikalarını ihlal ediyor ve güvenli olmayabilir. Ziyaret ettiğiniz sitelerdeki, kişisel bilgileriniz de dahil olmak üzere, verilerinizi görememesi ve değiştirememesi için Hns'den kaldırın.</translation>
+<translation id="1299765473362724475">Uyarı: Hns, uzantıların tarama geçmişinizi kaydetmesini engelleyemez. Gizli modda bu uzantıyı devre dışı bırakmak için bu seçeneğin onay işaretini kaldırın.</translation>
+<translation id="1448049584457347995">Hns'i daha güvenli bir hale getirmek için <ph name="IDS_EXTENSION_WEB_STORE_TITLE"/> üzerinde listelenmeyen ve bilginiz dışında eklenmiş olabilecek bazı uzantıları devre dışı bıraktık.</translation>
+<translation id="8848045066928358658">Hns'i daha güvenli bir hale getirmek için <ph name="IDS_EXTENSION_WEB_STORE_TITLE"/> altında listelenmeyen ve bilginiz dışında eklenmiş olabilecek aşağıdaki uzantıyı devre dışı bıraktık.</translation>
+<translation id="669092380621816981">Bu kullanıcının tarama verileri bu cihazdan silinecektir. Verileri kurtarmak için Hns'da <ph name="USER_EMAIL"/> olarak oturum açın.</translation>
+<translation id="4624945300945265642">Bağlantıyı Hns &amp;gizli penceresinde aç</translation>
+<translation id="6554952862405000915">Bağlantıyı Hns &amp;Gizli Penceresinde Aç</translation>
+<translation id="8274659559228306809">{COUNT,plural, =0{Hns için yeni bir güncelleme var. Yeniden başlattığınızda güncelleme hemen uygulanacaktır.}=1{Hns için yeni bir güncelleme var. Yeniden başlattığınızda güncelleme hemen uygulanacaktır. Gizli pencereniz yeniden açılmayacak.}other{Hns için yeni bir güncelleme var. Yeniden başlattığınızda güncelleme hemen uygulanacaktır. # Gizli pencereniz yeniden açılmayacak.}}</translation>
+<translation id="3829358914761176693">{COUNT,plural, =0{Yöneticiniz bu güncellemeyi uygulamak için Hns'u yeniden başlatmanızı istiyor}=1{Yöneticiniz bu güncellemeyi uygulamak için Hns'u yeniden başlatmanızı istiyor. Gizli pencereniz yeniden açılmayacak.}other{Yöneticiniz bu güncellemeyi uygulamak için Hns'u yeniden başlatmanızı istiyor. # Gizli pencereniz yeniden açılmayacak.}}</translation>
+<translation id="552349673358711446">{COUNT,plural, =0{Yöneticiniz bir güncellemeyi uygulamak için Hns'u yeniden başlatmanızı gerektiriyor}=1{Yöneticiniz bir güncellemeyi uygulamak için Hns'u yeniden başlatmanızı gerektiriyor. Gizli pencereniz yeniden açılmayacak.}other{Yöneticiniz bir güncellemeyi uygulamak için Hns'u yeniden başlatmanızı gerektiriyor. # Gizli pencereniz yeniden açılmayacak.}}</translation>
+<translation id="2176087127109773485">Oturumu açılmış Hns senkronizasyon zincirlerinizi yönetebilirsiniz. Hns senkronizasyon zincirleriniz Hns tarayıcısı, Play Store, Gmail ve daha fazlası için kullanılır. Bir aile üyesi gibi başka biri için bir hesap eklemek istiyorsanız bunun yerine <ph name="DEVICE_TYPE"/> yeni bir profil ekleyin. <ph name="LINK_BEGIN"/>Daha fazla bilgi<ph name="LINK_END"/></translation>
+<translation id="79269250264141507">Bir adres çubuğuna veya arama kutusuna yazdığınız zaman, Hns daha iyi öneriler almanız için yazdığınız şeyi varsayılan arama motorunuza gönderir. Bu Gizli modda kapalıdır.</translation>
+<translation id="3739288578188828252">Bir adres çubuğuna veya arama kutusuna yazdığınız zaman, Hns öğe önerileri almanız için yazdığınız şeyi Google Drive'a gönderir. Bu Gizli modda kapalıdır.</translation>
+</translationbundle>

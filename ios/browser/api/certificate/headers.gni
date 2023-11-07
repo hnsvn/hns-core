@@ -1,0 +1,8 @@
+browser_api_certificate_public_headers = [
+  "//hns/ios/browser/api/certificate/hns_certificate.h",
+  "//hns/ios/browser/api/certificate/models/hns_certificate_enums.h",
+  "//hns/ios/browser/api/certificate/models/hns_certificate_fingerprint.h",
+  "//hns/ios/browser/api/certificate/models/hns_certificate_public_key_info.h",
+  "//hns/ios/browser/api/certificate/models/hns_certificate_rdns_sequence.h",
+  "//hns/ios/browser/api/certificate/models/hns_certificate_signature.h",
+]

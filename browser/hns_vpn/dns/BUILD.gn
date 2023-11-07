@@ -1,0 +1,22 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//testing/test.gni")
+
+assert(enable_hns_vpn && is_win)
+
+source_set("unit_tests") {
+  testonly = true
+  sources = [ "hns_vpn_dns_observer_service_win_unittest.cc" ]
+  deps = [
+    "//hns/components/hns_vpn/common",
+    "//chrome/common:constants",
+    "//chrome/test:test_support",
+    "//net",
+    "//testing/gtest",
+    "//third_party/abseil-cpp:absl",
+  ]
+}

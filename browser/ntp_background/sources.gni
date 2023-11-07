@@ -1,0 +1,72 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ntp_background_images/buildflags/buildflags.gni")
+
+hns_browser_ntp_background_sources = [
+  "//hns/browser/ntp_background/ntp_p3a_helper_impl.cc",
+  "//hns/browser/ntp_background/ntp_p3a_helper_impl.h",
+  "//hns/browser/ntp_background/ntp_tab_helper.cc",
+  "//hns/browser/ntp_background/ntp_tab_helper.h",
+  "//hns/browser/ntp_background/view_counter_service_factory.cc",
+  "//hns/browser/ntp_background/view_counter_service_factory.h",
+]
+
+hns_browser_ntp_background_deps = [
+  "//base",
+  "//hns/browser:browser_process",
+  "//hns/browser/profiles:util",
+  "//hns/components/hns_ads/browser",
+  "//hns/components/hns_ads/core",
+  "//hns/components/hns_stats/browser",
+  "//hns/components/constants",
+  "//hns/components/ntp_background_images/browser",
+  "//hns/components/ntp_background_images/buildflags",
+  "//hns/components/ntp_background_images/common",
+  "//hns/components/p3a",
+  "//hns/components/p3a_utils",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/profiles:profile",
+  "//chrome/common",
+  "//components/keyed_service/content",
+  "//components/pref_registry",
+  "//components/prefs",
+  "//content/public/browser",
+]
+
+if (enable_custom_background) {
+  hns_browser_ntp_background_sources += [
+    "//hns/browser/ntp_background/hns_ntp_custom_background_service_delegate.cc",
+    "//hns/browser/ntp_background/hns_ntp_custom_background_service_delegate.h",
+    "//hns/browser/ntp_background/hns_ntp_custom_background_service_factory.cc",
+    "//hns/browser/ntp_background/hns_ntp_custom_background_service_factory.h",
+    "//hns/browser/ntp_background/constants.h",
+    "//hns/browser/ntp_background/custom_background_file_manager.cc",
+    "//hns/browser/ntp_background/custom_background_file_manager.h",
+    "//hns/browser/ntp_background/ntp_background_prefs.cc",
+    "//hns/browser/ntp_background/ntp_background_prefs.h",
+  ]
+
+  hns_browser_ntp_background_deps += [
+    "//chrome/common:constants",
+    "//components/keyed_service/content",
+    "//components/pref_registry:pref_registry",
+    "//components/user_prefs",
+    "//url",
+  ]
+}
+
+if (is_android) {
+  hns_browser_ntp_background_sources += [
+    "//hns/browser/ntp_background/android/ntp_background_images_bridge.cc",
+    "//hns/browser/ntp_background/android/ntp_background_images_bridge.h",
+  ]
+
+  hns_browser_ntp_background_deps += [
+    "//hns/build/android:jni_headers",
+    "//components/keyed_service/content",
+    "//components/keyed_service/core",
+  ]
+}

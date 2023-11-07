@@ -1,0 +1,44 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+
+hns_utility_importer_sources = []
+hns_utility_importer_deps = []
+hns_utility_importer_public_deps = [
+  "//hns/components/services/bat_ads:lib",
+  "//hns/components/services/bat_rewards:lib",
+]
+
+if (!is_android) {
+  hns_utility_importer_sources += [
+    "//hns/utility/importer/hns_external_process_importer_bridge.cc",
+    "//hns/utility/importer/hns_external_process_importer_bridge.h",
+    "//hns/utility/importer/hns_profile_import_impl.cc",
+    "//hns/utility/importer/hns_profile_import_impl.h",
+    "//hns/utility/importer/chrome_importer.cc",
+    "//hns/utility/importer/chrome_importer.h",
+  ]
+
+  hns_utility_importer_deps += [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/common/importer:importer",
+    "//hns/common/importer:interfaces",
+    "//chrome/app:chromium_strings",
+    "//components/os_crypt/sync",
+    "//components/password_manager/core/browser",
+    "//components/webdata/common",
+  ]
+}
+
+if (enable_tor) {
+  hns_utility_importer_deps += [ "//hns/components/services/tor" ]
+}
+
+if (enable_ipfs) {
+  hns_utility_importer_deps += [ "//hns/components/services/ipfs" ]
+}

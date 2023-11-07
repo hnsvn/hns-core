@@ -1,0 +1,114 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/build/config.gni")
+import("//build/toolchain/win/midl.gni")
+import("//build/util/process_version.gni")
+import("//chrome/process_version_rc_template.gni")
+
+assert(is_win)
+
+# Must be in a config because of how GN orders flags (otherwise /W4 will appear
+# after this, and turn it back on).
+config("no-missing-braces") {
+  # Macros invoked by WRL CoCreatableClass omit optional braces.
+  cflags = [ "-Wno-missing-braces" ]
+}
+
+source_set("common") {
+  sources = [
+    "hns_vpn_helper_constants.h",
+    "hns_vpn_helper_state.cc",
+    "hns_vpn_helper_state.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/hns_vpn/common/win",
+    "//chrome/install_static:install_static_util",
+  ]
+}
+
+source_set("lib") {
+  visibility = [
+    ":hns_vpn_helper",
+    ":unit_tests",
+  ]
+  sources = [
+    "hns_vpn_dns_delegate.h",
+    "vpn_dns_handler.cc",
+    "vpn_dns_handler.h",
+    "vpn_utils.cc",
+    "vpn_utils.h",
+  ]
+
+  deps = [
+    ":common",
+    "//base",
+    "//hns/components/hns_vpn/browser/connection/ikev2/win:ras_utils",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/win",
+    "//hns/components/hns_vpn/common/wireguard/win",
+    "//third_party/abseil-cpp:absl",
+  ]
+
+  libs = [
+    "Fwpuclnt.lib",
+    "Iphlpapi.lib",
+    "rasapi32.lib",
+  ]
+}
+
+executable("hns_vpn_helper") {
+  sources = [
+    "hns_vpn_helper_crash_reporter_client.cc",
+    "hns_vpn_helper_crash_reporter_client.h",
+    "main.cc",
+    "service_main.cc",
+    "service_main.h",
+  ]
+
+  deps = [
+    ":lib",
+    ":version_resources",
+    "//base",
+    "//base:base_static",
+    "//hns/components/hns_vpn/browser/connection/ikev2/win/hns_vpn_helper:common",
+    "//hns/components/hns_vpn/common",
+    "//build/win:default_exe_manifest",
+    "//chrome/install_static:install_static_util",
+    "//components/crash/core/app",
+    "//components/crash/core/app:crash_export_thunks",
+    "//components/crash/core/app:run_as_crashpad_handler",
+    "//components/version_info:channel",
+  ]
+  libs = [
+    "userenv.lib",  # For GetUserProfileDirectoryW()
+  ]
+}
+
+process_version_rc_template("version_resources") {
+  sources = [ "hns_vpn_helper.ver" ]
+  output = "$target_gen_dir/hns_vpn_helper_exe.rc"
+}
+
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [ "vpn_dns_handler_unittest.cc" ]
+
+  deps = [
+    ":common",
+    ":lib",
+    "//base",
+    "//base/test:test_support",
+    "//hns/components/hns_vpn/browser/connection/ikev2/win:ras_utils",
+    "//hns/components/hns_vpn/common",
+    "//testing/gtest",
+    "//third_party/abseil-cpp:absl",
+  ]
+}

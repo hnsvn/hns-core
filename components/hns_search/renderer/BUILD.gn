@@ -1,0 +1,26 @@
+source_set("renderer") {
+  sources = [
+    "hns_search_default_js_handler.cc",
+    "hns_search_default_js_handler.h",
+    "hns_search_fallback_js_handler.cc",
+    "hns_search_fallback_js_handler.h",
+    "hns_search_render_frame_observer.cc",
+    "hns_search_render_frame_observer.h",
+    "hns_search_service_worker_holder.cc",
+    "hns_search_service_worker_holder.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_search/common",
+    "//hns/components/hns_search/common:mojom",
+    "//content/public/renderer",
+    "//gin",
+    "//mojo/public/cpp/bindings",
+    "//net",
+    "//third_party/blink/public:blink",
+    "//third_party/blink/public/common",
+    "//third_party/blink/public/strings",
+    "//v8",
+  ]
+}

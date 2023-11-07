@@ -1,0 +1,54 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/commander/common/buildflags/buildflags.gni")
+
+hns_components_omnibox_browser_sources = [
+  "//hns/components/omnibox/browser/hns_bookmark_provider.cc",
+  "//hns/components/omnibox/browser/hns_bookmark_provider.h",
+  "//hns/components/omnibox/browser/hns_history_quick_provider.cc",
+  "//hns/components/omnibox/browser/hns_history_quick_provider.h",
+  "//hns/components/omnibox/browser/hns_history_url_provider.cc",
+  "//hns/components/omnibox/browser/hns_history_url_provider.h",
+  "//hns/components/omnibox/browser/hns_local_history_zero_suggest_provider.cc",
+  "//hns/components/omnibox/browser/hns_local_history_zero_suggest_provider.h",
+  "//hns/components/omnibox/browser/hns_omnibox_client.cc",
+  "//hns/components/omnibox/browser/hns_omnibox_client.h",
+  "//hns/components/omnibox/browser/hns_omnibox_prefs.cc",
+  "//hns/components/omnibox/browser/hns_omnibox_prefs.h",
+  "//hns/components/omnibox/browser/hns_search_provider.cc",
+  "//hns/components/omnibox/browser/hns_search_provider.h",
+  "//hns/components/omnibox/browser/hns_shortcuts_provider.cc",
+  "//hns/components/omnibox/browser/hns_shortcuts_provider.h",
+  "//hns/components/omnibox/browser/promotion_provider.cc",
+  "//hns/components/omnibox/browser/promotion_provider.h",
+  "//hns/components/omnibox/browser/promotion_utils.cc",
+  "//hns/components/omnibox/browser/promotion_utils.h",
+  "//hns/components/omnibox/browser/topsites_provider.cc",
+  "//hns/components/omnibox/browser/topsites_provider.h",
+  "//hns/components/omnibox/browser/topsites_provider_data.cc",
+]
+
+hns_components_omnibox_browser_deps = [
+  "//base",
+  "//hns/components/hns_search_conversion",
+  "//hns/components/commander/common/buildflags",
+  "//hns/components/constants",
+  "//hns/components/vector_icons",
+  "//components/prefs",
+  "//url",
+]
+
+if (enable_commander) {
+  hns_components_omnibox_browser_sources += [
+    "//hns/components/omnibox/browser/commander_action.cc",
+    "//hns/components/omnibox/browser/commander_action.h",
+    "//hns/components/omnibox/browser/commander_provider.cc",
+    "//hns/components/omnibox/browser/commander_provider.h",
+  ]
+
+  hns_components_omnibox_browser_deps +=
+      [ "//hns/components/commander/browser" ]
+}

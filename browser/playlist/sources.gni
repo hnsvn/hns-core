@@ -1,0 +1,45 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+
+hns_browser_playlist_sources = []
+hns_browser_playlist_deps = []
+
+if (enable_playlist) {
+  hns_browser_playlist_sources += [
+    "//hns/browser/playlist/playlist_service_factory.cc",
+    "//hns/browser/playlist/playlist_service_factory.h",
+    "//hns/browser/playlist/playlist_tab_helper.cc",
+    "//hns/browser/playlist/playlist_tab_helper.h",
+    "//hns/browser/playlist/playlist_tab_helper_observer.h",
+  ]
+
+  hns_browser_playlist_deps += [
+    "//base",
+    "//hns/browser/profiles:util",
+    "//hns/components/playlist/browser",
+    "//chrome/browser:browser_process",
+    "//chrome/common",
+    "//components/keyed_service/content",
+    "//components/pref_registry:pref_registry",
+  ]
+
+  if (is_android) {
+    hns_browser_playlist_sources += [
+      "//hns/browser/playlist/android/playlist_service_factory_android.cc",
+    ]
+
+    hns_browser_playlist_deps += [
+      "//hns/build/android:jni_headers",
+      "//mojo/public/cpp/bindings",
+    ]
+  } else {
+    hns_browser_playlist_sources += [
+      "//hns/browser/playlist/playlist_data_source.cc",
+      "//hns/browser/playlist/playlist_data_source.h",
+    ]
+  }
+}

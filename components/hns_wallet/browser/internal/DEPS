@@ -1,0 +1,8 @@
+include_rules = [
+  "+hns/third_party/bitcoin-core/src/src/base58.h",
+  "+hns/third_party/bitcoin-core/src/src/bech32.h",
+  "+hns/third_party/bitcoin-core/src/src/crypto/ripemd160.h",
+  "+hns/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1_recovery.h",
+  "+hns/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1.h",
+  "+hns/third_party/bitcoin-core/src/src/util/strencodings.h",
+]

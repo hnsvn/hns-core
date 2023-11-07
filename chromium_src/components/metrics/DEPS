@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/components/constants",
+  "+components/prefs",
+  "+components/variations",
+]

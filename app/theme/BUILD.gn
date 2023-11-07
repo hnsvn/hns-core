@@ -1,0 +1,41 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+import("//hns/resources/hns_grit.gni")
+import("//chrome/common/features.gni")
+
+assert(!is_android)
+
+hns_grit("hns_theme_resources") {
+  source = "hns_theme_resources.grd"
+  defines = chrome_grit_defines
+  defines += [
+    "enable_ipfs=$enable_ipfs",
+    "enable_playlist_webui=$enable_playlist_webui",
+  ]
+  outputs = [
+    "grit/hns_theme_resources.h",
+    "grit/hns_theme_resources_map.cc",
+    "grit/hns_theme_resources_map.h",
+    "hns_theme_resources_100_percent.pak",
+    "hns_theme_resources_200_percent.pak",
+    "hns_theme_resources_300_percent.pak",
+  ]
+
+  output_dir = "$root_gen_dir/hns"
+}
+
+hns_grit("hns_unscaled_resources") {
+  source = "hns_unscaled_resources.grd"
+  defines = chrome_grit_defines
+  outputs = [
+    "grit/hns_unscaled_resources.h",
+    "hns_unscaled_resources.pak",
+  ]
+
+  output_dir = "$root_gen_dir/hns"
+}

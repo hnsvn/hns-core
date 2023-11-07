@@ -1,0 +1,84 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+
+assert(enable_hns_vpn)
+
+static_library("browser") {
+  sources = [
+    "hns_vpn_service.cc",
+    "hns_vpn_service.h",
+    "hns_vpn_service_helper.cc",
+    "hns_vpn_service_helper.h",
+    "hns_vpn_service_observer.cc",
+    "hns_vpn_service_observer.h",
+  ]
+
+  deps = [
+    "api",
+    "connection",
+    "connection:api",
+    "connection:common",
+    "//base",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/mojom",
+    "//hns/components/p3a_utils",
+    "//hns/components/resources:strings",
+    "//hns/components/skus/browser",
+    "//hns/components/skus/common:mojom",
+    "//hns/components/version_info",
+    "//build:buildflag_header_h",
+    "//components/keyed_service/core",
+    "//components/pref_registry",
+    "//components/prefs",
+    "//components/version_info",
+    "//services/network/public/cpp",
+    "//third_party/abseil-cpp:absl",
+    "//ui/base",
+    "//url",
+  ]
+  if (is_win) {
+    deps += [ "//hns/components/hns_vpn/common/wireguard/win" ]
+  }
+}
+
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [ "hns_vpn_service_unittest.cc" ]
+
+  deps = [
+    ":browser",
+    "api",
+    "api:unit_tests",
+    "//base",
+    "//hns/components/hns_vpn/browser/connection:api",
+    "//hns/components/hns_vpn/browser/connection:common",
+    "//hns/components/hns_vpn/browser/connection/wireguard/credentials:unit_tests",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/skus/browser",
+    "//hns/components/skus/common",
+    "//hns/components/skus/common:mojom",
+    "//components/prefs:test_support",
+    "//components/sync_preferences:test_support",
+    "//content/test:test_support",
+    "//net:test_support",
+    "//services/data_decoder/public/cpp:test_support",
+    "//services/network:test_support",
+    "//testing/gmock",
+    "//testing/gtest",
+    "//third_party/abseil-cpp:absl",
+  ]
+  if (!is_android) {
+    deps += [
+      "connection:unit_tests",
+      "//hns/components/hns_vpn/browser/connection/ikev2:sim",
+    ]
+  }
+  if (is_win) {
+    deps += [ "//hns/components/hns_vpn/browser/connection/ikev2/win/hns_vpn_helper:unit_tests" ]
+  }
+}

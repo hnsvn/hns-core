@@ -1,0 +1,9 @@
+include_rules = [
+  "+hns/components/hns_sync",
+  "+hns/components/hns_wallet/browser",
+  "+hns/components/decentralized_dns/core",
+  "+hns/components/ipfs",
+  "+hns/components/ntp_background_images/browser",
+  "+hns/components/p3a",
+  "+hns/ios/browser/hns_stats",
+]

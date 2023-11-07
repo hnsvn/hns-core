@@ -1,0 +1,24 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_extensions_web_component_files = [ "hns_item_list_more_items.ts" ]
+
+hns_extensions_non_web_component_files = [
+  "hns_overrides/extensions_detail_view.ts",
+  "hns_overrides/index.ts",
+  "hns_overrides/side_bar.ts",
+]
+
+hns_extensions_preprocess_extra_deps =
+    [ "//hns/browser/resources/extensions:preprocess" ]
+
+hns_extensions_local_ts_files = hns_extensions_web_component_files +
+                                  hns_extensions_non_web_component_files
+
+hns_extensions_local_html_files = []
+foreach(component_file, hns_extensions_web_component_files) {
+  hns_extensions_local_html_files +=
+      [ string_replace(component_file, ".ts", ".html") ]
+}

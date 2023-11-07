@@ -1,0 +1,5 @@
+# Copyright 2022 The Hns Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+hns_public_tab_management_java_sources = [ "//hns/android/features/tab_ui/java/src/org/chromium/chrome/browser/tasks/tab_management/HnsTabUiFeatureUtilities.java" ]

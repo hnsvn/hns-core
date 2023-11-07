@@ -1,0 +1,25 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_browser_hns_wallet_android_sources = [
+  "//hns/browser/hns_wallet/android/asset_ratio_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/blockchain_registry_factory_android.cc",
+  "//hns/browser/hns_wallet/android/hns_wallet_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/json_rpc_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/keyring_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/swap_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/tx_service_factory_android.cc",
+  "//hns/browser/hns_wallet/android/wallet_data_files_installer_android.cc",
+  "//hns/browser/hns_wallet/android/wallet_native_utils_android.cc",
+  "//hns/browser/permissions/hns_dapp_permission_prompt_dialog_controller_android.cc",
+  "//hns/browser/permissions/hns_dapp_permission_prompt_dialog_controller_android.h",
+  "//hns/browser/permissions/hns_wallet_permission_prompt_android.cc",
+  "//hns/browser/permissions/hns_wallet_permission_prompt_android.h",
+]
+
+hns_browser_hns_wallet_android_deps = [
+  "//hns/components/hns_wallet/browser",
+  "//hns/components/hns_wallet/browser:constants",
+]

@@ -1,0 +1,74 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+
+assert(enable_hns_vpn)
+
+source_set("api") {
+  sources = [
+    "hns_vpn_os_connection_api.cc",
+    "hns_vpn_os_connection_api.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_vpn/browser/api",
+    "//hns/components/hns_vpn/browser/connection:common",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/hns_vpn/common/mojom",
+    "//components/prefs",
+    "//services/network/public/cpp",
+  ]
+}
+
+group("connection") {
+  deps = [
+    ":api",
+    ":common",
+  ]
+  if (is_win) {
+    deps += [ "ikev2/win" ]
+    deps += [ "wireguard/win" ]
+  }
+
+  if (is_mac) {
+    deps += [ "ikev2/mac" ]
+    deps += [ "wireguard/mac" ]
+  }
+}
+
+source_set("common") {
+  sources = [
+    "hns_vpn_connection_info.cc",
+    "hns_vpn_connection_info.h",
+    "hns_vpn_region_data_manager.cc",
+    "hns_vpn_region_data_manager.h",
+  ]
+  deps = [
+    "//hns/components/api_request_helper",
+    "//hns/components/hns_vpn/browser/api",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/mojom",
+    "//hns/components/skus/browser",
+    "//hns/components/skus/common:mojom",
+    "//build:buildflag_header_h",
+    "//components/prefs",
+    "//services/network/public/cpp",
+    "//url",
+  ]
+}
+
+group("unit_tests") {
+  testonly = true
+  deps = []
+  if (!is_android) {
+    deps += [
+      "ikev2:unit_tests",
+      "wireguard:unit_tests",
+    ]
+  }
+}

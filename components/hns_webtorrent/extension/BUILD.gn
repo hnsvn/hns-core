@@ -1,0 +1,30 @@
+# Copyright (c) 2018 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+
+transpile_web_ui("generate_hns_webtorrent") {
+  entry_points = [
+    [
+      "hns_webtorrent",
+      rebase_path("hns_webtorrent.tsx"),
+    ],
+    [
+      "hns_webtorrent_background",
+      rebase_path("background.ts"),
+    ],
+  ]
+
+  # For explanation of "chromeapp", see:
+  # https://github.com/hnsvn/hns-browser/issues/5587
+  webpack_aliases = [ "chromeapp" ]
+  resource_name = "hns_webtorrent"
+
+  # Must match the relative path from the static GRD to the manifest.json
+  # plus any other relative path we want these files to live in the extension
+  resource_path_prefix = "hns_webtorrent/extension/out"
+
+  public_asset_path = "/extension/out/"
+}

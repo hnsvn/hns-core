@@ -1,0 +1,39 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//extensions/buildflags/buildflags.gni")
+
+hns_browser_importer_sources = []
+hns_browser_importer_deps = []
+
+if (!is_android) {
+  hns_browser_importer_sources += [
+    "//hns/browser/importer/hns_external_process_importer_client.cc",
+    "//hns/browser/importer/hns_external_process_importer_client.h",
+    "//hns/browser/importer/hns_external_process_importer_host.cc",
+    "//hns/browser/importer/hns_external_process_importer_host.h",
+    "//hns/browser/importer/hns_in_process_importer_bridge.cc",
+    "//hns/browser/importer/hns_in_process_importer_bridge.h",
+  ]
+  if (enable_extensions) {
+    hns_browser_importer_sources += [
+      "//hns/browser/importer/extensions_import_helpers.cc",
+      "//hns/browser/importer/extensions_import_helpers.h",
+    ]
+    hns_browser_importer_deps += [
+      "//hns/common/importer",
+      "//components/value_store",
+      "//extensions/browser",
+      "//extensions/common:common_constants",
+    ]
+  }
+  hns_browser_importer_deps += [
+    "//base",
+    "//hns/common/importer:interfaces",
+    "//content/public/browser",
+    "//extensions/buildflags",
+    "//mojo/public/cpp/bindings:bindings",
+  ]
+}

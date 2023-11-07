@@ -1,0 +1,14 @@
+# Copyright 2022 The Hns Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  enable_hns_page_graph = false
+  enable_hns_page_graph_webapi_probes = false
+}
+
+# Allow Page Graph only in desktop builds.
+assert(!enable_hns_page_graph || is_win || is_mac || is_linux)
+
+assert(!enable_hns_page_graph_webapi_probes ||
+       enable_hns_page_graph_webapi_probes == enable_hns_page_graph)

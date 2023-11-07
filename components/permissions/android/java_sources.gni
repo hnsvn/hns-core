@@ -1,0 +1,4 @@
+hns_components_permissions_java_sources = [
+  "//hns/components/permissions/android/java/src/org/chromium/components/permissions/HnsPermissionDialogDelegate.java",
+  "//hns/components/permissions/android/java/src/org/chromium/components/permissions/HnsPermissionDialogModel.java",
+]

@@ -1,0 +1,77 @@
+/* Copyright (c) 2022 The Hns Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+#include "hns/components/hns_ads/core/internal/account/user_data/fixed/rotating_hash_user_data.h"
+
+#include "base/test/values_test_util.h"
+#include "hns/components/hns_ads/core/internal/account/transactions/transaction_info.h"
+#include "hns/components/hns_ads/core/internal/account/transactions/transactions_unittest_util.h"
+#include "hns/components/hns_ads/core/internal/common/unittest/unittest_base.h"
+#include "hns/components/hns_ads/core/internal/common/unittest/unittest_mock_util.h"
+#include "hns/components/hns_ads/core/internal/common/unittest/unittest_time_util.h"
+#include "hns/components/hns_ads/core/internal/settings/settings_unittest_util.h"
+
+// npm run test -- hns_unit_tests --filter=HnsAds*
+
+namespace hns_ads {
+
+class HnsAdsRotatingHashUserDataTest : public UnitTestBase {
+ protected:
+  void SetUp() override {
+    UnitTestBase::SetUp();
+
+    AdvanceClockTo(TimeFromString("2 June 2022 11:00", /*is_local*/ false));
+  }
+};
+
+TEST_F(HnsAdsRotatingHashUserDataTest,
+       BuildRotatingHashUserDataForRewardsUser) {
+  // Arrange
+  MockDeviceId();
+
+  const TransactionInfo transaction = BuildUnreconciledTransactionForTesting(
+      /*value*/ 0.01, ConfirmationType::kViewed,
+      /*should_use_random_uuids*/ false);
+
+  // Act
+
+  // Assert
+  EXPECT_EQ(
+      base::test::ParseJsonDict(
+          R"({"rotating_hash":"j9D7eKSoPLYNfxkG2Mx+SbgKJ9hcKg1QwDB8B5qxlpk="})"),
+      BuildRotatingHashUserData(transaction));
+}
+
+TEST_F(HnsAdsRotatingHashUserDataTest,
+       DoNotBuildRotatingHashUserDataForNonRewardsUser) {
+  // Arrange
+  DisableHnsRewardsForTesting();
+
+  MockDeviceId();
+
+  const TransactionInfo transaction = BuildUnreconciledTransactionForTesting(
+      /*value*/ 0.01, ConfirmationType::kViewed,
+      /*should_use_random_uuids*/ false);
+
+  // Act
+
+  // Assert
+  EXPECT_TRUE(BuildRotatingHashUserData(transaction).empty());
+}
+
+TEST_F(HnsAdsRotatingHashUserDataTest,
+       DoNotBuildRotatingHashUserDataIfMissingDeviceId) {
+  // Arrange
+  const TransactionInfo transaction = BuildUnreconciledTransactionForTesting(
+      /*value*/ 0.01, ConfirmationType::kViewed,
+      /*should_use_random_uuids*/ false);
+
+  // Act
+
+  // Assert
+  EXPECT_EQ(base::Value::Dict(), BuildRotatingHashUserData(transaction));
+}
+
+}  // namespace hns_ads

@@ -1,0 +1,109 @@
+# Copyright 2023 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//build/rust/cargo_crate.gni")
+
+cargo_crate("lib") {
+  crate_name = "itertools"
+  epoch = "0.10"
+  crate_type = "rlib"
+
+  # Only for usage from third-party crates. Add the crate to
+  # third_party.toml to use it from first-party code.
+  visibility = [ "//hns/third_party/rust/*" ]
+  crate_root = "crate/src/lib.rs"
+  sources = [
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/bench1.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/combinations.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/combinations_with_replacement.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/extra/mod.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/extra/zipslices.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/fold_specialization.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/powerset.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/tree_fold1.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/tuple_combinations.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/benches/tuples.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/examples/iris.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/adaptors/coalesce.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/adaptors/map.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/adaptors/mod.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/adaptors/multi_product.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/combinations.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/combinations_with_replacement.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/concat_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/cons_tuples_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/diff.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/duplicates_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/either_or_both.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/exactly_one_err.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/extrema_set.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/flatten_ok.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/format.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/free.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/group_map.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/groupbylazy.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/grouping_map.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/impl_macros.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/intersperse.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/k_smallest.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/kmerge_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/lazy_buffer.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/lib.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/merge_join.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/minmax.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/multipeek_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/pad_tail.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/peek_nth.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/peeking_take_while.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/permutations.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/powerset.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/process_results_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/put_back_n_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/rciter_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/repeatn.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/size_hint.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/sources.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/tee.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/tuple_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/unique_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/unziptuple.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/with_position.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/zip_eq_impl.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/zip_longest.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/src/ziptuple.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/adaptors_no_collect.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/flatten_ok.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/macros_hygiene.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/merge_join.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/peeking_take_while.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/quick.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/specializations.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/test_core.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/test_std.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/tuples.rs",
+    "//hns/third_party/rust/itertools/v0_10/crate/tests/zip.rs",
+  ]
+  inputs = [
+    "//hns/third_party/rust/itertools/v0_10/crate/CHANGELOG.md",
+    "//hns/third_party/rust/itertools/v0_10/crate/README.md",
+  ]
+
+  # Unit tests skipped. Generate with --with-tests to include them.
+  build_native_rust_unit_tests = false
+  edition = "2018"
+  cargo_pkg_version = "0.10.5"
+  cargo_pkg_authors = "bluss"
+  cargo_pkg_name = "itertools"
+  cargo_pkg_description =
+      "Extra iterator adaptors, iterator methods, free functions, and macros."
+  library_configs -= [ "//build/config/compiler:chromium_code" ]
+  library_configs += [ "//build/config/compiler:no_chromium_code" ]
+  executable_configs -= [ "//build/config/compiler:chromium_code" ]
+  executable_configs += [ "//build/config/compiler:no_chromium_code" ]
+  deps = [ "//hns/third_party/rust/either/v1:lib" ]
+  features = [
+    "use_alloc",
+    "use_std",
+  ]
+}

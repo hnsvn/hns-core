@@ -1,0 +1,27 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_hns_news_sources = []
+hns_browser_hns_news_deps = []
+
+if (is_android) {
+  hns_browser_hns_news_sources += [ "//hns/browser/hns_news/android/hns_news_controller_factory_android.cc" ]
+}
+hns_browser_hns_news_sources += [
+  "//hns/browser/hns_news/hns_news_controller_factory.cc",
+  "//hns/browser/hns_news/hns_news_controller_factory.h",
+  "//hns/browser/hns_news/hns_news_tab_helper.cc",
+  "//hns/browser/hns_news/hns_news_tab_helper.h",
+]
+
+hns_browser_hns_news_deps += [
+  "//base",
+  "//hns/components/hns_news/browser",
+  "//hns/components/hns_news/common",
+  "//chrome/browser/profiles:profile",
+  "//components/keyed_service/content",
+  "//content/public/browser",
+  "//services/network/public/cpp",
+]

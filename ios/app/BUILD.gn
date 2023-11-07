@@ -1,0 +1,104 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//build/config/ios/rules.gni")
+import("//ios/build/config.gni")
+import("//ios/public/provider/chrome/browser/build_config.gni")
+
+source_set("app") {
+  configs += [
+    "//hns/ios/browser/api/hns_wallet:mojom_header_config",
+    "//hns/ios/browser/api/skus:mojom_header_config",
+  ]
+
+  sources = [
+    "hns_core_main.h",
+    "hns_core_main.mm",
+    "hns_core_switches.h",
+    "hns_core_switches.mm",
+    "hns_main_delegate.h",
+    "hns_main_delegate.mm",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_component_updater/browser",
+    "//hns/components/hns_sync:constants",
+    "//hns/components/hns_wallet/browser",
+    "//hns/components/constants",
+    "//hns/components/ntp_background_images/browser",
+    "//hns/components/p3a",
+    "//hns/components/p3a:buildflags",
+    "//hns/components/skus/browser",
+    "//hns/components/update_client:buildflags",
+    "//hns/ios/app/resources",
+    "//hns/ios/browser",
+    "//hns/ios/browser/api/ads",
+    "//hns/ios/browser/api/bookmarks",
+    "//hns/ios/browser/api/hns_rewards",
+    "//hns/ios/browser/api/hns_shields",
+    "//hns/ios/browser/api/hns_stats",
+    "//hns/ios/browser/api/hns_wallet",
+    "//hns/ios/browser/api/hns_wallet:wallet_mojom_wrappers",
+    "//hns/ios/browser/api/history",
+    "//hns/ios/browser/api/ipfs",
+    "//hns/ios/browser/api/ntp_background_images",
+    "//hns/ios/browser/api/opentabs",
+    "//hns/ios/browser/api/p3a",
+    "//hns/ios/browser/api/password",
+    "//hns/ios/browser/api/qr_code",
+    "//hns/ios/browser/api/query_filter",
+    "//hns/ios/browser/api/skus:skus_mojom_wrappers",
+    "//hns/ios/browser/api/sync/driver",
+    "//hns/ios/browser/api/web_image",
+    "//hns/ios/browser/component_updater",
+    "//hns/ios/browser/skus",
+    "//components/browser_sync",
+    "//components/component_updater",
+    "//components/component_updater/installer_policies",
+    "//components/history/core/browser",
+    "//components/keyed_service/core",
+    "//components/password_manager/core/browser",
+    "//components/send_tab_to_self",
+    "//components/sync/base",
+    "//components/sync/service",
+    "//ios/chrome/app:app_internal",
+    "//ios/chrome/app:tests_fake_hook",
+    "//ios/chrome/app/startup:startup",
+    "//ios/chrome/app/startup:startup_basic",
+    "//ios/chrome/browser/bookmarks/model",
+    "//ios/chrome/browser/browser_state:browser_state",
+    "//ios/chrome/browser/flags:system_flags",
+    "//ios/chrome/browser/history",
+    "//ios/chrome/browser/main",
+    "//ios/chrome/browser/passwords:store_factory",
+    "//ios/chrome/browser/providers/ui_utils:chromium_ui_utils",
+    "//ios/chrome/browser/shared/model/application_context",
+    "//ios/chrome/browser/shared/model/browser_state",
+    "//ios/chrome/browser/shared/model/paths",
+    "//ios/chrome/browser/shared/model/web_state_list",
+    "//ios/chrome/browser/shared/public/commands",
+    "//ios/chrome/browser/sync",
+    "//ios/chrome/browser/ui/webui:webui_internal",
+    "//ios/chrome/common",
+    "//ios/public/provider/chrome/browser/font:font_api",
+    "//ios/public/provider/chrome/browser/overrides:overrides_api",
+    "//ios/public/provider/chrome/browser/ui_utils:ui_utils_api",
+    "//ios/web/public/init",
+    "//ios/web/public/webui",
+
+    # Use the provider API controlled by args.gn.
+    ios_provider_target,
+  ]
+
+  deps += [
+    "//ios/third_party/material_components_ios:material_components_ios+link",
+  ]
+
+  frameworks = [
+    "Foundation.framework",
+    "UIKit.framework",
+  ]
+}

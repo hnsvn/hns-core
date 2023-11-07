@@ -1,0 +1,58 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+
+hns_browser_hns_vpn_sources = []
+hns_browser_hns_vpn_deps = []
+
+if (enable_hns_vpn) {
+  hns_browser_hns_vpn_sources += [
+    "//hns/browser/hns_vpn/hns_vpn_service_factory.cc",
+    "//hns/browser/hns_vpn/hns_vpn_service_factory.h",
+    "//hns/browser/hns_vpn/vpn_utils.cc",
+    "//hns/browser/hns_vpn/vpn_utils.h",
+  ]
+  if (is_win) {
+    hns_browser_hns_vpn_sources += [
+      "//hns/browser/hns_vpn/dns/hns_vpn_dns_observer_factory_win.cc",
+      "//hns/browser/hns_vpn/dns/hns_vpn_dns_observer_factory_win.h",
+      "//hns/browser/hns_vpn/dns/hns_vpn_dns_observer_service_win.cc",
+      "//hns/browser/hns_vpn/dns/hns_vpn_dns_observer_service_win.h",
+      "//hns/browser/hns_vpn/win/hns_vpn_wireguard_observer_factory_win.cc",
+      "//hns/browser/hns_vpn/win/hns_vpn_wireguard_observer_factory_win.h",
+      "//hns/browser/hns_vpn/win/hns_vpn_wireguard_observer_service_win.cc",
+      "//hns/browser/hns_vpn/win/hns_vpn_wireguard_observer_service_win.h",
+    ]
+
+    hns_browser_hns_vpn_deps += [
+      "//hns/app:hns_generated_resources_grit",
+      "//hns/browser:browser_process",
+      "//hns/components/hns_vpn/browser/connection/ikev2/win/hns_vpn_helper:common",
+      "//hns/components/hns_vpn/common/win",
+      "//hns/components/hns_vpn/common/wireguard/win",
+      "//chrome/common:constants",
+      "//components/prefs",
+      "//net",
+      "//third_party/abseil-cpp:absl",
+    ]
+  }
+  hns_browser_hns_vpn_deps += [
+    "//base",
+    "//hns/components/hns_vpn/browser",
+    "//chrome/browser/profiles:profile",
+    "//components/keyed_service/content",
+    "//components/user_prefs",
+    "//content/public/browser",
+  ]
+
+  if (is_android) {
+    hns_browser_hns_vpn_sources += [
+      "//hns/browser/hns_vpn/android/hns_vpn_native_worker.cc",
+      "//hns/browser/hns_vpn/android/hns_vpn_native_worker.h",
+    ]
+    hns_browser_hns_vpn_deps += [ "//hns/build/android:jni_headers" ]
+  }
+}

@@ -1,0 +1,4 @@
+html.loading::before {
+  background-image: var(--hns-toolbar-gradient);
+  height: 0 !important;
+}

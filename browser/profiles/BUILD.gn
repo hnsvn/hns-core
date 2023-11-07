@@ -1,0 +1,82 @@
+# Copyright (c) 2018 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//components/gcm_driver/config.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+source_set("profiles") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10648 is resolved
+  check_includes = false
+  sources = [
+    "hns_bookmark_model_loaded_observer.cc",
+    "hns_bookmark_model_loaded_observer.h",
+    "hns_profile_avatar_downloader.cc",
+    "hns_profile_avatar_downloader.h",
+    "hns_profile_manager.cc",
+    "hns_profile_manager.h",
+    "hns_renderer_updater.cc",
+    "hns_renderer_updater.h",
+    "hns_renderer_updater_factory.cc",
+    "hns_renderer_updater_factory.h",
+  ]
+
+  public_deps = [ ":util" ]
+
+  deps = [
+    "//base",
+    "//hns/browser/gcm_driver",
+    "//hns/common",
+    "//hns/components/hns_ads/browser",
+    "//hns/components/hns_rewards/browser",
+    "//hns/components/hns_sync:prefs",
+    "//hns/components/hns_wallet/browser",
+    "//hns/components/hns_wallet/common",
+    "//hns/components/constants",
+    "//hns/components/ipfs/buildflags",
+    "//hns/components/tor/buildflags",
+    "//chrome/common",
+    "//components/gcm_driver:gcm_buildflags",
+    "//components/keyed_service/content",
+    "//components/keyed_service/core",
+    "//components/prefs",
+    "//components/search_engines",
+    "//components/signin/public/identity_manager",
+    "//mojo/public/cpp/bindings",
+    "//ui/base",
+  ]
+
+  if (enable_extensions) {
+    deps += [ "//extensions/common" ]
+  }
+
+  if (use_gcm_from_platform) {
+    deps += [ "//hns/browser/gcm_driver" ]
+  }
+
+  if (enable_tor) {
+    deps += [ "//hns/browser/tor" ]
+  }
+}
+
+source_set("util") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10648 is resolved
+  check_includes = false
+
+  sources = [
+    "profile_util.cc",
+    "profile_util.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/common",
+    "//hns/components/ntp_background_images/common",
+    "//hns/components/search_engines",
+    "//hns/components/tor/buildflags",
+    "//components/prefs",
+    "//content/public/browser",
+  ]
+}

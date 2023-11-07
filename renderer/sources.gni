@@ -1,0 +1,71 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+
+hns_chrome_renderer_sources = [
+  "//hns/renderer/hns_content_renderer_client.cc",
+  "//hns/renderer/hns_content_renderer_client.h",
+  "//hns/renderer/hns_render_thread_observer.cc",
+  "//hns/renderer/hns_render_thread_observer.h",
+  "//hns/renderer/hns_url_loader_throttle_provider_impl.cc",
+  "//hns/renderer/hns_url_loader_throttle_provider_impl.h",
+]
+
+hns_chrome_renderer_deps = [
+  "//hns/common:mojo_bindings",
+  "//hns/components/ai_chat/common/buildflags",
+  "//hns/components/hns_search/common",
+  "//hns/components/hns_search/renderer",
+  "//hns/components/hns_shields/common",
+  "//hns/components/hns_vpn/common/buildflags",
+  "//hns/components/hns_wallet/common",
+  "//hns/components/hns_wallet/renderer",
+  "//hns/components/cosmetic_filters/renderer",
+  "//hns/components/playlist/common/buildflags",
+  "//hns/components/safe_builtins/renderer",
+  "//hns/components/skus/common",
+  "//hns/components/skus/renderer",
+  "//hns/components/speedreader/common/buildflags",
+  "//hns/components/tor/buildflags",
+  "//hns/renderer/hns_wallet",
+  "//mojo/public/cpp/bindings",
+  "//third_party/blink/public:blink",
+  "//third_party/blink/public/common",
+]
+
+if (enable_tor) {
+  hns_chrome_renderer_deps += [ "//hns/components/tor/renderer" ]
+}
+
+if (enable_speedreader) {
+  hns_chrome_renderer_deps += [
+    "//hns/components/speedreader/common",
+    "//hns/components/speedreader/renderer",
+  ]
+}
+
+if (enable_ai_chat) {
+  hns_chrome_renderer_deps += [ "//hns/components/ai_chat/renderer" ]
+}
+
+if (enable_playlist) {
+  hns_chrome_renderer_deps += [ "//hns/components/playlist/renderer" ]
+}
+
+if (enable_hns_vpn) {
+  hns_chrome_renderer_deps += [ "//hns/components/hns_vpn/common" ]
+  if (is_android) {
+    hns_chrome_renderer_deps +=
+        [ "//hns/components/hns_vpn/renderer/android:android" ]
+  }
+}
+
+# do not add anything else here
+hns_chrome_renderer_public_deps = []

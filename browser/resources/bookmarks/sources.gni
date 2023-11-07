@@ -1,0 +1,14 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_bookmarks_non_web_component_files = [
+  "hns_overrides/folder_node.ts",
+  "hns_overrides/index.ts",
+]
+
+hns_bookmarks_preprocess_extra_deps =
+    [ "//hns/browser/resources/bookmarks:preprocess" ]
+
+hns_bookmarks_ts_local_files = hns_bookmarks_non_web_component_files

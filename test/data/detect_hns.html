@@ -1,0 +1,11 @@
+<script>
+  var hns_detected = false;
+  navigator.hns.isHns().then((response) => {
+    if (response === true) {
+      hns_detected = true;
+    }
+  });
+  function getHnsDetected() {
+    return hns_detected;
+  }
+</script>

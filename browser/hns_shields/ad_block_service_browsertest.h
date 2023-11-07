@@ -1,0 +1,74 @@
+/* Copyright (c) 2021 The Hns Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef HNS_BROWSER_HNS_SHIELDS_AD_BLOCK_SERVICE_BROWSERTEST_H_
+#define HNS_BROWSER_HNS_SHIELDS_AD_BLOCK_SERVICE_BROWSERTEST_H_
+
+#include <memory>
+#include <string>
+#include <vector>
+
+#include "hns/components/hns_shields/browser/test_filters_provider.h"
+#include "chrome/browser/extensions/extension_browsertest.h"
+#include "content/public/test/content_mock_cert_verifier.h"
+#include "net/test/spawned_test_server/spawned_test_server.h"
+
+class HostContentSettingsMap;
+
+namespace hns_shields {
+class AdBlockService;
+}  // namespace hns_shields
+
+class AdBlockServiceTest : public extensions::ExtensionBrowserTest {
+ public:
+  AdBlockServiceTest();
+  ~AdBlockServiceTest() override;
+
+  // ExtensionBrowserTest overrides
+  void SetUpCommandLine(base::CommandLine* command_line) override;
+  void SetUpInProcessBrowserTestFixture() override;
+  void SetUpOnMainThread() override;
+  void SetUp() override;
+  void PreRunTestOnMainThread() override;
+  void TearDownOnMainThread() override;
+  void TearDownInProcessBrowserTestFixture() override;
+
+ protected:
+  content::ContentMockCertVerifier mock_cert_verifier_;
+
+  HostContentSettingsMap* content_settings();
+  void UpdateAdBlockInstanceWithRules(const std::string& rules,
+                                      const std::string& resources = "[]");
+  void UpdateAdBlockInstanceWithDAT(const base::FilePath& dat_location,
+                                    const std::string& resources = "[]");
+  void UpdateCustomAdBlockInstanceWithRules(
+      const std::string& rules,
+      const std::string& resources = "[]");
+  void AssertTagExists(const std::string& tag, bool expected_exists) const;
+  void InitEmbeddedTestServer();
+  void GetTestDataDir(base::FilePath* test_data_dir);
+  void SetDefaultComponentIdAndBase64PublicKeyForTest();
+  void SetRegionalComponentIdAndBase64PublicKeyForTest();
+  bool InstallDefaultAdBlockExtension(
+      const std::string& extension_dir = "adblock-default");
+  bool InstallRegionalAdBlockExtension(const std::string& uuid,
+                                       bool enable_list = true);
+  void SetSubscriptionIntervals();
+  void WaitForAdBlockServiceThreads();
+  void ShieldsDown(const GURL& url);
+  void DisableAggressiveMode();
+  void LoadDAT(base::FilePath path);
+  void EnableRedirectUrlParsing();
+  content::WebContents* web_contents();
+
+  std::vector<std::unique_ptr<hns_shields::TestFiltersProvider>>
+      source_providers_;
+
+  net::SpawnedTestServer ws_server_;
+  net::EmbeddedTestServer dynamic_server_;
+  net::EmbeddedTestServer https_server_;
+};
+
+#endif  // HNS_BROWSER_HNS_SHIELDS_AD_BLOCK_SERVICE_BROWSERTEST_H_

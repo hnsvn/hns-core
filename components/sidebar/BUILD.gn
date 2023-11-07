@@ -1,0 +1,67 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+import("//build/config/ui.gni")
+
+assert(toolkit_views)
+
+static_library("sidebar") {
+  sources = [
+    "constants.h",
+    "pref_names.h",
+    "sidebar_item.cc",
+    "sidebar_item.h",
+    "sidebar_p3a.cc",
+    "sidebar_p3a.h",
+    "sidebar_service.cc",
+    "sidebar_service.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/ai_chat/common/buildflags",
+    "//hns/components/hns_wallet/common",
+    "//hns/components/constants:constants",
+    "//hns/components/l10n/common",
+    "//hns/components/resources:strings",
+    "//components/keyed_service/core",
+    "//components/prefs",
+    "//components/version_info",
+    "//ui/base",
+    "//url",
+  ]
+
+  if (enable_ai_chat) {
+    deps += [ "//hns/components/ai_chat/common" ]
+  }
+
+  if (enable_playlist) {
+    deps += [ "//hns/components/playlist/common" ]
+  }
+}
+
+source_set("unit_tests") {
+  testonly = true
+  sources = [ "sidebar_service_unittest.cc" ]
+
+  deps = [
+    "//base",
+    "//base/test:test_support",
+    "//hns/components/sidebar",
+    "//components/prefs",
+    "//components/prefs:test_support",
+    "//components/version_info",
+    "//content/public/browser",
+    "//content/test:test_support",
+    "//testing/gmock",
+    "//testing/gtest",
+  ]
+
+  if (enable_playlist) {
+    deps += [ "//hns/components/playlist/common" ]
+  }
+}

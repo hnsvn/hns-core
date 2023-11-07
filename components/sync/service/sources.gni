@@ -1,0 +1,21 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_components_sync_driver_sources = [
+  "//hns/components/sync/service/hns_sync_auth_manager.cc",
+  "//hns/components/sync/service/hns_sync_auth_manager.h",
+  "//hns/components/sync/service/hns_sync_service_impl.cc",
+  "//hns/components/sync/service/hns_sync_service_impl.h",
+  "//hns/components/sync/service/hns_sync_stopped_reporter.cc",
+  "//hns/components/sync/service/hns_sync_stopped_reporter.h",
+  "//hns/components/sync/service/sync_service_impl_delegate.h",
+]
+hns_components_sync_driver_deps = [
+  "//hns/components/hns_sync",
+  "//hns/components/hns_sync:crypto",
+  "//hns/components/hns_sync:network_time_helper",
+  "//hns/components/hns_sync:prefs",
+  "//hns/components/constants",
+]

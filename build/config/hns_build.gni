@@ -1,0 +1,28 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+# Add imports here for things that need to be available in chromium code.
+# This file is included in most gn files either directly or through
+# import("//build/config/chrome_build.gni") in compiler.gni
+import("//hns/app/entitlements.gni")
+import("//hns/hns_repack_locales.gni")
+import("//hns/browser/extensions/resources.gni")
+import("//hns/browser/resources/bookmarks/sources.gni")
+import("//hns/browser/resources/extensions/sources.gni")
+import("//hns/browser/resources/history/sources.gni")
+import("//hns/browser/resources/settings/sources.gni")
+import("//hns/browser/ui/color/sources.gni")
+import("//hns/build/mac/config.gni")
+import("//hns/components/content_settings/core/browser/sources.gni")
+import("//hns/components/omnibox/browser/sources.gni")
+import("//hns/components/search_engines/sources.gni")
+import("//hns/components/sync/service/sources.gni")
+import("//hns/components/sync/sources.gni")
+import("//hns/components/sync_device_info/sources.gni")
+import("//hns/components/update_client/sources.gni")
+import("//hns/installer/linux/sources.gni")
+import("//hns/net/sources.gni")
+import("//hns/resources/allowlist.gni")
+import("//hns/third_party/blink/renderer/includes.gni")

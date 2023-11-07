@@ -1,0 +1,17 @@
+import("//hns/components/common/typescript.gni")
+
+transpile_web_ui("hns_welcome_ui") {
+  entry_points = [
+    ["hns_welcome", rebase_path("hns_welcome.tsx")]
+  ]
+
+  resource_name = "hns_welcome"
+}
+
+pack_web_resources("generated_resources") {
+  resource_name = "hns_welcome"
+  output_dir = "$root_gen_dir/hns/components/hns_welcome/resources"
+  deps = [
+    ":hns_welcome_ui"
+  ]
+}

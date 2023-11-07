@@ -1,0 +1,97 @@
+# Copyright 2023 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//build/rust/cargo_crate.gni")
+
+cargo_crate("lib") {
+  crate_name = "rand"
+  epoch = "0.7"
+  crate_type = "rlib"
+  crate_root = "crate/src/lib.rs"
+  sources = [
+    "//hns/third_party/rust/rand/v0_7/crate/benches/generators.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/benches/misc.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/benches/seq.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/benches/weighted.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/examples/monte-carlo.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/examples/monty-hall.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/bernoulli.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/binomial.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/cauchy.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/dirichlet.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/exponential.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/float.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/gamma.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/integer.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/mod.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/normal.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/other.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/pareto.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/poisson.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/triangular.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/uniform.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/unit_circle.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/unit_sphere.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/utils.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/weibull.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/weighted/alias_method.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/weighted/mod.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/distributions/ziggurat_tables.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/lib.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/prelude.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/adapter/mod.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/adapter/read.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/adapter/reseeding.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/entropy.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/mock.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/mod.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/small.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/std.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/rngs/thread.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/seq/index.rs",
+    "//hns/third_party/rust/rand/v0_7/crate/src/seq/mod.rs",
+  ]
+  inputs = [
+    "//hns/third_party/rust/rand/v0_7/crate/.github/ISSUE_TEMPLATE/compile-issue.md",
+    "//hns/third_party/rust/rand/v0_7/crate/.github/ISSUE_TEMPLATE/feature_request.md",
+    "//hns/third_party/rust/rand/v0_7/crate/.github/ISSUE_TEMPLATE/other.md",
+    "//hns/third_party/rust/rand/v0_7/crate/CHANGELOG.md",
+    "//hns/third_party/rust/rand/v0_7/crate/README.md",
+    "//hns/third_party/rust/rand/v0_7/crate/SECURITY.md",
+  ]
+
+  # Unit tests skipped. Generate with --with-tests to include them.
+  build_native_rust_unit_tests = false
+  edition = "2018"
+  cargo_pkg_version = "0.7.3"
+  cargo_pkg_authors = "The Rand Project Developers, The Rust Project Developers"
+  cargo_pkg_name = "rand"
+  cargo_pkg_description =
+      "Random number generators and other randomness functionality."
+  library_configs -= [ "//build/config/compiler:chromium_code" ]
+  library_configs += [ "//build/config/compiler:no_chromium_code" ]
+  executable_configs -= [ "//build/config/compiler:chromium_code" ]
+  executable_configs += [ "//build/config/compiler:no_chromium_code" ]
+  deps = [
+    "//hns/third_party/rust/getrandom/v0_1:lib",
+    "//hns/third_party/rust/rand_chacha/v0_2:lib",
+    "//hns/third_party/rust/rand_core/v0_5:lib",
+    "//hns/third_party/rust/rand_pcg/v0_2:lib",
+  ]
+  if (!is_win) {
+    deps += [ "//third_party/rust/libc/v0_2:lib" ]
+  }
+  aliased_deps = {
+    getrandom_package = "//hns/third_party/rust/getrandom/v0_1:lib__rlib"
+  }
+  features = [
+    "alloc",
+    "getrandom",
+    "getrandom_package",
+    "libc",
+    "rand_pcg",
+    "small_rng",
+    "std",
+  ]
+}

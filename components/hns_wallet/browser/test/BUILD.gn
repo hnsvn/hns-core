@@ -1,0 +1,144 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/build/config.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//testing/test.gni")
+
+source_set("hns_wallet_unit_tests") {
+  testonly = true
+  sources = [
+    "//hns/components/hns_wallet/browser/account_resolver_delegate_impl_unittest.cc",
+    "//hns/components/hns_wallet/browser/asset_ratio_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/asset_ratio_service_unittest.cc",
+    "//hns/components/hns_wallet/browser/bitcoin/bitcoin_keyring_unittest.cc",
+    "//hns/components/hns_wallet/browser/blockchain_list_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/blockchain_registry_unittest.cc",
+    "//hns/components/hns_wallet/browser/hns_wallet_utils_unittest.cc",
+    "//hns/components/hns_wallet/browser/eip1559_transaction_unittest.cc",
+    "//hns/components/hns_wallet/browser/eip2930_transaction_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_abi_decoder_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_address_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_block_tracker_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_data_builder_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_data_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_gas_utils_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_nonce_tracker_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_requests_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_topics_builder_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_transaction_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_tx_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_tx_meta_unittest.cc",
+    "//hns/components/hns_wallet/browser/eth_tx_state_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/ethereum_keyring_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_address_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_block_tracker_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_nonce_tracker_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_requests_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_transaction_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_tx_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_tx_meta_unittest.cc",
+    "//hns/components/hns_wallet/browser/fil_tx_state_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/internal/hd_key_ed25519_unittest.cc",
+    "//hns/components/hns_wallet/browser/internal/hd_key_unittest.cc",
+    "//hns/components/hns_wallet/browser/json_rpc_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/json_rpc_service_test_utils_unittest.cc",
+    "//hns/components/hns_wallet/browser/json_rpc_service_unittest.cc",
+    "//hns/components/hns_wallet/browser/nft_metadata_fetcher_unittest.cc",
+    "//hns/components/hns_wallet/browser/password_encryptor_unittest.cc",
+    "//hns/components/hns_wallet/browser/permission_utils_unittest.cc",
+    "//hns/components/hns_wallet/browser/rlp_decode_unittest.cc",
+    "//hns/components/hns_wallet/browser/rlp_encode_unittest.cc",
+    "//hns/components/hns_wallet/browser/simple_hash_client_unittest.cc",
+    "//hns/components/hns_wallet/browser/simulation_request_helper_unittest.cc",
+    "//hns/components/hns_wallet/browser/simulation_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/simulation_service_unittest.cc",
+    "//hns/components/hns_wallet/browser/sns_resolver_task_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_account_meta_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_block_tracker_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_compiled_instruction_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_instruction_builder_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_instruction_data_decoder_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_instruction_decoded_data_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_instruction_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_keyring_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_message_address_table_lookup_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_message_header_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_message_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_requests_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_transaction_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_tx_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_tx_meta_unittest.cc",
+    "//hns/components/hns_wallet/browser/solana_tx_state_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/swap_request_helper_unittest.cc",
+    "//hns/components/hns_wallet/browser/swap_response_parser_unittest.cc",
+    "//hns/components/hns_wallet/browser/swap_service_unittest.cc",
+    "//hns/components/hns_wallet/browser/tx_meta_unittest.cc",
+    "//hns/components/hns_wallet/browser/tx_state_manager_unittest.cc",
+    "//hns/components/hns_wallet/browser/tx_storage_delegate_impl_unittest.cc",
+    "//hns/components/hns_wallet/browser/unstoppable_domains_dns_resolve_unittest.cc",
+    "//hns/components/hns_wallet/browser/unstoppable_domains_multichain_calls_unittest.cc",
+  ]
+
+  if (enable_ipfs_local_node) {
+    sources += [
+      "//hns/components/hns_wallet/browser/hns_wallet_auto_pin_service_unittest.cc",
+      "//hns/components/hns_wallet/browser/hns_wallet_pin_service_unittest.cc",
+    ]
+  }
+
+  deps = [
+    ":test_support",
+    "//base/test:test_support",
+    "//hns/components/hns_wallet/browser",
+    "//hns/components/hns_wallet/browser:constants",
+    "//hns/components/hns_wallet/browser:generated_json_rpc_responses",
+    "//hns/components/hns_wallet/browser:generated_swap_responses",
+    "//hns/components/hns_wallet/browser:hd_keyring",
+    "//hns/components/hns_wallet/browser:permission_utils",
+    "//hns/components/hns_wallet/browser:pref_names",
+    "//hns/components/hns_wallet/browser:test_support",
+    "//hns/components/hns_wallet/browser:transaction",
+    "//hns/components/hns_wallet/browser:utils",
+    "//hns/components/hns_wallet/browser/internal:hd_key",
+    "//hns/components/hns_wallet/common",
+    "//hns/components/hns_wallet/common:common_constants",
+    "//hns/components/hns_wallet/common:mojom",
+    "//hns/components/hns_wallet/common:test_support",
+    "//hns/components/constants",
+    "//hns/components/decentralized_dns/core",
+    "//hns/components/filecoin/rs:rust_lib",
+    "//hns/components/ipfs",
+    "//hns/components/resources:strings_grit",
+    "//components/permissions",
+    "//components/prefs",
+    "//components/prefs:test_support",
+    "//components/sync_preferences:test_support",
+    "//content/test:test_support",
+    "//net:test_support",
+    "//services/data_decoder/public/cpp:test_support",
+    "//services/network:test_support",
+    "//testing/gtest",
+    "//url",
+  ]
+}  # source_set("hns_wallet_unit_tests")
+
+source_set("test_support") {
+  testonly = true
+  sources = [
+    "//hns/components/hns_wallet/browser/json_rpc_service_test_utils.cc",
+    "//hns/components/hns_wallet/browser/json_rpc_service_test_utils.h",
+  ]
+
+  deps = [
+    "//base",
+    "//base/test:test_support",
+    "//hns/components/hns_wallet/browser:utils",
+    "//testing/gtest",
+  ]
+}  # source_set("test_support")

@@ -1,0 +1,14 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+hns_locale_source_patterns = [
+  "${root_gen_dir}/components/hns_components_strings_",
+  "${root_gen_dir}/hns/hns_generated_resources_",
+]
+
+hns_locale_deps = [
+  "//hns/app:hns_generated_resources_grit",
+  "//hns/components/resources:strings",
+]

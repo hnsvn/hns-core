@@ -1,0 +1,23 @@
+import("//build/buildflag_header.gni")
+
+declare_args() {
+  hns_stats_api_key = ""
+}
+
+buildflag_header("buildflags") {
+  header = "buildflags.h"
+  flags = [ "HNS_STATS_API_KEY=\"$hns_stats_api_key\"" ]
+}
+
+static_library("browser") {
+  sources = [
+    "hns_stats_updater_util.cc",
+    "hns_stats_updater_util.h",
+  ]
+
+  deps = [
+    ":buildflags",
+    "//base",
+    "//components/prefs",
+  ]
+}

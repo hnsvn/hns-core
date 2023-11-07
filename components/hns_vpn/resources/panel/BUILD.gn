@@ -1,0 +1,36 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+import("//hns/resources/hns_grit.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+import("//tools/grit/repack.gni")
+
+transpile_web_ui("hns_vpn_panel_ui") {
+  entry_points = [ [
+        "hns_vpn_panel",
+        rebase_path("vpn_panel.tsx"),
+      ] ]
+  resource_name = "hns_vpn_panel"
+  deps = [
+    "//hns/components/hns_vpn/common/mojom:mojom_js",
+    "//hns/components/hns_vpn/common/mojom:preprocess_mojo",
+  ]
+}
+
+pack_web_resources("hns_vpn_panel_generated") {
+  resource_name = "hns_vpn_panel"
+  output_dir = "$root_gen_dir/hns/components/hns_vpn/resources/panel"
+  deps = [ ":hns_vpn_panel_ui" ]
+}
+
+repack("resources") {
+  sources = [ "$root_gen_dir/hns/components/hns_vpn/resources/panel/hns_vpn_panel_generated.pak" ]
+
+  deps = [ ":hns_vpn_panel_generated" ]
+
+  output =
+      "$root_gen_dir/hns/components/hns_vpn/hns_vpn_panel_resources.pak"
+}

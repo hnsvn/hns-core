@@ -1,0 +1,26 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+
+# This is required for chromium_src overrides.
+hns_browser_ui_webui_configs_deps = [
+  "//base",
+  "//hns/browser/ui",
+  "//hns/components/hns_shields/browser",
+  "//hns/components/hns_vpn/common/buildflags",
+  "//hns/components/playlist/common/buildflags",
+]
+
+if (enable_playlist_webui) {
+  hns_browser_ui_webui_configs_deps +=
+      [ "//hns/components/playlist/common" ]
+}
+
+if (enable_hns_vpn) {
+  hns_browser_ui_webui_configs_deps +=
+      [ "//hns/components/hns_vpn/browser" ]
+}

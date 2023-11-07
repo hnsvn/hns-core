@@ -1,0 +1,162 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/browser/ethereum_remote_client/buildflags/buildflags.gni")
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+import("//hns/components/hns_webtorrent/browser/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//build/config/features.gni")
+import("//build/config/ui.gni")
+import("//components/gcm_driver/config.gni")
+
+source_set("extensions") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10661 is resolved
+  check_includes = false
+  sources = [
+    "api/hns_extensions_api_client.cc",
+    "api/hns_extensions_api_client.h",
+    "api/hns_rewards_api.cc",
+    "api/hns_rewards_api.h",
+    "api/hns_shields_api.cc",
+    "api/hns_shields_api.h",
+    "api/hns_talk_api.cc",
+    "api/hns_talk_api.h",
+    "api/hns_theme_api.cc",
+    "api/hns_theme_api.h",
+    "api/greaselion_api.cc",
+    "api/greaselion_api.h",
+    "api/identity/hns_web_auth_flow.cc",
+    "api/identity/hns_web_auth_flow.h",
+    "api/rewards_notifications_api.cc",
+    "api/rewards_notifications_api.h",
+    "api/settings_private/hns_prefs_util.cc",
+    "api/settings_private/hns_prefs_util.h",
+    "hns_component_loader.cc",
+    "hns_component_loader.h",
+    "hns_extension_management.cc",
+    "hns_extension_management.h",
+    "hns_extension_provider.cc",
+    "hns_extension_provider.h",
+    "hns_extension_service.cc",
+    "hns_extension_service.h",
+    "hns_extensions_browser_api_provider.cc",
+    "hns_extensions_browser_api_provider.h",
+    "hns_extensions_browser_client_impl.cc",
+    "hns_extensions_browser_client_impl.h",
+    "hns_theme_event_router.cc",
+    "hns_theme_event_router.h",
+    "updater/hns_update_client_config.cc",
+    "updater/hns_update_client_config.h",
+  ]
+
+  deps = [
+    ":resources",
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/browser/hns_rewards:util",
+    "//hns/browser/component_updater",
+    "//hns/browser/profiles",
+    "//hns/common",
+    "//hns/common/extensions/api",
+    "//hns/components/hns_adaptive_captcha",
+    "//hns/components/hns_ads/browser",
+    "//hns/components/hns_ads/core",
+    "//hns/components/hns_component_updater/browser",
+    "//hns/components/hns_rewards/browser",
+    "//hns/components/hns_rewards/common",
+    "//hns/components/hns_rewards/core:headers",
+    "//hns/components/hns_shields/browser",
+    "//hns/components/hns_shields/common",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/hns_wallet/browser:utils",
+    "//hns/components/hns_wallet/common",
+    "//hns/components/hns_wayback_machine/buildflags",
+    "//hns/components/constants",
+    "//hns/components/de_amp/common",
+    "//hns/components/decentralized_dns/content",
+    "//hns/components/ipfs/buildflags",
+    "//hns/components/ntp_widget_utils/browser",
+    "//hns/components/tor/buildflags",
+    "//chrome/browser/extensions",
+    "//chrome/common",
+    "//components/gcm_driver:gcm_buildflags",
+    "//components/gcm_driver:gcm_driver",
+    "//components/omnibox/browser:browser",
+    "//components/prefs",
+    "//components/services/patch/content",
+    "//components/services/unzip/content",
+    "//components/update_client:patch_impl",
+    "//components/update_client:unzip_impl",
+    "//content/public/browser",
+    "//extensions/browser",
+    "//extensions/common",
+    "//third_party/re2",
+    "//ui/base",
+    "//url",
+  ]
+
+  if (toolkit_views) {
+    deps += [ "//hns/components/sidebar" ]
+  }
+
+  if (enable_speedreader) {
+    deps += [ "//hns/components/speedreader" ]
+  }
+
+  # It seems like this hns_wallet_api should be renamed to ethereum_remote_client_api.
+  # However this is not possible right now because the ethereum-remote-client extension
+  # uses chrome.hnsWallet, so the API is intentionally not being renamed now.
+  if (ethereum_remote_client_enabled) {
+    sources += [
+      "api/hns_wallet_api.cc",
+      "api/hns_wallet_api.h",
+      "ethereum_remote_client_util.cc",
+      "ethereum_remote_client_util.h",
+    ]
+
+    deps += [
+      "//hns/browser/ethereum_remote_client",
+      "//hns/components/hns_wallet/browser",
+      "//hns/components/hns_wallet/common:buildflags",
+      "//components/infobars/content",
+      "//components/prefs",
+    ]
+  }
+
+  if (enable_ipfs) {
+    sources += [
+      "api/ipfs_api.cc",
+      "api/ipfs_api.h",
+    ]
+    deps += [ "//hns/components/ipfs" ]
+  }
+
+  if (enable_hns_webtorrent) {
+    deps += [ "//hns/components/hns_webtorrent/browser" ]
+    sources += [
+      "hns_webtorrent_navigation_throttle.cc",
+      "hns_webtorrent_navigation_throttle.h",
+    ]
+  }
+
+  if (enable_hns_wayback_machine) {
+    deps += [ "//hns/components/hns_wayback_machine" ]
+  }
+}
+
+group("resources") {
+  deps = [
+    "//hns/components/hns_extension:generated_resources",
+    "//hns/components/hns_extension:static_resources",
+  ]
+  if (enable_hns_webtorrent) {
+    deps += [
+      "//hns/components/hns_webtorrent:generated_resources",
+      "//hns/components/hns_webtorrent:static_resources",
+    ]
+  }
+}

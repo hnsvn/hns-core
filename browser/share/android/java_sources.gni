@@ -1,0 +1,5 @@
+# Copyright 2022 The Hns Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+hns_share_java_sources = [ "//hns/browser/share/android/java/src/org/chromium/chrome/browser/share/send_tab_to_self/HnsManageAccountDevicesLinkView.java" ]

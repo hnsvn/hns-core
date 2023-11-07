@@ -1,0 +1,18 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+rewards_public_headers = [
+  "//hns/ios/browser/api/hns_rewards/hns_rewards_api.h",
+  "//hns/ios/browser/api/hns_rewards/promotion_solution.h",
+  "//hns/ios/browser/api/hns_rewards/rewards_notification.h",
+  "//hns/ios/browser/api/hns_rewards/rewards_observer.h",
+  "$root_gen_dir/hns/ios/browser/api/hns_rewards/rewards.mojom.objc.h",
+  "$root_gen_dir/hns/ios/browser/api/hns_rewards/rewards_types.mojom.objc.h",
+]
+
+rewards_public_deps = [
+  "//hns/ios/browser/api/hns_rewards:rewards_mojom_wrappers",
+  "//hns/ios/browser/api/hns_rewards:rewards_types_mojom_wrappers",
+]

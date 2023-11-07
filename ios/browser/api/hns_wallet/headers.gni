@@ -1,0 +1,9 @@
+hns_wallet_public_headers = [
+  "//hns/ios/browser/api/hns_wallet/hns_wallet_api.h",
+  "//hns/ios/browser/api/hns_wallet/hns_wallet_provider_delegate_ios.h",
+  "//hns/ios/browser/api/hns_wallet/hns_wallet_solana_utils.h",
+  "//hns/ios/browser/api/hns_wallet/token_registry_utils.h",
+  "$root_gen_dir/hns/ios/browser/api/hns_wallet/hns_wallet.mojom.objc.h",
+]
+hns_wallet_public_deps =
+    [ "//hns/ios/browser/api/hns_wallet:wallet_mojom_wrappers" ]

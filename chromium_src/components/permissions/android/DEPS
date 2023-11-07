@@ -1,0 +1,7 @@
+include_rules = [
+  "+hns/components/l10n/common",
+  "+hns/components/permissions/android/jni_headers",
+  "+components/grit",
+  "+components/permissions",
+  "+components/strings",
+]

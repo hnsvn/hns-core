@@ -1,0 +1,10 @@
+include_rules = [
+  "+hns/components/hns_wallet/browser/permission_utils.h",
+  "+hns/components/permissions",
+  "+components/grit/hns_components_strings.h",
+  "+components/resources/android",
+  "+components/strings/grit/components_strings.h",
+  "+components/vector_icons",
+  "+third_party/widevine/cdm",
+  "+ui/gfx",
+]

@@ -1,0 +1,1 @@
+hns_rewards_java_sources = [ "../../hns/components/safetynet/java/org/chromium/chrome/browser/util/SafetyNetCheck.java" ]

@@ -1,0 +1,47 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/build/config.gni")
+import("//build/config/android/rules.gni")
+
+source_set("android_browser_process") {
+  check_includes = false
+
+  sources = [
+    "//hns/browser/hns_ads/android/hns_ads_native_helper.cc",
+    "hns_feature_util.cc",
+    "hns_local_state_android.cc",
+    "hns_relaunch_utils.cc",
+    "hns_shields_content_settings.cc",
+    "hns_shields_content_settings.h",
+    "hns_sync_worker.cc",
+    "hns_sync_worker.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/browser/android/preferences",
+    "//hns/browser/android/safe_browsing",
+    "//hns/browser/hns_ads/android:jni_headers",
+    "//hns/build/android:jni_headers",
+    "//hns/components/hns_ads/browser",
+    "//hns/components/hns_shields/browser",
+    "//hns/components/hns_sync",
+    "//hns/components/hns_sync:crypto",
+    "//hns/components/hns_sync:prefs",
+    "//hns/components/hns_sync:sync_service_impl_helper",
+    "//hns/components/l10n/common",
+    "//chrome/android:jni_headers",
+    "//chrome/common",
+    "//components/content_settings/core/browser",
+    "//components/flags_ui",
+    "//components/ntp_tiles",
+    "//components/sync",
+    "//components/translate/core/browser",
+    "//components/unified_consent",
+    "//third_party/leveldatabase",
+    "//url",
+  ]
+}

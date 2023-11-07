@@ -1,0 +1,64 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/build/config.gni")
+import("//build/buildflag_header.gni")
+import("//build/util/branding.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+
+declare_args() {
+  hns_services_key = ""
+}
+
+if (is_official_build) {
+  assert(hns_services_key != "")
+}
+
+buildflag_header("hns_services_key") {
+  # Please use //hns/components/constants instead.
+  visibility = [ ":*" ]
+
+  header = "hns_services_key.h"
+  flags = [ "HNS_SERVICES_KEY=\"$hns_services_key\"" ]
+}
+
+source_set("constants") {
+  sources = [
+    "hns_constants.cc",
+    "hns_constants.h",
+    "hns_paths.cc",
+    "hns_paths.h",
+    "hns_switches.cc",
+    "hns_switches.h",
+    "network_constants.cc",
+    "network_constants.h",
+    "pref_names.cc",
+    "pref_names.h",
+    "url_constants.cc",
+    "url_constants.h",
+    "webui_url_constants.cc",
+    "webui_url_constants.h",
+  ]
+
+  public_deps = [ ":hns_services_key" ]
+  deps = [
+    "//base",
+    "//hns/components/ipfs/buildflags",
+    "//hns/components/widevine:static_buildflags",
+  ]
+}
+
+source_set("hns_service_key_helper") {
+  sources = [
+    "hns_services_key_helper.cc",
+    "hns_services_key_helper.h",
+  ]
+
+  deps = [
+    ":constants",
+    "//hns/extensions:common",  # instead of //extensions/common, for iOS
+    "//url",
+  ]
+}

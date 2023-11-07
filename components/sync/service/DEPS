@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/components/constants",
+  "+hns/components/sync/test",
+  "+services/network/public",
+]

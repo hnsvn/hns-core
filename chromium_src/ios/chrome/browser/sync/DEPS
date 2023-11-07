@@ -1,0 +1,4 @@
+include_rules = [
+  "+hns/browser/sync",
+  "+hns/components/sync/service",
+]

@@ -1,0 +1,528 @@
+// Copyright (c) 2021 The Hns Authors. All rights reserved.
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this file,
+// you can obtain one at https://mozilla.org/MPL/2.0/.
+
+import { mapLimit } from 'async'
+
+import {
+  HardwareWalletConnectOpts
+} from '../../components/desktop/popup-modals/add-account-modal/hardware-wallet-connect/types'
+import {
+  HnsWallet,
+  GetBlockchainTokenInfoReturnInfo,
+  SendEthTransactionParams,
+  SendFilTransactionParams,
+  SendSolTransactionParams,
+  SolanaSerializedTransactionParams,
+} from '../../constants/types'
+import * as WalletActions from '../actions/wallet_actions'
+
+// Utils
+import {
+  hasEIP1559Support
+} from '../../utils/network-utils'
+import { getAccountType } from '../../utils/account-utils'
+import { getAssetIdKey, isNativeAsset } from '../../utils/asset-utils'
+import { getVisibleNetworksList } from '../slices/api.slice'
+import {
+  makeNativeAssetLogo,
+  makeNetworkAsset
+} from '../../options/asset-options'
+
+import getAPIProxy from './bridge'
+import { Dispatch, State } from './types'
+import { getHardwareKeyring } from '../api/hardware_keyrings'
+import { GetAccountsHardwareOperationResult, SolDerivationPaths } from '../hardware/types'
+import EthereumLedgerBridgeKeyring from '../hardware/ledgerjs/eth_ledger_bridge_keyring'
+import TrezorBridgeKeyring from '../hardware/trezor/trezor_bridge_keyring'
+import { AllNetworksOption, AllNetworksOptionDefault } from '../../options/network-filter-options'
+import { AllAccountsOptionUniqueKey, applySelectedAccountFilter } from '../../options/account-filter-options'
+import SolanaLedgerBridgeKeyring from '../hardware/ledgerjs/sol_ledger_bridge_keyring'
+import FilecoinLedgerBridgeKeyring from '../hardware/ledgerjs/fil_ledger_bridge_keyring'
+import { WalletPageActions } from '../../page/actions'
+import { LOCAL_STORAGE_KEYS } from '../../common/constants/local-storage-keys'
+import { IPFS_PROTOCOL, isIpfs, stripERC20TokenImageURL } from '../../utils/string-utils'
+import { toTxDataUnion } from '../../utils/tx-utils'
+
+export const getERC20Allowance = (
+  contractAddress: string,
+  ownerAddress: string,
+  spenderAddress: string,
+  chainId: string,
+): Promise<string> => {
+  return new Promise(async (resolve, reject) => {
+    const { jsonRpcService } = getAPIProxy()
+    const result = await jsonRpcService.getERC20TokenAllowance(
+      contractAddress,
+      ownerAddress,
+      spenderAddress,
+      chainId
+    )
+
+    if (result.error === HnsWallet.ProviderError.kSuccess) {
+      resolve(result.allowance)
+    } else {
+      reject(result.errorMessage)
+    }
+  })
+}
+
+export const onConnectHardwareWallet = (opts: HardwareWalletConnectOpts): Promise<HnsWallet.HardwareWalletAccount[]> => {
+  return new Promise(async (resolve, reject) => {
+    const keyring = getHardwareKeyring(opts.hardware, opts.coin, opts.onAuthorized)
+    if ((keyring instanceof EthereumLedgerBridgeKeyring || keyring instanceof TrezorBridgeKeyring) && opts.scheme) {
+      keyring.getAccounts(opts.startIndex, opts.stopIndex, opts.scheme)
+        .then((result: GetAccountsHardwareOperationResult) => {
+          if (result.payload) {
+            return resolve(result.payload)
+          }
+          reject(result.error)
+        })
+        .catch(reject)
+    } else if (keyring instanceof FilecoinLedgerBridgeKeyring && opts.network) {
+      keyring.getAccounts(opts.startIndex, opts.stopIndex, opts.network)
+        .then((result: GetAccountsHardwareOperationResult) => {
+          if (result.payload) {
+            return resolve(result.payload)
+          }
+          reject(result.error)
+        })
+        .catch(reject)
+    } else if (keyring instanceof SolanaLedgerBridgeKeyring && opts.network && opts.scheme) {
+      keyring.getAccounts(opts.startIndex, opts.stopIndex, opts.scheme as SolDerivationPaths)
+        .then(async (result: GetAccountsHardwareOperationResult) => {
+          if (result.payload) {
+            const { hnsWalletService } = getAPIProxy()
+            const addressesEncoded = await hnsWalletService.base58Encode(
+              result.payload.map((hardwareAccount) => [...(hardwareAccount.addressBytes || [])])
+            )
+            for (let i = 0; i < result.payload.length; i++) {
+              result.payload[i].address = addressesEncoded.addresses[i]
+            }
+            return resolve(result.payload)
+          }
+          reject(result.error)
+        })
+        .catch(reject)
+    }
+  })
+}
+
+export async function getChecksumEthAddress (value: string) {
+  const { keyringService } = getAPIProxy()
+  return (await keyringService.getChecksumEthAddress(value))
+}
+
+export async function isBase58EncodedSolanaPubkey (value: string) {
+  const { hnsWalletService } = getAPIProxy()
+  return hnsWalletService.isBase58EncodedSolanaPubkey(value)
+}
+
+export async function isStrongPassword (value: string) {
+  const apiProxy = getAPIProxy()
+  return (await apiProxy.keyringService.isStrongPassword(value)).result
+}
+
+export async function enableEnsOffchainLookup () {
+  const apiProxy = getAPIProxy()
+  return apiProxy.jsonRpcService.setEnsOffchainLookupResolveMethod(HnsWallet.ResolveMethod.kEnabled)
+}
+
+export async function findENSAddress (address: string) {
+  const apiProxy = getAPIProxy()
+  return apiProxy.jsonRpcService.ensGetEthAddr(address)
+}
+
+export async function findSNSAddress (address: string) {
+  const apiProxy = getAPIProxy()
+  return apiProxy.jsonRpcService.snsGetSolAddr(address)
+}
+
+export async function findUnstoppableDomainAddress (address: string, token: HnsWallet.BlockchainToken | null) {
+  const apiProxy = getAPIProxy()
+  return apiProxy.jsonRpcService.unstoppableDomainsGetWalletAddr(address, token)
+}
+
+export async function getBlockchainTokenInfo (contractAddress: string): Promise<GetBlockchainTokenInfoReturnInfo> {
+  const apiProxy = getAPIProxy()
+  return (await apiProxy.assetRatioService.getTokenInfo(contractAddress))
+}
+
+export async function getBuyAssetUrl (args: {
+  asset: HnsWallet.BlockchainToken
+  onRampProvider: HnsWallet.OnRampProvider
+  chainId: string
+  address: string
+  amount: string
+  currencyCode: string
+}) {
+  const { assetRatioService } = getAPIProxy()
+  const { url, error } = await assetRatioService.getBuyUrlV1(
+    args.onRampProvider,
+    args.chainId,
+    args.address,
+    args.asset.symbol,
+    args.amount,
+    args.currencyCode
+  )
+
+  if (error) {
+    console.log(`Failed to get buy URL: ${error}`)
+  }
+
+  return url
+}
+
+export async function getSellAssetUrl (args: {
+  asset: HnsWallet.BlockchainToken
+  offRampProvider: HnsWallet.OffRampProvider
+  chainId: string
+  address: string
+  amount: string
+  currencyCode: string
+}) {
+  const { assetRatioService } = getAPIProxy()
+  const { url, error } = await assetRatioService.getSellUrl(
+    args.offRampProvider,
+    args.chainId,
+    args.address,
+    args.asset.symbol,
+    args.amount,
+    args.currencyCode
+  )
+
+  if (error) {
+    console.log(`Failed to get sell URL: ${error}`)
+  }
+
+  return url
+}
+
+export const getTokenList = async (
+  network: Pick<HnsWallet.NetworkInfo, 'chainId' | 'coin'>
+): Promise<{ tokens: HnsWallet.BlockchainToken[] }> => {
+  const { blockchainRegistry } = getAPIProxy()
+  return blockchainRegistry.getAllTokens(network.chainId, network.coin)
+}
+
+export async function getIsSwapSupported (network: HnsWallet.NetworkInfo): Promise<boolean> {
+  const { swapService } = getAPIProxy()
+  return (await swapService.isSwapSupported(network.chainId)).result
+}
+
+export function refreshVisibleTokenInfo (targetNetwork?: HnsWallet.NetworkInfo) {
+  return async (dispatch: Dispatch, getState: () => State) => {
+    const api = getAPIProxy()
+    const { hnsWalletService } = api
+    const networkList = await getVisibleNetworksList(api)
+
+    async function inner (network: HnsWallet.NetworkInfo) {
+      const nativeAsset = makeNetworkAsset(network)
+
+      // Get a list of user tokens for each coinType and network.
+      const getTokenList = await hnsWalletService.getUserAssets(network.chainId, network.coin)
+
+      // Adds a logo and chainId to each token object
+      const tokenList = getTokenList.tokens.map((token) => ({
+        ...token,
+        logo: `chrome://erc-token-images/${token.logo}`
+      })) as HnsWallet.BlockchainToken[]
+      return tokenList.length === 0 ? [nativeAsset] : tokenList
+    }
+
+    const visibleAssets = targetNetwork
+      ? await inner(targetNetwork)
+      : await mapLimit(
+          networkList,
+          10,
+          async (item: HnsWallet.NetworkInfo) => await inner(item)
+        )
+
+    const removedAssetIds =
+      [
+        ...getState().wallet.removedFungibleTokenIds,
+        ...getState().wallet.removedNonFungibleTokenIds
+      ]
+    const userVisibleTokensInfo = visibleAssets
+      .flat(1)
+      .filter(token => !removedAssetIds.includes(getAssetIdKey(token)))
+    const removedNfts = visibleAssets
+      .flat(1)
+      .filter(token => removedAssetIds.includes(getAssetIdKey(token)))
+    await dispatch(WalletActions.setVisibleTokensInfo(userVisibleTokensInfo))
+    await dispatch(WalletActions.setRemovedNonFungibleTokens(removedNfts))
+    const nfts = userVisibleTokensInfo.filter((asset) => asset.isErc721 || asset.isNft)
+    dispatch(WalletPageActions.getNftsPinningStatus(nfts))
+  }
+}
+
+export function refreshSitePermissions () {
+  return async (dispatch: Dispatch, getState: () => State) => {
+    const apiProxy = getAPIProxy()
+    const { hnsWalletService } = apiProxy
+
+    const { wallet: { accounts } } = getState()
+
+    // Get a list of accounts with permissions of the active origin
+    const { accountsWithPermission } =
+      await hnsWalletService.hasPermission(accounts.map((acc) => acc.accountId))
+
+    dispatch(WalletActions.setSitePermissions({ accounts: accountsWithPermission }))
+  }
+}
+
+export async function sendEthTransaction (payload: SendEthTransactionParams) {
+  const apiProxy = getAPIProxy()
+  /***
+   * Determine whether to create a legacy or EIP-1559 transaction.
+   *
+   * isEIP1559 is true IFF:
+   *   - network supports EIP-1559
+   *   - keyring supports EIP-1559 (ex: certain hardware wallets vendors)
+   *   - payload: SendEthTransactionParams has specified EIP-1559 gas-pricing
+   *     fields.
+   *
+   * In all other cases, fallback to legacy gas-pricing fields.
+   */
+  let isEIP1559
+  switch (true) {
+    // Transaction payload has hardcoded EIP-1559 gas fields.
+    case payload.maxPriorityFeePerGas !== undefined && payload.maxFeePerGas !== undefined:
+      isEIP1559 = true
+      break
+
+    // Transaction payload has hardcoded legacy gas fields.
+    case payload.gasPrice !== undefined:
+      isEIP1559 = false
+      break
+
+    // Check if network and keyring support EIP-1559.
+    default:
+      isEIP1559 = hasEIP1559Support(getAccountType(payload.fromAccount), payload.network)
+  }
+
+  const txData: HnsWallet.TxData = {
+    nonce: '',
+    // Estimated by eth_tx_service if value is '' for legacy transactions
+    gasPrice: isEIP1559 ? '' : payload.gasPrice || '',
+    // Estimated by eth_tx_service if value is ''
+    gasLimit: payload.gas || '',
+    to: payload.to,
+    value: payload.value,
+    data: payload.data || [],
+    signOnly: false,
+    signedTransaction: ''
+  }
+
+  if (isEIP1559) {
+    const txData1559: HnsWallet.TxData1559 = {
+      baseData: txData,
+      chainId: payload.network.chainId,
+      // Estimated by eth_tx_service if value is ''
+      maxPriorityFeePerGas: payload.maxPriorityFeePerGas || '',
+      // Estimated by eth_tx_service if value is ''
+      maxFeePerGas: payload.maxFeePerGas || '',
+      gasEstimation: undefined
+    }
+    return await apiProxy.txService.addUnapprovedTransaction(
+      toTxDataUnion({ ethTxData1559: txData1559 }),
+      payload.fromAccount.accountId,
+      null,
+      null
+    )
+  }
+
+  return await apiProxy.txService.addUnapprovedTransaction(
+    toTxDataUnion({ ethTxData: txData }),
+    payload.fromAccount.accountId,
+    null,
+    null
+  )
+}
+
+export async function sendFilTransaction(payload: SendFilTransactionParams) {
+  const apiProxy = getAPIProxy()
+  const filTxData: HnsWallet.FilTxData = {
+    nonce: payload.nonce || '',
+    gasPremium: payload.gasPremium || '',
+    gasFeeCap: payload.gasFeeCap || '',
+    gasLimit: payload.gasLimit || '',
+    maxFee: payload.maxFee || '0',
+    to: payload.to,
+    value: payload.value
+  }
+  return await apiProxy.txService.addUnapprovedTransaction(
+    toTxDataUnion({ filTxData: filTxData }),
+    payload.fromAccount.accountId,
+    null,
+    null
+  )
+}
+
+export async function sendSolTransaction(payload: SendSolTransactionParams) {
+  const { solanaTxManagerProxy, txService } = getAPIProxy()
+  const value = await solanaTxManagerProxy.makeSystemProgramTransferTxData(
+    payload.fromAccount.address,
+    payload.to,
+    BigInt(payload.value)
+  )
+  return await txService.addUnapprovedTransaction(
+    toTxDataUnion({ solanaTxData: value.txData ?? undefined }),
+    payload.fromAccount.accountId,
+    null,
+    null
+  )
+}
+
+export async function sendSolanaSerializedTransaction(
+  payload: SolanaSerializedTransactionParams
+) {
+  const { solanaTxManagerProxy, txService } = getAPIProxy()
+  const result =
+    await solanaTxManagerProxy.makeTxDataFromBase64EncodedTransaction(
+      payload.encodedTransaction,
+      payload.txType,
+      payload.sendOptions || null
+    )
+  if (result.error !== HnsWallet.ProviderError.kSuccess) {
+    console.error(`Failed to sign Solana message: ${result.errorMessage}`)
+    return { success: false, errorMessage: result.errorMessage, txMetaId: '' }
+  }
+
+  return await txService.addUnapprovedTransaction(
+    toTxDataUnion({ solanaTxData: result.txData ?? undefined }),
+    payload.accountId,
+    null,
+    payload.groupId || null
+  )
+}
+
+export function getSwapService () {
+  const { swapService } = getAPIProxy()
+  return swapService
+}
+
+export function getEthTxManagerProxy () {
+  const { ethTxManagerProxy } = getAPIProxy()
+  return ethTxManagerProxy
+}
+
+export async function getNFTMetadata (token: HnsWallet.BlockchainToken) {
+  const { jsonRpcService } = getAPIProxy()
+  if (token.coin === HnsWallet.CoinType.ETH) {
+    return await jsonRpcService.getERC721Metadata(
+      token.contractAddress, token.tokenId, token.chainId)
+  } else if (token.coin === HnsWallet.CoinType.SOL) {
+    return await jsonRpcService.getSolTokenMetadata(
+      token.chainId, token.contractAddress)
+  }
+
+  return undefined
+}
+
+export async function isTokenPinningSupported (token: HnsWallet.BlockchainToken) {
+  const { hnsWalletPinService } = getAPIProxy()
+  return await hnsWalletPinService.isTokenSupported(token)
+}
+
+
+export function refreshPortfolioFilterOptions () {
+  return async (dispatch: Dispatch, getState: () => State) => {
+    const { accounts, selectedAccountFilter, selectedNetworkFilter } =
+      getState().wallet
+
+    const networkList = await getVisibleNetworksList(getAPIProxy())
+
+    if (
+      selectedNetworkFilter.chainId !== AllNetworksOption.chainId &&
+      !networkList.some(
+        (network) => network.chainId === selectedNetworkFilter.chainId
+      )
+    ) {
+      dispatch(WalletActions.setSelectedNetworkFilter(AllNetworksOptionDefault))
+      window.localStorage.removeItem(
+        LOCAL_STORAGE_KEYS.PORTFOLIO_NETWORK_FILTER_OPTION
+      )
+    }
+
+    if (!applySelectedAccountFilter(accounts, selectedAccountFilter).accounts) {
+      dispatch(WalletActions.setSelectedAccountFilterItem(AllAccountsOptionUniqueKey))
+    }
+  }
+}
+
+// Checks whether set of urls have ipfs:// scheme or are gateway-like urls
+export const areSupportedForPinning = async (urls: string[]) => {
+  const results = (
+    await mapLimit(
+      urls,
+      10,
+      async (v: string) => await extractIpfsUrl(stripERC20TokenImageURL(v))
+    )
+  ).flat(1)
+
+  return results.every(result => result?.startsWith(IPFS_PROTOCOL))
+}
+
+// Extracts ipfs:// url from gateway-like url
+export const extractIpfsUrl = async (url: string | undefined) => {
+  const { hnsWalletIpfsService } = getAPIProxy()
+  const trimmedUrl = url ? url.trim() : ''
+  if (isIpfs(trimmedUrl)) {
+    return trimmedUrl
+  }
+  return (await hnsWalletIpfsService
+    .extractIPFSUrlFromGatewayLikeUrl(trimmedUrl))?.ipfsUrl || undefined
+}
+
+// Translates ipfs:// url or gateway-like url to the NFT gateway url
+export const translateToNftGateway = async (url: string | undefined) => {
+  const { hnsWalletIpfsService } = getAPIProxy()
+  const trimmedUrl = url ? url.trim() : ''
+  const testUrl = isIpfs(trimmedUrl)
+    ? trimmedUrl
+    : await extractIpfsUrl(trimmedUrl)
+  return (
+    (await hnsWalletIpfsService.translateToNFTGatewayURL(testUrl || ''))
+      .translatedUrl || trimmedUrl
+  )
+}
+
+// TODO(apaymyshev): This function should not exist. Backend should be
+// responsible in providing correct logo.
+export const addLogoToToken = async (token: HnsWallet.BlockchainToken) => {
+
+  const isNative = isNativeAsset(token)
+
+  if (
+    !isNative && !token.logo ||
+    token.logo?.startsWith('data:image/') ||
+    token.logo?.startsWith('chrome://erc-token-images/')
+  ) {
+    // nothing to change
+    return token
+  }
+
+  const newLogo = isNative
+    ? makeNativeAssetLogo(token.symbol, token.chainId)
+    : token.logo?.startsWith('ipfs://')
+    ? await translateToNftGateway(token.logo)
+    : `chrome://erc-token-images/${token.logo}`
+
+  if (token.logo === newLogo) {
+    // nothing to change
+    return token
+  }
+
+  try {
+    token.logo = newLogo
+    return token
+  } catch {
+    // the token object was immutable, return a new token object
+    return {
+      ...token,
+      logo: newLogo
+    }
+  }
+}

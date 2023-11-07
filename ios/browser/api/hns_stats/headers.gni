@@ -1,0 +1,2 @@
+hns_stats_public_headers =
+    [ "//hns/ios/browser/api/hns_stats/hns_stats.h" ]

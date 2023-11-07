@@ -1,0 +1,40 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/build/config.gni")
+import("//build/buildflag_header.gni")
+
+source_set("tabs") {
+  # Set due to //chrome/browser and //chrome/browser/ui circular dependencies.
+  check_includes = false
+
+  if (!is_android) {
+    sources = [
+      "hns_tab_menu_model.cc",
+      "hns_tab_menu_model.h",
+      "hns_tab_prefs.cc",
+      "hns_tab_prefs.h",
+      "hns_tab_strip_model.cc",
+      "hns_tab_strip_model.h",
+      "hns_vertical_tab_color_mixer.cc",
+      "hns_vertical_tab_color_mixer.h",
+      "features.cc",
+      "features.h",
+      "shared_pinned_tab_service.cc",
+      "shared_pinned_tab_service.h",
+      "shared_pinned_tab_service_factory.cc",
+      "shared_pinned_tab_service_factory.h",
+    ]
+
+    deps = [
+      "//hns/common/",
+      "//chrome/app:generated_resources",
+      "//components/prefs",
+      "//components/sessions",
+      "//content/public/browser",
+      "//ui/color",
+    ]
+  }
+}

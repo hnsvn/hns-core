@@ -1,0 +1,41 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+
+hns_browser_misc_metrics_sources = [
+  "//hns/browser/misc_metrics/page_metrics_service_factory.cc",
+  "//hns/browser/misc_metrics/page_metrics_service_factory.h",
+  "//hns/browser/misc_metrics/page_metrics_tab_helper.cc",
+  "//hns/browser/misc_metrics/page_metrics_tab_helper.h",
+  "//hns/browser/misc_metrics/process_misc_metrics.cc",
+  "//hns/browser/misc_metrics/process_misc_metrics.h",
+]
+
+if (!is_android) {
+  hns_browser_misc_metrics_sources += [
+    "//hns/browser/misc_metrics/vertical_tab_metrics.cc",
+    "//hns/browser/misc_metrics/vertical_tab_metrics.h",
+  ]
+}
+
+hns_browser_misc_metrics_deps = [
+  "//hns/browser:browser_process",
+  "//hns/browser/profiles:util",
+  "//hns/components/ai_chat/common/buildflags",
+  "//hns/components/misc_metrics",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/profiles:profiles",
+  "//components/keyed_service/content",
+  "//components/keyed_service/core",
+  "//content/public/browser",
+]
+
+if (enable_ai_chat) {
+  hns_browser_misc_metrics_deps += [ "//hns/components/ai_chat/browser" ]
+}
+
+hns_browser_misc_metrics_android_sources =
+    [ "//hns/browser/misc_metrics/privacy_hub_metrics_factory_android.cc" ]

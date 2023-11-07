@@ -1,0 +1,31 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/p3a/buildflags.gni")
+import("//hns/components/webcompat_reporter/buildflags/buildflags.gni")
+import("//build/config/android/rules.gni")
+
+declare_args() {
+  hns_android_developer_options_code = ""
+}
+
+java_cpp_enum("hns_android_java_enums_srcjar") {
+  sources = [
+    "//hns/chromium_src/chrome/browser/notifications/notification_handler_impl.h",
+    "//hns/components/decentralized_dns/core/constants.h",
+    "//hns/components/ipfs/ipfs_constants.h",
+  ]
+}
+
+java_cpp_template("hns_config_java") {
+  sources = [ "//hns/build/android/java/templates/HnsConfig.template" ]
+  defines = [
+    "HNS_ANDROID_DEVELOPER_OPTIONS_CODE=\"$hns_android_developer_options_code\"",
+    "HNS_ANDROID_P3A_ENABLED=$hns_p3a_enabled",
+    "HNS_ANDROID_ENABLE_IPFS=$enable_ipfs",
+    "HNS_ANDROID_WEBCOMPAT_REPORT_ENDPOINT=\"$webcompat_report_api_endpoint\"",
+  ]
+}

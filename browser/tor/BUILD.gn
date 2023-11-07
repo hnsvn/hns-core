@@ -1,0 +1,142 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+assert(enable_tor)
+
+source_set("tor") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10655 is resolved
+  check_includes = false
+  visibility = [
+    ":*",
+    "//hns/browser",
+    "//hns/browser/decentralized_dns/test:unit_tests",
+    "//hns/browser/ipfs/test:*",
+    "//hns/browser/net:browser_tests",
+    "//hns/browser/profiles",
+    "//hns/browser/ui",
+    "//hns/test:*",
+    "//chrome/browser",
+  ]
+
+  sources = [
+    "onion_location_navigation_throttle_delegate.cc",
+    "onion_location_navigation_throttle_delegate.h",
+    "tor_profile_manager.cc",
+    "tor_profile_manager.h",
+    "tor_profile_service_factory.cc",
+    "tor_profile_service_factory.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_webtorrent/browser/buildflags",
+    "//hns/components/constants",
+    "//hns/components/tor",
+    "//hns/components/tor:pref_names",
+    "//chrome/common",
+    "//components/autofill/content/browser",
+    "//components/autofill/core/browser",
+    "//components/keyed_service/content",
+    "//components/safe_browsing/core/common:safe_browsing_prefs",
+    "//components/translate/core/browser",
+    "//content/public/browser",
+    "//net",
+    "//third_party/blink/public/common",
+    "//url",
+  ]
+
+  # Below dep list are not directly used tor target.
+  # Only added to fix intermittent build failure.
+  # Most of the case comes from including hns_browser_process_impl.h`
+  # headers. That header includes some buildflags but sometimes they are
+  # not generated before evaluating tor target.
+  deps += [
+    "//hns/components/greaselion/browser/buildflags",
+    "//hns/components/speedreader/common/buildflags",
+  ]
+}
+
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [
+    "tor_navigation_throttle_unittest.cc",
+    "tor_profile_manager_unittest.cc",
+  ]
+
+  deps = [
+    "//base",
+    "//base/test:test_support",
+    "//hns/browser/tor",
+    "//hns/components/hns_webtorrent/browser/buildflags",
+    "//hns/components/constants",
+    "//hns/components/tor",
+    "//hns/components/tor:test_support",
+    "//chrome/browser/devtools",
+    "//chrome/common",
+    "//chrome/test:test_support",
+    "//components/keyed_service/content",
+    "//components/safe_browsing/core/common:safe_browsing_prefs",
+    "//components/translate/core/browser",
+    "//content/public/browser",
+    "//content/test:test_support",
+    "//testing/gtest",
+    "//third_party/blink/public/common",
+    "//url",
+  ]
+}
+
+source_set("browser_tests") {
+  testonly = true
+  sources = [
+    "//chrome//browser/net/profile_network_context_service_test_utils.cc",
+    "//chrome//browser/net/profile_network_context_service_test_utils.h",
+    "hns_local_state_browsertest.cc",
+    "hns_tor_browsertest.cc",
+    "onion_domain_throttle_browsertest.cc",
+    "onion_location_navigation_throttle_browsertest.cc",
+    "tor_profile_manager_browsertest.cc",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/browser",
+    "//hns/browser/tor",
+    "//hns/common",
+    "//hns/components/hns_ads/browser",
+    "//hns/components/hns_component_updater/browser",
+    "//hns/components/hns_shields/browser",
+    "//hns/components/constants",
+    "//hns/components/ipfs/buildflags",
+    "//hns/components/l10n/common",
+    "//hns/components/tor",
+    "//hns/components/tor:pref_names",
+    "//hns/components/tor:test_support",
+    "//chrome/browser",
+    "//chrome/browser:browser_process",
+    "//chrome/browser/ui",
+    "//chrome/test:test_support",
+    "//chrome/test:test_support_ui",
+    "//components/bookmarks/browser",
+    "//components/bookmarks/common",
+    "//content/public/browser",
+    "//content/test:test_support",
+    "//net:test_support",
+    "//ui/views:test_support",
+  ]
+
+  if (enable_extensions) {
+    deps += [
+      "//extensions/browser",
+      "//extensions/common",
+    ]
+  }
+
+  defines = [ "HAS_OUT_OF_PROC_TEST_RUNNER" ]
+}

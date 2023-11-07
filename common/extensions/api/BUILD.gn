@@ -1,0 +1,146 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/browser/ethereum_remote_client/buildflags/buildflags.gni")
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/resources/hns_grit.gni")
+import("//tools/json_schema_compiler/json_features.gni")
+import("//tools/json_schema_compiler/json_schema_api.gni")
+
+json_features("api_features") {
+  feature_type = "APIFeature"
+  method_name = "AddHnsAPIFeatures"
+  sources = [
+    "//chrome/common/extensions/api/_api_features.json",
+    "//extensions/common/api/_api_features.json",
+    "_api_features.json",
+    "_hns_talk_api_features.json",
+  ]
+
+  if (ethereum_remote_client_enabled) {
+    sources += [ "_hns_wallet_api_features.json" ]
+  }
+
+  if (enable_ipfs) {
+    sources += [ "_ipfs_api_features.json" ]
+  }
+}
+
+json_features("permission_features") {
+  feature_type = "PermissionFeature"
+  method_name = "AddHnsPermissionFeatures"
+  sources = [
+    "//chrome/common/extensions/api/_permission_features.json",
+    "//extensions/common/api/_permission_features.json",
+    "_permission_features.json",
+  ]
+}
+
+json_features("manifest_features") {
+  feature_type = "ManifestFeature"
+  method_name = "AddHnsManifestFeatures"
+  sources = [
+    "//chrome/common/extensions/api/_manifest_features.json",
+    "//extensions/common/api/_manifest_features.json",
+    "_manifest_features.json",
+  ]
+}
+
+json_features("behavior_features") {
+  feature_type = "BehaviorFeature"
+  method_name = "AddHnsBehaviorFeatures"
+  sources = [ "//extensions/common/api/_behavior_features.json" ]
+}
+
+hns_extensions_api_schema_sources = [
+  "hns_rewards.json",
+  "hns_shields.json",
+  "hns_talk.json",
+  "hns_theme.json",
+  "greaselion.json",
+  "rewards_notifications.json",
+]
+
+if (enable_ipfs) {
+  hns_extensions_api_schema_sources += [ "ipfs.json" ]
+}
+
+if (ethereum_remote_client_enabled) {
+  hns_extensions_api_schema_sources += [ "hns_wallet.json" ]
+}
+
+hns_extensions_api_uncompiled_sources = []
+hns_extensions_api_root_namespace = "extensions::api::%(namespace)s"
+hns_extensions_api_schema_include_rules =
+    "//hns/common/extensions/api:extensions::api::%(namespace)s"
+
+hns_extensions_api_deps = [
+  ":api_features",
+  ":behavior_features",
+  ":manifest_features",
+  ":permission_features",
+  ":resources",
+  "//chrome/common/extensions/api",
+  "//extensions/common/api",
+  "//skia",
+]
+
+hns_grit("resources") {
+  source = "hns_api_resources.grd"
+  outputs = [
+    "grit/hns_api_resources.h",
+    "hns_api_resources.pak",
+  ]
+}
+
+function_registration("generated_api_registration") {
+  sources = hns_extensions_api_schema_sources
+  impl_dir = "//hns/common/extensions/api/"
+  bundle_name = "Hns"
+  root_namespace = hns_extensions_api_root_namespace
+
+  deps = [
+    "//hns/components/hns_ads/core/mojom",
+    "//hns/components/hns_rewards/common/mojom",
+    "//extensions/common",
+  ]
+
+  visibility = [ ":api" ]
+}
+
+generated_json_strings("generated_api_json_strings") {
+  sources = hns_extensions_api_schema_sources +
+            hns_extensions_api_uncompiled_sources
+
+  configs = [ "//build/config:precompiled_headers" ]
+  bundle_name = "Hns"
+  schema_include_rules = hns_extensions_api_schema_include_rules
+
+  root_namespace = hns_extensions_api_root_namespace
+  deps = hns_extensions_api_deps
+
+  visibility = [ ":api" ]
+}
+
+generated_types("generated_api_types") {
+  sources = hns_extensions_api_schema_sources
+  configs = [ "//build/config:precompiled_headers" ]
+  schema_include_rules = hns_extensions_api_schema_include_rules
+
+  root_namespace = hns_extensions_api_root_namespace
+  deps = hns_extensions_api_deps
+  visibility = [ ":api" ]
+}
+
+# Public Targets
+
+group("api") {
+  public_deps = [
+    ":generated_api_json_strings",
+    ":generated_api_registration",
+    ":generated_api_types",
+  ]
+}

@@ -1,0 +1,45 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/build/config.gni")
+import("//testing/test.gni")
+
+source_set("hns_news_unit_tests") {
+  testonly = true
+  sources = [
+    "//hns/components/hns_news/browser/hns_news_p3a_unittest.cc",
+    "//hns/components/hns_news/browser/channels_controller_unittest.cc",
+    "//hns/components/hns_news/browser/combined_feed_parsing_unittest.cc",
+    "//hns/components/hns_news/browser/direct_feed_controller_unittest.cc",
+    "//hns/components/hns_news/browser/direct_feed_fetcher_unittest.cc",
+    "//hns/components/hns_news/browser/feed_building_unittest.cc",
+    "//hns/components/hns_news/browser/html_parsing_unittest.cc",
+    "//hns/components/hns_news/browser/locales_helper_unittest.cc",
+    "//hns/components/hns_news/browser/publishers_controller_unittest.cc",
+    "//hns/components/hns_news/browser/publishers_parsing_unittest.cc",
+    "//hns/components/hns_news/browser/suggestions_controller_unittest.cc",
+    "//hns/components/hns_news/browser/unsupported_publisher_migrator_unittest.cc",
+  ]
+
+  deps = [
+    "//base/test:test_support",
+    "//hns/components/api_request_helper",
+    "//hns/components/hns_news/browser",
+    "//hns/components/hns_news/common",
+    "//hns/components/hns_news/common:mojom",
+    "//hns/components/hns_news/rust:unit_tests",
+    "//hns/components/l10n/common",
+    "//hns/components/l10n/common:test_support",
+    "//hns/components/time_period_storage",
+    "//chrome/browser",
+    "//chrome/test:test_support",
+    "//content/test:test_support",
+    "//testing/gmock",
+    "//testing/gtest",
+    "//url",
+  ]
+
+  public_deps = [ "//hns/components/hns_news/rust:rust_lib" ]
+}

@@ -1,0 +1,29 @@
+import("//hns/build/config.gni")
+
+source_set("browser") {
+  sources = [
+    "debounce_component_installer.cc",
+    "debounce_component_installer.h",
+    "debounce_navigation_throttle.cc",
+    "debounce_navigation_throttle.h",
+    "debounce_rule.cc",
+    "debounce_rule.h",
+    "debounce_service.cc",
+    "debounce_service.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_component_updater/browser",
+    "//hns/components/hns_shields/browser",
+    "//hns/components/debounce/common:common",
+    "//hns/extensions:common",
+    "//components/prefs",
+    "//components/prefs:prefs",
+    "//components/user_prefs",
+    "//content/public/browser",
+    "//third_party/re2:re2",
+    "//ui/base",
+    "//url",
+  ]
+}

@@ -1,0 +1,502 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/browser/autocomplete/sources.gni")
+import("//hns/browser/hns_adaptive_captcha/sources.gni")
+import("//hns/browser/hns_ads/sources.gni")
+import("//hns/browser/hns_news/sources.gni")
+import("//hns/browser/hns_referrals/sources.gni")
+import("//hns/browser/hns_rewards/sources.gni")
+import("//hns/browser/hns_shields/sources.gni")
+import("//hns/browser/hns_stats/sources.gni")
+import("//hns/browser/hns_vpn/sources.gni")
+import("//hns/browser/hns_wallet/android/sources.gni")
+import("//hns/browser/hns_wallet/notifications/sources.gni")
+import("//hns/browser/browsing_data/sources.gni")
+import("//hns/browser/debounce/sources.gni")
+import("//hns/browser/download/sources.gni")
+import("//hns/browser/ephemeral_storage/sources.gni")
+import("//hns/browser/ethereum_remote_client/buildflags/buildflags.gni")
+import("//hns/browser/greaselion/sources.gni")
+import("//hns/browser/importer/sources.gni")
+import("//hns/browser/infobars/sources.gni")
+import("//hns/browser/ipfs/sources.gni")
+import("//hns/browser/misc_metrics/sources.gni")
+import("//hns/browser/new_tab/sources.gni")
+import("//hns/browser/notifications/sources.gni")
+import("//hns/browser/ntp_background/sources.gni")
+import("//hns/browser/perf/sources.gni")
+import("//hns/browser/permissions/sources.gni")
+import("//hns/browser/playlist/sources.gni")
+import("//hns/browser/request_otr/sources.gni")
+import("//hns/browser/search_engines/sources.gni")
+import("//hns/browser/skus/sources.gni")
+import("//hns/browser/speedreader/sources.gni")
+import("//hns/browser/sync/sources.gni")
+import("//hns/browser/themes/sources.gni")
+import("//hns/browser/url_sanitizer/sources.gni")
+import("//hns/browser/web_discovery/sources.gni")
+import("//hns/build/config.gni")
+import("//hns/chromium_src/chrome/browser/prefs/sources.gni")
+import("//hns/chromium_src/chrome/browser/sources.gni")
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+import("//hns/components/hns_webtorrent/browser/buildflags/buildflags.gni")
+import("//hns/components/commander/common/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+hns_chrome_browser_visibility = [
+  "//hns/browser/*",
+  "//hns/test:*",
+
+  # these are layering violation and need to be fixed
+  "//hns/components/ipfs/test:*",
+
+  # Chrome does not yet define a visibility list by itself, meaning we can't
+  # append our list to them and that what we have here will become law not just
+  # for Hns, but also for the rest of chrome. Thus, we need to provide our own
+  # permissive list for chrome here too, to be removed in the future if Chrome
+  # ever provides it's own list (at which point we'll append instead of set).
+  "//chrome:dependencies",
+  "//chrome/app/*",
+  "//chrome/test/*",
+  "//extensions/*",
+]
+
+hns_chrome_browser_sources = [
+  "//hns/browser/hns_browser_features.cc",
+  "//hns/browser/hns_browser_features.h",
+  "//hns/browser/hns_browser_main_extra_parts.cc",
+  "//hns/browser/hns_browser_main_extra_parts.h",
+  "//hns/browser/hns_browser_main_parts.cc",
+  "//hns/browser/hns_browser_main_parts.h",
+  "//hns/browser/hns_browser_process.cc",
+  "//hns/browser/hns_browser_process_impl.cc",
+  "//hns/browser/hns_browser_process_impl.h",
+  "//hns/browser/hns_content_browser_client.cc",
+  "//hns/browser/hns_content_browser_client.h",
+  "//hns/browser/hns_features_internal_names.h",
+  "//hns/browser/hns_local_state_prefs.cc",
+  "//hns/browser/hns_local_state_prefs.h",
+  "//hns/browser/hns_profile_prefs.cc",
+  "//hns/browser/hns_profile_prefs.h",
+  "//hns/browser/hns_shell_integration.cc",
+  "//hns/browser/hns_shell_integration.h",
+  "//hns/browser/hns_tab_helpers.cc",
+  "//hns/browser/hns_tab_helpers.h",
+  "//hns/browser/browser_context_keyed_service_factories.cc",
+  "//hns/browser/browser_context_keyed_service_factories.h",
+  "//hns/browser/geolocation/hns_geolocation_permission_context_delegate.cc",
+  "//hns/browser/geolocation/hns_geolocation_permission_context_delegate.h",
+  "//hns/browser/metrics/hns_metrics_service_accessor.cc",
+  "//hns/browser/metrics/hns_metrics_service_accessor.h",
+  "//hns/browser/metrics/metrics_reporting_util.cc",
+  "//hns/browser/metrics/metrics_reporting_util.h",
+  "//hns/browser/policy/hns_simple_policy_map.h",
+  "//hns/browser/prefs/hns_pref_service_incognito_allowlist.cc",
+  "//hns/browser/prefs/hns_pref_service_incognito_allowlist.h",
+  "//hns/browser/translate/hns_translate_prefs_migration.cc",
+  "//hns/browser/translate/hns_translate_prefs_migration.h",
+  "//hns/browser/translate/hns_translate_utils.cc",
+  "//hns/browser/translate/hns_translate_utils.h",
+  "//hns/browser/update_util.cc",
+  "//hns/browser/update_util.h",
+  "//hns/chromium_src/chrome/browser/notifications/notification_handler_impl.h",
+]
+
+hns_chrome_browser_deps = [
+  "//base",
+  "//hns/app:hns_generated_resources_grit",
+  "//hns/browser:browser_process",
+  "//hns/browser:sparkle_buildflags",
+  "//hns/browser/hns_federated",
+  "//hns/browser/hns_wallet",
+  "//hns/browser/hns_wallet:hns_wallet_delegate",
+  "//hns/browser/hns_wallet:tab_helper",
+  "//hns/browser/component_updater",
+  "//hns/browser/ethereum_remote_client/buildflags",
+  "//hns/browser/gcm_driver",
+  "//hns/browser/metrics/buildflags",
+  "//hns/browser/net",
+  "//hns/browser/profiles",
+  "//hns/browser/renderer_context_menu",
+  "//hns/browser/search",
+  "//hns/browser/sync",
+  "//hns/browser/themes",
+  "//hns/browser/ui",
+  "//hns/browser/ui/tabs",
+  "//hns/common",
+  "//hns/components/ai_chat/common/buildflags",
+  "//hns/components/hns_ads/browser",
+  "//hns/components/hns_ads/core",
+  "//hns/components/hns_component_updater/browser",
+  "//hns/components/hns_federated",
+  "//hns/components/hns_new_tab_ui:mojom",
+  "//hns/components/hns_news/common:mojom",
+  "//hns/components/hns_perf_predictor/browser",
+  "//hns/components/hns_private_new_tab_ui/common",
+  "//hns/components/hns_private_new_tab_ui/common:mojom",
+  "//hns/components/hns_referrals/browser",
+  "//hns/components/hns_rewards/common",
+  "//hns/components/hns_rewards/common:features",
+  "//hns/components/hns_rewards/common/buildflags",
+  "//hns/components/hns_rewards/common/mojom",
+  "//hns/components/hns_search/browser",
+  "//hns/components/hns_search/common",
+  "//hns/components/hns_search/common:mojom",
+  "//hns/components/hns_shields/common",
+  "//hns/components/hns_shields/common:mojom",
+  "//hns/components/hns_sync",
+  "//hns/components/hns_sync:features",
+  "//hns/components/hns_sync:network_time_helper",
+  "//hns/components/hns_sync:prefs",
+  "//hns/components/hns_vpn/common/buildflags",
+  "//hns/components/hns_vpn/common/mojom",
+  "//hns/components/hns_wallet/browser",
+  "//hns/components/hns_wallet/browser:utils",
+  "//hns/components/hns_wallet/common",
+  "//hns/components/hns_wallet/common:mojom",
+  "//hns/components/hns_wallet/common:pref_names",
+  "//hns/components/hns_wayback_machine/buildflags",
+  "//hns/components/hns_webtorrent/browser/buildflags",
+  "//hns/components/commander/common/buildflags",
+  "//hns/components/constants",
+  "//hns/components/cosmetic_filters/browser",
+  "//hns/components/cosmetic_filters/common:mojom",
+  "//hns/components/de_amp/browser",
+  "//hns/components/de_amp/common",
+  "//hns/components/decentralized_dns/content",
+  "//hns/components/decentralized_dns/core",
+  "//hns/components/google_sign_in_permission",
+  "//hns/components/greaselion/browser/buildflags",
+  "//hns/components/https_upgrade_exceptions/browser",
+  "//hns/components/ipfs/buildflags",
+  "//hns/components/l10n/common",
+  "//hns/components/localhost_permission",
+  "//hns/components/ntp_background_images/browser",
+  "//hns/components/ntp_background_images/buildflags",
+  "//hns/components/ntp_tiles",
+  "//hns/components/p3a",
+  "//hns/components/p3a:buildflags",
+  "//hns/components/playlist/common/buildflags",
+  "//hns/components/privacy_sandbox",
+  "//hns/components/request_otr/common/buildflags",
+  "//hns/components/resources",
+  "//hns/components/skus/browser",
+  "//hns/components/skus/common",
+  "//hns/components/speedreader/common/buildflags",
+  "//hns/components/tor/buildflags",
+  "//hns/components/version_info",
+  "//hns/services/network/public/cpp",
+  "//hns/third_party/blink/renderer",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/profiles:profile",
+  "//chrome/browser/ui",
+  "//chrome/common",
+  "//chrome/common:channel_info",
+  "//chrome/utility",
+  "//components/account_id",
+  "//components/autofill/core/common",
+  "//components/browsing_data/core",
+  "//components/content_settings/browser",
+  "//components/content_settings/core/browser",
+  "//components/content_settings/core/common",
+  "//components/embedder_support",
+  "//components/feed/core/shared_prefs:feed_shared_prefs",
+  "//components/gcm_driver:gcm_buildflags",
+  "//components/metrics",
+  "//components/ntp_tiles",
+  "//components/password_manager/core/common",
+  "//components/permissions",
+  "//components/policy/core/common:common_constants",
+  "//components/pref_registry",
+  "//components/prefs",
+  "//components/privacy_sandbox:privacy_sandbox_prefs",
+  "//components/safe_browsing/core/common:safe_browsing_prefs",
+  "//components/search_engines",
+  "//components/services/heap_profiling/public/mojom",
+  "//components/signin/public/base",
+  "//components/sync/base",
+  "//components/sync/service",
+  "//components/translate/core/browser:translate_pref_names",
+  "//components/version_info",
+  "//components/version_info:channel",
+  "//content/public/browser",
+  "//content/public/common",
+  "//extensions/buildflags",
+  "//mojo/public/cpp/bindings",
+  "//net",
+  "//services/metrics/public/cpp:metrics_cpp",
+  "//services/network/public/cpp",
+  "//third_party/abseil-cpp:absl",
+  "//third_party/blink/public/mojom:mojom_platform_headers",
+  "//third_party/widevine/cdm:buildflags",
+  "//ui/base",
+  "//url",
+]
+
+if (enable_commander) {
+  hns_chrome_browser_deps += [
+    "//hns/components/commander/browser",
+    "//hns/components/commands/browser",
+    "//hns/components/commands/common",
+  ]
+}
+
+if (is_mac) {
+  hns_chrome_browser_sources += [
+    "//hns/browser/hns_app_controller_mac.h",
+    "//hns/browser/hns_app_controller_mac.mm",
+    "//hns/browser/hns_browser_main_parts_mac.h",
+    "//hns/browser/hns_browser_main_parts_mac.mm",
+    "//hns/browser/hns_shell_integration_mac.h",
+    "//hns/browser/hns_shell_integration_mac.mm",
+  ]
+  hns_chrome_browser_deps += [ "//hns/app:command_ids" ]
+}
+
+if (enable_sparkle) {
+  hns_chrome_browser_sources += [
+    "//hns/browser/mac/sparkle_glue.h",
+    "//hns/browser/mac/sparkle_glue.mm",
+    "//hns/browser/mac/su_updater.h",
+  ]
+}
+
+if (enable_speedreader) {
+  hns_chrome_browser_deps += [
+    "//hns/components/speedreader/common",
+    "//hns/components/speedreader/common:mojom",
+  ]
+}
+
+if (enable_request_otr) {
+  hns_chrome_browser_deps += [ "//hns/components/request_otr/common" ]
+}
+
+if (enable_ai_chat) {
+  hns_chrome_browser_deps += [
+    "//hns/components/ai_chat/browser",
+    "//hns/components/ai_chat/common",
+    "//hns/components/ai_chat/common/mojom",
+  ]
+}
+
+if (enable_hns_vpn) {
+  hns_chrome_browser_deps += [
+    "//hns/components/hns_vpn/browser",
+    "//hns/components/hns_vpn/browser/connection",
+    "//hns/components/hns_vpn/browser/connection:api",
+    "//hns/components/hns_vpn/common",
+  ]
+}
+
+if (ethereum_remote_client_enabled) {
+  hns_chrome_browser_deps += [
+    "//hns/browser/ethereum_remote_client",
+    "//hns/browser/ethereum_remote_client:browser",
+  ]
+}
+
+if (is_android) {
+  hns_chrome_browser_sources += [
+    "//hns/browser/android/hns_init_android.cc",
+    "//hns/browser/sync/hns_sync_devices_android.cc",
+    "//hns/browser/sync/hns_sync_devices_android.h",
+    "//chrome/browser/bookmarks/bookmark_html_writer.cc",
+    "//chrome/browser/bookmarks/bookmark_html_writer.h",
+    "//chrome/browser/importer/profile_writer.cc",
+    "//chrome/browser/importer/profile_writer.h",
+  ]
+
+  hns_chrome_browser_sources += hns_browser_hns_wallet_android_sources
+  hns_chrome_browser_sources += hns_browser_misc_metrics_android_sources
+  hns_chrome_browser_deps += hns_browser_hns_wallet_android_deps
+
+  hns_chrome_browser_deps += [
+    "//hns/browser/android:android_browser_process",
+    "//hns/browser/android/preferences",
+    "//hns/browser/android/safe_browsing:buildflags",
+    "//hns/build/android:jni_headers",
+    "//hns/components/hns_sync:sync_service_impl_helper",
+    "//chrome/android:jni_headers",
+    "//components/sync_device_info",
+  ]
+} else {
+  hns_chrome_browser_sources += [
+    "//hns/browser/p3a/p3a_core_metrics.cc",
+    "//hns/browser/p3a/p3a_core_metrics.h",
+    "//hns/browser/profile_resetter/hns_profile_resetter.cc",
+    "//hns/browser/profile_resetter/hns_profile_resetter.h",
+  ]
+
+  hns_chrome_browser_deps += [
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/browser/hns_ads/tooltips",
+    "//hns/browser/importer",
+    "//hns/browser/ui/bookmark",
+    "//hns/components/hns_search_conversion",
+    "//hns/components/time_period_storage",
+    "//components/infobars/content",
+  ]
+}
+
+if (toolkit_views) {
+  hns_chrome_browser_deps += [
+    "//hns/browser/ui/sidebar",
+    "//hns/components/sidebar",
+  ]
+}
+
+if (enable_tor) {
+  hns_chrome_browser_deps += [
+    "//hns/browser/tor",
+    "//hns/components/tor",
+    "//hns/components/tor:common",
+    "//hns/components/tor:pref_names",
+  ]
+}
+
+if (enable_extensions) {
+  hns_chrome_browser_deps += [
+    "//hns/browser/extensions",
+    "//chrome/browser/extensions",
+    "//extensions/browser",
+    "//extensions/common:common_constants",
+  ]
+
+  if (enable_hns_webtorrent) {
+    hns_chrome_browser_deps +=
+        [ "//hns/components/hns_webtorrent/browser" ]
+  }
+}
+
+if (enable_hns_wayback_machine) {
+  hns_chrome_browser_deps += [ "//hns/components/hns_wayback_machine" ]
+}
+
+if (enable_widevine) {
+  hns_chrome_browser_sources += [
+    "//hns/browser/hns_drm_tab_helper.cc",
+    "//hns/browser/hns_drm_tab_helper.h",
+  ]
+  hns_chrome_browser_deps += [
+    "//hns/browser/widevine",
+    "//hns/components/hns_drm",
+    "//hns/components/widevine:constants",
+  ]
+}
+
+if (is_win) {
+  hns_chrome_browser_sources += [
+    "//hns/browser/hns_shell_integration_win.cc",
+    "//hns/browser/hns_shell_integration_win.h",
+    "//hns/browser/default_protocol_handler_utils_win.cc",
+    "//hns/browser/default_protocol_handler_utils_win.h",
+  ]
+
+  hns_chrome_browser_deps += [
+    "//chrome/install_static:install_static_util",
+    "//chrome/installer/util:with_no_strings",
+  ]
+}
+
+if (is_win && is_official_build) {
+  hns_chrome_browser_sources += [
+    "//chrome/browser/google/google_update_win.cc",
+    "//chrome/browser/google/google_update_win.h",
+    "//chrome/browser/google/switches.cc",
+    "//chrome/browser/google/switches.h",
+  ]
+
+  hns_chrome_browser_deps += [ "//google_update" ]
+}
+
+hns_chrome_browser_public_deps = [
+  "//hns/browser:browser_process",
+  "//hns/components/hns_sync:constants",
+  "//hns/components/variations:constants",
+]
+
+if (is_mac) {
+  hns_chrome_framework_public_deps = [ "//hns:framework_bundle_data" ]
+  hns_chrome_framework_bundle_deps = [ "//hns:framework_bundle_data" ]
+  hns_chrome_framework_contents = [ "Frameworks" ]
+  hns_chrome_framework_configs = [ "//hns/build/rust:strip_rust_symbols" ]
+}
+
+hns_chrome_browser_sources += hns_browser_autocomplete_sources
+hns_chrome_browser_sources += hns_browser_hns_adaptive_captcha_sources
+hns_chrome_browser_sources += hns_browser_hns_ads_sources
+hns_chrome_browser_sources += hns_browser_hns_wallet_sources
+hns_chrome_browser_sources += hns_browser_hns_news_sources
+hns_chrome_browser_sources += hns_browser_hns_vpn_sources
+hns_chrome_browser_sources += hns_browser_skus_sources
+hns_chrome_browser_sources += hns_browser_hns_rewards_sources
+hns_chrome_browser_sources += hns_browser_hns_shields_sources
+hns_chrome_browser_sources += hns_browser_hns_stats_updater_sources
+hns_chrome_browser_sources += hns_browser_browsing_data_sources
+hns_chrome_browser_sources += hns_browser_debounce_sources
+hns_chrome_browser_sources += hns_browser_download_sources
+hns_chrome_browser_sources += hns_browser_ephemeral_storage_sources
+hns_chrome_browser_sources += hns_browser_greaselion_sources
+hns_chrome_browser_sources += hns_browser_importer_sources
+hns_chrome_browser_sources += hns_browser_infobar_sources
+hns_chrome_browser_sources += hns_browser_ipfs_sources
+hns_chrome_browser_sources += hns_browser_misc_metrics_sources
+hns_chrome_browser_sources += hns_browser_new_tab_sources
+hns_chrome_browser_sources += hns_browser_notifications_sources
+hns_chrome_browser_sources += hns_browser_ntp_background_sources
+hns_chrome_browser_sources += hns_browser_perf_sources
+hns_chrome_browser_sources += hns_browser_permissions_sources
+hns_chrome_browser_sources += hns_browser_playlist_sources
+hns_chrome_browser_sources += hns_browser_request_otr_sources
+hns_chrome_browser_sources += hns_browser_search_engines_sources
+hns_chrome_browser_sources += hns_browser_speedreader_sources
+hns_chrome_browser_sources += hns_browser_sync_sources
+hns_chrome_browser_sources += hns_browser_themes_sources
+hns_chrome_browser_sources += hns_browser_web_discovery_sources
+hns_chrome_browser_sources += hns_browser_url_sanitizer_sources
+hns_chrome_browser_sources += hns_browser_hns_referrals_sources
+
+hns_chrome_browser_deps += hns_browser_autocomplete_deps
+hns_chrome_browser_deps += hns_browser_hns_adaptive_captcha_deps
+hns_chrome_browser_deps += hns_browser_hns_ads_deps
+hns_chrome_browser_deps += hns_browser_hns_news_deps
+hns_chrome_browser_deps += hns_browser_hns_vpn_deps
+hns_chrome_browser_deps += hns_browser_hns_wallet_deps
+hns_chrome_browser_deps += hns_browser_skus_deps
+hns_chrome_browser_deps += hns_browser_hns_rewards_deps
+hns_chrome_browser_deps += hns_browser_hns_shields_deps
+hns_chrome_browser_deps += hns_browser_hns_stats_updater_deps
+hns_chrome_browser_deps += hns_browser_browsing_data_deps
+hns_chrome_browser_deps += hns_browser_debounce_deps
+hns_chrome_browser_deps += hns_browser_download_deps
+hns_chrome_browser_deps += hns_browser_ephemeral_storage_deps
+hns_chrome_browser_deps += hns_browser_greaselion_deps
+hns_chrome_browser_deps += hns_browser_importer_deps
+hns_chrome_browser_deps += hns_browser_infobar_deps
+hns_chrome_browser_deps += hns_browser_ipfs_deps
+hns_chrome_browser_deps += hns_browser_misc_metrics_deps
+hns_chrome_browser_deps += hns_browser_new_tab_deps
+hns_chrome_browser_deps += hns_browser_notifications_deps
+hns_chrome_browser_deps += hns_browser_ntp_background_deps
+hns_chrome_browser_deps += hns_browser_perf_deps
+hns_chrome_browser_deps += hns_browser_permissions_deps
+hns_chrome_browser_deps += hns_browser_playlist_deps
+hns_chrome_browser_deps += hns_browser_request_otr_deps
+hns_chrome_browser_deps += hns_browser_search_engines_deps
+hns_chrome_browser_deps += hns_browser_speedreader_deps
+hns_chrome_browser_deps += hns_browser_sync_deps
+hns_chrome_browser_deps += hns_browser_themes_deps
+hns_chrome_browser_deps += hns_browser_web_discovery_deps
+hns_chrome_browser_deps += hns_chromium_src_chrome_browser_deps
+hns_chrome_browser_deps += hns_chromium_src_chrome_browser_prefs_deps
+hns_chrome_browser_deps += hns_browser_url_sanitizer_deps
+hns_chrome_browser_deps += hns_browser_hns_referrals_deps
+
+hns_chrome_browser_allow_circular_includes_from = [ "//hns/browser/ui" ]

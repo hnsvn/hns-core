@@ -1,0 +1,113 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_browser_hns_ads_sources = [
+  "//hns/browser/hns_ads/ads_service_factory.cc",
+  "//hns/browser/hns_ads/ads_service_factory.h",
+  "//hns/browser/hns_ads/ads_tab_helper.cc",
+  "//hns/browser/hns_ads/ads_tab_helper.h",
+  "//hns/browser/hns_ads/background_helper/background_helper.cc",
+  "//hns/browser/hns_ads/background_helper/background_helper.h",
+  "//hns/browser/hns_ads/background_helper/background_helper_holder.cc",
+  "//hns/browser/hns_ads/background_helper/background_helper_holder.h",
+  "//hns/browser/hns_ads/hns_stats_helper.cc",
+  "//hns/browser/hns_ads/hns_stats_helper.h",
+  "//hns/browser/hns_ads/notification_helper/notification_helper.cc",
+  "//hns/browser/hns_ads/notification_helper/notification_helper.h",
+  "//hns/browser/hns_ads/notification_helper/notification_helper_impl.cc",
+  "//hns/browser/hns_ads/notification_helper/notification_helper_impl.h",
+  "//hns/browser/hns_ads/notifications/notification_ad_platform_bridge.h",
+  "//hns/browser/hns_ads/search_result_ad/search_result_ad_tab_helper.cc",
+  "//hns/browser/hns_ads/search_result_ad/search_result_ad_tab_helper.h",
+]
+
+hns_browser_hns_ads_deps = [
+  "//base",
+  "//hns/browser/hns_ads/device_id",
+  "//hns/browser/hns_ads/services",
+  "//hns/browser/hns_rewards:util",
+  "//hns/browser/ui/hns_ads",
+  "//hns/components/hns_ads/browser",
+  "//hns/components/hns_ads/content/browser",
+  "//hns/components/hns_ads/core",
+  "//hns/components/hns_federated",
+  "//hns/components/hns_federated/public/interfaces",
+  "//chrome/browser/notifications",
+  "//chrome/browser/profiles",
+  "//chrome/browser/profiles:profile",
+  "//chrome/browser/ui",
+  "//components/history/core/browser",
+  "//components/keyed_service/content",
+  "//components/sessions",
+  "//content/public/browser",
+  "//ui/base",
+]
+
+if (!is_android) {
+  hns_browser_hns_ads_sources += [ "//hns/browser/hns_ads/notifications/notification_ad_platform_bridge.cc" ]
+}
+
+if (is_android) {
+  hns_browser_hns_ads_sources += [
+    "//hns/browser/hns_ads/android/hns_ads_native_helper.cc",
+    "//hns/browser/hns_ads/android/hns_ads_native_helper.h",
+    "//hns/browser/hns_ads/background_helper/background_helper_android.cc",
+    "//hns/browser/hns_ads/background_helper/background_helper_android.h",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_android.cc",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_android.h",
+    "//hns/browser/hns_ads/notifications/notification_ad_platform_bridge_android.cc",
+  ]
+
+  hns_browser_hns_ads_deps += [
+    "//hns/browser/hns_ads/android:jni_headers",
+    "//hns/build/android:jni_headers",
+    "//chrome/android:jni_headers",
+  ]
+}
+
+if (is_linux) {
+  hns_browser_hns_ads_sources += [
+    "//hns/browser/hns_ads/background_helper/background_helper_linux.cc",
+    "//hns/browser/hns_ads/background_helper/background_helper_linux.h",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_linux.cc",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_linux.h",
+  ]
+
+  hns_browser_hns_ads_deps += [
+    "//chrome/common",
+    "//ui/aura",
+    "//ui/base/x",
+    "//ui/gfx/x",
+  ]
+}
+
+if (is_mac) {
+  hns_browser_hns_ads_sources += [
+    "//hns/browser/hns_ads/background_helper/background_helper_mac.h",
+    "//hns/browser/hns_ads/background_helper/background_helper_mac.mm",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_mac.h",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_mac.mm",
+  ]
+
+  hns_browser_hns_ads_deps += [ "//chrome/common" ]
+}
+
+if (is_win) {
+  hns_browser_hns_ads_sources += [
+    "//hns/browser/hns_ads/background_helper/background_helper_win.cc",
+    "//hns/browser/hns_ads/background_helper/background_helper_win.h",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_win.cc",
+    "//hns/browser/hns_ads/notification_helper/notification_helper_impl_win.h",
+  ]
+
+  hns_browser_hns_ads_deps += [
+    "//hns/browser/hns_ads/tooltips/",
+    "//hns/components/hns_adaptive_captcha:hns_adaptive_captcha",
+    "//chrome/common",
+    "//chrome/installer/util:with_no_strings",
+    "//ui/gfx",
+    "//ui/views",
+  ]
+}

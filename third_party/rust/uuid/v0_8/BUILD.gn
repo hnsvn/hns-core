@@ -1,0 +1,60 @@
+# Copyright 2023 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//build/rust/cargo_crate.gni")
+
+cargo_crate("lib") {
+  crate_name = "uuid"
+  epoch = "0.8"
+  crate_type = "rlib"
+  crate_root = "crate/src/lib.rs"
+  sources = [
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/format_str.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/invalid_parse_str.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/mod.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/serde_support.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/slog_support/mod.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/slog_support/parse_str.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/benches/valid_parse_str.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/adapter/compact.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/adapter/mod.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/builder/error.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/builder/mod.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/error.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/lib.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/parser/error.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/parser/mod.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/prelude.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/serde_support.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/slog_support.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/test_util.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/v1.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/v3.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/v4.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/v5.rs",
+    "//hns/third_party/rust/uuid/v0_8/crate/src/winapi_support.rs",
+  ]
+  inputs = [
+    "//hns/third_party/rust/uuid/v0_8/crate/CODE_OF_CONDUCT.md",
+    "//hns/third_party/rust/uuid/v0_8/crate/CONTRIBUTING.md",
+    "//hns/third_party/rust/uuid/v0_8/crate/README.md",
+  ]
+
+  # Unit tests skipped. Generate with --with-tests to include them.
+  build_native_rust_unit_tests = false
+  edition = "2018"
+  cargo_pkg_version = "0.8.2"
+  cargo_pkg_authors = "Ashley Mannix<ashleymannix@live.com.au>, Christopher Armstrong, Dylan DPC<dylan.dpc@gmail.com>, Hunar Roop Kahlon<hunar.roop@gmail.com>"
+  cargo_pkg_name = "uuid"
+  cargo_pkg_description = "A library to generate and parse UUIDs."
+  library_configs -= [ "//build/config/compiler:chromium_code" ]
+  library_configs += [ "//build/config/compiler:no_chromium_code" ]
+  executable_configs -= [ "//build/config/compiler:chromium_code" ]
+  executable_configs += [ "//build/config/compiler:no_chromium_code" ]
+  deps = [ "//third_party/rust/serde/v1:lib" ]
+  features = [
+    "serde",
+    "std",
+  ]
+}

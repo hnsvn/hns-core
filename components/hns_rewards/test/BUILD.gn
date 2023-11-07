@@ -1,0 +1,41 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/build/config.gni")
+import("//build/config/sanitizers/sanitizers.gni")
+import("//testing/test.gni")
+
+source_set("hns_rewards_unit_tests") {
+  testonly = true
+
+  sources = [
+    "//hns/components/hns_rewards/browser/publisher_utils_unittest.cc",
+    "//hns/components/hns_rewards/browser/rewards_protocol_handler_unittest.cc",
+    "//hns/components/hns_rewards/browser/rewards_service_impl_jp_unittest.cc",
+    "//hns/components/hns_rewards/browser/rewards_service_impl_unittest.cc",
+  ]
+
+  deps = [
+    "//base/test:test_support",
+    "//hns/components/hns_rewards/browser:browser",
+    "//hns/components/hns_rewards/browser:testutil",
+    "//hns/components/hns_rewards/common:common",
+    "//hns/components/hns_rewards/common:features",
+    "//hns/components/hns_rewards/core",
+    "//hns/components/hns_rewards/core:publishers_proto",
+    "//hns/components/hns_rewards/resources:static_resources_grit",
+    "//hns/components/greaselion/browser/buildflags:buildflags",
+    "//hns/components/l10n/common:test_support",
+    "//hns/third_party/challenge_bypass_ristretto_ffi:rust_lib",
+    "//hns/third_party/rapidjson",
+    "//chrome/browser:browser",
+    "//chrome/browser/profiles:profile",
+    "//chrome/test:test_support",
+    "//content/test:test_support",
+    "//net:net",
+    "//ui/base:base",
+    "//url:url",
+  ]
+}  # source_set("hns_rewards_unit_tests")

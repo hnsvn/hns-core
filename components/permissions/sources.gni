@@ -1,0 +1,50 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_components_permissions_sources = [
+  "//hns/components/permissions/hns_permission_manager.cc",
+  "//hns/components/permissions/hns_permission_manager.h",
+  "//hns/components/permissions/contexts/hns_google_sign_in_permission_context.cc",
+  "//hns/components/permissions/contexts/hns_google_sign_in_permission_context.h",
+  "//hns/components/permissions/contexts/hns_localhost_permission_context.cc",
+  "//hns/components/permissions/contexts/hns_localhost_permission_context.h",
+  "//hns/components/permissions/contexts/hns_wallet_permission_context.cc",
+  "//hns/components/permissions/contexts/hns_wallet_permission_context.h",
+  "//hns/components/permissions/permission_expiration_key.cc",
+  "//hns/components/permissions/permission_expiration_key.h",
+  "//hns/components/permissions/permission_expirations.cc",
+  "//hns/components/permissions/permission_expirations.h",
+  "//hns/components/permissions/permission_lifetime_manager.cc",
+  "//hns/components/permissions/permission_lifetime_manager.h",
+  "//hns/components/permissions/permission_lifetime_options.cc",
+  "//hns/components/permissions/permission_lifetime_options.h",
+  "//hns/components/permissions/permission_lifetime_pref_names.h",
+  "//hns/components/permissions/permission_lifetime_utils.cc",
+  "//hns/components/permissions/permission_lifetime_utils.h",
+  "//hns/components/permissions/permission_origin_lifetime_monitor.h",
+  "//hns/components/permissions/permission_origins.cc",
+  "//hns/components/permissions/permission_origins.h",
+]
+
+hns_components_permissions_deps = [
+  "//base",
+  "//hns/components/hns_wallet/browser:permission_utils",
+  "//hns/components/hns_wallet/common:mojom",
+  "//hns/components/l10n/common",
+  "//hns/components/resources:strings_grit",
+  "//components/content_settings/core/browser",
+  "//components/content_settings/core/common",
+  "//components/keyed_service/core",
+  "//components/pref_registry",
+  "//services/preferences/public/cpp",
+  "//third_party/blink/public/common",
+  "//ui/base",
+  "//url",
+]
+
+if (is_android) {
+  hns_components_permissions_deps +=
+      [ "//hns/components/permissions/android:jni_headers" ]
+}

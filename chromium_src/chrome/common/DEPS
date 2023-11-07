@@ -1,0 +1,8 @@
+include_rules = [
+  "+hns/common",
+  "+hns/components/constants",
+  "+hns/components/ipfs/buildflags",
+  "+hns/grit",
+  "+components/version_info",
+  "+components/component_updater",
+]

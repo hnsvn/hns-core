@@ -1,0 +1,56 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/commander/common/buildflags/buildflags.gni")
+
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [
+    "//hns/components/omnibox/browser/hns_bookmark_provider_unittest.cc",
+    "//hns/components/omnibox/browser/hns_fake_autocomplete_provider_client.cc",
+    "//hns/components/omnibox/browser/hns_fake_autocomplete_provider_client.h",
+    "//hns/components/omnibox/browser/hns_history_quick_provider_unittest.cc",
+    "//hns/components/omnibox/browser/hns_history_url_provider_unittest.cc",
+    "//hns/components/omnibox/browser/hns_local_history_zero_suggest_provider_unittest.cc",
+    "//hns/components/omnibox/browser/hns_search_provider_unittest.cc",
+    "//hns/components/omnibox/browser/hns_shortcuts_provider_unittest.cc",
+    "//hns/components/omnibox/browser/omnibox_autocomplete_unittest.cc",
+    "//hns/components/omnibox/browser/topsites_provider_unittest.cc",
+    "promotion_unittest.cc",
+  ]
+
+  deps = [
+    "//base",
+    "//base/test:test_support",
+    "//hns/components/hns_search_conversion",
+    "//hns/components/constants",
+    "//hns/components/l10n/common:test_support",
+    "//hns/components/search_engines",
+    "//chrome/test:test_support",
+    "//components/bookmarks/browser",
+    "//components/omnibox/browser",
+    "//components/omnibox/browser:test_support",
+    "//components/prefs",
+    "//components/prefs:test_support",
+    "//components/search_engines",
+    "//components/sync_preferences:test_support",
+    "//components/variations:test_support",
+    "//content/test:test_support",
+    "//services/network:test_support",
+    "//testing/gmock",
+    "//testing/gtest",
+  ]
+
+  if (enable_commander) {
+    sources +=
+        [ "//hns/components/omnibox/browser/commander_provider_unittest.cc" ]
+
+    deps += [
+      "//hns/components/commander/browser",
+      "//hns/components/vector_icons",
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/build/config.gni")
+
+static_library("browser") {
+  sources = [
+    "ads_p2a.cc",
+    "ads_p2a.h",
+    "ads_service.cc",
+    "ads_service.h",
+    "ads_service_observer.h",
+    "component_updater/component_info.h",
+    "component_updater/component_util.cc",
+    "component_updater/component_util.h",
+    "component_updater/resource_component.cc",
+    "component_updater/resource_component.h",
+    "component_updater/resource_component_observer.h",
+    "component_updater/resource_info.h",
+    "feature/custom_notification_ad_constants.h",
+    "feature/custom_notification_ad_feature.cc",
+    "feature/custom_notification_ad_feature.h",
+    "frequency_capping_helper.cc",
+    "frequency_capping_helper.h",
+    "reminder_util.cc",
+    "reminder_util.h",
+  ]
+
+  configs += [ "//build/config/compiler:wexit_time_destructors" ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_adaptive_captcha",
+    "//hns/components/hns_ads/core",
+    "//hns/components/hns_ads/resources",
+    "//hns/components/hns_component_updater/browser",
+    "//hns/components/l10n/common",
+    "//hns/components/p3a_utils",
+    "//hns/components/time_period_storage",
+    "//components/keyed_service/core",
+    "//components/pref_registry",
+    "//components/prefs",
+    "//components/sessions",
+    "//sql",
+    "//third_party/blink/public/common",
+    "//url",
+  ]
+
+  public_deps = [ "//hns/components/hns_ads/core/mojom" ]
+
+  # TODO(https://github.com/hnsvn/hns-browser/issues/24163)
+  check_includes = false
+
+  sources += [
+    "ads_service_impl.cc",
+    "ads_service_impl.h",
+    "ads_tooltips_delegate.h",
+    "bat_ads_service_factory.h",
+    "device_id.cc",
+    "device_id.h",
+  ]
+
+  deps += [
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/browser/profiles:util",
+    "//hns/common",
+    "//hns/components/hns_federated",
+    "//hns/components/hns_news/common",
+    "//hns/components/hns_rewards/browser",
+    "//hns/components/hns_rewards/common",
+    "//chrome/browser/notifications",
+    "//chrome/browser/profiles:profile",
+    "//components/history/core/browser",
+    "//content/public/browser",
+    "//mojo/public/cpp/bindings",
+    "//net",
+    "//services/network/public/cpp",
+    "//services/network/public/mojom",
+    "//ui/base",
+    "//ui/message_center/public/cpp",
+  ]
+
+  public_deps += [
+    "//hns/components/services/bat_ads/public/interfaces",
+    "//services/network/public/mojom",
+  ]
+}
+
+source_set("test_support") {
+  testonly = true
+
+  public_deps = [ ":browser" ]
+
+  deps = [ "//testing/gmock" ]
+
+  sources = [
+    "ads_service_mock.cc",
+    "ads_service_mock.h",
+  ]
+}

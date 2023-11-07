@@ -1,0 +1,18 @@
+import("//hns/build/config.gni")
+
+static_library("browser") {
+  sources = [
+    "ntp_widget_utils_oauth.cc",
+    "ntp_widget_utils_oauth.h",
+    "ntp_widget_utils_region.cc",
+    "ntp_widget_utils_region.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/l10n/common/",
+    "//components/country_codes",
+    "//components/prefs",
+    "//crypto",
+  ]
+}

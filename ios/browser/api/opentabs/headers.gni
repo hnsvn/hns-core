@@ -1,0 +1,7 @@
+browser_api_opentabs_public_headers = [
+  "//hns/ios/browser/api/opentabs/hns_opentabs_api.h",
+  "//hns/ios/browser/api/opentabs/hns_opentabs_observer.h",
+  "//hns/ios/browser/api/opentabs/hns_sendtab_api.h",
+  "//hns/ios/browser/api/opentabs/hns_sendtab_observer.h",
+  "//hns/ios/browser/api/opentabs/hns_tabgenerator_api.h",
+]

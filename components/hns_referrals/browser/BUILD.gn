@@ -1,0 +1,49 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+if (is_android) {
+  import("//build/config/android/rules.gni")
+}
+
+assert(!is_ios)
+
+static_library("browser") {
+  sources = [
+    "hns_referrals_service.cc",
+    "hns_referrals_service.h",
+  ]
+
+  public_deps = [ "//hns/components/hns_referrals/common" ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_stats/browser",
+    "//hns/components/constants",
+    "//hns/vendor/hns_base",
+    "//components/prefs",
+    "//components/url_matcher",
+    "//content/public/browser",
+    "//net",
+    "//services/network/public/cpp",
+  ]
+
+  if (is_android) {
+    sources += [
+      "android_hns_referrer.cc",
+      "android_hns_referrer.h",
+    ]
+
+    deps += [
+      ":jni_headers",
+      "//hns/components/safetynet:android",
+    ]
+  }
+}
+
+if (is_android) {
+  generate_jni("jni_headers") {
+    sources = [ "//hns/android/java/org/chromium/chrome/browser/util/HnsReferrer.java" ]
+  }
+}

@@ -1,0 +1,27 @@
+diff --git a/components/content_settings/core/common/content_settings_types.h b/components/content_settings/core/common/content_settings_types.h
+index 30ad7c86826ce2d3b762f7a590f3f876edf32916..b99c53e3de98070365a249f11617848793d54098 100644
+--- a/components/content_settings/core/common/content_settings_types.h
++++ b/components/content_settings/core/common/content_settings_types.h
+@@ -356,6 +356,22 @@ enum class ContentSettingsType : int32_t {
+   // `net::features::kTpcdMetadataGrants` is enabled.
+   TPCD_METADATA_GRANTS,
+ 
++  HNS_START,
++  HNS_ADS = HNS_START,
++  HNS_COSMETIC_FILTERING,
++  HNS_TRACKERS,
++  HNS_HTTP_UPGRADABLE_RESOURCES,
++  HNS_FINGERPRINTING_V2,
++  HNS_SHIELDS,
++  HNS_REFERRERS,
++  HNS_COOKIES,
++  HNS_SPEEDREADER,
++  HNS_ETHEREUM,
++  HNS_SOLANA,
++  HNS_GOOGLE_SIGN_IN,
++  HNS_HTTPS_UPGRADE,
++  HNS_REMEMBER_1P_STORAGE,
++  HNS_LOCALHOST_ACCESS,
+   NUM_TYPES,
+ };
+ 

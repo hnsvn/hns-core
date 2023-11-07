@@ -1,0 +1,57 @@
+<style include="settings-shared md-select iron-flex">
+  .settings-row:not(:first-child) {
+    border-top: var(--cr-separator-line);
+  }
+</style>
+<settings-toggle-button
+  class="cr-row"
+  label="$i18n{hnsRewardsShowHnsRewardsButtonLabel}"
+  pref="{{prefs.hns.rewards.show_hns_rewards_button_in_location_bar}}">
+</settings-toggle-button>
+<settings-toggle-button
+  class="cr-row"
+  label="$i18n{hnsRewardsShowTipButtonsLabel}"
+  pref="{{prefs.hns.rewards.inline_tip_buttons_enabled}}">
+    <template
+      is="dom-if"
+      if="[[shouldShowRestartButtonForTipButtons_(
+              prefs.hns.rewards.inline_tip_buttons_enabled.value,
+              prefs.hns.rewards.inline_tip.reddit.value,
+              prefs.hns.rewards.inline_tip.twitter.value,
+              prefs.hns.rewards.inline_tip.github.value)]]"
+      restamp>
+      <cr-button on-click="restartBrowser_" slot="more-actions">
+        $i18n{restart}
+      </cr-button>
+    </template>
+</settings-toggle-button>
+<template is="dom-if"
+  if="[[prefs.hns.rewards.inline_tip_buttons_enabled.value]]">
+  <div class="list-frame vertical-list">
+    <settings-checkbox class="cr-row list-item"
+      pref="{{prefs.hns.rewards.inline_tip.github}}"
+      label="$i18n{hnsRewardsInlineTipGithubLabel}">
+    </settings-checkbox>
+    <settings-checkbox class="cr-row list-item"
+      pref="{{prefs.hns.rewards.inline_tip.reddit}}"
+      label="$i18n{hnsRewardsInlineTipRedditLabel}">
+    </settings-checkbox>
+    <settings-checkbox class="cr-row list-item"
+      pref="{{prefs.hns.rewards.inline_tip.twitter}}"
+      label="$i18n{hnsRewardsInlineTipTwitterLabel}">
+    </settings-checkbox>
+  </div>
+</template>
+<div class="settings-row">
+  <template is="dom-if" if="[[prefs.hns.rewards.enabled.value]]" restamp>
+    <cr-link-row label="$i18n{hnsRewardsPageLabel}"
+                 on-click="openRewardsPage_" external>
+    </cr-link-row>
+  </template>
+  <template is="dom-if" if="[[!prefs.hns.rewards.enabled.value]]" restamp>
+    <cr-link-row label="$i18n{hnsRewardsDisabledLabel}"
+                 sub-label="$i18n{hnsRewardsDisabledSubLabel}"
+                 on-click="openRewardsPanel_" external>
+    </cr-link-row>
+  </template>
+</div>

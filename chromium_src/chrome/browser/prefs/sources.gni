@@ -1,0 +1,31 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//components/gcm_driver/config.gni")
+import("//third_party/widevine/cdm/widevine.gni")
+
+hns_chromium_src_chrome_browser_prefs_deps = [
+  "//hns/components/hns_sync",
+  "//hns/components/hns_wallet/browser",
+  "//hns/components/constants",
+  "//chrome/browser/profiles:profile",
+  "//chrome/common:constants",
+  "//components/gcm_driver:gcm_buildflags",
+  "//third_party/widevine/cdm:buildflags",
+]
+
+if (enable_widevine) {
+  hns_chromium_src_chrome_browser_prefs_deps += [ "//hns/browser/widevine" ]
+}
+
+if (enable_hns_vpn) {
+  hns_chromium_src_chrome_browser_prefs_deps +=
+      [ "//hns/components/hns_vpn/common" ]
+}
+if (!use_gcm_from_platform) {
+  hns_chromium_src_chrome_browser_prefs_deps +=
+      [ "//hns/browser/gcm_driver" ]
+}

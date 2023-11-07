@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/v8/include",
+  "+hns/components/hns_page_graph/common/buildflags.h",
+  "+net/base",
+]

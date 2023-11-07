@@ -1,0 +1,83 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# you can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/browser/shell_integrations/buildflags/buildflags.gni")
+import("//hns/build/config.gni")
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//hns/resources/hns_grit.gni")
+import("//chrome/common/features.gni")
+import("//extensions/buildflags/buildflags.gni")
+import("//tools/grit/preprocess_if_expr.gni")
+import("//ui/webui/resources/tools/generate_grd.gni")
+import("sources.gni")
+
+preprocess_folder = "preprocessed"
+
+# grit (and generate the GRD for) hns's own static resources, they don't need
+# to be part of the build_webui.gni compile.
+# TODO(petemill): It is no longer neccessary to make our own grd and pak, we can add to
+# chromium's static_files list.
+hns_grit("resources") {
+  defines = chrome_grit_defines
+  defines += [
+    "is_release_channel=$is_release_channel",
+    "enable_tor=$enable_tor",
+    "enable_hns_wayback_machine=$enable_hns_wayback_machine",
+  ]
+
+  enable_input_discovery_for_gn_analyze = false
+  source = "$target_gen_dir/hns_settings_resources.grd"
+  deps = [ ":build_grd" ]
+
+  outputs = [
+    "grit/hns_settings_resources.h",
+    "grit/hns_settings_resources_map.cc",
+    "grit/hns_settings_resources_map.h",
+    "hns_settings_resources.pak",
+  ]
+}
+
+generate_grd("build_grd") {
+  grd_prefix = "hns_settings"
+  out_grd = "$target_gen_dir/${grd_prefix}_resources.grd"
+  input_files = [
+    "hns_sync_page/device_computer.svg",
+    "hns_sync_page/device_mobile.svg",
+    "hns_sync_page/qr_scanning.svg",
+    "hns_sync_page/start_icon.svg",
+    "images/cookies_banner.svg",
+    "images/cookies_banner_dark.svg",
+    "images/permissions_banner.svg",
+    "images/permissions_banner_dark.svg",
+    "images/safe_browsing_banner.svg",
+    "images/safe_browsing_banner_dark.svg",
+    "images/warning_triangle.svg",
+  ]
+  input_files_base_dir = rebase_path(".", "//")
+
+  deps = [ ":preprocess" ]
+}
+
+# Move hns files to the place where chromium settings page is compiled from.
+# It should be the same directory that build_webui.gni uses after it performs
+# its own preprocess_if_expr. Once chromium and hns frontend files are all in
+# the same place, build_webui.gni will continue its typescript and rollup
+# compile (etc.) from that directory.
+preprocess_if_expr("preprocess") {
+  defines = [
+    "enable_tor=$enable_tor",
+    "enable_hns_wayback_machine=$enable_hns_wayback_machine",
+    "enable_hns_vpn=$enable_hns_vpn",
+    "enable_hns_vpn_wireguard=$enable_hns_vpn_wireguard",
+    "enable_extensions=$enable_extensions",
+    "enable_pin_shortcut=$enable_pin_shortcut",
+  ]
+  out_folder =
+      "$root_gen_dir/chrome/browser/resources/settings/$preprocess_folder"
+
+  in_files = hns_settings_local_ts_files + hns_settings_local_html_files
+}

@@ -1,0 +1,144 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/android/hns_java_resources.gni")
+import("//hns/android/hns_java_sources.gni")
+import(
+    "//hns/android/java/org/chromium/chrome/browser/vpn/billing/sources.gni")
+import("//hns/build/android/bytecode/bytecode_rewriter.gni")
+
+declare_args() {
+  hns_android_manifest_includes = []
+}
+
+hns_android_manifest_includes = [
+  "//hns/android/java/AndroidManifest.xml",
+  "//hns/android/java/AndroidManifest_intent_filters.xml",
+  "//hns/android/java/AndroidManifest_user_permissions.xml",
+]
+
+hns_chrome_java_deps = [
+  "//hns/android/java/org/chromium/chrome/browser/search_engines:java",
+  "//hns/browser/download/android:java",
+  "//hns/browser/download/internal/android:java",
+  "//hns/browser/notifications/android:hns_java",
+  "//hns/browser/notifications/android:java",
+  "//hns/browser/safe_browsing/android/java/src/org/chromium/chrome/browser/safe_browsing/settings:java",
+  "//hns/browser/tab_group:java",
+  "//hns/browser/ui/android/logo:java",
+  "//hns/browser/ui/android/omnibox:java",
+  "//hns/browser/ui/android/theme:java",
+  "//hns/components/hns_news/common:mojom_java",
+  "//hns/components/hns_rewards/common/mojom:rewards_interfaces_java",
+  "//hns/components/hns_rewards/common/mojom:rewards_types_java",
+  "//hns/components/hns_shields/common:mojom_java",
+  "//hns/components/hns_wallet/common:mojom_java",
+  "//hns/components/browser_ui/accessibility/android:java",
+  "//hns/components/browser_ui/site_settings/android:java",
+  "//hns/components/misc_metrics/common:mojom_java",
+  "//hns/components/playlist/common/mojom:mojom_java",
+  "//hns/components/safe_browsing/android:hns_safe_browsing_java",
+  "//hns/components/url_sanitizer/common/mojom:mojom_java",
+  "//hns/components/variations/android:java",
+  "//hns/third_party/android_deps:com_airbnb_android_java",
+  "//hns/third_party/android_deps:com_android_installreferrer_java",
+  "//hns/third_party/android_deps:com_hns_playlist_java",
+  "//hns/third_party/android_deps:com_github_bumptech_glide_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_common_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_core_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_database_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_datasource_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_decoder_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_extractor_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_exoplayer_ui_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_extension_cast_java",
+  "//hns/third_party/android_deps:com_google_android_exoplayer_extension_mediasession_java",
+  "//hns/third_party/android_deps:com_google_android_play_integrity_java",
+  "//hns/third_party/android_deps:com_wireguard_android_J__unpack_aar",
+  "//hns/third_party/android_deps:com_wireguard_android_java",
+  "//hns/third_party/android_deps:google_play_services_safetynet_java",
+  "//hns/third_party/zxing:zxing_java",
+  "//third_party/android_deps:com_android_support_support_annotations_java",
+  "//third_party/android_deps:com_google_code_gson_gson_java",
+  "//third_party/android_deps:google_play_services_vision_common_java",
+  "//third_party/android_deps:google_play_services_vision_java",
+  "//third_party/android_deps:org_jetbrains_kotlinx_kotlinx_coroutines_android_java",
+  "//third_party/androidx:androidx_lifecycle_lifecycle_livedata_core_java",
+  "//third_party/androidx:androidx_lifecycle_lifecycle_livedata_java",
+  "//third_party/androidx:androidx_lifecycle_lifecycle_viewmodel_java",
+  "//third_party/androidx:androidx_room_room_runtime_java",
+  "//url/mojom:url_mojom_origin_java",
+]
+
+hns_chrome_java_deps += hns_app_vpn_billing_deps
+
+hns_chrome_all_java_deps = [
+  "//hns/android/features/tab_ui:java",
+  "//hns/browser/partnercustomizations:delegate_public_impl_java",
+]
+
+# To use our overrided enum in java, put the header file of our overrided enum
+# in hns_android_java_enums_srcjar target and add the chromium header file of
+# the enum we're replacing in hns_java_cpp_enum_filter.
+hns_java_cpp_enum_filter =
+    [ "//chrome/browser/notifications/notification_handler.h" ]
+hns_chrome_java_srcjar_deps = [
+  "//hns/android:hns_android_java_enums_srcjar",
+  "//hns/android:hns_config_java",
+  "//hns/browser/android/preferences:java_pref_names_srcjar",
+]
+
+hns_chrome_app_java_resources_deps = [
+  "//hns/build/android:android_hns_strings_grd",
+  "//hns/build/android:hns_java_xml_preprocess_resources",
+]
+
+hns_resources_exclusion_exceptions =
+    [ "*com_google_android_material*design_bottom_*" ]
+
+# Re-define play core target to use full library as we need it for seemless review processes.
+playcore_target =
+    "//hns/third_party/android_deps:com_google_android_play_core_java"
+
+hns_jni_headers_sources = [
+  "//hns/android/java/org/chromium/chrome/browser/HnsFeatureUtil.java",
+  "//hns/android/java/org/chromium/chrome/browser/HnsLocalState.java",
+  "//hns/android/java/org/chromium/chrome/browser/HnsRelaunchUtils.java",
+  "//hns/android/java/org/chromium/chrome/browser/HnsRewardsNativeWorker.java",
+  "//hns/android/java/org/chromium/chrome/browser/HnsSyncWorker.java",
+  "//hns/android/java/org/chromium/chrome/browser/app/HnsActivity.java",
+  "//hns/android/java/org/chromium/chrome/browser/bookmarks/HnsBookmarkBridge.java",
+  "//hns/android/java/org/chromium/chrome/browser/hns_news/HnsNewsControllerFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/component_updater/HnsComponentUpdater.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/AssetRatioServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/BlockchainRegistryFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/HnsWalletProviderDelegateImplHelper.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/HnsWalletServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/JsonRpcServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/KeyringServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/SwapServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/TxServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/permission/HnsDappPermissionPromptDialog.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/util/WalletDataFilesInstaller.java",
+  "//hns/android/java/org/chromium/chrome/browser/crypto_wallet/util/WalletNativeUtils.java",
+  "//hns/android/java/org/chromium/chrome/browser/informers/HnsSyncAccountDeletedInformer.java",
+  "//hns/android/java/org/chromium/chrome/browser/misc_metrics/PrivacyHubMetricsFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/notifications/HnsNotificationPlatformBridge.java",
+  "//hns/android/java/org/chromium/chrome/browser/notifications/HnsNotificationSettingsBridge.java",
+  "//hns/android/java/org/chromium/chrome/browser/ntp_background_images/NTPBackgroundImagesBridge.java",
+  "//hns/android/java/org/chromium/chrome/browser/playlist/PlaylistServiceFactoryAndroid.java",
+  "//hns/android/java/org/chromium/chrome/browser/preferences/HnsPrefServiceBridge.java",
+  "//hns/android/java/org/chromium/chrome/browser/preferences/website/HnsShieldsContentSettings.java",
+  "//hns/android/java/org/chromium/chrome/browser/settings/developer/HnsQAPreferences.java",
+  "//hns/android/java/org/chromium/chrome/browser/shields/FilterListServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/shields/UrlSanitizerServiceFactory.java",
+  "//hns/android/java/org/chromium/chrome/browser/signin/HnsSigninManager.java",
+  "//hns/android/java/org/chromium/chrome/browser/speedreader/HnsSpeedReaderUtils.java",
+  "//hns/android/java/org/chromium/chrome/browser/sync/HnsSyncDevices.java",
+  "//hns/android/java/org/chromium/chrome/browser/util/HnsReferrer.java",
+  "//hns/android/java/org/chromium/chrome/browser/vpn/HnsVpnNativeWorker.java",
+  "//hns/browser/hns_ads/android/java/org/chromium/chrome/browser/HnsAdsNativeHelper.java",
+  "//hns/components/safetynet/java/org/chromium/chrome/browser/util/SafetyNetCheck.java",
+]

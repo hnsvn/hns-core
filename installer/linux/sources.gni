@@ -1,0 +1,37 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+common_packaging_files_sources = [
+  "//hns/LICENSE",
+  "//hns/chromium_src/chrome/app/resources/manpage.1.in",
+  "//hns/chromium_src/chrome/installer/linux/common/hns-browser/chromium-browser.appdata.xml",
+  "//hns/chromium_src/chrome/installer/linux/common/hns-browser/chromium-browser.info",
+  "//hns/installer/linux/common/hns_installer.include",
+]
+
+common_packaging_files_excluded_sources = [
+  "//chrome/app/resources/manpage.1.in",
+  "common/chromium-browser/chromium-browser.appdata.xml",
+  "common/chromium-browser/chromium-browser.info",
+]
+
+hns_packaging_files_executables = [
+  "$root_out_dir/hns",
+  "$root_out_dir/hns_sandbox",
+]
+
+excluded_packaging_files_executables = [
+  "$root_out_dir/chrome",
+  "$root_out_dir/chrome_sandbox",
+]
+
+hns_installer_deps = [
+  "//hns/build/linux:copy_exe",
+  "//hns/build/linux:copy_sandbox",
+]
+
+strip_chrome_binary_deps = [ "//hns/build/linux:copy_exe" ]
+
+strip_chrome_sandbox_deps = [ "//hns/build/linux:copy_sandbox" ]

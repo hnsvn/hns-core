@@ -1,0 +1,79 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+import("//hns/components/playlist/common/buildflags/buildflags.gni")
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+import("//build/config/ui.gni")
+import("//components/vector_icons/vector_icons.gni")
+
+aggregate_vector_icons("hns_vector_icons") {
+  icon_directory = "."
+
+  # Note: Before adding another icon here, check if the icon is available in Leo
+  # https://leo.hnssoftware.com/?path=/story/icon--all-icons
+  sources = [
+    "bat.icon",
+    "hns_ads_close_button.icon",
+    "hns_ads_dark_mode_info_button.icon",
+    "hns_ads_light_mode_info_button.icon",
+    "hns_sad.icon",
+    "hns_tooltips_stopwatch.icon",
+    "hns_translate.icon",
+    "download_unlock.icon",
+    "open_in_ipfs.icon",
+    "open_in_tor.icon",
+    "sidebar_toolbar_button.icon",
+    "sidebar_toolbar_button_right.icon",
+    "web_discovery_infobar_close_button.icon",
+  ]
+
+  if (toolkit_views) {
+    sources += [
+      "sidebar_add_item.icon",
+      "sidebar_bookmarks.icon",
+      "sidebar_hns_talk.icon",
+      "sidebar_chat.icon",
+      "sidebar_crypto_wallet.icon",
+      "sidebar_edit.icon",
+      "sidebar_history.icon",
+      "sidebar_item_added_check.icon",
+      "sidebar_items_down_arrow.icon",
+      "sidebar_items_up_arrow.icon",
+      "sidebar_reading_list.icon",
+      "sidebar_settings.icon",
+      "sidebar_trash.icon",
+      "vertical_tab_strip_toggle_button.icon",
+    ]
+  }
+
+  if (enable_hns_vpn_panel) {
+    sources += [
+      "vpn_indicator_error.icon",
+      "vpn_indicator_off.icon",
+      "vpn_indicator_on.icon",
+    ]
+  }
+
+  if (enable_speedreader) {
+    sources += [
+      "hns_speedreader_graphic_book1.icon",
+      "hns_speedreader_graphic_book2.icon",
+      "hns_speedreader_graphic_book3.icon",
+      "hns_speedreader_graphic_lines.icon",
+    ]
+  }
+}
+
+source_set("vector_icons") {
+  sources = get_target_outputs(":hns_vector_icons")
+
+  deps = [
+    ":hns_vector_icons",
+    "//base",
+    "//skia",
+    "//ui/gfx",
+  ]
+}

@@ -1,0 +1,23 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+source_set("services") {
+  sources = [
+    "bat_ads_service_factory_impl.cc",
+    "bat_ads_service_factory_impl.h",
+    "service_sandbox_type.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/components/hns_ads/browser",
+    "//hns/components/hns_ads/core",
+    "//hns/components/services/bat_ads:lib",
+    "//content/public/browser",
+    "//mojo/public/cpp/bindings",
+    "//mojo/public/cpp/system",
+  ]
+}

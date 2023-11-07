@@ -1,0 +1,127 @@
+# Copyright (c) 2019 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/ios/browser/api/ads/headers.gni")
+import("//hns/ios/browser/api/hns_rewards/headers.gni")
+import("//hns/ios/browser/api/hns_shields/headers.gni")
+import("//hns/ios/browser/api/hns_stats/headers.gni")
+import("//hns/ios/browser/api/hns_wallet/headers.gni")
+import("//hns/ios/browser/api/certificate/headers.gni")
+import("//hns/ios/browser/api/favicon/headers.gni")
+import("//hns/ios/browser/api/ipfs/headers.gni")
+import("//hns/ios/browser/api/ntp_background_images/headers.gni")
+import("//hns/ios/browser/api/opentabs/headers.gni")
+import("//hns/ios/browser/api/p3a/headers.gni")
+import("//hns/ios/browser/api/qr_code/headers.gni")
+import("//hns/ios/browser/api/query_filter/headers.gni")
+import("//hns/ios/browser/api/session_restore/headers.gni")
+import("//hns/ios/browser/api/skus/headers.gni")
+import("//hns/ios/browser/api/url/headers.gni")
+import("//hns/ios/browser/api/url_sanitizer/headers.gni")
+import("//hns/ios/browser/api/web/web_state/headers.gni")
+import("//hns/ios/browser/url_sanitizer/headers.gni")
+import("//build/config/compiler/compiler.gni")
+import("//build/config/ios/rules.gni")
+
+# lld is required when building arm64 with optimization in order to avoid
+# runtime crashes
+assert(is_debug || current_cpu != "arm64" || use_lld,
+       "Optimized arm64 iOS builds require lld")
+
+config("internal_config") {
+  visibility = [ ":*" ]
+  ldflags =
+      [ "-Wl,-rpath,/usr/lib/swift,-rpath,@executable_path/../Frameworks" ]
+}
+
+group("hns_ios") {
+  public_deps = [ ":hns_core_ios_framework" ]
+}
+
+group("hns_ios_tests") {
+  testonly = true
+  public_deps = [ "testing:hns_core_ios_tests" ]
+}
+
+hns_core_public_headers = [
+  "//hns/build/ios/mojom/public/base/base_values.h",
+  "//hns/ios/app/hns_core_main.h",
+  "//hns/ios/app/hns_core_switches.h",
+  "//hns/ios/browser/hns_wallet/hns_wallet_factory_wrappers.h",
+  "//hns/ios/browser/skus/skus_sdk_factory_wrappers.h",
+  "//hns/ios/browser/api/bookmarks/hns_bookmarks_api.h",
+  "//hns/ios/browser/api/bookmarks/hns_bookmarks_observer.h",
+  "//hns/ios/browser/api/bookmarks/importer/hns_bookmarks_importer.h",
+  "//hns/ios/browser/api/bookmarks/exporter/hns_bookmarks_exporter.h",
+  "//hns/ios/browser/api/history/hns_history_api.h",
+  "//hns/ios/browser/api/history/hns_history_observer.h",
+  "//hns/ios/browser/api/net/certificate_utility.h",
+  "//hns/ios/browser/api/password/hns_password_api.h",
+  "//hns/ios/browser/api/password/hns_password_observer.h",
+  "//hns/ios/browser/api/sync/hns_sync_api.h",
+  "//hns/ios/browser/api/sync/hns_sync_internals.h",
+  "//hns/ios/browser/api/sync/driver/hns_sync_profile_service.h",
+  "//hns/ios/browser/api/web_image/web_image.h",
+  "//hns/ios/browser/keyed_service/keyed_service_factory_wrapper.h",
+  "//hns/ios/browser/api/version_info/version_info_ios.h",
+]
+
+hns_core_public_headers += ads_public_headers
+hns_core_public_headers += hns_shields_public_headers
+hns_core_public_headers += browser_api_url_sanitizer_public_headers
+hns_core_public_headers += browser_url_sanitizer_public_headers
+hns_core_public_headers += hns_stats_public_headers
+hns_core_public_headers += hns_wallet_public_headers
+hns_core_public_headers += browser_api_certificate_public_headers
+hns_core_public_headers += browser_api_favicon_public_headers
+hns_core_public_headers += rewards_public_headers
+hns_core_public_headers += browser_api_opentabs_public_headers
+hns_core_public_headers += browser_api_qr_code_public_headers
+hns_core_public_headers += browser_api_session_restore_public_headers
+hns_core_public_headers += browser_api_query_filter_public_headers
+hns_core_public_headers += skus_public_headers
+hns_core_public_headers += browser_api_url_public_headers
+hns_core_public_headers += hns_p3a_public_headers
+hns_core_public_headers += browser_api_web_webstate_public_headers
+hns_core_public_headers += ipfs_public_headers
+hns_core_public_headers += ntp_background_images_public_headers
+
+action("hns_core_umbrella_header") {
+  script = "//build/config/ios/generate_umbrella_header.py"
+
+  full_header_path = target_gen_dir + "/HnsCore.h"
+  outputs = [ full_header_path ]
+
+  args = [
+    "--output-path",
+    rebase_path(full_header_path, root_build_dir),
+  ]
+
+  args += rebase_path(hns_core_public_headers, root_build_dir)
+}
+
+ios_framework_bundle("hns_core_ios_framework") {
+  output_name = "HnsCore"
+  output_dir = root_out_dir
+
+  info_plist = "Info.plist"
+
+  configs += [ ":internal_config" ]
+
+  deps = [
+    ":hns_core_umbrella_header",
+    "//hns/ios/app",
+  ]
+
+  deps += ads_public_deps
+  deps += hns_wallet_public_deps
+  deps += rewards_public_deps
+  deps += skus_public_deps
+
+  sources = hns_core_public_headers
+
+  public_headers = get_target_outputs(":hns_core_umbrella_header")
+  public_headers += hns_core_public_headers
+}

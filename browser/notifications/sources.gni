@@ -1,0 +1,26 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_notifications_sources = [
+  "//hns/browser/notifications/ads_notification_handler.cc",
+  "//hns/browser/notifications/ads_notification_handler.h",
+]
+
+hns_browser_notifications_deps = [
+  "//base",
+  "//chrome/browser/notifications",
+  "//third_party/abseil-cpp:absl",
+  "//url",
+]
+
+if (is_android) {
+  hns_browser_notifications_sources += [
+    "//hns/browser/notifications/hns_notification_platform_bridge_helper_android.cc",
+    "//hns/browser/notifications/hns_notification_platform_bridge_helper_android.h",
+  ]
+
+  hns_browser_notifications_deps +=
+      [ "//hns/android:hns_android_java_enums_srcjar" ]
+}

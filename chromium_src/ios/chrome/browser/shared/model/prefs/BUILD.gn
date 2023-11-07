@@ -1,0 +1,22 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+
+group("prefs") {
+  deps = [
+    "//hns/components/hns_sync:prefs",
+    "//hns/components/hns_wallet/browser",
+    "//hns/components/decentralized_dns/core",
+    "//hns/components/ipfs/buildflags",
+    "//hns/components/ntp_background_images/browser",
+    "//hns/components/p3a",
+    "//hns/components/p3a:buildflags",
+    "//hns/ios/browser/hns_stats",
+  ]
+  if (enable_ipfs) {
+    deps += [ "//hns/components/ipfs" ]
+  }
+}

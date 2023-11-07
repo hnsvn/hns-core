@@ -1,0 +1,13 @@
+hns_browser_debounce_sources = [
+  "//hns/browser/debounce/debounce_service_factory.cc",
+  "//hns/browser/debounce/debounce_service_factory.h",
+]
+
+hns_browser_debounce_deps = [
+  "//base",
+  "//hns/components/debounce/browser",
+  "//hns/components/debounce/common",
+  "//hns/extensions:common",
+  "//chrome/common",
+  "//components/keyed_service/content",
+]

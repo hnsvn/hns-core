@@ -1,0 +1,40 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//build/config/features.gni")
+import("//build/config/ui.gni")
+import("//testing/test.gni")
+import("//ui/base/ui_features.gni")
+
+assert(is_win || is_linux || is_mac)
+
+source_set("hns_tooltips") {
+  sources = [
+    "hns_tooltip_label_button.cc",
+    "hns_tooltip_label_button.h",
+    "hns_tooltip_popup.cc",
+    "hns_tooltip_popup.h",
+    "hns_tooltip_popup_handler.cc",
+    "hns_tooltip_view.cc",
+    "hns_tooltip_view.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/app/vector_icons",
+    "//hns/browser/profiles:util",
+    "//hns/browser/ui/hns_tooltips",
+    "//components/prefs",
+    "//skia",
+    "//ui/accessibility",
+    "//ui/base",
+    "//ui/compositor",
+    "//ui/display",
+    "//ui/gfx",
+    "//ui/native_theme",
+    "//ui/views",
+  ]
+}

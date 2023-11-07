@@ -1,0 +1,4 @@
+include_rules = [
+  "+hns/components/ipfs",
+  "+components/grit/hns_components_strings.h",
+]

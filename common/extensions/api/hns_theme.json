@@ -1,0 +1,79 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+[
+  {
+    "namespace": "hnsTheme",
+    "description": "Use the <code>chrome.hnsTheme</code> API to get/set hns theme",
+    "compiler_options": {
+      "implemented_in": "hns/browser/extensions/api/hns_theme_api.h"
+    },
+    "events": [
+      {
+        "name": "onHnsThemeTypeChanged",
+        "type": "function",
+        "description": "Fired when hns theme is changed",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "string",
+            "description": "new active theme type(ex, Dark or Light)"
+          }
+        ]
+      }
+    ],
+    "functions": [
+      {
+        "name": "getHnsThemeList",
+        "type": "function",
+        "description": "Get available hns theme list",
+        "parameters": [
+          {
+            "name": "callback",
+            "type": "function",
+            "description": "Function called when hns theme list is fetched",
+            "parameters": [
+              {
+                "name": "types",
+                "type": "string",
+                "description": "json stringified avalable theme list"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getHnsThemeType",
+        "type": "function",
+        "description": "Get current hns theme",
+        "parameters": [
+          {
+            "name": "callback",
+            "type": "function",
+            "description": "Function called when current hns theme is fetched",
+            "parameters": [
+              {
+                "name": "type",
+                "type": "string",
+                "description": "current theme type (Dark or Light)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "setHnsThemeType",
+        "type": "function",
+        "description": "Set current theme type",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "string",
+            "description": "current theme type (Dark or Light)"
+          }
+        ]
+      }
+    ]
+  }
+]

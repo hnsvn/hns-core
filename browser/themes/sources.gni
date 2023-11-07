@@ -1,0 +1,33 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_themes_sources = []
+
+hns_browser_themes_deps = []
+
+if (!is_android) {
+  hns_browser_themes_sources += [
+    "//hns/browser/themes/hns_dark_mode_utils.cc",
+    "//hns/browser/themes/hns_private_window_theme_supplier.cc",
+    "//hns/browser/themes/hns_private_window_theme_supplier.h",
+    "//hns/browser/themes/hns_theme_service.cc",
+    "//hns/browser/themes/hns_theme_service.h",
+  ]
+
+  hns_browser_themes_deps += [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/constants",
+    "//chrome/browser/ui",
+    "//chrome/browser/ui/color:color_headers",
+    "//chrome/common",
+    "//components/pref_registry",
+    "//components/prefs",
+    "//ui/color",
+    "//ui/gfx",
+    "//ui/native_theme",
+  ]
+}

@@ -1,0 +1,9 @@
+include_rules = [
+  "+hns/components/hns_vpn/browser/connection/ikev2/win",
+  "+hns/components/hns_vpn/common/wireguard",
+  "+hns/components/hns_vpn/common/buildflags",
+  "+hns/installer",
+  "+chrome/common",
+  "+chrome/install_static",
+  "+components/version_info",
+]

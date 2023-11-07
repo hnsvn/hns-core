@@ -1,0 +1,35 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+source_set("models") {
+  sources = [
+    "hns_certificate_enums.h",
+    "hns_certificate_fingerprint.h",
+    "hns_certificate_fingerprint.mm",
+    "hns_certificate_model+private.h",
+    "hns_certificate_public_key_info.h",
+    "hns_certificate_public_key_info.mm",
+    "hns_certificate_rdns_sequence.h",
+    "hns_certificate_rdns_sequence.mm",
+    "hns_certificate_signature.h",
+    "hns_certificate_signature.mm",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/base/mac",
+    "//hns/ios/browser/api/certificate/utils",
+    "//hns/ios/browser/api/common",
+    "//crypto",
+    "//net",
+    "//third_party/abseil-cpp:absl",
+    "//third_party/boringssl",
+  ]
+
+  frameworks = [
+    "Foundation.framework",
+    "Security.framework",
+  ]
+}

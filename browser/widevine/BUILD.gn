@@ -1,0 +1,101 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//third_party/widevine/cdm/widevine.gni")
+
+if (is_win) {
+  import("//hns/build/win/sign.gni")
+}
+
+assert(enable_widevine)
+
+source_set("widevine") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10644 is resolved
+  check_includes = false
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/components/constants",
+    "//hns/components/widevine:constants",
+    "//chrome/common",
+    "//components/component_updater/",
+    "//components/content_settings/core/common",
+    "//components/permissions",
+    "//components/pref_registry",
+    "//components/prefs",
+    "//components/subresource_filter/content/browser",
+    "//components/vector_icons",
+    "//content/public/browser",
+    "//content/public/common",
+    "//third_party/widevine/cdm:buildflags",
+    "//third_party/widevine/cdm:headers",
+    "//ui/base",
+    "//url",
+  ]
+
+  sources = [
+    "widevine_permission_request.cc",
+    "widevine_permission_request.h",
+    "widevine_utils.cc",
+    "widevine_utils.h",
+  ]
+}
+
+source_set("unittest") {
+  testonly = true
+
+  sources = [ "widevine_cdm_component_installer_unittest.cc" ]
+  deps = [
+    "//testing/gtest",
+    "//third_party/widevine/cdm:buildflags",
+  ]
+}
+
+source_set("browser_tests") {
+  testonly = true
+  defines = [ "HAS_OUT_OF_PROC_TEST_RUNNER" ]
+
+  sources = [
+    "widevine_permission_request_browsertest.cc",
+    "widevine_prefs_migration_browsertest.cc",
+  ]
+
+  deps = [
+    ":widevine",
+    "//base",
+    "//hns/browser",
+    "//hns/common",
+    "//hns/components/constants",
+    "//hns/components/widevine:constants",
+    "//chrome/browser",
+    "//chrome/browser:browser_process",
+    "//chrome/browser/profiles:profile",
+    "//chrome/browser/ui",
+    "//chrome/common",
+    "//chrome/test:test_support_ui",
+    "//components/prefs",
+    "//content/public/browser",
+    "//content/test:test_support",
+    "//testing/gtest",
+    "//third_party/widevine/cdm:buildflags",
+    "//ui/views",
+    "//url",
+  ]
+}
+
+if (is_win && !skip_signing) {
+  widevine_sign_file("hns_exe_sig") {
+    file = "$root_out_dir/presigned_binaries/hns.exe"
+    signature_file = "$root_out_dir/hns.exe.sig"
+    flags = "1"
+    deps = [ "//hns:signed_hns_exe" ]
+  }
+  widevine_sign_file("chrome_dll_sig") {
+    file = "$root_out_dir/presigned_binaries/chrome.dll"
+    signature_file = "$root_out_dir/chrome.dll.sig"
+    flags = "0"
+    deps = [ "//hns:signed_chrome_dll" ]
+  }
+}

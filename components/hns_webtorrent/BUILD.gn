@@ -1,0 +1,42 @@
+# Copyright (c) 2018 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+import("//hns/resources/hns_grit.gni")
+import("//tools/grit/repack.gni")
+
+assert(!is_android && !is_ios)
+
+hns_grit("static_resources") {
+  source = "resources.grd"
+  outputs = [
+    "grit/hns_webtorrent_resources_map.cc",
+    "grit/hns_webtorrent_resources_map.h",
+    "grit/hns_webtorrent_resources.h",
+    "hns_webtorrent_static.pak",
+  ]
+}
+
+pack_web_resources("generated_resources") {
+  resource_name = "hns_webtorrent"
+  output_dir = "$root_gen_dir/hns/components/hns_webtorrent"
+
+  # Need wepack and GRD generation first
+  deps = [ "extension:generate_hns_webtorrent" ]
+}
+
+repack("resources") {
+  deps = [
+    ":generated_resources",
+    ":static_resources",
+  ]
+  sources = [
+    "$root_gen_dir/hns/components/hns_webtorrent/hns_webtorrent_generated.pak",
+    "$root_gen_dir/hns/components/hns_webtorrent/hns_webtorrent_static.pak",
+  ]
+
+  # This output repacked by hns_paks.gni
+  output = "$root_gen_dir/hns/components/hns_webtorrent/hns_webtorrent_resources.pak"
+}

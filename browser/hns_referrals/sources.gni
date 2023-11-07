@@ -1,0 +1,15 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+assert(!is_ios)
+
+hns_browser_hns_referrals_sources = [
+  "//hns/browser/hns_referrals/referrals_service_delegate.cc",
+  "//hns/browser/hns_referrals/referrals_service_delegate.h",
+]
+hns_browser_hns_referrals_deps = [
+  "//base",
+  "//chrome/common",
+]

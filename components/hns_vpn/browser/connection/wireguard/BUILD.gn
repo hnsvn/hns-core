@@ -1,0 +1,40 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+
+assert(enable_hns_vpn)
+assert(!is_android)
+
+source_set("wireguard") {
+  sources = [
+    "hns_vpn_wireguard_connection_api_base.cc",
+    "hns_vpn_wireguard_connection_api_base.h",
+  ]
+  deps = [
+    "credentials",
+    "//base",
+    "//hns/components/hns_vpn/browser/connection:api",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/mojom",
+    "//hns/components/hns_vpn/common/wireguard",
+    "//components/prefs",
+    "//services/network/public/cpp",
+  ]
+}
+
+source_set("unit_tests") {
+  testonly = true
+  sources = [ "hns_vpn_wireguard_connection_api_unittest.cc" ]
+
+  deps = [
+    ":wireguard",
+    "//hns/components/hns_vpn/common",
+    "//components/sync_preferences:test_support",
+    "//content/test:test_support",
+    "//services/network:test_support",
+    "//testing/gtest",
+  ]
+}

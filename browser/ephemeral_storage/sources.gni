@@ -1,0 +1,26 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_browser_ephemeral_storage_sources = [
+  "//hns/browser/ephemeral_storage/hns_ephemeral_storage_service_delegate.cc",
+  "//hns/browser/ephemeral_storage/hns_ephemeral_storage_service_delegate.h",
+  "//hns/browser/ephemeral_storage/ephemeral_storage_service_factory.cc",
+  "//hns/browser/ephemeral_storage/ephemeral_storage_service_factory.h",
+  "//hns/browser/ephemeral_storage/ephemeral_storage_tab_helper.cc",
+  "//hns/browser/ephemeral_storage/ephemeral_storage_tab_helper.h",
+  "//hns/browser/ephemeral_storage/tld_ephemeral_lifetime.cc",
+  "//hns/browser/ephemeral_storage/tld_ephemeral_lifetime.h",
+]
+
+hns_browser_ephemeral_storage_deps = [
+  "//base",
+  "//hns/components/ephemeral_storage",
+  "//chrome/browser/profiles",
+  "//chrome/browser/ui",
+  "//components/content_settings/core/browser",
+  "//content/public/browser",
+  "//net",
+  "//third_party/blink/public/common",
+]

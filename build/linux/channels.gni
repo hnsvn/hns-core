@@ -1,0 +1,28 @@
+import("//hns/build/config.gni")
+
+assert(is_linux)
+
+hns_linux_channel_stable = ""
+hns_linux_channel_dev = "dev"
+hns_linux_channel_nightly = "nightly"
+linux_channel_stable = "stable"
+linux_channel_beta = "beta"
+linux_channel_dev = "unstable"
+
+# Our channel name and upstream linux channel name is different.
+if (is_release_channel) {
+  linux_channel = linux_channel_stable
+} else if (hns_channel == "beta") {
+  linux_channel = linux_channel_beta
+} else if (hns_channel == "dev") {
+  linux_channel = linux_channel_dev
+} else if (hns_channel == "nightly") {
+  linux_channel = hns_linux_channel_nightly
+} else if (hns_channel == "development") {
+  # To avoid gn error, just fills with stable.
+  # This doesn't have meaning in debug build.
+  linux_channel = linux_channel_stable
+} else {
+  assert(false, "Not supported channel name: $hns_channel")
+}
+

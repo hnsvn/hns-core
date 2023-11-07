@@ -1,0 +1,30 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_components_content_settings_core_browser_sources = []
+hns_components_content_settings_core_browser_deps = []
+
+if (!is_ios) {
+  hns_components_content_settings_core_browser_sources += [
+    "//hns/components/content_settings/core/browser/hns_content_settings_pref_provider.cc",
+    "//hns/components/content_settings/core/browser/hns_content_settings_pref_provider.h",
+    "//hns/components/content_settings/core/browser/hns_content_settings_utils.cc",
+    "//hns/components/content_settings/core/browser/hns_content_settings_utils.h",
+    "//hns/components/content_settings/core/browser/hns_global_value_map.cc",
+    "//hns/components/content_settings/core/browser/hns_global_value_map.h",
+  ]
+
+  hns_components_content_settings_core_browser_deps += [
+    "//base",
+    "//hns/components/hns_shields/common",
+    "//hns/components/constants",
+    "//hns/components/content_settings/core/common",
+    "//hns/components/google_sign_in_permission",
+    "//components/prefs",
+    "//content/public/browser",
+    "//net",
+    "//url",
+  ]
+}

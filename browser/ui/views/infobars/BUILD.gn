@@ -1,0 +1,104 @@
+# Copyright (c) 2018 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+
+source_set("infobars") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10652 is resolved
+  check_includes = false
+
+  sources = [
+    "hns_confirm_infobar.cc",
+    "hns_confirm_infobar.h",
+    "hns_infobar_container_view.cc",
+    "hns_infobar_container_view.h",
+    "custom_styled_label.cc",
+    "custom_styled_label.h",
+    "web_discovery_infobar_content_view.cc",
+    "web_discovery_infobar_content_view.h",
+    "web_discovery_infobar_view.cc",
+    "web_discovery_infobar_view.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/app/theme:hns_theme_resources",
+    "//hns/app/vector_icons",
+    "//hns/components/constants",
+    "//hns/components/infobars/core",
+    "//components/infobars/core",
+    "//content/public/browser",
+    "//third_party/abseil-cpp:absl",
+    "//ui/base",
+    "//ui/color",
+    "//ui/gfx",
+    "//ui/native_theme",
+    "//ui/views",
+  ]
+}
+
+if (enable_hns_wayback_machine) {
+  source_set("hns_wayback_machine") {
+    # Remove when https://github.com/hnsvn/hns-browser/issues/10652 is resolved
+    check_includes = false
+
+    sources = [
+      "hns_wayback_machine_infobar_button_container.cc",
+      "hns_wayback_machine_infobar_button_container.h",
+      "hns_wayback_machine_infobar_contents_view.cc",
+      "hns_wayback_machine_infobar_contents_view.h",
+      "hns_wayback_machine_infobar_throbber.cc",
+      "hns_wayback_machine_infobar_throbber.h",
+      "hns_wayback_machine_infobar_view.cc",
+      "hns_wayback_machine_infobar_view.h",
+    ]
+
+    deps = [
+      "//hns/app:hns_generated_resources_grit",
+      "//hns/app/theme:hns_theme_resources",
+      "//hns/app/vector_icons",
+      "//hns/browser/themes",
+      "//hns/components/hns_wayback_machine",
+      "//chrome/browser:theme_properties",
+      "//components/infobars/content",
+      "//components/infobars/core",
+      "//components/prefs:prefs",
+      "//components/resources",
+      "//components/user_prefs",
+      "//content/public/browser",
+      "//ui/base",
+      "//ui/gfx",
+      "//ui/native_theme",
+      "//ui/views",
+      "//url",
+    ]
+
+    # Below dep list are indirectly used by hns_wayback_machine target.
+    # Only added to fix intermittent build failure.
+    # chrome/common/buildflags.h is included indirectly from
+    # hns_wayback_machine_infobar_contents_view.cc.
+    # However, this buildflags.h sometimes not generated when
+    # hns_wayback_machine_infobar_contents_view.cc is compiled.
+    deps += [ "//chrome/common:buildflags" ]
+  }
+}
+
+source_set("hns_sync_account_deleted_infobar") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10652 is resolved
+  check_includes = false
+  sources = [
+    "hns_sync_account_deleted_infobar.cc",
+    "hns_sync_account_deleted_infobar.h",
+  ]
+
+  deps = [
+    "//base",
+
+    # "//chrome/browser/ui" - causes dependency cycle gn error
+    "//ui/base",
+    "//ui/views",
+  ]
+}

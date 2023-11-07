@@ -1,0 +1,63 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_vpn/common/buildflags/buildflags.gni")
+
+assert(enable_hns_vpn)
+assert(is_android)
+
+source_set("android") {
+  sources = [
+    "vpn_render_frame_observer.cc",
+    "vpn_render_frame_observer.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/hns_vpn/common/mojom",
+    "//hns/components/skus/renderer",
+    "//content/public/renderer",
+    "//gin",
+    "//mojo/public/cpp/bindings",
+    "//third_party/blink/public:blink",
+    "//third_party/blink/public/common",
+    "//third_party/blink/public/strings",
+    "//v8",
+  ]
+}
+
+source_set("browser_tests") {
+  testonly = true
+
+  sources = [ "vpn_render_frame_observer_browsertest.cc" ]
+
+  defines = [ "HAS_OUT_OF_PROC_TEST_RUNNER" ]
+
+  deps = [
+    "//hns/components/hns_vpn/common",
+    "//hns/components/hns_vpn/renderer/android",
+    "//hns/components/skus/common",
+    "//chrome/common",
+    "//content/public/common",
+    "//content/test:test_support",
+    "//url",
+  ]
+}
+
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [ "vpn_render_frame_observer_unittest.cc" ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_vpn/renderer/android",
+    "//content/public/renderer",
+    "//testing/gtest",
+    "//v8",
+  ]
+}

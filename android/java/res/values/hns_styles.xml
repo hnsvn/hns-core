@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2019 The Hns Authors. All rights reserved.
+     This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     You can obtain one at https://mozilla.org/MPL/2.0/.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="HnsSwitchTheme">
+        <item name="colorControlActivated">#fb542b</item>
+    </style>
+
+    <style name="HnsDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="HnsRewardsSwitchTheme">
+        <item name="colorControlActivated">@color/rewards_panel_action_color</item>
+        <item name="colorSwitchThumbNormal">@color/modern_grey_600</item>
+        <item name="android:colorForeground">@color/modern_grey_600</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
+    </style>
+
+    <style name="TippingSwitchTheme">
+        <item name="colorControlActivated">@color/rewards_panel_action_color</item>
+        <item name="colorSwitchThumbNormal">@color/modern_grey_600</item>
+        <item name="android:colorForeground">@color/modern_grey_600</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+           parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_top_corners</item>
+    </style>
+
+    <style name="AppSetDefaultBottomSheetDialogTheme"
+           parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalSetDefaultStyle</item>
+    </style>
+
+    <style name="AppModalSetDefaultStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_set_default_top_corners</item>
+    </style>
+
+    <!-- Hns Wallet -->
+    <style name="HnsTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HnsWalletButton" parent="Widget.AppCompat.Button">
+        <item name="buttonStyle">?android:attr/borderlessButtonStyle</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_white</item>
+        <item name="android:background">@drawable/crypto_wallet_blue_button</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HnsWalletTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_wallet_day_night_text_color</item>
+        <item name="android:textColorLink">@color/hns_link</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HnsWalletTextViewTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_wallet_day_night_text_color</item>
+        <item name="android:textColorLink">@color/hns_link</item>
+        <item name="android:textAppearance">?attr/textAppearanceListItem</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HnsWalletTextViewSubTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_theme_subtitle_text</item>
+        <item name="android:textColorLink">@color/hns_link</item>
+        <item name="android:textAppearance">?attr/textAppearanceListItem</item>
+    </style>
+
+    <style name="HnsWalletButtonHollow" parent="Widget.AppCompat.Button">
+        <item name="buttonStyle">?android:attr/borderlessButtonStyle</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_wallet_day_night_text_color</item>
+        <item name="android:background">@drawable/crypto_wallet_hollow_button</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HnsWalletTextButton" parent="Widget.AppCompat.Button">
+        <item name="buttonStyle">?android:attr/borderlessButtonStyle</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/hns_action_color</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HnsWalletEditTextBordered" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/wallet_text_color</item>
+        <item name="android:background">@drawable/rounded_wallet_edittext</item>
+        <item name="android:textColorHint">@color/hns_theme_hint_text</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">top</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <!-- Buttons for Hns Sync -->
+    <style name="HnsSyncButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/hns_sync_btn</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="HnsSyncBottomButton">
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="HnsSyncToggleOffButtonLeft">
+        <item name="android:textColor">@color/hns_theme_color</item>
+        <item name="android:background">@drawable/hns_sync_toggle_off_btn_left</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HnsSyncToggleOffButtonRight">
+        <item name="android:textColor">@color/hns_theme_color</item>
+        <item name="android:background">@drawable/hns_sync_toggle_off_btn_right</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HnsSyncToggleOnButtonRight">
+        <item name="android:textColor">@color/white_alpha_65</item>
+        <item name="android:background">@drawable/hns_sync_toggle_on_btn_right</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HnsSyncToggleOnButtonLeft">
+        <item name="android:textColor">@color/white_alpha_65</item>
+        <item name="android:background">@drawable/hns_sync_toggle_on_btn_left</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BookmarkTabPopupMenu" parent="Theme.AppCompat.DayNight">
+        <item name="android:textColor">@color/bookmark_menu_text_color</item>
+        <item name="android:popupBackground">@drawable/bookmark_menu_bg</item>
+        <item name="android:popupElevation">20dp</item>
+        <item name="android:popupMenuStyle">@drawable/bookmark_menu_bg</item>
+    </style>
+
+    <style name="NewTabPopupMenuLight" parent="Widget.AppCompat.PopupMenu">
+      <item name="android:textColor">@android:color/black</item>
+      <item name="android:itemBackground">@android:color/white</item>
+    </style>
+
+    <style name="NewTabPopupMenuDark" parent="Widget.AppCompat.PopupMenu">
+      <item name="android:textColor">@color/new_tab_menu_text_dark_color</item>
+      <item name="android:itemBackground">@color/new_tab_menu_bg_dark_color</item>
+    </style>
+
+    <style name="HnsTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/translucent_activity_background_color</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="TippingHnsTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/translucent_activity_background_color</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">#00000000</item>
+    </style>
+
+    <style name="HnsTranslucentMaterial" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/translucent_activity_background_color</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="HnsWalletAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/wallet_bg</item>
+        <item name="android:colorBackground">@color/wallet_bg</item>
+     </style>
+
+    <style name="HnsWalletTabsTextAppearance" parent="TextAppearance.Design.Tab">
+      <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="HnsWalletOnboarding">
+        <item name="ic_onboarding_backup">@drawable/ic_onboarding_backup</item>
+        <item name="ic_onboarding_intro">@drawable/ic_onboarding_intro</item>
+        <item name="ic_onboarding_password">@drawable/ic_onboarding_password</item>
+    </style>
+
+    <style name="HnsVpnToolbar" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="android:background">@color/hns_plan_bg</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <style name="HnsProxyBillingActivityTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Wallet DApps -->
+    
+    <style name="HnsWalletTextViewWhite">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="HnsWalletDAppNotificationDialogBottom" parent="@android:style/Theme.Dialog">
+        <item name="android:windowMinWidthMajor">98%</item>
+        <item name="android:windowMinWidthMinor">98%</item>
+        <item name="android:windowAnimationStyle">@style/HnsWalletDialogBottomAnimation</item>
+    </style>
+
+    <style name="HnsWalletDialogBottomAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <style name="HnsWalletDAppNotificationDialogTop" parent="@android:style/Theme.Dialog">
+        <item name="android:windowMinWidthMajor">98%</item>
+        <item name="android:windowMinWidthMinor">98%</item>
+        <item name="android:windowAnimationStyle">@style/HnsWalletDialogTopAnimation</item>
+    </style>
+
+    <style name="HnsWalletDialogTopAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_top</item>
+    </style>
+    
+    <!-- Hns Ads Notifications -->
+    <style name="WebNotificationSmallIcon">
+        <item name="android:alpha">0.6</item>
+    </style>
+    <style name="WebNotificationLargeIcon">
+        <item name="android:background">@drawable/notification_template_icon_bg</item>
+    </style>
+    <style name="WebNotificationTitle"
+        parent="@android:style/TextAppearance.StatusBar.EventContent.Title">
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+</resources>

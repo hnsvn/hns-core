@@ -1,0 +1,7 @@
+include_rules = [
+  "+hns/components/hns_search_conversion",
+  "+hns/components/commander",
+  "+hns/components/omnibox/browser",
+  "+hns/components/vector_icons",
+  "+content/public/common",
+]

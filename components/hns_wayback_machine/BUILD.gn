@@ -1,0 +1,36 @@
+import("//hns/components/hns_wayback_machine/buildflags/buildflags.gni")
+
+assert(enable_hns_wayback_machine)
+
+static_library("hns_wayback_machine") {
+  assert_no_deps = [ "//chrome/*" ]
+
+  sources = [
+    "hns_wayback_machine_delegate.h",
+    "hns_wayback_machine_infobar_delegate.cc",
+    "hns_wayback_machine_infobar_delegate.h",
+    "hns_wayback_machine_tab_helper.cc",
+    "hns_wayback_machine_tab_helper.h",
+    "hns_wayback_machine_utils.cc",
+    "hns_wayback_machine_utils.h",
+    "pref_names.cc",
+    "pref_names.h",
+    "url_constants.cc",
+    "url_constants.h",
+    "wayback_machine_url_fetcher.cc",
+    "wayback_machine_url_fetcher.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/api_request_helper",
+    "//components/infobars/content",
+    "//components/infobars/core",
+    "//components/prefs",
+    "//components/user_prefs",
+    "//content/public/browser",
+    "//net",
+    "//services/network/public/cpp",
+    "//url",
+  ]
+}

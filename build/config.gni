@@ -1,0 +1,175 @@
+# Copyright (c) 2018 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//build/config/apple/symbols.gni")
+import("//build/util/branding.gni")
+import("//chrome/version.gni")
+
+declare_args() {
+  # Release channel support.
+  # "beta" for beta release.
+  # "dev" for dev channel release.
+  # "nightly" for nightly channel release.
+  # "" for stable channel release.
+  hns_channel = ""
+  is_release_channel = false
+  base_sparkle_update_url = ""
+  enable_sparkle = !is_component_build && is_mac
+  build_sparkle = false
+
+  sparkle_dsa_private_key_file = ""
+  sparkle_eddsa_private_key = ""
+  sparkle_eddsa_public_key = ""
+
+  hns_product_name = "hns"
+  hns_exe = ""
+  hns_version_major = ""
+  hns_version_minor = ""
+  hns_version_build = ""
+  hns_version_patch = 0
+  chrome_version_string = ""
+  build_omaha = false
+  tag_ap = ""
+  target_android_base = ""
+  target_android_output_format = ""
+  hns_android_keystore_path = "."
+  hns_android_keystore_name = ""
+  hns_android_keystore_password = ""
+  hns_android_key_password = ""
+
+  skip_signing = false
+
+  # Used for generating delta installer on macOS/Windows
+  build_delta_installer = false
+  last_chrome_installer = ""
+
+  # Enables hns/tools/redirect_cc target, replaces hns/chromium_src
+  # overrides with empty ones to make //base buildable for redirect_cc.
+  is_redirect_cc_build = false
+  android_aab_to_apk = false
+}
+
+declare_args() {
+  # Generate symbols for Release builds.
+  # MacOS requires dSYMs and non-component build, otherwise upstream dump syms
+  # target is a no-op.
+  should_generate_symbols =
+      is_official_build && (!is_mac || (enable_dsyms && !is_component_build))
+}
+
+if (should_generate_symbols && is_mac) {
+  assert(enable_dsyms && !is_component_build,
+         "Incompatible args to generate symbols on MacOS")
+}
+
+hns_version = "$hns_version_major.$hns_version_minor.$hns_version_build"
+
+if (hns_exe == "") {
+  hns_exe = hns_product_name
+}
+
+hns_dist_dir = "$root_out_dir/dist"
+if (is_win) {
+  hns_exe = "$hns_exe.exe"
+  hns_underline_full_version =
+      "_$chrome_version_major" + "_$hns_version_major" +
+      "_$hns_version_minor" + "_$hns_version_build"
+  _channel = ""
+  hns_app_guid = "{AFE6A462-C574-4B8A-AF43-4CC60DF4563B}"
+  if (hns_channel == "nightly") {
+    # Temporary support PR's non-Release builds on nightly channel.
+    # CI expect the installer files (*Setup.exe) in the output dir are
+    # correspond passed hns_channel. Therefore to make Static+nightly work
+    # we should set _channel to "Nightly".
+    # TODO(atuchin): revert after PRs start to use the development channel.
+    _channel = "Nightly"
+    hns_app_guid = "{C6CB981E-DB30-4876-8639-109F8933582C}"
+  } else if (is_official_build) {
+    if (hns_channel == "beta") {
+      _channel = "Beta"
+      hns_app_guid = "{103BD053-949B-43A8-9120-2E424887DE11}"
+    } else if (hns_channel == "dev") {
+      _channel = "Dev"
+      hns_app_guid = "{CB2150F2-595F-4633-891A-E39720CE0531}"
+    } else {
+      assert(hns_channel == "", "Unknown channel name")
+    }
+  } else {
+    _channel = "Development"
+  }
+  _arch = ""
+  if (target_cpu == "x86") {
+    _arch = "32"
+  }
+  hns_installer_exe = "hns_installer.exe"
+  hns_stub_installer_exe =
+      "HnsBrowser$_channel" + "Setup$_arch$hns_underline_full_version.exe"
+  hns_untagged_stub_installer_exe =
+      "HnsBrowserUntagged$_channel" +
+      "Setup$_arch$hns_underline_full_version.exe"
+  hns_standalone_installer_exe =
+      "HnsBrowserStandalone$_channel" +
+      "Setup$_arch$hns_underline_full_version.exe"
+  hns_silent_installer_exe = "HnsBrowserStandaloneSilent$_channel" +
+                               "Setup$_arch$hns_underline_full_version.exe"
+  hns_untagged_installer_exe = "HnsBrowserStandaloneUntagged$_channel" +
+                                 "Setup$_arch$hns_underline_full_version.exe"
+} else if (is_mac) {
+  hns_exe = "$chrome_product_full_name.app"
+  hns_dmg = "$chrome_product_full_name.dmg"
+  hns_pkg = "$chrome_product_full_name.pkg"
+  hns_delta = "$chrome_product_full_name.delta"
+
+  hns_product_dir_name_suffix = ""
+  if (is_official_build) {
+    if (hns_channel == "beta") {
+      hns_product_dir_name_suffix = "-Beta"
+    } else if (hns_channel == "dev") {
+      hns_product_dir_name_suffix = "-Dev"
+    } else if (hns_channel == "nightly") {
+      hns_product_dir_name_suffix = "-Nightly"
+    } else {
+      assert(hns_channel == "", "Unknown channel name")
+    }
+  } else {
+    hns_product_dir_name_suffix = "-Development"
+  }
+  hns_product_dir_name =
+      "HnsSoftware/Hns-Browser$hns_product_dir_name_suffix"
+
+  if (base_sparkle_update_url == "") {
+    base_sparkle_update_url =
+        "https://updates.hnssoftware.com/sparkle/Hns-Browser"
+  }
+}
+
+hns_platform = "darwin"
+if (is_win) {
+  hns_platform = "win32"
+} else if (is_linux) {
+  hns_platform = "linux"
+} else if (is_android) {
+  hns_platform = "android"
+}
+
+is_release_channel = hns_channel == ""
+
+hns_android_output = ""
+if (is_android) {
+  hns_android_output += "$root_out_dir/apks/Hns"
+  if (target_android_base == "modern") {
+    assert(target_cpu != "arm64" && target_cpu != "x64")
+    hns_android_output += "Modern"
+  } else if (target_cpu == "arm64" || target_cpu == "x64" ||
+             target_android_base == "mono") {
+    hns_android_output += "Mono"
+  }
+
+  if (target_android_output_format == "aab") {
+    hns_android_output += "$target_cpu.aab"
+  } else {
+    hns_android_output += "$target_cpu.apk"
+  }
+}

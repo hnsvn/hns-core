@@ -1,0 +1,5 @@
+import("//hns/build/config.gni")
+
+group("hns") {
+  deps = [ "//hns/ios:hns_ios" ]
+}

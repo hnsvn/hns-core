@@ -1,0 +1,4 @@
+#include "hns/browser/hns_vpn/win/hns_vpn_wireguard_service/status_tray/resources/resources_en.rc"
+
+1 TYPELIB "hns/components/hns_vpn/common/wireguard/win/hns_wireguard_manager_idl.tlb"
+

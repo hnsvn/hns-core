@@ -1,0 +1,8 @@
+# Copyright 2022 The Hns Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+hns_feed_java_sources = [
+  "//hns/android/feed/core/java/src/org/chromium/chrome/browser/feed/HnsFeedSurfaceCoordinator.java",
+  "//hns/android/feed/core/java/src/org/chromium/chrome/browser/feed/HnsFeedSurfaceMediator.java",
+]

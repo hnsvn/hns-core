@@ -1,0 +1,22 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//build/config/ios/rules.gni")
+import("//ios/build/config.gni")
+
+source_set("browser_state") {
+  sources = [
+    "hns_browser_state_keyed_service_factories.h",
+    "hns_browser_state_keyed_service_factories.mm",
+  ]
+  deps = [
+    "//base",
+    "//hns/ios/browser/hns_wallet",
+    "//hns/ios/browser/component_updater",
+    "//hns/ios/browser/favicon",
+    "//hns/ios/browser/skus",
+    "//hns/ios/browser/url_sanitizer",
+  ]
+}

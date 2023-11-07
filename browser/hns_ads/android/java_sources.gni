@@ -1,0 +1,13 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_ads_java_sources = [
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/HnsAdsNativeHelper.java",
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/device_id/DeviceIdImplAndroid.java",
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/dialogs/HnsAdsNotificationDialog.java",
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/dialogs/HnsAdsSignupDialog.java",
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/notifications/HnsAds.java",
+  "../../hns/browser/hns_ads/android/java/org/chromium/chrome/browser/onboarding/HnsAdsOnboardingFragment.java",
+]

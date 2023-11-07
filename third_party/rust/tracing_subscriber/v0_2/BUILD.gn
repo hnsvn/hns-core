@@ -1,0 +1,107 @@
+# Copyright 2023 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//build/rust/cargo_crate.gni")
+
+cargo_crate("lib") {
+  crate_name = "tracing_subscriber"
+  epoch = "0.2"
+  crate_type = "rlib"
+  crate_root = "crate/src/lib.rs"
+  sources = [
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/benches/enter.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/benches/filter.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/benches/filter_log.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/benches/fmt.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/benches/support/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/field/debug.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/field/delimited.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/field/display.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/field/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/directive.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/env/directive.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/env/field.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/env/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/filter_fn.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/layer_filters.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/level.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/filter/targets.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/fmt_layer.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/format/json.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/format/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/format/pretty.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/time/datetime.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/time/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/fmt/writer.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/layer/context.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/layer/layered.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/layer/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/layer/tests.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/lib.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/prelude.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/registry/extensions.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/registry/mod.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/registry/sharded.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/registry/stack.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/reload.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/sync.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/thread.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/src/util.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/cached_layer_filters_dont_break_other_layers.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/duplicate_spans.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/field_filter.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/filter.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/filter_log.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/fmt_max_level_hint.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/hinted_layer_filters_dont_break_other_layers.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filter_interests_are_cached.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/boxed.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/downcast_raw.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/filter_scopes.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/main.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/targets.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/layer_filters/trees.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/multiple_layer_filter_interests_cached.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/registry_max_level_hint.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/registry_with_subscriber.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/reload.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/same_len_filters.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/support.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/unhinted_layer_filters_dont_break_other_layers.rs",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/tests/utils.rs",
+  ]
+  inputs = [
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/CHANGELOG.md",
+    "//hns/third_party/rust/tracing_subscriber/v0_2/crate/README.md",
+  ]
+
+  # Unit tests skipped. Generate with --with-tests to include them.
+  build_native_rust_unit_tests = false
+  edition = "2018"
+  cargo_pkg_version = "0.2.25"
+  cargo_pkg_authors = "Eliza Weisman <eliza@buoyant.io>, David Barsky <me@davidbarsky.com>, Tokio Contributors <team@tokio.rs>"
+  cargo_pkg_name = "tracing-subscriber"
+  cargo_pkg_description =
+      "Utilities for implementing and composing `tracing` subscribers."
+  library_configs -= [ "//build/config/compiler:chromium_code" ]
+  library_configs += [ "//build/config/compiler:no_chromium_code" ]
+  executable_configs -= [ "//build/config/compiler:chromium_code" ]
+  executable_configs += [ "//build/config/compiler:no_chromium_code" ]
+  deps = [
+    "//hns/third_party/rust/ansi_term/v0_12:lib",
+    "//hns/third_party/rust/sharded_slab/v0_1:lib",
+    "//hns/third_party/rust/thread_local/v1:lib",
+    "//hns/third_party/rust/tracing_core/v0_1:lib",
+  ]
+  features = [
+    "ansi",
+    "ansi_term",
+    "fmt",
+    "registry",
+    "sharded-slab",
+    "thread_local",
+  ]
+}

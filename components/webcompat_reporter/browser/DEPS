@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/components/constants",
+  "+content/public/browser",
+  "+services/network/public",
+]

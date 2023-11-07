@@ -1,0 +1,30 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+
+transpile_web_ui("hns_new_tab_ui") {
+  entry_points = [ [
+        "hns_new_tab",
+        rebase_path("hns_new_tab.tsx"),
+      ] ]
+  deps = [
+    ":mojom_js",
+    "//hns/components/hns_news/common:mojom_js",
+  ]
+  resource_name = "hns_new_tab"
+}
+
+pack_web_resources("generated_resources") {
+  resource_name = "hns_new_tab"
+  output_dir = "$root_gen_dir/hns/components/hns_new_tab/resources"
+  deps = [ ":hns_new_tab_ui" ]
+}
+
+mojom("mojom") {
+  sources = [ "hns_new_tab_page.mojom" ]
+  public_deps = [ "//url/mojom:url_mojom_gurl" ]
+}

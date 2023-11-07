@@ -1,0 +1,102 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/hns_rewards/core/config.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+static_library("browser") {
+  # Remove when https://github.com/hnsvn/hns-browser/issues/10618 is resolved
+  check_includes = false
+  public_deps = []
+
+  sources = [
+    "android_util.cc",
+    "android_util.h",
+    "diagnostic_log.cc",
+    "diagnostic_log.h",
+    "logging.h",
+    "publisher_utils.cc",
+    "publisher_utils.h",
+    "rewards_notification_service.cc",
+    "rewards_notification_service.h",
+    "rewards_notification_service_impl.cc",
+    "rewards_notification_service_impl.h",
+    "rewards_notification_service_observer.h",
+    "rewards_p3a.cc",
+    "rewards_p3a.h",
+    "rewards_protocol_handler.cc",
+    "rewards_protocol_handler.h",
+    "rewards_service.cc",
+    "rewards_service.h",
+    "rewards_service_impl.cc",
+    "rewards_service_impl.h",
+    "rewards_service_observer.h",
+    "service_sandbox_type.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/app:hns_generated_resources_grit",
+    "//hns/components/hns_ads/core",
+    "//hns/components/hns_ads/core",
+    "//hns/components/hns_rewards/common",
+    "//hns/components/hns_rewards/common/buildflags",
+    "//hns/components/resources",
+    "//hns/components/services/bat_rewards/public/interfaces",
+    "//mojo/public/cpp/bindings",
+    "//net",
+    "//services/data_decoder/public/cpp",
+    "//services/network/public/cpp",
+    "//services/service_manager/public/cpp",
+    "//url",
+
+    # for profile.h
+    "//components/domain_reliability",
+    "//components/keyed_service/content",
+    "//components/keyed_service/core",
+    "//components/sessions",
+    "//content/public/browser",
+    "//content/public/common",
+    "//services/network/public/mojom",
+  ]
+
+  if (!is_android) {
+    # on android, one shot is part of base lib
+    deps += [
+      # for one shot event
+      "//extensions/common",
+    ]
+  }
+
+  if (enable_ipfs) {
+    deps += [ "//hns/components/ipfs" ]
+  }
+
+  public_deps += [ "//hns/components/hns_rewards/core:headers" ]
+
+  if (is_android) {
+    deps += [ "//hns/components/safetynet:android" ]
+  }
+}
+
+source_set("testutil") {
+  testonly = true
+  deps = [
+    ":browser",
+    "//base",
+    "//hns/browser",
+    "//hns/components/hns_rewards/core:headers",
+    "//chrome/browser/bitmap_fetcher:bitmap_fetcher",
+    "//chrome/test:test_support",
+    "//content/public/browser",
+    "//testing/gtest",
+  ]
+
+  sources = [
+    "test_util.cc",
+    "test_util.h",
+  ]
+}

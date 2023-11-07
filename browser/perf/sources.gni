@@ -1,0 +1,26 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/speedreader/common/buildflags/buildflags.gni")
+
+hns_browser_perf_sources = [
+  "//hns/browser/perf/hns_perf_features_processor.cc",
+  "//hns/browser/perf/hns_perf_features_processor.h",
+  "//hns/browser/perf/hns_perf_switches.cc",
+  "//hns/browser/perf/hns_perf_switches.h",
+]
+
+hns_browser_perf_deps = [
+  "//base",
+  "//hns/components/hns_ads/core",
+  "//hns/components/hns_rewards/browser",
+  "//hns/components/hns_shields/browser",
+  "//hns/components/hns_shields/common/",
+  "//components/prefs",
+]
+
+if (enable_speedreader) {
+  hns_browser_perf_deps += [ "//hns/components/speedreader" ]
+}

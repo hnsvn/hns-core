@@ -1,0 +1,23 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/build/config.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//testing/test.gni")
+
+source_set("ipfs_service_unit_tests") {
+  testonly = true
+  if (enable_ipfs) {
+    sources =
+        [ "//hns/components/services/ipfs/ipfs_service_utils_unittest.cc" ]
+
+    deps = [
+      "//base/test:test_support",
+      "//hns/components/services/ipfs",
+      "//hns/components/services/ipfs/public/mojom",
+      "//testing/gtest",
+    ]
+  }  # if (enable_ipfs)
+}  # source_set("ipfs_service_unit_tests")

@@ -1,0 +1,425 @@
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="zu">
+<translation id="1026101648481255140">Qalisa Kabusha Ukufaka</translation>
+<translation id="7099479769133613710">Qalisa kabusha ukuze ubuyekeze i-&amp;ChromeOS</translation>
+<translation id="2479110114759182442">I-Hns incoma ukuthi ubuyekeze lesi sandiso</translation>
+<translation id="3814674848168165531">Lapho isayithi icela ukulayisha kusengaphambili ngasese amalinki ekhasini layo, i-Hns isebenzisa amaseva e-Hns. Lokhu kufihla ubuwena kusayithi elayishwe ngaphambilini, kodwa i-Hns ifunda ukuthi yimaphi amasayithi alayishwa ngaphambilini.</translation>
+<translation id="1065672644894730302">Okuncamelayo kwakho akukwazi ukufundwa.
+
+Ezinye izici kungenzeka zingabi khona futhi izinguquko kokuncamelayo ngeke zize zilondolozwe.</translation>
+<translation id="7577672138294294152">Umzali wakho uvale "Izimvume zamasayithi, ama-app, nezandiso" ze-Hns</translation>
+<translation id="2796517443093885402">I-Hns ingasiza ukukugcina uphephile kusukela ekuphulweni kwedatha, kuzandiso ezimbi, nokuningi</translation>
+<translation id="5918095577778020936">I-Hns ifuna ukuthumela amaphasiwedi akho. Thayipha iphasiwedi yakho ye-Windows ukuze uvumele lokhu.</translation>
+<translation id="5468853758063275923">I-Hns iyisiphequluli sakho esizenzakalelayo</translation>
+<translation id="8522292744959221145">Ukuze uhlole uma ngabe amaphasiwedi akho aphephile yini kusukela ekuphulweni kwedatha nakwezinye izinkinga zokuvikela, <ph name="BEGIN_LINK"/>ngena ngemvume ku-Hns<ph name="END_LINK"/>.</translation>
+<translation id="2627788872035182013">Chofoza imenyu ye-Hns</translation>
+<translation id="8541922081612557424">Mayelana ne-Hns</translation>
+<translation id="1203500561924088507">Siyabonga ngokufaka. Kufanele uqale kabusha ibhrawuza yakho ngaphambi kokusebenzisa i-<ph name="BUNDLE_NAME"/>.</translation>
+<translation id="4658574652223735641">Isilondolozi Senkumbulo Senze i-Hns Yashesha</translation>
+<translation id="8799570501820813406">Ngenkathi le thebhu ingasebenzi, inkumbulo iye yenzelwa isikhala ukugcina i-Hns ishesha. Ungakhetha ukungahlanganisi le sayithi ekutheni ibe engasebenzi.</translation>
+<translation id="4798342026247191171">Setha iphrofayela yakho entsha ye-Hns</translation>
+<translation id="8132634101975074716">Ungene ngemvume ku-Hns!</translation>
+<translation id="1586284627848250203">Thola usizo nge-Hns Yokuhlola</translation>
+<translation id="5147525139567260139">Yabelana ngethebhu ye-Hns</translation>
+<translation id="1530633922026945685">I-Hns idinga imvume yokufinyelela kwikhamera yakho ukudala imephu engu-3D yendawo yakho ekuzungezile</translation>
+<translation id="552349673358711446">{COUNT,plural, =0{Umlawuli wakho udinga ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe isibuyekezo}=1{Umlawuli wakho udinga ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe isibuyekezo. Iwindi lakho le-Incognito ngeke liphinde livuleke.}one{Umlawuli wakho udinga ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe isibuyekezo. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}other{Umlawuli wakho udinga ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe isibuyekezo. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}}</translation>
+<translation id="4449148723378534338">Buyekeza izilawuli eziyinhloko zobumfihlo nokuvikeleka ku-Hns</translation>
+<translation id="5359574361379286250">Uma ufuna ukusebenzisa le akhawunti kanye kuphela, ungasebenzisa <ph name="GUEST_LINK_BEGIN"/>Imodi Yesivakashi<ph name="GUEST_LINK_END"/> kwibhrawuza ye-Hns. Uma ufuna ukwengeza i-akhawunti yothile, <ph name="LINK_BEGIN"/>engeza umuntu omusha<ph name="LINK_END"/> ku-<ph name="DEVICE_TYPE"/> yakho.
+
+Izimvume ozinikezile kakade amawebhusayithi nama-app zingase zisebenze kule akhawunti. Ungakwazi nokuphatha ama-Hns sync chain wakho kokuthi <ph name="SETTINGS_LINK_BEGIN"/>Amasethingi<ph name="SETTINGS_LINK_END"/>.</translation>
+<translation id="1640672724030957280">Iyadawuniloda...</translation>
+<translation id="5616153642055197778">Kukhona inguqulo entsha, ephephile ye-Hns etholakalayo.</translation>
+<translation id="5846727201643228411">Ungabona futhi ususe izihloko zesayithi ongaba nentshisekelo kuzo ezisetshenziswa ukukubonisa izikhangiso. I-Hns izolinganisa ongaba nentshisekelo kukho ngokusekelwe kumlando wakho wakamuva wokubhrawuza.</translation>
+<translation id="8004287232784878841">I-Hns izosula idatha yokubhrawuza maduze</translation>
+<translation id="9048361966237194186">I-Hns izoqala kabusha emizuzwaneni engu-<ph name="REMAINING_TIME"/></translation>
+<translation id="6797402139308059782">Vumela i-Hns ukuthi isebenze ngemuva</translation>
+<translation id="1448049584457347995">Ukuze senze i-Hns ivikeleke, sikhubaze ezinye izandiso ezingafakwanga kuhlu lwe-<ph name="IDS_EXTENSION_WEB_STORE_TITLE"/> futhi okungenzeka zingezwe ngaphandle kolwazi lakho.</translation>
+<translation id="5875673934455379806">Phinda ufake i-Hns</translation>
+<translation id="4529028207655448215">I-Hns izama uku-<ph name="AUTHENTICATION_PURPOSE"/></translation>
+<translation id="2176087127109773485">Ungaphatha ama-akhawunti we-Hns wakho angene ngemvume. Ama-akhawunti wakho we-Hns asetshenziselwe i-browser ye-Hns, i-Play Store, i-Gmail, nokuningi. Uma ufuna ukungeza i-akhawunti yomuntu othile, njengelungu lomndeni, engeza umuntu omusha ku-<ph name="DEVICE_TYPE"/> yakho kunalokho. <ph name="LINK_BEGIN"/>Funda kabanzi<ph name="LINK_END"/></translation>
+<translation id="6888366668010117849">Amasayithi angagcina ulwazi nge-Hns mayelana nezintshisekelo zakho. Ngokwesibonelo, uma uvakashela isayithi ukuze uthenge izicathulo zomjaho webanga elide, isayithi lingachaza intshisekelo yakho njengokugijima umjaho. Kamuva, uma uvakashela isayithi elihlukile ukuze ubhalisele umjaho, lelo sayithi lingakubonisa isikhangiso sezicathulo zokugijima ezisekelwe kuzintshisekelo zakho.</translation>
+<translation id="4528406859989804913">Ungena ngemvume nge-akhawunti ephethwe futhi unikezele ukuqondiswa kokulawulwa kwayo ngaphezulu kwephrofayela yakho ye-Hns. Idatha yakho ye-Hns, efana nezinhlelo zakho zokusebenza, amabhukhimakhi, umlando, amaphasiwedi, nezinye izilungiselelo zizoboshelwa unaphakade ku-<ph name="USER_NAME"/>. Uzokwazi ukususa le datha nge-Ideshibhodi yama-Akhawunti we-Hns, kodwa ngeke uze ukwazi ukuhlobanisa le datha nenye i-akhawunti. Ungadala ngokukhetha iphrofayela entsha ukuze ugcine idatha yakho ekhona ye-Hns ihlukile. <ph name="LEARN_MORE"/></translation>
+<translation id="3739288578188828252">Uma uthayipha ibha yekheli noma ibhokisi losesho, i-Hns ithumela lokho okuthayiphayo ku-Google Drive ukuze ithole iziphakamiso zezinto. Lokhu kuvaliwe ku-Incognito.</translation>
+<translation id="1649714546770135458">Ngokuvala lokhu, ungangena ngemvume kumasayithi e-Hns njenge-Gmail ngaphandle kokungena ngemvume ku-Hns</translation>
+<translation id="189297655255130768">I-Hns ayiphenduli. Qalisa kabusha manje?</translation>
+<translation id="4035053306113201399">I-ChromeOS idinga ukuphinda iqaliswe ukuze kusetshenziswe isibuyekezo.</translation>
+<translation id="1953553007165777902">Iyadawuniloda... Kusele imizuzu engu-<ph name="MINUTE"/></translation>
+<translation id="1775322105159056176">I-Hns ayikwazi ukunquma noma isethe isiphequluli esizenzakalelayo</translation>
+<translation id="9220324636239049437">Lokhu kuzosusa into engu-1 kusuka kule divayisi. Ukuze usebenzise futhi idatha yakho ngokuhamba kwesikhathi, ngena ngemvume ku-Hns njengo-<ph name="USER_EMAIL"/>.</translation>
+<translation id="2018879682492276940">Ukufakwa kwehlulekile. Sicela uzame futhi.</translation>
+<translation id="831418749472885028">Ukuze uhlole uma ngabe amanye amaphasiwedi akho aphephile yini kusukela ekuphulweni kwedatha nezinye izinkinga zokuvikela, <ph name="BEGIN_LINK"/>ngena ngemvume ku-Hns<ph name="END_LINK"/>.</translation>
+<translation id="5499149312981370855">Khetha ukuthi ufake phakathi umlando we-Hns ukuze uthole umuzwa womuntu siqu kumasevisi e-Hns</translation>
+<translation id="849607431499549468">Ulwazi olumayelana nendlela i-Hns ephatha ngayo izitifiketi zayo zempande</translation>
+<translation id="4375530476448642348">{COUNT,plural, =1{Inhlangano yakho isula idatha yokubhrawuza ngokuzenzekelayo uma i-Hns ingasetshenziswanga umzuzu o-1. Lokhu kungase kuhlanganise umlando, ukugcwalisa okuzenzakalelayo, nokudawuniloda. Amathebhu akho azohlala evulekile.}one{Inhlangano yakho isula idatha yokubhrawuza ngokuzenzekelayo uma i-Hns ingasetshenziswanga imizuzu engu-#. Lokhu kungase kuhlanganise umlando, ukugcwalisa okuzenzakalelayo, nokudawuniloda. Amathebhu akho azohlala evulekile.}other{Inhlangano yakho isula idatha yokubhrawuza ngokuzenzekelayo uma i-Hns ingasetshenziswanga imizuzu engu-#. Lokhu kungase kuhlanganise umlando, ukugcwalisa okuzenzakalelayo, nokudawuniloda. Amathebhu akho azohlala evulekile.}}</translation>
+<translation id="142389341645668510">Yenza i-Hns ngokwezifiso</translation>
+<translation id="2174917724755363426">Ukufaka akuqediwe. Uqinisekile ufuna ukukhansela?</translation>
+<translation id="8745514854244955877">I-Hns - Inethiwekhi Yokungena ngemvume - <ph name="PAGE_TITLE"/></translation>
+<translation id="5659384504794665581">Uma wabelana ngekhompyutha, abangani nomndeni bangadlulisa amehlo ngokuhlukile baphinde basethe i-Hns ngendlela abafuna ngayo nje.</translation>
+<translation id="7810992039564280750">Kuhlola ama-URL anohlu lwamasayithi angaphephile agcinwe ku-Hns. Uma isayithi lizama ukuntshontsha iphasiwedi yakho, noma uma ulanda ifayela eliyingozi, i-Hns ingathumela nama-URL, kuhlanganise nokuthile okuqukethwe kulelo khasi, Ekuphequluleni Okuphephile.</translation>
+<translation id="9095263438435683933">Ukuze uthumele inombolo kusukela lapha kufoni yakho ye-Android, ngena ngemvume ku-Hns kuwo womabili amadivayisi.</translation>
+<translation id="3813272600615358652">Lesi sandiso siguqule ukuthi yiliphi ikhasi eliboniswayo uma uqala i-Hns.</translation>
+<translation id="2359808026110333948">Qhubeka</translation>
+<translation id="8418845734693287262">I-ChromeOS ayikwazanga ukuvumelanisa idatha yakho ngoba imininingwane yokungena ngemvume kwi-akhawunti yakho iphelelwe isikhathi.</translation>
+<translation id="2576129394594491151">Isandiso esingu-"<ph name="EXTENSION_NAME"/>" siguqule ukuthi yiliphi ikhasi eliboniswayo uma uqala i-Hns.</translation>
+<translation id="5617265241715541684">{NUM_DEVICES,plural, =0{Idivayisi e-1 ye-HID ibifinyelelwa yisandiso se-Hns esisodwa noma eziningi}=1{Idivayisi e-1 ye-HID ifinyelelwa yisandiso se-Hns esisodwa noma eziningi}one{Amadivayisi angu-# e-HID abefinyelelwa yisandiso se-Hns esisodwa noma eziningi}other{Amadivayisi angu-# e-HID abefinyelelwa yisandiso se-Hns esisodwa noma eziningi}}</translation>
+<translation id="1248225940185478633">I-Hns idinga izimvume zekhamera nemakrofoni kule sayithi</translation>
+<translation id="2451727308784734061">Sebenzisa isinqamuleli sakho ukuze ufike ngokushesha Kusiphathi Sephasiwedi. Ungahambisa isinqamuleli sakho esikrinini sasekhaya sekhompyutha yakho noma isiqalisi se-app.</translation>
+<translation id="6381750314821942592">I-Hns izovala maduzane</translation>
+<translation id="6078442581074612226">Ku-Hns</translation>
+<translation id="2485422356828889247">Khipha</translation>
+<translation id="70183448213529602">I-Hns izama ukufaka amaphasiwedi akhona esikhundleni. Thayipha iphasiwedi yakho ye-Windows ukuze uvumele lokhu.</translation>
+<translation id="7798069806040634998">I-Hns idinga ukufinyelela kusitoreji ukuze ilande amafayela</translation>
+<translation id="8447483940522230788">Isisizi se-Hns</translation>
+<translation id="7291143854620707672">Noma iyiphi idatha ye-Hns ekhiqizwa ngesikhathi sokusetshenziswa kwale phrofayela (efana nokudalwa kwamabhukhimakhi, umlando, amaphasiwedi, namanye amasethingi) ingasuswa umlawuli wephrofayela yomsebenzi. <ph name="LEARN_MORE"/></translation>
+<translation id="6252796827759111076">Qhubeka usebenzisa i-Hns</translation>
+<translation id="7387051847644272380">Iphutha le sistimu yokusebenza livele ngesikhathi sokufaka. Sicela uphinde ulande i-Hns.</translation>
+<translation id="2648689842065142443">Uma wabelana ngedivayisi, abangane nomndeni bangaphequlula ngokuhlukile baphinde basethe i-Hns ngendlela abafuna ngayo</translation>
+<translation id="6384359666082467439">Siyakwamukela ku-Hns, <ph name="ACCOUNT_FIRST_NAME"/></translation>
+<translation id="6791166902140255175">Ithebhu le-Hns</translation>
+<translation id="8372880274820509128">Ngokuvikela okungeziwe, i-Hns izobethela idatha yakho.</translation>
+<translation id="2770231113462710648">Guqula isiphequluli esizenzakalelayo sibe yi-:</translation>
+<translation id="1187986649024576560">Lesi sandiso sinohlelo olungayilungele ikhompyutha futhi asiphephile. Sisuse ku-Hns ukuze singasakwazi ukubona nokushintsha idatha yakho kumasayithi owavakashelayo, okufaka phakathi ulwazi lwakho lomuntu siqu.</translation>
+<translation id="2799223571221894425">Qalisa kabusha</translation>
+<translation id="3783547330001921298">Lokhu kuzodalela u-<ph name="USER_EMAIL_ADDRESS"/> iphrofayela entsha ye-Hns</translation>
+<translation id="777113543093865885">Susa kusuka  ku-Hns...</translation>
+<translation id="5265419033369521352">Kukugcina uphephile ku-Hns futhi kungase kusetshenziswe ukuthuthukisa ukuvikeleka kwakho kwamanye ama-app we-Hns lapho ungene ngemvume</translation>
+<translation id="2885378588091291677">Isiphathi somsebenzi</translation>
+<translation id="2176825726964012531">Mayelana ne-&amp;Hns</translation>
+<translation id="2915996080311180594">Qala Kabusha Ngemuva Kwesikhathi</translation>
+<translation id="2928420929544864228">Ukufaka kuqedile.</translation>
+<translation id="8208853227947884571">I-Hns isesikhathini samanje</translation>
+<translation id="5122472867956731189">Uma isayithi lizama ukuntshontsha iphasiwedi yakho, noma uma ulanda ifayela eliyingozi, i-Hns ingathumela nama-URL, kuhlanganise nokuthile okuqukethwe kulelo khasi, Ekuphequluleni Okuphephile</translation>
+<translation id="8755404239607088219">I-Hns ayikwazi ukuhlola iphasiwedi yakho. Zama futhi emuva kwesikhathi.</translation>
+<translation id="8880183781256147665">Ingeza ku-Hns...</translation>
+<translation id="3038232873781883849">Ilinde ukufaka...</translation>
+<translation id="7918740962659365265">Siza ukwenza i-Hns ibe ngcono ngokuthumela imibiko yokuphahlazeka ne-<ph name="UMA_LINK"/> ku-Hns</translation>
+<translation id="2332543193474246254">{NUM_DEVICES,plural, =0{Idivayisi e-1 ye-USB ibifinyelelwa yisandiso se-Hns esisodwa noma eziningi}=1{Idivayisi e-1 ye-USB ifinyelelwa yisandiso se-Hns esisodwa noma eziningi}one{Amadivayisi angu-# e-USB abefinyelelwa yisandiso se-Hns esisodwa noma eziningi}other{Amadivayisi angu-# e-USB abefinyelelwa yisandiso se-Hns esisodwa noma eziningi}}</translation>
+<translation id="5320085753638900910">Umlando wakho wokubhrawuza uthinta izikhangiso ozibonayo kanye nezinto ozishisakalelayo njengoba kulinganiselwa ngezansi. Ukuze ivikele ubumfihlo bakho, i-Hns isula ngokuzenzakalelayo izintshisekelo zakho njalo ngenyanga. Izintshisekelo zingavuseleleka ngaphandle kwalapho uma uzisusa.</translation>
+<translation id="7365690458036015383">Isifaki sihlulekile ukungaminyanisi ingobo yomlando. Sicela ulande i-Hns futhi.</translation>
+<translation id="8919461291440820124">I-Hns isebenzisa imakrofoni yakho.</translation>
+<translation id="4805806622840861220">Phinda uqalise i-Hns</translation>
+<translation id="6554952862405000915">Vula isixhumanisi kuwindi le-Hns Inco&amp;gnito</translation>
+<translation id="1742948938503172561">Yenza ngendlela oyifisayo iphrofayela yakho entsha ye-Hns</translation>
+<translation id="1477146545787277177">Eshu! I-Hns iphahlazekile. Qalisa kabusha manje?</translation>
+<translation id="2585240446624043880">I-Hns ayikwazi ukufunda nokubhala umkhombandlela wayo wedatha:
+
+<ph name="USER_DATA_DIRECTORY"/></translation>
+<translation id="2423637317249323944">Inguqulo ye-Hns engu-<ph name="PRODUCT_VERSION"/> ifakiwe</translation>
+<translation id="3286538390144397061">Qala kabusha manje</translation>
+<translation id="2339258256897053758">Okhiye be-Hns API abekho. Okunye ukusebenza kwe-Hns kuzokhutshazwa.</translation>
+<translation id="8926637909431618259">Qhubeka usebenzise izinhlelo zokusebenza ezingemuva uma i-Hns ivaliwe</translation>
+<translation id="2711887072399498551">Iphrofayela ye-Hns enale akhawunti isikhona kakade</translation>
+<translation id="2645435784669275700">I-ChromeOS</translation>
+<translation id="2297290224191497273">Shintshela kwiphrofayela le-Hns elikhona kakade?</translation>
+<translation id="3412460710772753638">Kokuthi Isiphathi Sephasiwedi kule divayisi</translation>
+<translation id="2450003541323895471">Ngamaphrofayela we-Hns ungahlukanisa zonke izinto zakho ze-Hns. Dala amaphrofayela wabangane nomndeni, noma uhlukanise phakathi komsebenzi nobumnandi.</translation>
+<translation id="9216183508558772570">I-Hns izokwazisa uma ungena ngemvume ngephasiwedi eyonakalisiwe</translation>
+<translation id="5853262807109651878">Lokhu kuzobuyekeza izinto ezingu-<ph name="ITEMS_COUNT"/> kusuka kule divayisi. Ukuze ubuyise idatha yakho, ngena ngemvume ku-<ph name="USER_EMAIL"/> njengo.</translation>
+<translation id="2024972335338126423">I-<ph name="SHORTCUT"/> ingashintsha phakathi kwamaphrofayela we-Hns</translation>
+<translation id="8703492925273919597">Sicela uvale wonke amawindi we-Hns uphinde uzame futhi.</translation>
+<translation id="4061445349373849749">Ukuze sivikele ubumfihlo bakho, sisula ngokuzenzakalelayo izintshisekelo zakho ezindala kunamaviki ama-4. Njengoba uqhubeka nokubhrawuza, intshisekelo ingase ivele ohlwini futhi. Noma ungasusa izithakazelo ongafuni ukuthi i-Hns izicabangele.</translation>
+<translation id="691208314680168371">Umlando wakho wokubhrawuza, irekhodi lamasayithi owavakashele usebenzisa i-Hns kule divayisi.</translation>
+<translation id="1384923383737428730">Kunesofthiwe eyingozi kwikhompyutha yakho. I-Hns ingayisusa, ibuyise izilungiselelo zakho, futhi ikhubaze izandiso ukwenza isiphequluli sakho sisebenze kahle futhi.</translation>
+<translation id="1073077513148817424">Enye i-akhawunti isivele ingene ngemvume. Ukuze uqhubeke nokuphequlula ngokwehlukile, i-Hns ingakwazi ukukudalela iphrofayela yakho.</translation>
+<translation id="4250277591581952830">Ukuze uthole izibuyekezo zesikhathi esizayo ze-Hns, uzodinga i-macOS 10.15 noma eyakamuva. Le khompyutha isebenzisa i-macOS 10.13.</translation>
+<translation id="669092380621816981">Idatha yokuphequlula yalo muntu izosuswa kusukela kule divayisi. Ukuze uphinde uthole idatha, ngena ngemvume ku-Hns njengo-<ph name="USER_EMAIL"/>.</translation>
+<translation id="8274659559228306809">{COUNT,plural, =0{Isibuyekezo esisha se-Hns siyatholakala futhi sizosetshenziswa maduze ngemuva kokuthi uqalise kabusha.}=1{Isibuyekezo esisha se-Hns siyatholakala futhi sizosetshenziswa maduze ngemuva kokuthi uqalise kabusha. Iwindi lakho le-Incognito ngeke liphinde livuleke.}one{Isibuyekezo esisha se-Hns siyatholakala futhi sizosetshenziswa maduze ngemuva kokuthi uqalise kabusha. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}other{Isibuyekezo esisha se-Hns siyatholakala futhi sizosetshenziswa maduze ngemuva kokuthi uqalise kabusha. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}}</translation>
+<translation id="7029305463989165490">Ukuze uthumele inombolo kusukela ku-<ph name="ORIGIN"/> kufoni yakho ye-Android, ngena ngemvume ku-Hns kuwo womabili amadivayisi.</translation>
+<translation id="4304059894777924102">I-Hns ayikwazi ukuhlola iphasiwedi yakho. Zama ukuhlola ukuxhumeka kwakho ku-inthanethi.</translation>
+<translation id="2100587595569959771">Funda kabanzi mayelana nokwenza izikhangiso zibe ngezakho ku-Hns</translation>
+<translation id="3829358914761176693">{COUNT,plural, =0{Umlawuli wakho ucela ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe lesi sibuyekezo}=1{Umlawuli wakho ucela ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe lesi sibuyekezo. Iwindi lakho le-Incognito ngeke liphinde livuleke.}one{Umlawuli wakho ucela ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe lesi sibuyekezo. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}other{Umlawuli wakho ucela ukuthi uqalise kabusha i-Hns ukuze kusetshenziswe lesi sibuyekezo. Amawindi akho angu-# e-Incognito ngeke aze aphinde avuleke.}}</translation>
+<translation id="1807774211756215222">Vula isixhumanisi ku&amp;thebhu elisha le-Hns</translation>
+<translation id="2106568569080763501">I-Hns ikuvumela ukuthi uchofoze inombolo yefoni kuwebhu uphinde uyishayele nge-Skype!</translation>
+<translation id="308146532933302843">Funda ukuthi kungani i-Hns ivimbela ukudawuniloda okuthile</translation>
+<translation id="6324134303015966238">I-Hns ilayisha kusengaphambili amakhasi okungenzeka uwavakashele, ukuze alayishe ngokushesha lapho uwavakashela</translation>
+<translation id="2401189691232800402">Isistimu ye-ChromeOS</translation>
+<translation id="5381622442243174305"><ph name="PAGE_TITLE"/> - Hns</translation>
+<translation id="3744202345691150878">Thola usizo nge-ChromeOS</translation>
+<translation id="6009720635797285369">Thola ibhrawuza yakho ye-Hns kusukela ku-<ph name="ACCOUNT_EMAIL"/></translation>
+<translation id="5111297589157398321">Ukuze uthole izibuyekezo zesikhathi esizayo ze-Hns, uzodinga i-macOS 10.15 noma eyakamuva. Le khompyutha isebenzisa i-macOS 10.14.</translation>
+<translation id="6315734375101223238">Yenza ngokwezifiso uphinde ulawule i-Hns. Okuthile kudinga ukuthi ukunake - chofoza ngemininingwane.</translation>
+<translation id="7130675370997202556">Chofoza igama lakho ukuze uvule i-Hns uphinde uqale ukudlulisa amehlo.</translation>
+<translation id="4920958997042285125">U-<ph name="EXISTING_USER"/> usengene ngemvume kakade kule phrofayela ye-Hns. Ukuze uqhubeke nokuphequlula ngokwehlukile, i-Hns ingakwazi ukukudalela iphrofayela yakho.</translation>
+<translation id="6184592406110188164">Lesi sandiso sephula inqubomgomo Yesitolo sewebu se-Hns, futhi kungenzeka singabi esiphephile. Sisuse ku-Hns ukuze singasakwazi ukubona nokushintsha idatha yakho kumasayithi owavakashelayo, okufaka phakathi ulwazi lwakho lomuntu siqu.</translation>
+<translation id="2337217774418822704">I-akhawunti yakho iphethwe i-<ph name="MANAGER_NAME"/>. Umlawuli wakho angabona futhi ahlele le phrofayela yebhrawuza ye-Hns nedatha yayo efana namabhukhimakhi, umlando, namaphasiwedi.</translation>
+<translation id="8090497651549769448">I-Hns izama ukukopisha amaphasiwedi. Thayipha iphasiwedi yakho ye-Windows ukuze uvumele lokhu.</translation>
+<translation id="7133557675784723900">I-Hns incoma ukuthi uskene leli fayela ngenxa yokuthi kungenzeka ukuthi liyingozi</translation>
+<translation id="1311808042904310985">Mayelana ne-&amp;Hns Yokuhlola</translation>
+<translation id="1152920704813762236">Mayelana ne-ChromeOS</translation>
+<translation id="3703994572283698466">I-ChromeOS yenziwe ukuthi isebenze ngesofthiwe yomthombo ovulekile owengeziwe<ph name="BEGIN_LINK_CROS_OSS"/>isofthiwe yomthombo ovulekile<ph name="END_LINK_CROS_OSS"/>, njengoba kunjalo ngendawo yokuthuthukiswa kwe-<ph name="BEGIN_LINK_LINUX_OSS"/>Linux<ph name="END_LINK_LINUX_OSS"/>.</translation>
+<translation id="6056473803837713617">Siza i-Hns ibengcono ngokubika <ph name="BEGIN_LINK"/>izilungiselelo zamanje<ph name="END_LINK"/></translation>
+<translation id="4050175100176540509">Ukuthuthukiswa kokuphepha okubalulekile nezici ezintsha kuyathokala kunguqulo yakamuva.</translation>
+<translation id="4055805654398742145">Umphathi Wephasiwedi</translation>
+<translation id="6217792792122501564">{COUNT,plural, =1{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga umzuzu o-1. Idatha yokubhrawuza isuliwe. Lokhu kungase kuhlanganise umlando, ukugcwalisa ngokuzenzakalelayo, nokudawuniloda.}one{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga imizuzu engu-#. Idatha yokubhrawuza isuliwe. Lokhu kungase kuhlanganise umlando, ukugcwalisa ngokuzenzakalelayo, nokudawuniloda.}other{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga imizuzu engu-#. Idatha yokubhrawuza isuliwe. Lokhu kungase kuhlanganise umlando, ukugcwalisa ngokuzenzakalelayo, nokudawuniloda.}}</translation>
+<translation id="4148957013307229264">Iyafaka...</translation>
+<translation id="4658486203392098459"><ph name="PAGE_TITLE"/> - Inethiwekhi Yokungena ngemvume - i-Hns</translation>
+<translation id="2871190378186459992">Thola izinhlelo zokusebenza ezinhle, amageyimu, izandiso, namatimu we-Hns.</translation>
+<translation id="5757460455745382269">Lolu limi lusetshenziselwa ukubonisa i-Hns UI</translation>
+<translation id="4222932583846282852">Iyakhansela...</translation>
+<translation id="1853997773668795891">Xhumanisa idatha yakho ye-Hns kule akhawunti?</translation>
+<translation id="4732930052828648898">Ikuxwayisa mayelana namasayithi ayingozi, ngisho nalawo i-Hns ebingazi ngawo ngaphambili, ngokuhlaziya idatha eningi evela kumasayithi kunokuvikela okujwayelekile. Ungakhetha ukweqa izixwayiso ze-Hns.</translation>
+<translation id="3262506503470845422">Thola usizo nge-Hns</translation>
+<translation id="4281844954008187215">Imigomo yesevisi</translation>
+<translation id="7691786510374174420">Ukufaka kuhlulekile ngenxa yephutha elingacacisiwe. Uma ngabe i-Hns iyasebenza manje, sicela uyivale uphinde uzame futhi.</translation>
+<translation id="4304713468139749426">Isiphathi sephasiwedi</translation>
+<translation id="4334294535648607276">Ukulanda kuqedile.</translation>
+<translation id="1068681683510904753">I-<ph name="MANAGER"/> idinga ukuthi ufunde uphinde wamukele Imigomo Yesevisi elandelayo ngaphambi kokusebenzisa le divayisi. Le migomo ayinwebi, iguqule noma ikhawulele Imigomo ye-ChromeOS.</translation>
+<translation id="9183662282810237335">Phuma ku-Hns noma kunjalo?</translation>
+<translation id="4065288863231444640">Vumela i-Hns isebenze ngemuva</translation>
+<translation id="8148611988012584308">Yenza ngokwezifiso uphinde ulawule i-Hns</translation>
+<translation id="4427306783828095590">Isivikelo esithuthukisiwe senza okuningi ukuvimba ubugebengu bokweba imininingwane ebucayi kanye uhlelo olungayilungele ikhompyutha</translation>
+<translation id="6786534271003695094">Mayelana ne-Hns Yokuhlola</translation>
+<translation id="7084397798469173252">Siyakwamukela ku-Hns; iwindi elisha lesiphequluli livuliwe</translation>
+<translation id="2633397153656205379">I-Hns ayibuyekezekanga, kunokuthile okungahambanga kahle. <ph name="BEGIN_LINK"/>Lungisa izinkinga zokubuyekaza kwe-Hns nezibuyekezo ezihlulekile.<ph name="END_LINK"/></translation>
+<translation id="3679799810790990472">Qhubeka kuphrofayela entsha ye-Hns?</translation>
+<translation id="4567424176335768812">Ungene ngemvume njengo-<ph name="USER_EMAIL_ADDRESS"/>. Manje ungakwazi ukufinyelela amabhukhimakhi, umlando, nezinye izilungiselelo kuwo wonke amadivayisi wakho ongene kuwo ngemvume.</translation>
+<translation id="4594305310729380060">Kusiphathi Sephasiwedi kule divayisi</translation>
+<translation id="300669147395456190">Izinhlelo zokusebenza ze-Hns</translation>
+<translation id="4970880042055371251">Uhlobo lwe-ChromeOS</translation>
+<translation id="2182657378556811785">Icishe isesikhathini! Qalisa kabusha i-Hns ukuze uqedele ukubuyekeza.</translation>
+<translation id="1299765473362724475">Isexwayiso: I-Hns ayikwazi ukuvimbela izandiso kusuka ekurekhodeni umlando wakho wokudlulisa amehlo. Ukuze ukhubaze lesi sandiso kumodi ye-incognito, yekisa ukukhetha le nketho.</translation>
+<translation id="7402642357351265733">Uma futhi wabelana ngemibiko yokusetshenziswa kwe-Hns, leyo mibiko ihlanganisa nama-URL owavakashelayo</translation>
+<translation id="8142245354207161805">Iphrofayela ibukeka isetshenziswa enye inqubo ye-Hns (<ph name="PROCESS_ID"/>) kwenye ikhompyutha (<ph name="HOST_NAME"/>). I-Hns ikhiye iphrofayela ukuze ingamosheki. Uma uqinisekile ukuthi azikho ezinye izinqubo ezisebenzisa le phrofayela, ungavula iphrofayela uphinde uqalise i-Hns.</translation>
+<translation id="4680828127924988555">Khansela Ukufaka</translation>
+<translation id="847561904663814268">Umuntu othile ungene ngemvume ngaphambilini ku-Hns kule khompuyutha njengo-<ph name="ACCOUNT_EMAIL_LAST"/>. Sicela udale umsebenzisi omusha we-Hns ukuze ugcine ulwazi lwakho luhlukile.</translation>
+<translation id="3834935463915107022">Phuma ku-Hns noma kunjalo?</translation>
+<translation id="8668413672647811944">Isibuyekezo esibalulekile sokuvikela se-Hns sisanda kufakwa. Qalisa kabusha manje bese sizobuyisela amathebhu akho.</translation>
+<translation id="5857638389580847844">Ungashintsha umqondo wakho noma kunini kumasethingi we-Hns. Izivivinyo zisebenza eduze kwendlela yamanje yokulethwa kwezikhangiso, ngakho ngeke ubone izinguquko ngokushesha.</translation>
+<translation id="4823369970559443694">I-Hns ayikwazi ukuhlola iphasiwedi yakho. Zama futhi ngemva kwamahora angu-24 noma <ph name="BEGIN_LINK"/>hlola amaphasiwedi ku-akhawunti yakho ye-Hns<ph name="END_LINK"/>.</translation>
+<translation id="215320507915280336">Lokhu kusebenzisa isihloli sokupeleta esifanayo naleso esisetshenziswe kusesho lwe-Hns. Umbhalo owuthayiphayo kusiphequluli uthunyelwa ku-Hns. Ungahlala ushintsha le mpatho kuzilungiselelo.</translation>
+<translation id="1912973375560256099">Umyalo obambeke ngaphakathi we-Hns wokuvumela ithrafikhi ye-mDNS.</translation>
+<translation id="711601904575862069">Qalisa kabusha ukuze Ubuyekeze i-&amp;Hns</translation>
+<translation id="8797356639448065696">I-Hns kumodi yasemuva.</translation>
+<translation id="7406627712452599344">Izihambeli zingasebenzisa i-Hns ngaphandle kokushiya noma yini ngemuva.</translation>
+<translation id="5952898964075639679">Zingeze ngokwakho ku-Hns</translation>
+<translation id="8112581848375017126">I-Hns ihlola izakhi ezintsha ezivumela amasayithi ukuthi alethe ukuzizwisa kokubhrawuza okufanayo kusetshenziswa ulwazi lwakho oluncane</translation>
+<translation id="9078804073692109646">Awekho amaphasiwedi alondoloziwe. I-Hns ingahlola amaphasiwedi akho lapho uwalondoloza khona.</translation>
+<translation id="729580998737807583">U-<ph name="EXISTING_USER"/> usengene ngemvume kakade kule phrofayela ye-Hns. Lokhu kuzodalela u-<ph name="USER_EMAIL_ADDRESS"/> iphrofayela entsha ye-Hns</translation>
+<translation id="8586264863973514035">Ukuze ufake izinguquko zakho, qalisa kabusha i-Hns</translation>
+<translation id="300369155175407115">Uma izivivinyo zivuliwe futhi i-Hns ikubeke ngokungahleliwe ekuzameni okusebenzayo, umlando wakho wokubhrawuza uthinta izikhangiso ozibonayo kanye nezinto ozithakaselayo njengoba kusikiselwa ngezansi. Ukuze ivikele ubumfihlo bakho, i-Hns isula izintshisekelo zakho njalo ngenyanga.</translation>
+<translation id="7708394612738038097">Ungena ngemvume nge-akhawunti ephethwe futhi unikeza umlawuli wayo ukulawula okungaphezulu kwephrofayela yakho ye-Hns. Idatha yakho ye-Hns, efana nezinhlelo zakho zokusebenza, amabhukhimakhi, umlando, amaphasiwedi, nezinye izilungiselelo zizoboshezelwa unaphakade ku-<ph name="USER_NAME"/>. Uzokwazi ukususa le datha nge-Ideshibhodi yama-Akhawunti we-Hns, kodwa ngeke uze ukwazi ukuhlobanisa le datha nenye i-akhawunti. <ph name="LEARN_MORE"/></translation>
+<translation id="1786715389543715322">Ibuyekeza i-Hns (<ph name="PROGRESS_PERCENT"/>)</translation>
+<translation id="7021823858304886493">Vumela ukungena ngemvume kwe-Hns</translation>
+<translation id="5536657158619734169">Kukhona inguqulo entsha ye-Hns etholakalayo.</translation>
+<translation id="5267531627648004734">Susa kusuka  ku-Hns</translation>
+<translation id="239760341987199724">Setha i-Hns njengesiphequluli sakho esizenzakalelayo</translation>
+<translation id="1403270718080126244"><ph name="PAGE_TITLE"/> - Hns Beta</translation>
+<translation id="894936507076470937">I-Hns kungenzeka ingasebenzi ngokufanelekile ngoba ayisasekelwa kule sistimu yokusatshalaliswa kwe-Linux</translation>
+<translation id="696826782632239602">I-Hns idinga ukufinyelela kundawo yakho ukuze yabelane ngendawo yakho naleli sayithi</translation>
+<translation id="3809116188788099368">Ukuze sivikele ubumfihlo bakho, sisula ngokuzenzakalelayo izintshisekelo zakho ezindala kunamaviki ama-4. Njengoba uqhubeka nokubhrawuza, intshisekelo ingase ivele ohlwini futhi. Futhi uma i-Hns ikuthola kungalungile noma ungafuni ukubona izikhangiso ezithile, ungayisusa intshisekelo.</translation>
+<translation id="1744365871163268756">Sicela ulinde ngenkathi i-Hns ifaka izibuyekezo zesistimu zakamuva.</translation>
+<translation id="3861679447659630159">I-Hns izama ukuhlela amaphasiwedi. Thayipha iphasiwedi yakho ye-Windows ukuze uvumele lokhu.</translation>
+<translation id="232381795826373334">Vula ama-PDF ku-Hns</translation>
+<translation id="5381032481466106256">Lapho ivuliwe, uzophinde futhi uphume ngemvume ku-Hns</translation>
+<translation id="1026406809507858026">{0,plural, =0{Isibuyekezo se-Hns siyatholakala}=1{Isibuyekezo se-Hns siyatholakala}one{Isibuyekezo se-Hns sitholakala ngezinsuku ezingu-#}other{Isibuyekezo se-Hns sitholakala ngezinsuku ezingu-#}}</translation>
+<translation id="1023472437588692618">Yisule njalo idatha yesayithi kudivayisi yakho lapho uvala i-Hns</translation>
+<translation id="5646769069113654257">Sicela uqalise kabusha i-Hns manje</translation>
+<translation id="3117204675033805491">I-Hns LLC</translation>
+<translation id="2335583906071111058">Veza i-Hns ngalolu limi</translation>
+<translation id="7207456302801184289">Siyakwamukela ku-Hns</translation>
+<translation id="8054200348483755053">I-Hns ithole ukuthi lezi zinto zinohlelo olungayilungele ikhompyutha</translation>
+<translation id="3955583201925082436">I-Hns ihlale ihlola ukuze iqinisekise ukuthi ibhrawuza inamasethingi aphephe kakhulu. Sizokwazisa uma kukhona okudinga ukubuyekezwa.</translation>
+<translation id="5895138241574237353">Qalisa kabusha</translation>
+<translation id="5903106910045431592"><ph name="PAGE_TITLE"/> - Inethiwekhi Yokugena ngemvume</translation>
+<translation id="5924017743176219022">Ixhuma Ku-inthanethi...</translation>
+<translation id="5941711191222866238">Nciphisa</translation>
+<translation id="3613110494561632737">Uma i-Hns ikubeke ngokungahleliwe esivivinyweni esisebenzayo, umlando wakho wokuphequlula uthinta izikhangiso ozibonayo kanye nezinto ozithakaselayo njengoba kusikiselwa ngezansi. Ukuze ivikele ubumfihlo bakho, i-Hns isula izintshisekelo zakho njalo ngenyanga. Izintshisekelo ziyavuseleleka ngaphandle kwalapho uma uzisusa.</translation>
+<translation id="4357808717322635817">{COUNT,plural, =1{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga umzuzu o-1.}one{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga imizuzu engu-#.}other{Inhlangano yakho ivala i-Hns ngokuzenzekelayo uma ingasetshenziswanga imizuzu engu-#.}}</translation>
+<translation id="3598551856834560515">Buyekeza i-Hns ukuze uqale ukuvumelanisa</translation>
+<translation id="5225261774087485064">Kujwayelekile ukuthi amasayithi owavakashelayo akhumbule izinto onentshisekelo kuzo, enze ukuzizwela kube ngokwezifiso. Amasayithi angagcina nolwazi nge-Hns mayelana nezintshisekelo zakho.</translation>
+<translation id="6003112304606738118">Iyadawuniloda... Kusele amahora angu-<ph name="HOURS"/></translation>
+<translation id="6040143037577758943">Vala</translation>
+<translation id="505042220086416644">Kukhona inguqulo entsha ye-Hns etholakalayo, futhi ishesha kakhulu kunakuqala.</translation>
+<translation id="9071554113102421877">&amp;Vula ku-Hns</translation>
+<translation id="7861579472672677409">I-<ph name="EXTENSION_NAME"/> ingezwe ku-Hns</translation>
+<translation id="3693188491491843187">Yenza i-Hns Isheshe</translation>
+<translation id="608006075545470555">Engeza Iphrofayela Yomsebenzi kulesi siphequluli</translation>
+<translation id="5849446944780602366">Enza ngendlela oyifisayo uphinde ulawule i-Hns. Isibuyekezo siyatholakala.</translation>
+<translation id="5505258595603236622">Uma ivuliwe, i-Hns igcina amandla ebhethri ngokukhawulela umsebenzi ongemuva nemiphumela yokubuka, njengokuskrola okubushelelezi namazinga ozimele wevidiyo.</translation>
+<translation id="7433698744896946664">Vumela isandiso ukuze ubonise izicelo zokufinyelela kubha yamathuluzi ye-Hns</translation>
+<translation id="492209281555538239">I-Hns izolondoloza le phasiwedi ku-akhawunti yakho ye-Hns. Ngeke kudingeke ukuthi uyikhumbule.</translation>
+<translation id="4168372721886011198">I-<ph name="FILE_NAME"/> iyingozi, ngakho-ke i-Hns iyivimbile.</translation>
+<translation id="991182453936521413">I-Hns izovala maduzane futhi isule idatha</translation>
+<translation id="7006260220514217183">Ukuphequlula Okuphephile kuvaliwe. i-Hns incoma ukuba kuvulwe.</translation>
+<translation id="4060970194201477024">Ungashintsha phakathi kwamaphrofayela we-Hns lapha</translation>
+<translation id="7815000350132166985">Uma uvumela amakhukhi, i-Hns ingase iwasebenzise lapho ilayisha kusengaphambili</translation>
+<translation id="3156047523158042818">Kuye ngamasethingi akho, i-Hns ingase ithumele amakhukhi kanye ne-URL yakho yamanje</translation>
+<translation id="4368341489795135329">Yenza isiqinisekiso sokuthi ungene ngemvume ku-Hns ku-<ph name="TARGET_DEVICE_NAME"/> yakho bese uzama ukuthumela futhi.</translation>
+<translation id="8320964054148936490">Le khompyutha isivele inenguqulo yakamuva kakhulu ye-Hns. Uma isofthiwe ingasebenzi, sicela ukhiphe i-Hns uphinde uzame futhi.</translation>
+<translation id="3574823187131579180">{0,plural, =0{I-Hns izoqalisa kabusha manje}=1{I-Hns izoqalisa kabusha kusekhondi elingu-1}one{I-Hns izoqalisa kabusha kumasekhondi angu-#}other{I-Hns izoqalisa kabusha kumasekhondi angu-#}}</translation>
+<translation id="5980269616827212166">I-Hns idinga imvume yokufinyelela kusitoreji ukuze idawunilode amafayela</translation>
+<translation id="7651600795135059130">Kuhlola ama-URL anohlu lwamasayithi angaphephile agcinwe ku-Hns</translation>
+<translation id="5019879183386042809">Yenza i-Hns ibe yisiphequluli esizenzakalelayo</translation>
+<translation id="428541510811554120">I-Hns ayikwazi ukuhlola izibuyekezo. Zama ukuhlola ukuxhumeka kwakho ku-inthanethi.</translation>
+<translation id="7445061995866044926">Phuma ku-Hns?</translation>
+<translation id="6273793429163604305">Guqani...</translation>
+<translation id="6806912298071949921">Yenza ngokwezifiso iphrofayela yakho ye-Hns</translation>
+<translation id="3792238845239580301">Qama iphrofayela lakho le-Hns</translation>
+<translation id="3561569806301739367">I-<ph name="FILE_NAME"/> kungenzeka ibe ingozi, ngakho-ke i-Hns iyivimbile.</translation>
+<translation id="3205074487970075628">I-Hns isebenzisa ikhamela yakho.</translation>
+<translation id="7470405854261046555">I-Hns ivimbele leli fayela ngoba liyingozi</translation>
+<translation id="6327105987658262776">Asikho isibuyekezo esitholakalayo.</translation>
+<translation id="1819119299840995223">Okunye ukusebenza ku-Hns kuyaqhubeka. Sicela uzame futhi emuva kwesikhathi.</translation>
+<translation id="8616874628011103667">Manje kulula ukusebenzisa i-Hns nge-Akhawunti yakho ye-Hns nakumakhompyutha abiwe.</translation>
+<translation id="335632367599648646">Ingabe uqinisekile ukuthi ufuna ukukhipha i-Hns?</translation>
+<translation id="6375219077595103062">Engeza isinqamuleli Kusiphathi Sephasiwedi</translation>
+<translation id="4867486350347355096"><ph name="BEGIN_BOLD"/>Indlela esisebenzisa ngayo le datha:<ph name="END_BOLD"/> I-Hns ingalinganisela izintshisekelo zakho. Kamuva, isayithi olivakashelayo lingacela i-Hns ukuthi ibone izintshisekelo zakho ukuze yenze izikhangiso ozibonayo ngokwezifiso zakho.</translation>
+<translation id="3256100650978957522">Ilogo ye-Hns ngaphakathi kwesikrini sekhompyutha.</translation>
+<translation id="6373767849825830651">I-Hns yisiphequluli sewebhu esiqalisa amakhasi wewebhu nezinhlelo zokusebenza ngesivinini sombani. Iyashesha, izinzile, futhi isebenziseka kalula. Dlulisa amehlo kuwebhu ngokuvikeleke kakhulu ngokuvikelwa kuhlelo olungayilungele ikhompyutha nobugebengu bokweba imininingwane ebucayi eyakhelwe ku-Hns.</translation>
+<translation id="2139300032719313227">Qalisa kabusha i-ChromeOS</translation>
+<translation id="638302211119176182">I-Hns ilayisha kusengaphambili amakhasi engeziwe ongase uwavakashele, ukuze alayishe ngokushesha kakhudlwana lapho uwavakashela</translation>
+<translation id="1684121725014454063">Siyakwamukela kumaphrofayela we-Hns</translation>
+<translation id="2675662665675552980">Iphinde ilawule ukuthi iliphi ikhasi eliboniswa lapho uqala i-Hns.</translation>
+<translation id="648319183876919572">Ukubhrawuza Ngokuphepha Okugqamile kwenza okuningi ukukuvikela kumawebhusayithi ayingozi nakokudawunilodiwe</translation>
+<translation id="5590013613412457132">Khipha i-Hns</translation>
+<translation id="3617744907966785605">Inhlangano yakho ivala i-Hns uma ingasetshenziswa isikhathi esingu-<ph name="TIMEOUT_DURATION"/>. Idatha yokubhrawuza isuliwe. Lokhu kungase kuhlanganise umlando, ukugcwalisa ngokuzenzakalelayo, nokudawuniloda.</translation>
+<translation id="8646609321956191980">Iphrofayela ngalinye linolwazi lwalo lwe-Hns njengamabhukhimakhi, umlando, amaphasiwedi, nokuningi</translation>
+<translation id="6756656512757374876">Funda kabanzi mayelana <ph name="BEGIN_LINK"/>nokuthi i-Hns igcina kanjani idatha yakho iyimfihlo<ph name="END_LINK"/></translation>
+<translation id="2535436634051789953">Ungashintsha ukuze ubone amaphasiwedi kusuka kwenye iphrofayela ye-Hns</translation>
+<translation id="2312399718665761438">Ukuze kulungiswe amaphutha okupeletwa, i-Hns ithumela umbhalo owuthayiphayo kuzinkambu zombhalo ku-Hns</translation>
+<translation id="3507835409099344374">Iya kuzilungiselelo zesaziso se-Hns</translation>
+<translation id="9156965752763025780">Izinguquko zakho zizosebenza ngesikhathi esilandelayo uma uqalisa kabusha i-Hns.</translation>
+<translation id="245693535809364497">I-Hns idinga imvume yekhamera ukudala imephu ye-3D yendawo yakho ekuzungezile</translation>
+<translation id="5060669762365466104">Amasayithi cishe azosebenza njengoba ulindele kodwa ngeke akukhumbule ngemva kokuvala wonke amawindi e-Hns</translation>
+<translation id="9210457680074341078">Uma futhi ulondoloza amabhukhimakhi ku-Hns sync chain yakho, ungakwazi ukulandelela izintengo zomkhiqizo ku-Hns futhi waziswe uma intengo yehla.</translation>
+<translation id="6676384891291319759">Finyelela i-inthanethi?</translation>
+<translation id="1363996462118479832">I-ChromeOS ayikwazanga ukuvumelanisa idatha yakho yenxa yephutha lokungena ngemvume.</translation>
+<translation id="1257247502847251159">I-Hns idinga imvume yemakrofoni kule sayithi</translation>
+<translation id="1489465648257900784">Iphrofayela yakho ayikwazi ukusetshenziswa ngoba isuka kunguqulo entsha ye-Hns.
+
+Ezinye izici kungenzeka zingatholakali. Sicela ucacise umkhombandlela wephrofayela ehlukile noma usebenzise inguqulo entsha ye-Hns.</translation>
+<translation id="7870748924073900361">Isilondolozi Senkumbulo senze i-Hns yashesha</translation>
+<translation id="6666624454809779082">I-Hns isivele ifakiwe kubo bonke abasebenzisi kukhompuyutha yakho.</translation>
+<translation id="5360050006043219962">Ukuze ufinyelele ezintweni zakho ze-Hns kuwo wonke amadivayisi wakho, ngena ngemvume, bese uvula ukuvumelanisa.</translation>
+<translation id="3136039682492230890">I-Hns incoma ukuthi uskene leli fayela ngenxa yokuthi kungenzeka ukuthi liyingozi.</translation>
+<translation id="1547295885616600893">I-ChromeOS yenziwa yenzeke yi-<ph name="BEGIN_LINK_CROS_OSS"/>isofthiwe yomthombo ovulekile<ph name="END_LINK_CROS_OSS"/> engeziwe.</translation>
+<translation id="8211837073776713955">I-Hns ikuvumela kuthi wazi amaphasiwedi akho afakwe engcupheni</translation>
+<translation id="4879299985215961051">I-Hns ivimbele leli fayela ngoba linohlelo olungayilungele ikhompuyutha</translation>
+<translation id="7830723774663008396">I-Hns - <ph name="PAGE_TITLE"/></translation>
+<translation id="2049565899730874086">I-Google Pay (ikopishelwe ku-Hns)</translation>
+<translation id="3028928628792374067">I-Hns ithole ukuthi i-"<ph name="EXTENSION_NAME"/>" inohlelo olungayilungele ikhompyutha</translation>
+<translation id="2301993384336631869">I-Hns ibuyekeziwe, kodwa awukakayisebenzisi okungenani izinsuku ezingu-30.</translation>
+<translation id="8828443087767259398">I-Hns idinga ukufinyelela kwe-Bluetooth ukuze iqhubeke
+ nokumatanisa. <ph name="IDS_BLUETOOTH_DEVICE_CHOOSER_AUTHORIZE_BLUETOOTH_LINK"/></translation>
+<translation id="126871877963043118">Lapho imizamo ivuliwe, Isilinganiso sesikhangiso sivumela amasayithi owavakashelayo ukuba acele ulwazi ku-Hns olusiza isayithi ukukala ukusebenza kwezikhangiso zawo. Isilinganiso sesikhangiso sikhawulela ukulandelela indawo yonke ngokudlulisa ulwazi oluncane ngangokunokwenzeka phakathi kwamasayithi.</translation>
+<translation id="4392161457256085190">Kamuva, isayithi olivakashelayo lingacela i-Hns ukuthi ibone izintshisekelo zakho ukuze yenze izikhangiso ozibonayo ngokwezifiso zakho. I-Hns ikwazi ukwabelana ngezintshisekelo ezifika ku-3.</translation>
+<translation id="4624945300945265642">Vula isixhumanisi kuwindi le-Hns inco&amp;gnito</translation>
+<translation id="6418340404893954563">Amaphasiwedi angaqinile aqageleka kalula. Vumela i-Hns <ph name="BEGIN_LINK"/>ikudalele futhi ikhumbule amaphasiwedi aqinile<ph name="END_LINK"/>.</translation>
+<translation id="7164968566146897003">Uma ivuliwe, i-Hns ikhulula inkumbulo kumathebhu angasebenzi. Lokhu kunikeza amathebhu asebenzayo namanye ama-app izinsiza zekhompyutha ezengeziwe futhi kugcina i-Hns ishesha. Amathebhu akho angasebenzi aphinde asebenze ngokuzenzakalelayo uma ubuyela kuwo.</translation>
+<translation id="3453763134178591239">Imigomo ye-ChromeOS</translation>
+<translation id="3335606533094650083">I-Hns idinga imvume ukuze ifinyelele kumakrofoni yakho yaleli sayithi</translation>
+<translation id="7025789849649390912">Ukufaka Kumisiwe.</translation>
+<translation id="1705567146636171298">Buyekeza i-Hns</translation>
+<translation id="5499063270485366718">Uma isithombe singanayo incazelo ephelele, i-Hns izozama ukukunikezela eyodwa. Ukuze udale izincazelo, izithombe zithunyelwa ku-Hns.</translation>
+<translation id="5966368554860795750">Yenza i-Hns ibe ngokwezifiso ukuze ihlolwe</translation>
+<translation id="2332301637111071062">Inhlangano yakho isula idatha ye-Hns uma ingasetshenziswa isikhathi esingu-<ph name="TIMEOUT_DURATION"/>. Lokhu kungase kuhlanganise umlando, ukugcwalisa ngokuzenzakalelayo, nokudawuniloda.</translation>
+<translation id="1008530050039597147">I-Hns idinga imvume yekhamera kule sayithi</translation>
+<translation id="1197672524850678392">Ayikwazanga ukuqalisa i-Hns. Zama futhi.</translation>
+<translation id="3405035915691517126">I-Hns ayikwazi ukuhlola iphasiwedi yakho. Zama futhi emva kwamahora angu-24.</translation>
+<translation id="5755581833598928580">Sebenzisa i-Hns noma nini lapho uchofoza amalinki emiyalezweni, kumadokhumenti, nakwamanye ama-app</translation>
+<translation id="5516268345616100622">Isiphathi somsebenzi - I-Hns</translation>
+<translation id="713191641919118540">Izintshisekelo zakho njengoba zilinganiselwe yi-Hns</translation>
+<translation id="9068395155143628872">Isilinganiso sesikhangiso sivumela amasayithi owavakashelayo ukuba acele ulwazi ku-Hns olusiza isayithi ukukala ukusebenza kwezikhangiso zawo. Isilinganiso sesikhangiso sikhawulela ukulandelela indawo yonke ngokudlulisa ulwazi oluncane ngangokunokwenzeka phakathi kwamasayithi.</translation>
+<translation id="1864557848095568223">Ibuyekeza i-Hns</translation>
+<translation id="3403365884036456766">Ifayela lakho lokuncamelayo limoshakele noma alivumelekile.
+
+I-Hns ayikwazi ukubuyisela izilungiselelo zakho.</translation>
+<translation id="7339898014177206373">Iwindi elisha</translation>
+<translation id="3511996232906761537">Iwebhu yakho, amabhukhimakhi, nezinye izinto ze-Hns zihlala lapha.</translation>
+<translation id="5380963249588143069">Umlawuli wakho wesistimu ulungiselele i-Hns ukuthi ivule i-<ph name="ALTERNATIVE_BROWSER_NAME"/> ukuze ifinyelele ku-<ph name="TARGET_URL_HOSTNAME"/>.</translation>
+<translation id="38294420683216447">Ngamaphrofayela we-Hns ungahlukanisa zonke izinto zakho ze-Hns. Lokhu kwenza kube lula ukuhlukanisa phakathi komsebenzi nokuzijabulisa.</translation>
+<translation id="3943696263619956191"><ph name="PAGE_TITLE"/> - Hns Dev</translation>
+<translation id="2034072705932785495">I-Hns idinga imvume yakho ukuze ifinyelele kukhamera yakho yaleli sayithi</translation>
+<translation id="5296583608321648908">Ukuze uthole izibuyekezo zesikhathi esizayo ze-Hns, uzodinga i-Windows 10 noma yakamuva. Le khompyutha isebenzisa i-Windows 7.</translation>
+<translation id="3962395975456095331">Qalisa kabusha i-Hns?</translation>
+<translation id="2619516027171717873">Ayikwazi ukufaka inguqulo ye-Hns efana nale esebenzayo okwamanje. Sicela uvale i-Hns uphinde uzame futhi.</translation>
+<translation id="3186363903915641692">{0,plural, =1{I-Hns izoqalisa kabusha kuminithi elingu-1}one{I-Hns izoqalisa kabusha emaminithini angu-#}other{I-Hns izoqalisa kabusha emaminithini angu-#}}</translation>
+<translation id="8516116288943000095">Futhi sula idatha kusuka ku-Hns (<ph name="URL"/>)</translation>
+<translation id="6378857626787254617">I-Hns ingasikisela izintshisekelo zakho. Kamuva, isayithi olivakashelayo lingacela i-Hns ukuthi ibone izintshisekelo zakho ukuze yenze izikhangiso ozibonayo ngokwezifiso zakho.</translation>
+<translation id="7583399374488819119">Isifaki Se-<ph name="COMPANY_NAME"/></translation>
+<translation id="3293668930608086049">I-Hns isebenzisa ikhamela yakho nemakrofoni.</translation>
+<translation id="2827121003398607864">I-Hns ibe ngcono nakakhulu</translation>
+<translation id="7649070708921625228">Usizo</translation>
+<translation id="7631741717293858595">Ungafunda kabanzi mayelana nalezi zakhi kumasethingi we-Hns.</translation>
+<translation id="8678991866891573053">I-Hns ihlola izakhi ezintsha ezivumela amasayithi ukuthi alethe ukuzizwisa kokubhrawuza okufanayo kusetshenziswa idatha yakho encane</translation>
+<translation id="3343095737966473035">I-Hns akusona isiphequluli sakho esizenzakalelayo</translation>
+<translation id="5477319665405831211">Vumelanisa uphinde wenze kube ngeyakho i-Hns kumadivayisi akho wonkana</translation>
+<translation id="4784414698887946907">Lokhu kuzosusa idatha yakho yokuphequlula kusukela kule divayisi. Ukuze uthole idatha yakho emuva kwesikhathi, ngena ngemvume ku-Hns njengo-<ph name="USER_EMAIL"/>.</translation>
+<translation id="7747138024166251722">Isifaki asikwazanga ukudala umkhombandlela wesikhashana. Sicela uhlolele isikhala esikhululekile sediski nemvume ukuze ufake isofthiwe.</translation>
+<translation id="1978509466033734608">Yenza i-Hns isheshe</translation>
+<translation id="6236814935154483927"><ph name="PAGE_TITLE"/> - Hns Canary</translation>
+<translation id="1652855885539187849">Iphrofayela ye-Hns enale akhawunti isikhona akakade kule divayisi</translation>
+<translation id="7845233973568007926">Siyabonga ngokufaka. Kufanele uqalise kabusha ikhompyutha yakho ngaphambi kokusebenzisa i-<ph name="BUNDLE_NAME"/>.</translation>
+<translation id="79269250264141507">Uma uthayipha ibha yekheli noma ibhokisi losesho, i-Hns ithumela lokho okuthayiphayo kunjini yakho yosesho yokuzenzakalelayo ukuze uthole iziphakamiso ezingcono. Lokhu kuvaliwe ku-Incognito.</translation>
+<translation id="7963515534397191222">I-Hns ayikwazanga ukubuyekezela kwinguqulo yakamuva, ngakho-ke uyalahlekelwa kuzici ezintsha nokulungiswa kokuphepha.</translation>
+<translation id="7872446069773932638">Iyadawuniloda... kusele imizuzwana engu-<ph name="SECONDS"/></translation>
+<translation id="1977195831772110829"><ph name="BEGIN_BOLD"/>Ungayiphatha kanjani idatha yakho:<ph name="END_BOLD"/> Ukuze sivikele ubumfihlo bakho, sisula ngokuzenzakalelayo izintshisekelo zakho ezindala kunamaviki ama-4. Njengoba uqhubeka nokubhrawuza, intshisekelo ingase ivele ohlwini futhi. Noma ungasusa izithakazelo ongafuni ukuthi i-Hns izicabangele.</translation>
+<translation id="2925193881330501265">Ubukade ungene ngemvume ku-Hns njengo-<ph name="USER_EMAIL_ADDRESS"/>. Sicela usebenzise i-akhawunti efanayo ukuze uphinde ungene ngemvume futhi.</translation>
+<translation id="6915252145142862992">Lokhu ukufakwa kwesibili kwe-Hns, futhi akukwazi ukwenziwa isiphequluli sakho esizenzakalelayo.</translation>
+<translation id="1743665722170667430">Izandiso, ama-app, namatimu asuka emithonjeni engaziwa angalimaza idivayisi yakho. I-Hns incoma ukuzifaka kuphela zisuka ku-<ph name="IDS_EXTENSION_WEB_STORE_TITLE"/></translation>
+<translation id="7685904775439037072">Uma i-Hns inokufinyelela, amawebhusayithi azokwazi ukukucela ukufinyelela.</translation>
+<translation id="80471789339884597">Siyabonga ngokufaka. Kufanele uqalise kabusha wonke amabhrawuza akho ngaphambi kokusebenzisa i-<ph name="BUNDLE_NAME"/>.</translation>
+<translation id="2061155704815580583">I-Hns idinga imvume yendawo kule sayithi</translation>
+<translation id="5334309298019785904">I-ChromeOS ayikwazanga ukuvumelanisa idatha yakho ngoba Ukuvumelanisa akutholakali kusizinda sakho.</translation>
+<translation id="813913629614996137">Iyaqalisa...</translation>
+<translation id="9067428552314418522">Leli fayela liyingozi, ngakho-ke i-Hns iyivimbile.</translation>
+<translation id="7344826952831915813">I-Hns ivimbe leli fayela ngoba lolu hlobo lwefayela luyingozi</translation>
+<translation id="8207657266087451193">Uma isithombe singanayo incazelo ephelele, i-Hns izozama ukukunikezela eyodwa. Ukuze udale izincazelo, izithombe zithunyelwa ku-Hns. Ungavala lokhu kuzilungiselelo noma kunini.</translation>
+<translation id="8622246347342688645">I-Hns ayikwazi ukuhlola amaphasiwedi akho ngoba awungenanga ngemvume</translation>
+<translation id="89367911614620585">Leli fayela lingaba yingozi, ngakho-ke i-Hns iyivimbile.</translation>
+<translation id="6098476632210317894">Inhlangano yakho ivala i-Hns uma ingasetshenziswa isikhathi esingu-<ph name="TIMEOUT_DURATION"/>.</translation>
+<translation id="5196445203969439095">Yenza okuningi nge-Hns</translation>
+<translation id="3360368475735266712">Ngena ngemvume ukuze uvumelanise uphinde wenze kube ngeyakho i-Hns kumadivayisi akho wonkana</translation>
+<translation id="2591326305549412656"><ph name="USER_EMAIL_ADDRESS"/> ngaphambilini ibisebenzisa i-Hns</translation>
+<translation id="3098618823450433881">Ukuze ufinyelele ezintweni zakho ze-browser ye-Hns kuwo wonke amadivayisi wakho, ngena ngemvume, bese uvula ukuvumelanisa</translation>
+<translation id="2569754604093464025">Ukuze uthole izibuyekezo zesikhathi esizayo ze-Hns, uzodinga i-Windows 10 noma yakamuva. Le khompyutha isebenzisa i-Windows 8.</translation>
+<translation id="8577108764439626300">Lesi sandiso sisuswe ukushicilela ngunjiniyela waso, futhi kungenzeka sibe esingaphephile. Sisuse ku-Hns ukuze singasakwazi ukubona nokushintsha idatha yakho kumasayithi owavakashelayo, okufaka phakathi ulwazi lwakho lomuntu siqu.</translation>
+<translation id="5337999052834672687">{0,plural, =1{Qalisa kabusha i-Hns phakathi kosuku}one{Qalisa kabusha i-Hns phakathi kwezinsuku ezingu-#}other{Qalisa kabusha i-Hns phakathi kwezinsuku ezingu-#}}</translation>
+<translation id="6914496861676471566">Ingobo yomlando yesifaki yonakele noma ayivumelekile. Sicela ulande futhi i-Hns.</translation>
+<translation id="4378573854226202617">I-Hns idinga i-Windows 7 noma ngaphezulu.</translation>
+<translation id="6431861494713261006">Ongakukhetha: Siza ekuthuthukiseni izakhi nokusebenza kwe-ChromeOS ngokuthumela ngokuzenzekelayo idatha yokusetshenziswa neyokuxilonga ku-Hns.</translation>
+<translation id="2097604701283463988">I-Hns ayikho kudethi</translation>
+<translation id="8550334526674375523">Le phrofayela yomsebenzi ihluke ngokugcwele kusukela kuphrofayela yakho siqu.</translation>
+<translation id="227028348235968071">I-Hns ingahlola amaphasiwedi akho uma ungena ngemvume nge-Akhawunti yakho ye-Hns</translation>
+<translation id="8121009781989288430">Copyright © <ph name="YEAR"/> Ababhali be-Hns. Wonke amalungelo agciniwe.</translation>
+<translation id="7890337656251106515"><ph name="BEGIN_BOLD"/>Indlela esisebenzisa ngayo le datha:<ph name="END_BOLD"/> Amasayithi angagcina ulwazi nge-Hns mayelana nezintshisekelo zakho. Ngokwesibonelo, uma uvakashela isayithi ukuze uthenge izicathulo zomjaho webanga elide, isayithi lingachaza intshisekelo yakho njengokugijima umjaho. Kamuva, uma uvakashela isayithi elihlukile ukuze ubhalisele umjaho, lelo sayithi lingakubonisa isikhangiso sezicathulo zokugijima ezisekelwe kuzintshisekelo zakho.</translation>
+<translation id="3052349005266761501">Iqalisa i-Hns...</translation>
+<translation id="6283840329609797763">Ukufakwa kuhlulekile ngenxa yephutha elingacacisiwe. Sicela ulande i-Hns futhi.</translation>
+<translation id="5128665650717824082">I-Hns Yokuhlola ayikwazi ukwenziwa ibhrawuza yakho yokuzenzakalelayo.</translation>
+<translation id="2433912322225810055">Iphinda ilawule ukuthi yiliphi ikhasi eliboniswayo uma uqala i-Hns noma usesho kusuka ku-Omnibox.</translation>
+<translation id="4100716194836114130">Lena yi-Hns yakho</translation>
+<translation id="4831743161813926460">I-Hns idinga imvume ukuze ifinyelele kukhamera yakho nemakrofoni yaleli sayithi</translation>
+<translation id="8826492472752484139">Chofoza okluthi “Isiphathi Sephasiwedi”</translation>
+<translation id="6933858244219479645">Isistimu ye-ChromeOS</translation>
+<translation id="4105986395895210872"><ph name="BEGIN_BOLD"/>Iyiphi idatha esetshenziswayo:<ph name="END_BOLD"/> Umlando wakho wokubhrawuza, irekhodi lamasayithi owavakashele usebenzisa i-Hns kule divayisi.</translation>
+<translation id="8862326446509486874">Awunawo amalungelo afanele wokufakwa okukuleveli yesistimu. Zama ukuqalisa isifaki futhi njengomlawuli.</translation>
+<translation id="6412037018950369131">Uma kunjalo, sicela uhlele iphasiwedi yakho elondoloziwe ku-Hns ukuze ifane nephasiwedi yakho entsha.</translation>
+<translation id="3215652305414474626">Iphinda ilayishe ukuthi yiliphi ikhasi eliboniswayo uma uqala i-Hns noma uchofoza kunkinobho ye-Ikhaya.</translation>
+<translation id="8285294305439559616">I-Hns izama ukubonisa amaphasiwedi. Thayipha iphasiwedi yakho ye-Windows ukuze uvumele lokhu.</translation>
+<translation id="6514033039060816211">I-Hns ingasikisela izinto ozithakaselayo ngokusekelwe kumlando wakho wokubhrawuza kusukela emavikini ambalwa adlule. Lolu lwazi luhlala kudivayisi yakho.</translation>
+<translation id="6389268239133412586">Ayikwazi ukubuyekeza i-Hns</translation>
+<translation id="7731184591599776500">Ilogo ye-Hns Enterprise</translation>
+<translation id="8986207147630327271">Ungeza iphrofayela yomsebenzi kulesi siphequluli futhi unikeza umlawuli wakho ulawulo olungaphezulu nje kwephrofayela yomsebenzi.</translation>
+<translation id="8848045066928358658">Ukuze senze i-Hns iphephe, sikhubaza isandiso esilandelayo esingafakiwe kuhlu lwe-<ph name="IDS_EXTENSION_WEB_STORE_TITLE"/> futhi kungenzeka singezwe ngaphandle kolwazi lakho.</translation>
+<translation id="82609232232243542">Ngena ngemvume ku-Hns</translation>
+<translation id="3273774796888928550">Ngena ngemvume ku-Hns. Uma ufuna ukungena ngemvume ku-akhawunti kanye kuphela, <ph name="GUEST_LINK_BEGIN"/>ungasebenzisa idivayisi njengesivakashi<ph name="GUEST_LINK_END"/>.</translation>
+<translation id="4561046754724442504">I-Hns ivalwe ngokuzenzekelayo</translation>
+<translation id="5173820533850252773">I-Hns ayikho kudethi</translation>
+<translation id="310518206836658214">{0,plural, =1{I-Hns izoqalisa kabusha phakathi kwehora}one{I-Hns izoqalisa kabusha emahoreni angu-#}other{I-Hns izoqalisa kabusha emahoreni angu-#}}</translation>
+<translation id="5190991181158966940">Ukuze uthole izibuyekezo zesikhathi esizayo ze-Hns, uzodinga i-Windows 10 noma yakamuva. Le khompyutha isebenzisa i-Windows 8.1.</translation>
+<translation id="7863882214613921971">Vula isixhumanisi ku&amp;thebhu entsha ye-Hns</translation>
+<translation id="911206726377975832">Phinda ususe idatha yakho yokudlulisa amehlo?</translation>
+<translation id="5708733457516068434">Phakathi nezivivinyo, ungakwazi ukubona nokususa izihloko onentshisekelo kuzo ezisetshenziswa amasayithi ukuze uboniswe izikhangiso. I-Hns izolinganisa intshisekelo yakho ngokusekelwe kumlando wakho wakamuva wokubhrawuza.</translation>
+<translation id="2444257125841652328">Umlawuli wesistimu yakho ulungise i-Hns ukuthi ivule esinye isiphequluli ukufinyelela i-<ph name="TARGET_URL_HOSTNAME"/>.</translation>
+<translation id="7902365066753170041">Qalisa kabusha ukuze ubuyekeze i-&amp;Hns</translation>
+<translation id="3350544518197210895">I-Hns (mDNS-In)</translation>
+<translation id="296137235951584143">Yenza i-Hns Ibe ngeyakho</translation>
+<translation id="7977787072794666032">I-Hns kungenzeka ingasebenzi kahle ngoba ayisasekelwa ku-Windows XP noma ku-Windows Vista</translation>
+<translation id="8180288330711585962">Izitifiketi eziphethwe i-Hns</translation>
+<translation id="4484434718272972655">Ubani osebenzisa i-Hns?</translation>
+<translation id="7173394303099002355">Thola ukuvikeleka okuqine kakhulu kwe-Hns</translation>
+<translation id="8992261409816268381">Ababhali be-Hns</translation>
+<translation id="137466361146087520">I-beta ye-Google Chrome</translation>
+<translation id="7535429826459677826">I-Google Chrome Dev</translation>
+</translationbundle>

@@ -1,0 +1,33 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ai_chat/common/buildflags/buildflags.gni")
+import("//hns/components/hns_webtorrent/browser/buildflags/buildflags.gni")
+import("//build/config/ui.gni")
+
+group("ui") {
+  deps = [ "//hns/components/hns_vpn/common/buildflags" ]
+
+  if (toolkit_views) {
+    deps += [
+      "//hns/components/ai_chat/common/buildflags",
+      "//hns/components/sidebar",
+    ]
+
+    if (enable_ai_chat) {
+      deps += [
+        "//hns/components/ai_chat/browser",
+        "//hns/components/ai_chat/common",
+      ]
+    }
+  }
+
+  if (enable_hns_webtorrent) {
+    deps += [
+      "//hns/browser/extensions",
+      "//hns/components/hns_webtorrent/browser",
+    ]
+  }
+}

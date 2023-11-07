@@ -1,0 +1,22 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+source_set("hns_federated") {
+  sources = [
+    "//hns/browser/hns_federated/hns_federated_service_factory.cc",
+    "//hns/browser/hns_federated/hns_federated_service_factory.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/components/hns_federated",
+    "//chrome/browser:browser_process",
+    "//components/keyed_service/content:content",
+    "//components/pref_registry:pref_registry",
+    "//components/user_prefs:user_prefs",
+    "//content/public/browser",
+    "//services/network/public/cpp:cpp",
+  ]
+}

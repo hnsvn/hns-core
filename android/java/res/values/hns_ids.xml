@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2019 The Hns Authors. All rights reserved.
+     This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+<resources>
+    <item name="set_default_browser" type="id"/>
+    <item name="hns_rewards_id" type="id"/>
+    <item name="hns_wallet_id" type="id"/>
+    <item name="hns_playlist_id" type="id"/>
+    <item name="hns_news_id" type="id"/>
+    <item name="exit_id" type="id"/>
+    <item name="help_id" type="id"/>
+    <item name="request_hns_vpn_row_menu_id" type="id"/>
+    <item name="request_hns_vpn_id" type="id"/>
+    <item name="request_hns_vpn_check_id" type="id"/>
+    <item name="hns_vpn_id" type="id"/>
+
+    <!-- App menu item custom tags -->
+    <item type="id" name="menu_item_enter_anim_id" />
+    <item type="id" name="menu_item_original_background" />
+    <item type="id" name="menu_item_background_drawable_position" />
+    <item type="id" name="contextmenu_copy_clean_link" />
+</resources>

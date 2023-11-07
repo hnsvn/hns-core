@@ -1,0 +1,25 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/common/typescript.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+
+transpile_web_ui("hns_rewards_panel") {
+  entry_points = [ [
+        "hns_rewards_panel",
+        rebase_path("main.tsx"),
+      ] ]
+  resource_name = "hns_rewards_panel"
+  deps = [
+    "//hns/components/hns_rewards/common/mojom:mojom_js",
+    "//hns/components/hns_rewards/common/mojom:rewards_types_js",
+  ]
+}
+
+pack_web_resources("hns_rewards_panel_generated") {
+  resource_name = "hns_rewards_panel"
+  output_dir = "$root_gen_dir/hns/components/hns_rewards/resources"
+  deps = [ ":hns_rewards_panel" ]
+}

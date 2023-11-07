@@ -1,0 +1,15 @@
+# Copyright (c) 2020 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_components_sync_engine_sources = [
+  "//hns/components/sync/engine/hns_model_type_worker.cc",
+  "//hns/components/sync/engine/hns_model_type_worker.h",
+  "//hns/components/sync/engine/hns_sync_manager_impl.cc",
+  "//hns/components/sync/engine/hns_sync_manager_impl.h",
+  "//hns/components/sync/engine/hns_sync_server_commands.cc",
+  "//hns/components/sync/engine/hns_sync_server_commands.h",
+  "//hns/components/sync/engine/hns_syncer_device_poll.cc",
+  "//hns/components/sync/engine/hns_syncer_device_poll.h",
+]

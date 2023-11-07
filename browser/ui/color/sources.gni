@@ -1,0 +1,31 @@
+# Copyright (c) 2022 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+hns_browser_ui_color_mixers_sources = []
+hns_browser_ui_color_mixers_deps = []
+
+if (!is_android) {
+  hns_browser_ui_color_mixers_sources += [
+    "//hns/browser/ui/color/hns_color_id.h",
+    "//hns/browser/ui/color/hns_color_mixer.cc",
+    "//hns/browser/ui/color/hns_color_mixer.h",
+    "//hns/browser/ui/color/color_palette.h",
+    "//hns/browser/ui/color/playlist/playlist_color_mixer.cc",
+    "//hns/browser/ui/color/playlist/playlist_color_mixer.h",
+  ]
+
+  hns_browser_ui_color_mixers_deps += [
+    "//hns/browser/themes",
+    "//hns/browser/ui/color:leo_colors",
+    "//hns/browser/ui/tabs",
+    "//hns/components/hns_vpn/common/buildflags",
+    "//hns/components/playlist/common",
+    "//hns/components/speedreader/common/buildflags",
+    "//skia",
+    "//ui/color",
+    "//ui/gfx",
+    "//ui/native_theme",
+  ]
+}

@@ -1,0 +1,51 @@
+# Copyright (c) 2023 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//hns/components/tor/buildflags/buildflags.gni")
+import("//hns/utility/importer/sources.gni")
+
+hns_utility_sources = [
+  "//hns/utility/hns_content_utility_client.cc",
+  "//hns/utility/hns_content_utility_client.h",
+]
+
+if (is_android) {
+  hns_utility_sources += [
+    "//chrome/utility/importer/bookmark_html_reader.cc",
+    "//chrome/utility/importer/bookmark_html_reader.h",
+  ]
+}
+
+hns_utility_sources += hns_utility_importer_sources
+
+hns_utility_deps = [
+  "//hns/components/ipfs/buildflags",
+  "//hns/components/services/bat_ads:lib",
+  "//hns/components/services/bat_ads/public/interfaces",
+  "//hns/components/services/bat_rewards:lib",
+  "//hns/components/services/bat_rewards/public/interfaces",
+  "//hns/components/tor/buildflags",
+  "//mojo/public/cpp/bindings",
+]
+
+hns_utility_deps += hns_utility_importer_deps
+
+if (enable_ipfs) {
+  hns_utility_deps += [
+    "//hns/components/services/ipfs",
+    "//hns/components/services/ipfs/public/mojom",
+  ]
+}
+
+if (enable_tor) {
+  hns_utility_deps += [
+    "//hns/components/services/tor",
+    "//hns/components/services/tor/public/interfaces",
+  ]
+}
+
+hns_utility_public_deps = []
+hns_utility_public_deps += hns_utility_importer_public_deps

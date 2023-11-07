@@ -1,0 +1,17 @@
+import("//hns/components/common/typescript.gni")
+
+transpile_web_ui("hns_adblock_ui") {
+  entry_points = [
+    ["hns_adblock", rebase_path("hns_adblock.tsx")]
+  ]
+
+  resource_name = "hns_adblock"
+}
+
+pack_web_resources("generated_resources") {
+  resource_name = "hns_adblock"
+  output_dir = "$root_gen_dir/hns/components/hns_adblock/resources"
+  deps = [
+    ":hns_adblock_ui"
+  ]
+}

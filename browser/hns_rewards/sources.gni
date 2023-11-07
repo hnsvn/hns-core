@@ -1,0 +1,76 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//hns/components/greaselion/browser/buildflags/buildflags.gni")
+import("//hns/components/ipfs/buildflags/buildflags.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+hns_browser_hns_rewards_sources = [
+  "//hns/browser/hns_rewards/rewards_prefs_util.cc",
+  "//hns/browser/hns_rewards/rewards_prefs_util.h",
+  "//hns/browser/hns_rewards/rewards_service_factory.cc",
+  "//hns/browser/hns_rewards/rewards_service_factory.h",
+  "//hns/browser/hns_rewards/rewards_tab_helper.cc",
+  "//hns/browser/hns_rewards/rewards_tab_helper.h",
+]
+
+hns_browser_hns_rewards_deps = [
+  "//base",
+  "//hns/browser/hns_rewards:util",
+  "//hns/browser/profiles",
+  "//hns/browser/profiles:util",
+  "//hns/components/hns_rewards/browser",
+  "//hns/components/hns_rewards/common",
+  "//hns/components/hns_rewards/core:headers",
+  "//hns/components/ipfs/buildflags",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/profiles:profile",
+  "//chrome/browser/ui",
+  "//components/keyed_service/content",
+  "//components/prefs",
+  "//components/sessions",
+  "//extensions/buildflags",
+]
+
+if (enable_greaselion) {
+  hns_browser_hns_rewards_deps +=
+      [ "//hns/components/greaselion/browser" ]
+}
+
+if (enable_extensions) {
+  hns_browser_hns_rewards_sources += [
+    "//hns/browser/hns_rewards/extension_rewards_notification_service_observer.cc",
+    "//hns/browser/hns_rewards/extension_rewards_notification_service_observer.h",
+    "//hns/browser/hns_rewards/extension_rewards_service_observer.cc",
+    "//hns/browser/hns_rewards/extension_rewards_service_observer.h",
+  ]
+
+  hns_browser_hns_rewards_deps += [
+    "//hns/browser/extensions",
+    "//hns/common/extensions/api",
+    "//chrome/browser/extensions",
+    "//chrome/browser/profiles:profile",
+    "//chrome/browser/ui",
+    "//extensions/browser",
+  ]
+}
+
+if (enable_ipfs) {
+  hns_browser_hns_rewards_deps += [ "//hns/components/ipfs" ]
+}
+
+if (is_android) {
+  hns_browser_hns_rewards_sources += [
+    "//hns/browser/hns_rewards/android/hns_rewards_native_worker.cc",
+    "//hns/browser/hns_rewards/android/hns_rewards_native_worker.h",
+  ]
+
+  hns_browser_hns_rewards_deps += [ "//hns/components/hns_ads/browser" ]
+}
+
+if (!is_android) {
+  hns_browser_hns_rewards_deps +=
+      [ "//hns/components/hns_rewards/common:features" ]
+}

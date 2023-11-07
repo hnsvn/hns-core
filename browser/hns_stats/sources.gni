@@ -1,0 +1,39 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+hns_browser_hns_stats_updater_sources = [
+  "//hns/browser/hns_stats/hns_stats_tab_helper.cc",
+  "//hns/browser/hns_stats/hns_stats_tab_helper.h",
+  "//hns/browser/hns_stats/hns_stats_updater.cc",
+  "//hns/browser/hns_stats/hns_stats_updater.h",
+  "//hns/browser/hns_stats/hns_stats_updater_params.cc",
+  "//hns/browser/hns_stats/hns_stats_updater_params.h",
+  "//hns/browser/hns_stats/first_run_util.cc",
+  "//hns/browser/hns_stats/first_run_util.h",
+  "//hns/browser/hns_stats/switches.h",
+]
+
+hns_browser_hns_stats_updater_deps = [
+  "//base",
+  "//hns/browser:browser_process",
+  "//hns/browser/hns_stats:buildflags",
+  "//hns/common",
+  "//hns/components/hns_ads/core",
+  "//hns/components/hns_referrals/common",
+  "//hns/components/hns_stats/browser",
+  "//hns/components/hns_wallet/browser",
+  "//hns/components/constants",
+  "//hns/components/rpill/common",
+  "//hns/components/version_info",
+  "//chrome/browser:browser_process",
+  "//chrome/browser/profiles:profile",
+  "//chrome/browser/ui",
+  "//chrome/common",
+  "//components/prefs",
+  "//content/public/browser",
+  "//net",
+  "//services/network/public/cpp",
+  "//ui/base",
+]

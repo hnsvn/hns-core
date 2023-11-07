@@ -1,0 +1,5 @@
+include_rules = [
+  "+hns/components/constants",
+  "+hns/components/translate/core/common",
+  "+components/grit/hns_components_resources.h",
+]

@@ -1,0 +1,18 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+hns_browser_permissions_sources = [
+  "//hns/browser/permissions/permission_lifetime_manager_factory.cc",
+  "//hns/browser/permissions/permission_lifetime_manager_factory.h",
+  "//hns/browser/permissions/permission_origin_lifetime_monitor_impl.cc",
+  "//hns/browser/permissions/permission_origin_lifetime_monitor_impl.h",
+]
+
+hns_browser_permissions_deps = [
+  "//base",
+  "//hns/components/hns_wallet/browser:permission_utils",
+  "//components/keyed_service/content",
+  "//components/permissions",
+]

@@ -1,0 +1,26 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import("//hns/build/config.gni")
+import("//testing/test.gni")
+
+source_set("unit_tests") {
+  testonly = true
+  sources = [ "//hns/components/hns_wallet/renderer/hns_wallet_response_helpers_unittest.cc" ]
+
+  deps = [
+    "//base",
+    "//base/test:test_support",
+    "//hns/components/hns_wallet/common:common",
+    "//hns/components/hns_wallet/common:mojom",
+    "//hns/components/hns_wallet/renderer",
+    "//content/public/renderer",
+    "//gin",
+    "//mojo/public/cpp/bindings",
+    "//third_party/blink/public:blink",
+    "//third_party/blink/public/common",
+    "//v8",
+  ]
+}  # source_set("unit_tests")

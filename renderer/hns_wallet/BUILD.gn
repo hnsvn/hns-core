@@ -1,0 +1,37 @@
+# Copyright (c) 2021 The Hns Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//build/config/features.gni")
+
+source_set("hns_wallet") {
+  visibility = [
+    "//hns:child_dependencies",
+    "//hns/renderer/*",
+    "//chrome/renderer/*",
+  ]
+
+  sources = [
+    "hns_wallet_render_frame_observer.cc",
+    "hns_wallet_render_frame_observer.h",
+    "hns_wallet_render_frame_observer_p3a_util.cc",
+    "hns_wallet_render_frame_observer_p3a_util.h",
+  ]
+
+  deps = [
+    "//base",
+    "//hns/common:common",
+    "//hns/common:mojo_bindings",
+    "//hns/components/hns_wallet/common:common",
+    "//hns/components/hns_wallet/common:mojom",
+    "//hns/components/hns_wallet/renderer",
+    "//content/public/common",
+    "//content/public/renderer",
+    "//gin",
+    "//mojo/public/cpp/bindings",
+    "//third_party/blink/public:blink",
+    "//third_party/blink/public/common",
+    "//v8",
+  ]
+}
