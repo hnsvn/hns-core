@@ -269,7 +269,7 @@
         "dir": "src",
         "tag": "118.0.5993.117",
         "repository": {
-          "url": "https://github.com/hnsvn/chromium"
+          "url": "https://github.com/chromium/chromium.git"
         }
       }
     }
